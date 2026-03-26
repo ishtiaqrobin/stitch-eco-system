@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UniMart Seller Studio - Analytics Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#d8e2ff",
+              "on-surface": "#191c1d",
+              "on-error-container": "#93000a",
+              "on-tertiary-container": "#ffffff",
+              "tertiary-fixed": "#d8e2ff",
+              "surface": "#f8f9fa",
+              "error-container": "#ffdad6",
+              "primary": "#005bbf",
+              "surface-container-high": "#e7e8e9",
+              "surface-container-low": "#f3f4f5",
+              "on-tertiary-fixed-variant": "#004493",
+              "surface-dim": "#d9dadb",
+              "secondary-fixed-dim": "#ffb4a4",
+              "on-surface-variant": "#414754",
+              "surface-tint": "#005bc0",
+              "tertiary-fixed-dim": "#adc6ff",
+              "surface-container-lowest": "#ffffff",
+              "on-error": "#ffffff",
+              "on-primary-fixed": "#001a41",
+              "tertiary": "#005abf",
+              "secondary": "#ad3219",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed": "#3e0500",
+              "on-tertiary-fixed": "#001a41",
+              "inverse-primary": "#adc7ff",
+              "outline": "#727785",
+              "surface-container": "#edeeef",
+              "secondary-fixed": "#ffdad3",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "on-secondary-container": "#680f00",
+              "on-primary": "#ffffff",
+              "on-background": "#191c1d",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-variant": "#e1e3e4",
+              "primary-fixed-dim": "#adc7ff",
+              "on-primary-fixed-variant": "#004493",
+              "on-primary-container": "#ffffff",
+              "primary-container": "#1a73e8",
+              "inverse-surface": "#2e3132",
+              "background": "#f8f9fa",
+              "surface-bright": "#f8f9fa",
+              "secondary-container": "#ff6d4e",
+              "outline-variant": "#c1c6d6",
+              "on-secondary": "#ffffff",
+              "error": "#ba1a1a",
+              "surface-container-highest": "#e1e3e4",
+              "tertiary-container": "#0872ed"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .glass-panel {
+            background: rgba(248, 249, 250, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-8">
+<h1 class="text-xl font-bold text-blue-700 tracking-tight">UniMart Seller Studio</h1>
+<div class="hidden md:flex items-center bg-surface-container-low px-4 py-2 rounded-full w-96">
+<span class="material-symbols-outlined text-outline mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full" placeholder="Search analytics or products..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="apps">apps</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden bg-primary-fixed">
+<img alt="Merchant Profile Avatar" data-alt="professional portrait of a confident male business owner in a modern studio environment with warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvMuUM4T3Lera4213fGiV3-GNnto5VgveL-nVwlIZ4svJQ5YurNNF7nyK1DgJhkRdBPMUPjvhZd3T-QdLEKH5Y59P8iblZGRTi-VmvuVhGwwkFB_jahjNpo8eVqMDlQ-5J1Buz0nTZzKyWz1Mipzm-m6C_OcsO2fbm7OV9UK6DpWeVSSHVgGIuzoJIbbZmtwqs4SwJOzSQYHdqo8SvReqLuENzXQ79kmvRNEKFEMu-yd8mt4514LmTsOpu7GaRJ8PGgwcDbG__UY0"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 flex flex-col p-4 z-40 bg-surface-container-low">
+<div class="flex flex-col gap-1 mb-auto">
+<a class="flex items-center gap-3 text-gray-600 px-4 py-3 hover:bg-gray-200 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 px-4 py-3 hover:bg-gray-200 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-sm font-medium">Products</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 px-4 py-3 hover:bg-gray-200 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 bg-white text-blue-700 rounded-lg px-4 py-3 font-semibold shadow-sm" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="text-sm">Analytics</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 px-4 py-3 hover:bg-gray-200 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+<span class="text-sm font-medium">Marketing</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 px-4 py-3 hover:bg-gray-200 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-sm font-medium">Wallet</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 px-4 py-3 hover:bg-gray-200 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</div>
+<div class="pt-4 mt-4 border-t border-outline-variant/20">
+<a class="flex items-center gap-3 text-gray-600 px-4 py-3 hover:bg-gray-200 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="text-sm font-medium">Help Center</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 px-4 py-3 hover:bg-gray-200 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="ml-64 mt-16 p-8 min-h-screen">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-6">
+<div>
+<span class="text-primary font-semibold text-sm tracking-wider uppercase">Performance Overview</span>
+<h2 class="text-4xl font-extrabold text-on-surface mt-1">Analytics Dashboard</h2>
+<p class="text-on-surface-variant mt-2">Real-time insights for your UniMart storefront.</p>
+</div>
+<div class="flex gap-3">
+<div class="bg-surface-container-low p-1 rounded-lg flex">
+<button class="px-4 py-2 text-xs font-bold rounded-md bg-white shadow-sm text-primary">DAILY</button>
+<button class="px-4 py-2 text-xs font-bold text-on-surface-variant hover:text-on-surface">WEEKLY</button>
+<button class="px-4 py-2 text-xs font-bold text-on-surface-variant hover:text-on-surface">MONTHLY</button>
+</div>
+<button class="flex items-center gap-2 bg-primary text-on-primary px-6 py-2 rounded-full font-bold shadow-lg hover:translate-y-[-1px] transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                    Export Data
+                </button>
+</div>
+</div>
+<!-- Bento Grid Analytics -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Performance Score (Hero Card) -->
+<div class="col-span-12 lg:col-span-4 bg-primary-container text-on-primary-container p-8 rounded-xl relative overflow-hidden flex flex-col justify-between">
+<div class="relative z-10">
+<h3 class="text-lg font-bold opacity-80">Store Performance Score</h3>
+<div class="flex items-baseline gap-2 mt-4">
+<span class="text-7xl font-black">4.8</span>
+<span class="text-2xl font-bold opacity-60">/ 5.0</span>
+</div>
+<div class="mt-4 flex items-center gap-2 text-sm font-medium bg-white/20 w-fit px-3 py-1 rounded-full backdrop-blur-md">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+                        +0.4 from last month
+                    </div>
+</div>
+<div class="mt-8 relative z-10">
+<p class="text-sm leading-relaxed opacity-90 italic">"Your store is in the top 5% of fashion sellers this week. Fast shipping is driving your high score."</p>
+</div>
+<!-- Abstract Background Ornament -->
+<div class="absolute -right-10 -bottom-10 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+</div>
+<!-- Sales Trend (Main Chart area) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-xl font-bold">Sales Trend</h3>
+<div class="flex items-center gap-4 text-sm text-on-surface-variant">
+<div class="flex items-center gap-1"><span class="w-3 h-3 bg-primary rounded-full"></span> Revenue</div>
+<div class="flex items-center gap-1"><span class="w-3 h-3 bg-secondary rounded-full"></span> Target</div>
+</div>
+</div>
+<!-- Placeholder for Chart -->
+<div class="h-64 flex items-end justify-between gap-4 px-2">
+<div class="w-full flex flex-col items-center gap-2">
+<div class="w-full bg-surface-container-low rounded-t-lg h-32 relative group">
+<div class="absolute bottom-0 w-full bg-primary/20 rounded-t-lg h-24"></div>
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg h-16 group-hover:h-20 transition-all duration-300"></div>
+</div>
+<span class="text-xs font-medium text-on-surface-variant">Mon</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2">
+<div class="w-full bg-surface-container-low rounded-t-lg h-32 relative group">
+<div class="absolute bottom-0 w-full bg-primary/20 rounded-t-lg h-28"></div>
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg h-24 group-hover:h-26 transition-all duration-300"></div>
+</div>
+<span class="text-xs font-medium text-on-surface-variant">Tue</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2">
+<div class="w-full bg-surface-container-low rounded-t-lg h-32 relative group">
+<div class="absolute bottom-0 w-full bg-primary/20 rounded-t-lg h-30"></div>
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg h-28 group-hover:h-30 transition-all duration-300"></div>
+</div>
+<span class="text-xs font-medium text-on-surface-variant">Wed</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2">
+<div class="w-full bg-surface-container-low rounded-t-lg h-32 relative group">
+<div class="absolute bottom-0 w-full bg-primary/20 rounded-t-lg h-20"></div>
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg h-14 group-hover:h-18 transition-all duration-300"></div>
+</div>
+<span class="text-xs font-medium text-on-surface-variant">Thu</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2">
+<div class="w-full bg-surface-container-low rounded-t-lg h-32 relative group">
+<div class="absolute bottom-0 w-full bg-primary/20 rounded-t-lg h-32"></div>
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg h-30 group-hover:h-32 transition-all duration-300"></div>
+</div>
+<span class="text-xs font-medium text-on-surface-variant">Fri</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2">
+<div class="w-full bg-surface-container-low rounded-t-lg h-32 relative group">
+<div class="absolute bottom-0 w-full bg-primary/20 rounded-t-lg h-26"></div>
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg h-22 group-hover:h-24 transition-all duration-300"></div>
+</div>
+<span class="text-xs font-medium text-on-surface-variant">Sat</span>
+</div>
+<div class="w-full flex flex-col items-center gap-2">
+<div class="w-full bg-surface-container-low rounded-t-lg h-32 relative group">
+<div class="absolute bottom-0 w-full bg-primary/20 rounded-t-lg h-16"></div>
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg h-10 group-hover:h-12 transition-all duration-300"></div>
+</div>
+<span class="text-xs font-medium text-on-surface-variant">Sun</span>
+</div>
+</div>
+</div>
+<!-- Conversion Rate -->
+<div class="col-span-12 md:col-span-6 lg:col-span-4 bg-surface-container-low p-8 rounded-xl flex flex-col gap-6">
+<div class="flex justify-between items-start">
+<h3 class="text-lg font-bold">Conversion Funnel</h3>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="filter_alt">filter_alt</span>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="text-on-surface-variant">Product Views</span>
+<span class="font-bold">12,402</span>
+</div>
+<div class="h-3 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-full"></div>
+</div>
+</div>
+<div class="ml-4">
+<div class="flex justify-between text-sm mb-2">
+<span class="text-on-surface-variant">Added to Cart</span>
+<span class="font-bold">2,840</span>
+</div>
+<div class="h-3 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[23%]"></div>
+</div>
+<span class="text-[10px] text-primary font-bold mt-1">22.9% Drop-off</span>
+</div>
+<div class="ml-8">
+<div class="flex justify-between text-sm mb-2">
+<span class="text-on-surface-variant">Successful Sales</span>
+<span class="font-bold">842</span>
+</div>
+<div class="h-3 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[6%]"></div>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-outline-variant/20 flex justify-between items-center">
+<span class="text-sm text-on-surface-variant">Overall Conv. Rate</span>
+<span class="text-2xl font-black text-secondary">6.8%</span>
+</div>
+</div>
+<!-- Customer Satisfaction (Social Interaction style) -->
+<div class="col-span-12 md:col-span-6 lg:col-span-4 bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10">
+<h3 class="text-lg font-bold mb-6">Customer Satisfaction</h3>
+<div class="flex flex-col items-center py-4">
+<div class="relative flex items-center justify-center">
+<svg class="w-32 h-32">
+<circle class="text-surface-container-high" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="36.4" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<span class="absolute text-3xl font-black">92%</span>
+</div>
+<p class="mt-4 text-sm font-semibold text-on-surface-variant">Positive Feedback Score</p>
+</div>
+<div class="space-y-4 mt-6">
+<div class="flex gap-4 p-3 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="sentiment_very_satisfied" style="font-variation-settings: 'FILL' 1;">sentiment_very_satisfied</span>
+<div>
+<p class="text-xs font-bold">"Fast delivery and great quality"</p>
+<p class="text-[10px] text-on-surface-variant">2 hours ago • Verified Purchase</p>
+</div>
+</div>
+<div class="flex gap-4 p-3 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="sentiment_satisfied" style="font-variation-settings: 'FILL' 1;">sentiment_satisfied</span>
+<div>
+<p class="text-xs font-bold">"Loved the packaging, highly recommend"</p>
+<p class="text-[10px] text-on-surface-variant">5 hours ago • Verified Purchase</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Best-selling Categories (Editorial Layout) -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border border-outline-variant/10">
+<div class="p-8">
+<h3 class="text-lg font-bold mb-6">Best-selling Categories</h3>
+<div class="space-y-6">
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Category Image" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="luxury cotton apparel folded neatly with soft aesthetic lighting and minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs0hY6lnfw8YO-dkpYoM0_yrv8j7UnTwyLk9VkLN95QuWz9Sxp10BDODbU9L3nvfE_Hq18lnfLkdTjVD4_P3gsw_qnFo7iUnjoz7uMteskeK_t-mTEydtYwfiDJdIicUI3DbnEKOQxic8vEwiDEz3n8L1BT5uB6ZPNqms7xLQ7FMXv3zG6cRnRpNMijema_BbNL8TQ8mUICiPhFasA_8SmNeul_mCpMcPHK_DM7FxdUYHJbE_AOQthSGvq5HUtEgt_XTS3fW-YdgU"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-sm">Men's Apparel</h4>
+<p class="text-xs text-on-surface-variant">428 orders this week</p>
+<div class="w-full h-1 bg-surface-container-high rounded-full mt-2">
+<div class="h-full bg-primary w-[85%]"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Category Image" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="handcrafted ceramic home decor items on a wooden shelf with natural sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk6qOP_2ufySXPypA15gfTdgIheinal5dlLjQzplWV8MU_ermwWtrXA8BR0Lnm_hmanoS9r6CXCwCwNjz5XyF755ZDuodBtwSedM3z8_lrkbDhDgSDe4z34DSMl9RQCEey6pPSl7KEdpb2YZgApTo56zRLccZ9OD2IqJc92_oeqddGahzxCh3YW1-uS10cn0r2sU0vl3n4KZzsvGlrorwvaZzdpqfOi_uSLXJ-QRR_AJ9tAkW1iV8-aOxoJG22sjKAfOBoAXC7-I4"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-sm">Home &amp; Living</h4>
+<p class="text-xs text-on-surface-variant">312 orders this week</p>
+<div class="w-full h-1 bg-surface-container-high rounded-full mt-2">
+<div class="h-full bg-primary-container w-[65%]"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Category Image" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="elegant skincare and cosmetics arrangement on a white marble surface with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY7MwF16HFrlg9DFjk_ZylatvkX_HlbD0eP7l8HsuJ_zO-V3RjUj9C7kGh0VHEo59rV6hoESINoE9uCjensX2YcmbZCulgR6-AS6c_7ux9yY25RvDXfEEPBm6fQcL-HRyYZqBzagRgV_vjoXZeJ86LVDA2nDBKnlkpW--IfaVAQrRJgL6AeUypB_kwjBss_YMCuKenmdTr1gimrZ8iy01k-YnwuLPo-bm7_Xgv4a88QnxqQwvaHLqp-yo5rUVDISOk-vWfZwd0WGA"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-sm">Beauty &amp; Care</h4>
+<p class="text-xs text-on-surface-variant">154 orders this week</p>
+<div class="w-full h-1 bg-surface-container-high rounded-full mt-2">
+<div class="h-full bg-secondary-container w-[35%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container px-8 py-4 flex justify-between items-center">
+<span class="text-xs font-bold text-on-surface-variant">See all categories</span>
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Insights / Social Context Card -->
+<div class="col-span-12 bg-white p-8 rounded-xl shadow-sm border border-outline-variant/10">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined" data-icon="lightbulb" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+</div>
+<div>
+<h3 class="text-lg font-bold">Studio AI Insights</h3>
+<p class="text-xs text-on-surface-variant">Smart recommendations for your growth</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="p-4 rounded-lg bg-surface-container-low border-l-4 border-primary">
+<h4 class="text-sm font-bold mb-1">Restock Alert</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">"Silk Panjabi (Medium)" is likely to sell out in 3 days. Consider restocking now to avoid missed sales.</p>
+<button class="mt-3 text-primary text-xs font-bold flex items-center gap-1">GO TO INVENTORY <span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+<div class="p-4 rounded-lg bg-surface-container-low border-l-4 border-secondary">
+<h4 class="text-sm font-bold mb-1">Marketing Opportunity</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">Customers who bought "Leather Wallets" also viewed "Formal Belts". Create a bundle for 15% more conversion.</p>
+<button class="mt-3 text-secondary text-xs font-bold flex items-center gap-1">CREATE BUNDLE <span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+<div class="p-4 rounded-lg bg-surface-container-low border-l-4 border-tertiary-container">
+<h4 class="text-sm font-bold mb-1">Pricing Insight</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">Your "Floral Saree" collection is priced 10% lower than market average. You can increase price by 5% without losing traffic.</p>
+<button class="mt-3 text-tertiary-container text-xs font-bold flex items-center gap-1">UPDATE PRICING <span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Spacer -->
+<div class="h-20"></div>
+</main>
+<!-- Contextual FAB (Only for Analytics/Dashboard context) -->
+<button class="fixed bottom-8 right-8 bg-primary-container text-on-primary-container px-6 py-4 rounded-full shadow-2xl flex items-center gap-3 font-bold hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined" data-icon="chat_bubble" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+        Customer Support
+    </button>
+</body></html>

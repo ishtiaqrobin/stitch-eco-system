@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Send Notification | UniMart Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#f3f4f5",
+                        "secondary-container": "#ff6d4e",
+                        "primary-fixed": "#d8e2ff",
+                        "on-surface": "#191c1d",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-container-high": "#e7e8e9",
+                        "surface": "#f8f9fa",
+                        "error": "#ba1a1a",
+                        "background": "#f8f9fa",
+                        "on-primary-fixed": "#001a41",
+                        "outline": "#727785",
+                        "on-secondary-fixed": "#3e0500",
+                        "on-secondary-container": "#680f00",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c1c6d6",
+                        "on-primary-container": "#ffffff",
+                        "inverse-primary": "#adc7ff",
+                        "surface-container": "#edeeef",
+                        "primary-fixed-dim": "#adc7ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#001a41",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "inverse-on-surface": "#f0f1f2",
+                        "tertiary-container": "#0872ed",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#414754",
+                        "on-background": "#191c1d",
+                        "on-tertiary-container": "#ffffff",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "tertiary": "#005abf",
+                        "surface-dim": "#d9dadb",
+                        "primary": "#005bbf",
+                        "tertiary-fixed": "#d8e2ff",
+                        "secondary": "#ad3219",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#8b1a02",
+                        "on-primary-fixed-variant": "#004493",
+                        "surface-bright": "#f8f9fa",
+                        "secondary-fixed": "#ffdad3",
+                        "primary-container": "#1a73e8",
+                        "surface-variant": "#e1e3e4",
+                        "surface-tint": "#005bc0",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "on-error": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 h-16 border-b border-slate-100 bg-white z-50 shadow-sm">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold tracking-tight text-slate-900">UniMart Admin</span>
+<div class="hidden md:flex items-center bg-surface-container-low px-4 py-2 rounded-full gap-2 w-64">
+<span class="material-symbols-outlined text-outline text-sm">search</span>
+<input class="bg-transparent border-none text-sm focus:ring-0 w-full" placeholder="Search operations..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-50 transition-colors rounded-full text-slate-500">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-50 transition-colors rounded-full text-slate-500">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Admin Profile Menu" data-alt="professional headshot of a male admin user with a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKzqiVZsgB6r233sry0Oc3iCbkPmq7VEqMyUK3msZKIy4SxXBEKLKCWxvUab9haEBvxSK6ygooma_TLGtnxiEw4mgrbqwgoia8tpV34zkITu1QMDJLuEOYtHldxKC0sNdAwYSR37UHvGfNmAyM0bXmYK5SHKLkU75LWFqXbLZuXGuSQPdkHswrzi4eYHqHVZ58RUaXepY2MEypFqLIfMcWmRKRPzgrjDPDjW-nxnQHVqX2EWsg2wGdD7JU73zPkxneN3_cAqcsY08"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 pt-20 pb-6 px-4 flex flex-col gap-2 overflow-y-auto bg-slate-50 border-r border-slate-200">
+<div class="mb-6 px-4">
+<p class="text-lg font-bold text-blue-600">Admin Central</p>
+<p class="text-xs text-slate-500">Management Suite</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium">User Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-medium">Moderation</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white text-blue-600 rounded-lg shadow-sm font-medium" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-medium">Operations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">layers</span>
+<span class="font-medium">Platform</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-medium">Finance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium">System</span>
+</a>
+</nav>
+<button class="mt-auto mx-4 bg-primary text-on-primary py-3 rounded-xl font-bold text-sm shadow-md hover:opacity-90 transition-all">
+            Export Reports
+        </button>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 pt-20 p-8 min-h-screen">
+<div class="max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="mb-10">
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2">Send Notification</h1>
+<p class="text-on-surface-variant max-w-2xl">Broadcast targeted communications across UniMart via Push, In-app alerts, or Email channels.</p>
+</header>
+<!-- Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Composition Column -->
+<div class="lg:col-span-7 space-y-8">
+<!-- Compose Message Area -->
+<section class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-0">
+<h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">edit_note</span>
+                            Compose Message
+                        </h2>
+<div class="space-y-6">
+<div>
+<label class="block text-sm font-semibold mb-2 text-on-surface-variant">Notification Title</label>
+<input class="w-full bg-surface-container-highest border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary/40 text-on-surface" placeholder="e.g. Exclusive Weekend Sale!" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-semibold mb-2 text-on-surface-variant">Body</label>
+<textarea class="w-full bg-surface-container-highest border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary/40 text-on-surface" placeholder="Share details about the offer or update..." rows="4"></textarea>
+</div>
+<div>
+<label class="block text-sm font-semibold mb-2 text-on-surface-variant">Image (Optional)</label>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-8 flex flex-col items-center justify-center bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-outline mb-2">add_photo_alternate</span>
+<p class="text-sm text-on-surface-variant">Drop image here or click to upload</p>
+<p class="text-xs text-outline mt-1">Recommended: 1200x630px</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Target Audience -->
+<section class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-0">
+<h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">groups</span>
+                            Target Audience
+                        </h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+<button class="flex flex-col items-center justify-center p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-fixed transition-all group active:scale-95">
+<span class="material-symbols-outlined mb-2 text-on-surface-variant group-hover:text-primary">person_check</span>
+<span class="text-sm font-medium">All Users</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-fixed transition-all group active:scale-95">
+<span class="material-symbols-outlined mb-2 text-on-surface-variant group-hover:text-primary">store</span>
+<span class="text-sm font-medium">Sellers Only</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-fixed transition-all group active:scale-95">
+<span class="material-symbols-outlined mb-2 text-on-surface-variant group-hover:text-primary">shopping_cart</span>
+<span class="text-sm font-medium">Buyers Only</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 rounded-xl bg-primary-fixed border border-primary text-primary transition-all group active:scale-95">
+<span class="material-symbols-outlined mb-2" style="font-variation-settings: 'FILL' 1;">dashboard_customize</span>
+<span class="text-sm font-medium">Custom</span>
+</button>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg">
+<label class="block text-xs font-bold text-primary uppercase tracking-wider mb-2">Custom Segment Rules</label>
+<div class="flex items-center gap-3">
+<span class="text-sm font-medium bg-white px-3 py-1 rounded border border-outline-variant">Wallet Balance</span>
+<span class="text-sm text-outline font-bold">&gt;</span>
+<span class="text-sm font-medium bg-white px-3 py-1 rounded border border-outline-variant">৳ 1,000</span>
+<button class="ml-auto text-primary text-sm font-semibold hover:underline">Edit Rules</button>
+</div>
+</div>
+</section>
+<!-- Channel & Scheduling -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<section class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-0">
+<h2 class="text-lg font-bold mb-4">Channel Selection</h2>
+<div class="space-y-3">
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">notifications_active</span>
+<span class="text-sm font-medium">Push Notification</span>
+</div>
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">campaign</span>
+<span class="text-sm font-medium">In-app Alert</span>
+</div>
+<input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">mail</span>
+<span class="text-sm font-medium">Email</span>
+</div>
+<input class="rounded text-primary focus:ring-primary" type="checkbox"/>
+</label>
+</div>
+</section>
+<section class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-0">
+<h2 class="text-lg font-bold mb-4">Scheduling</h2>
+<div class="space-y-4">
+<label class="flex items-center gap-3 cursor-pointer">
+<input checked="" class="text-primary focus:ring-primary" name="schedule" type="radio"/>
+<span class="text-sm font-medium">Send Now</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer">
+<input class="text-primary focus:ring-primary" name="schedule" type="radio"/>
+<span class="text-sm font-medium">Set Future Date/Time</span>
+</label>
+<div class="relative mt-2">
+<input class="w-full bg-surface-container-low border-0 rounded-lg p-2 text-sm text-outline focus:ring-2 focus:ring-primary/40 opacity-50 pointer-events-none" type="datetime-local"/>
+</div>
+</div>
+</section>
+</div>
+<div class="flex gap-4 pt-4">
+<button class="flex-1 bg-surface-container-high text-primary py-4 rounded-full font-bold hover:bg-primary-fixed transition-colors active:scale-[0.98]">
+                            Save as Draft
+                        </button>
+<button class="flex-[2] bg-gradient-to-br from-primary to-primary-container text-on-primary py-4 rounded-full font-bold shadow-lg hover:opacity-90 transition-all active:scale-[0.98]">
+                            Send Notification
+                        </button>
+</div>
+</div>
+<!-- Preview Column -->
+<div class="lg:col-span-5 space-y-8">
+<!-- Preview Pane -->
+<section class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-0 sticky top-24">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-xl font-bold">Preview</h2>
+<div class="flex bg-surface-container-high p-1 rounded-full">
+<button class="px-4 py-1 rounded-full bg-white shadow-sm text-xs font-bold text-primary">Mobile</button>
+<button class="px-4 py-1 rounded-full text-xs font-bold text-outline hover:text-on-surface">Desktop</button>
+</div>
+</div>
+<!-- Mobile Frame -->
+<div class="mx-auto w-[280px] h-[560px] bg-on-surface rounded-[3rem] border-8 border-on-surface shadow-2xl relative overflow-hidden flex flex-col">
+<!-- Notch -->
+<div class="h-6 bg-on-surface w-1/2 mx-auto rounded-b-2xl"></div>
+<!-- Screen Content -->
+<div class="flex-1 bg-surface-container-low p-4 relative">
+<div class="absolute inset-0 bg-cover bg-center opacity-40 grayscale" data-alt="abstract blurred smartphone wallpaper with deep blues and purples" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB-EeR3XL38FzqA-_XmTIu1AukCEhbGyBhhnQhQRKd-YC9gs7KUdaMiu4V_4vjVNzk0HAmGH8kOSnxsxi_o3PWzPw0axtd3kbb6W_WYARQExWKf6hVIM_1NSfFmiyTawk9L6tUvi9-SNqW63vpWEtvG8KUguzi06NMqpWp_tmc1RtWnm5LOKrjGVkg0XujwHG8zOT0PEnfeQGbS6XqhITYyA1rEC8yX_6UrLrITyKpH15EzcpjjGmb8vko_tMzMgg_mcIqVuR4obGo')"></div>
+<!-- Push Notification UI -->
+<div class="relative z-10 space-y-3">
+<div class="bg-white/80 backdrop-blur-xl p-4 rounded-2xl shadow-xl">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-5 h-5 bg-primary rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-white">shopping_bag</span>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">UniMart</span>
+<span class="text-[10px] text-outline ml-auto">now</span>
+</div>
+<h3 class="text-sm font-bold text-on-surface leading-tight">Exclusive Weekend Sale!</h3>
+<p class="text-xs text-on-surface-variant mt-1">Get up to 40% off on all lifestyle products this weekend. Tap to explore the deals.</p>
+<div class="mt-3 rounded-lg overflow-hidden border border-outline-variant/30">
+<img class="w-full h-24 object-cover" data-alt="colorful shopping bags and festive gift boxes on a clean white studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqYyRUav2o59wZyzi5dvtGDaR0RuuKc46EjElVGtxqbwxnD4256OtIUVnqgiGN_UkNbQZkTgUo0ORYTDA4ohFvwFi4J1ZyTZqwLmh-pcBYqVkx9GQ703fynbaWuDAVh2_3cJ0BQJo-9BynFkouoYd8rDw6ybrRkn4cxsXOmvnCBq9RGn2vcoqIgIkL6tU8_KaiLx7vp9BEbhyHqMjSViMlvBVvaOqyRwHeAs5DzFSxLhqat_rwtOqc70dps6g8WCUPtan-w9WSWaE"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Home Bar -->
+<div class="h-1.5 w-1/3 bg-on-surface-variant/30 mx-auto mb-2 rounded-full"></div>
+</div>
+<div class="mt-8 flex items-center justify-center gap-6">
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">devices</span>
+                                Cross-platform Preview
+                            </div>
+<div class="flex items-center gap-2 text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                                Verified for Dark Mode
+                            </div>
+</div>
+</section>
+<!-- Recent Notifications / History -->
+<section class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-0">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold">Recent History</h2>
+<button class="text-primary text-sm font-bold hover:underline">View All</button>
+</div>
+<div class="space-y-4">
+<!-- History Item 1 -->
+<div class="p-4 rounded-xl border border-outline-variant/30 hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h4 class="text-sm font-bold">Wallet Bonus: ৳50</h4>
+<p class="text-xs text-outline">Sent: Oct 24, 2023</p>
+</div>
+<span class="px-2 py-1 bg-green-100 text-green-700 rounded text-[10px] font-bold uppercase">Success</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container p-2 rounded-lg">
+<p class="text-[10px] text-outline uppercase font-bold tracking-tighter">Open Rate</p>
+<p class="text-lg font-extrabold text-primary">64.2%</p>
+</div>
+<div class="bg-surface-container p-2 rounded-lg">
+<p class="text-[10px] text-outline uppercase font-bold tracking-tighter">Actions</p>
+<p class="text-lg font-extrabold text-secondary">2,104</p>
+</div>
+</div>
+</div>
+<!-- History Item 2 -->
+<div class="p-4 rounded-xl border border-outline-variant/30 hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h4 class="text-sm font-bold">System Maintenance</h4>
+<p class="text-xs text-outline">Sent: Oct 20, 2023</p>
+</div>
+<span class="px-2 py-1 bg-green-100 text-green-700 rounded text-[10px] font-bold uppercase">Success</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container p-2 rounded-lg">
+<p class="text-[10px] text-outline uppercase font-bold tracking-tighter">Open Rate</p>
+<p class="text-lg font-extrabold text-primary">89.1%</p>
+</div>
+<div class="bg-surface-container p-2 rounded-lg">
+<p class="text-[10px] text-outline uppercase font-bold tracking-tighter">Actions</p>
+<p class="text-lg font-extrabold text-secondary">412</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB for quick actions (only on relevant dashboards) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-secondary text-on-secondary rounded-full shadow-2xl flex items-center justify-center hover:scale-105 transition-transform group">
+<span class="material-symbols-outlined text-2xl group-hover:rotate-12 transition-transform">auto_awesome</span>
+</button>
+</body></html>

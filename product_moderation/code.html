@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Moderation | UniMart Admin</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f3f4f5",
+              "secondary-container": "#ff6d4e",
+              "primary-fixed": "#d8e2ff",
+              "on-surface": "#191c1d",
+              "surface-container-highest": "#e1e3e4",
+              "surface-container-high": "#e7e8e9",
+              "surface": "#f8f9fa",
+              "error": "#ba1a1a",
+              "background": "#f8f9fa",
+              "on-primary-fixed": "#001a41",
+              "outline": "#727785",
+              "on-secondary-fixed": "#3e0500",
+              "on-secondary-container": "#680f00",
+              "error-container": "#ffdad6",
+              "outline-variant": "#c1c6d6",
+              "on-primary-container": "#ffffff",
+              "inverse-primary": "#adc7ff",
+              "surface-container": "#edeeef",
+              "primary-fixed-dim": "#adc7ff",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed": "#001a41",
+              "inverse-surface": "#2e3132",
+              "on-tertiary-fixed-variant": "#004493",
+              "inverse-on-surface": "#f0f1f2",
+              "tertiary-container": "#0872ed",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "on-surface-variant": "#414754",
+              "on-background": "#191c1d",
+              "on-tertiary-container": "#ffffff",
+              "tertiary-fixed-dim": "#adc6ff",
+              "tertiary": "#005abf",
+              "surface-dim": "#d9dadb",
+              "primary": "#005bbf",
+              "tertiary-fixed": "#d8e2ff",
+              "secondary": "#ad3219",
+              "on-secondary": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "on-primary-fixed-variant": "#004493",
+              "surface-bright": "#f8f9fa",
+              "secondary-fixed": "#ffdad3",
+              "primary-container": "#1a73e8",
+              "surface-variant": "#e1e3e4",
+              "surface-tint": "#005bc0",
+              "secondary-fixed-dim": "#ffb4a4",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body { font-family: 'Inter', sans-serif; }
+      h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+      .glass-effect {
+        backdrop-filter: blur(20px);
+        background: rgba(248, 249, 250, 0.7);
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 h-16 bg-white dark:bg-slate-900 z-50 shadow-sm border-b border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-4">
+<span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">UniMart Admin</span>
+<div class="hidden md:flex items-center bg-slate-100 dark:bg-slate-800 rounded-full px-4 py-1.5 ml-4">
+<span class="material-symbols-outlined text-slate-500 text-sm mr-2">search</span>
+<input class="bg-transparent border-none text-sm focus:ring-0 p-0 w-64" placeholder="Search listings..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<button class="text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="Admin Profile Menu" class="h-full w-full object-cover" data-alt="professional male portrait with neutral background and soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnqZdC40lT7cN1OO_pvwiRfuK2gj5jztwhikscNht3-ioX4LGdsFUirLbFHcA5GbNmEcJrF8FpTfsZIc2Oh6TQCisHbtu08fy8MkGAHKiltE5ASF4Atyt8FxW3EdJk0TP1OQSImSnvinj2Tmg0nOIJPW3MhQpmC5yVlPFwVW1iAVLuqRE7QNuMV489ZXEArb1A7LFy5ZbwmavyaUhzAX_UQ5VrYYXfSj8BDKhUce2NJNE9_RM3g0cKiz1MWCcr3K5WZWGzDy2uQ_0"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 pt-20 pb-6 px-4 flex flex-col gap-2 overflow-y-auto bg-slate-50 dark:bg-slate-950 border-r border-slate-100 dark:border-slate-800 z-40">
+<div class="mb-6 px-4">
+<h3 class="text-blue-600 text-lg font-bold">Admin Central</h3>
+<p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Management Suite</p>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium">User Management</span>
+</a>
+<!-- Active Tab: Moderation -->
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 rounded-lg shadow-sm font-medium" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">gavel</span>
+<span>Moderation</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-medium">Operations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">layers</span>
+<span class="font-medium">Platform</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-medium">Finance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium">System</span>
+</a>
+</nav>
+<div class="mt-auto px-4">
+<button class="w-full bg-primary-container text-white py-2.5 rounded-lg font-semibold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm">download</span>
+                Export Reports
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen bg-surface">
+<div class="p-8 max-w-7xl mx-auto">
+<!-- Editorial Header -->
+<header class="mb-12 flex justify-between items-end">
+<div>
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2">Product Moderation</h1>
+<p class="text-on-surface-variant max-w-lg">Review and curate the UniMart marketplace. Maintain quality standards and ensure safety across all seller listings.</p>
+</div>
+<div class="flex gap-3">
+<span class="px-4 py-2 bg-surface-container-high rounded-full text-sm font-semibold flex items-center gap-2">
+<span class="w-2 h-2 bg-secondary rounded-full"></span>
+                        142 Pending Review
+                    </span>
+</div>
+</header>
+<!-- Filters & Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Quick Filters & Stats (Left Column) -->
+<div class="col-span-12 lg:col-span-3 space-y-8">
+<section class="bg-surface-container-low p-6 rounded-xl">
+<h3 class="text-sm font-bold uppercase tracking-widest text-outline mb-4">Quick Filters</h3>
+<div class="space-y-2">
+<button class="w-full flex justify-between items-center px-4 py-3 bg-secondary-fixed text-on-secondary-fixed rounded-lg font-medium text-sm">
+                                High Risk Categories
+                                <span class="bg-on-secondary-fixed text-white px-2 py-0.5 rounded-full text-xs">24</span>
+</button>
+<button class="w-full flex justify-between items-center px-4 py-3 bg-surface-container-highest text-on-surface rounded-lg font-medium text-sm hover:bg-white transition-all">
+                                New Sellers
+                                <span class="bg-outline text-white px-2 py-0.5 rounded-full text-xs">8</span>
+</button>
+<button class="w-full flex justify-between items-center px-4 py-3 bg-surface-container-highest text-on-surface rounded-lg font-medium text-sm hover:bg-white transition-all">
+                                Modified Products
+                                <span class="bg-outline text-white px-2 py-0.5 rounded-full text-xs">12</span>
+</button>
+</div>
+</section>
+<section class="bg-surface-container-low p-6 rounded-xl">
+<h3 class="text-sm font-bold uppercase tracking-widest text-outline mb-4">Daily Goal</h3>
+<div class="relative pt-1">
+<div class="flex mb-2 items-center justify-between">
+<div><span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-primary bg-primary-fixed">Review Progress</span></div>
+<div class="text-right"><span class="text-xs font-semibold inline-block text-primary">60%</span></div>
+</div>
+<div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-surface-container-highest">
+<div class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary" style="width:60%"></div>
+</div>
+<p class="text-xs text-on-surface-variant">42 of 70 products reviewed today.</p>
+</div>
+</section>
+</div>
+<!-- Main Queue (Middle Column) -->
+<div class="col-span-12 lg:col-span-9 space-y-6">
+<!-- The Queue Card -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<table class="w-full border-collapse">
+<thead>
+<tr class="bg-surface-container text-left text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+<th class="px-6 py-4">Product</th>
+<th class="px-6 py-4">Seller Info</th>
+<th class="px-6 py-4">Price/Category</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1 (High Risk) -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer bg-error-container/20">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container-highest flex-shrink-0">
+<img alt="Nike Zoom Pegasus" class="w-full h-full object-cover" data-alt="vibrant red athletic sneaker on a clean minimalist white background with sharp focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx7AoOXzRjokdTzLTeTF6Qg8cX8OZLACTq9Uqxr56K7Q9IJgEgAumuVabQz7JkYw7eumXWs3GpoxrPlLn-ewaOabYDdcleEUK8dEhKhUVrn_tIzzUB6U76fA_uUr4epHQHksE3cjQw2TjeiIzAIUMTvPXLNXRVwpudqUvIx-Bhy9ethDwAtEEcUxQQfTvMe9uW3cQR08G4Bsfcy4ATPjhmWcsI50DbTVtzptbpSEaCC2jOkrbGugY66mL16Ej2kaUnV3AwDx8nEzU"/>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Nike Zoom Pegasus</h4>
+<p class="text-xs text-on-surface-variant">Sub: May 24, 14:20</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<p class="font-semibold text-sm">Abrar Footwear Ltd.</p>
+<p class="text-xs text-primary font-medium">New Seller</p>
+</td>
+<td class="px-6 py-5">
+<p class="font-bold text-sm">৳12,500</p>
+<p class="text-xs text-on-surface-variant">Athletic Wear</p>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 bg-error text-white text-[10px] font-bold rounded uppercase flex items-center gap-1 w-max">
+<span class="material-symbols-outlined text-xs">history</span> Prev. Rejected
+                                        </span>
+</td>
+<td class="px-6 py-5">
+<button class="bg-primary text-white p-2 rounded-full hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 (Standard) -->
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer border-l-4 border-transparent active:border-primary active:bg-surface-container">
+<td class="px-6 py-5">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container-highest flex-shrink-0">
+<img alt="Beats Solo Pro" class="w-full h-full object-cover" data-alt="matte black premium wireless headphones shown at an angle with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoaFSD7vRNJ1QMJhQHRtxixUpnpocM3cIzIw-K7rtE7vN6VribyIC1ySEr6YmNoED9PvD-SaJpZxbuVoK1S2zF_xms6qRAvp9L1Qwm57ZXeJKgVF-wOUo6EQ4Wq27m_-EgoknPGghRvmIm7WuLmsXBlb62HXTJ6GIejC5uojHT_t8XaWSjaLuUj6zJ6hASnJezR0wBx1K3y_LcSm5-qH0qlUodYFSbCBHIE_sCFu7AgSPtVSbzhYnZK7k59TDCF3KwkiBo5kJJMnI"/>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Beats Solo Pro Wireless</h4>
+<p class="text-xs text-on-surface-variant">Sub: May 24, 15:05</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<p class="font-semibold text-sm">TechVibe Gadgets</p>
+<p class="text-xs text-on-surface-variant">Top Rated Merchant</p>
+</td>
+<td class="px-6 py-5">
+<p class="font-bold text-sm">৳28,990</p>
+<p class="text-xs text-on-surface-variant">Electronics</p>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 bg-surface-container-high text-on-surface-variant text-[10px] font-bold rounded uppercase w-max">Pending Review</span>
+</td>
+<td class="px-6 py-5">
+<button class="bg-primary text-white p-2 rounded-full hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Detailed Review Pane -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-lg p-8 grid grid-cols-12 gap-8 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="px-3 py-1 bg-surface-container text-xs font-bold rounded-full text-on-surface-variant">REVIEWING: PRODUCT #4920</span>
+</div>
+<!-- Gallery Section -->
+<div class="col-span-12 md:col-span-5 space-y-4">
+<div class="aspect-square rounded-xl overflow-hidden bg-surface-container-low group relative">
+<img alt="Primary View" class="w-full h-full object-cover" data-alt="close-up professional product shot of red athletic sneakers on a clean bright background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwVFcjyAkHhdKtLcu2qMbt-fj3bVMBB_TQt3UO5REs27_9IZr6wmNCI1YRYl3cVFWWssBQcdMBED9PiDC4cccYa9TT5mML27UJnqoz9kU7d_sR8NuLGHIkNzDce-FckT1zS54xge6CM6BNWCrtKAErQ-WSKVGl2vv5q8SnPt6bwG54LMxF33aFzvFy6bnX60T8okdavYZN3BJJS8VJuAl8aa4MWYri2ijE6U_9VVuLLz1mrk6TXAPE66FAjC1GQ3TlaiNgXTlZbzk"/>
+<div class="absolute bottom-4 left-4 flex gap-2">
+<span class="bg-white/90 backdrop-blur px-3 py-1 rounded text-xs font-bold text-primary">IMAGE 1/4</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<div class="aspect-square rounded-lg overflow-hidden cursor-pointer hover:ring-2 ring-primary">
+<img alt="Alt 1" class="w-full h-full object-cover" data-alt="side view of a green sneaker showing sole texture and material details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_HogHw6aGu203hVhytcYQu6l2nIpv9K1rfixYVjKCM3hbT29MQ-cqn9yFwihFdv2a5tY1u8k6OgrSniHzQj8DbY4VUBZnsz4oHwZMXMOW5wvjlsz9hOfxyh1Mezi0I0y-fBBHbctnRyI_IIUgaLIti-6RCTLzaMJVCxVe_01nGdgv1GHcumgNBA0jVgJPffpq1RXTaaE7ZIKwdlEjD3_eJ4Huwf26qyZR-c2R_rWYWo_k2MughTfp1ZZ93LcMPJ3-2S5BHd-bSk4"/>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden cursor-pointer hover:ring-2 ring-primary border-2 border-primary">
+<img alt="Alt 2" class="w-full h-full object-cover opacity-60" data-alt="top view of athletic footwear displaying the interior padding and tongue design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCC3a47HcwW8TL1AWcWbQ5wmmM_dlXhr6l_Wp0LEkS1Ma3aQ5o8twYDSBwrmXT2pUWu6ctC4jVz0LVkCCpENYQfunBbdKleMqzvkn-ExA4IQ5UQ1xdIuklPVi9nMIPSxqPDhH_XB7hA0y70kY55sT1Tnj2Pq2bHkqw4Cm2cqa7xVH3kls0s9jtEjaC6MOfhB9DTvwObmgGIii-slLUwHjM8o_bNS3HKwB8NnEKILBY4DoahEtaQdvsZJwjc8Ms4_fXfOSx5owsMd9g"/>
+</div>
+<div class="aspect-square rounded-lg overflow-hidden cursor-pointer hover:ring-2 ring-primary">
+<img alt="Alt 3" class="w-full h-full object-cover" data-alt="close up of shoe laces and texture of the athletic shoe upper mesh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1d1IjFmoRlZzeunemQbDu_r3PgGGfAIulQCKidjBnggachnHXWLz467WxL742RVJJjkxGhqZfImiafsBTe4HMfBysEXXcisMHjmbMcTKFShgwXedH3dgUSG9qAJRnFsW_VYn85cTlPXtljX4DwSzebwysOhIlcO9nbHNpqgx7YfrvCXDmZassvgid0LdZ9Fm2ewv8WAg_FdmuFdqP2E9NHkLOSnuaH-4XVLqxipmy5BDuQZ6MosipZl3NEx_-gDe8LZ4vDCw2xFY"/>
+</div>
+</div>
+</div>
+<!-- Details & Moderation Tools -->
+<div class="col-span-12 md:col-span-7 flex flex-col">
+<div class="mb-6">
+<h2 class="text-3xl font-extrabold text-on-surface leading-tight mb-2">Nike Zoom Pegasus 38 FlyEase</h2>
+<div class="flex flex-wrap gap-3 mb-4">
+<span class="text-xs font-bold px-3 py-1 bg-surface-container-high rounded-full">CAT: ATHLETIC FOOTWEAR</span>
+<span class="text-xs font-bold px-3 py-1 bg-surface-container-high rounded-full">BRAND: NIKE</span>
+<span class="text-xs font-bold px-3 py-1 bg-surface-container-high rounded-full">SKU: NK-ZM-PG38-002</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed mb-6">Designed for daily runs, the Nike Air Zoom Pegasus 38 FlyEase puts a spring in your step with the same responsive foam as its predecessor. Breathable mesh in the upper combines the comfort and durability you want with a FlyEase entry system that gets you in and out quickly.</p>
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="p-4 bg-surface-container rounded-lg">
+<p class="text-xs text-outline uppercase font-bold tracking-wider mb-1">Proposed Price</p>
+<p class="text-xl font-extrabold text-primary">৳12,500.00</p>
+</div>
+<div class="p-4 bg-surface-container rounded-lg">
+<p class="text-xs text-outline uppercase font-bold tracking-wider mb-1">Stock Level</p>
+<p class="text-xl font-extrabold text-on-surface">45 Units</p>
+</div>
+</div>
+</div>
+<!-- Moderation Action Box -->
+<div class="mt-auto bg-surface-container-low p-6 rounded-xl border border-outline-variant/15">
+<h4 class="text-sm font-bold uppercase tracking-widest text-outline mb-4">Moderation Decision</h4>
+<div class="grid grid-cols-3 gap-3 mb-4">
+<button class="flex flex-col items-center gap-1 p-3 rounded-lg bg-white border border-primary text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">check_circle</span>
+<span class="text-[10px] font-bold">APPROVE</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-3 rounded-lg bg-white border border-secondary text-secondary hover:bg-secondary hover:text-white transition-all">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="text-[10px] font-bold">FLAG REVISION</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-3 rounded-lg bg-white border border-error text-error hover:bg-error hover:text-white transition-all">
+<span class="material-symbols-outlined">block</span>
+<span class="text-[10px] font-bold">REJECT</span>
+</button>
+</div>
+<div class="relative">
+<textarea class="w-full bg-white rounded-lg border-none focus:ring-2 focus:ring-primary/40 text-sm p-3 placeholder:text-outline/50" placeholder="Internal notes or reason for correction..." rows="2"></textarea>
+<div class="flex justify-between items-center mt-3">
+<span class="text-[10px] text-outline font-medium italic">* Seller will receive this message if flagged or rejected.</span>
+<button class="bg-primary text-white px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:shadow-lg transition-all active:scale-95">Submit Decision</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Section with Asymmetric Layout -->
+<footer class="mt-16 pt-8 border-t border-surface-container-highest grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div class="text-on-surface-variant text-sm">
+<p>© 2024 UniMart Platform Moderation Suite. <br/>System Status: <span class="text-green-600 font-bold uppercase text-xs">Operational</span></p>
+</div>
+<div class="flex justify-start md:justify-end gap-6">
+<a class="text-xs font-bold uppercase tracking-widest text-outline hover:text-primary transition-colors" href="#">Safety Guidelines</a>
+<a class="text-xs font-bold uppercase tracking-widest text-outline hover:text-primary transition-colors" href="#">Seller Policy</a>
+<a class="text-xs font-bold uppercase tracking-widest text-outline hover:text-primary transition-colors" href="#">Contact Legal</a>
+</div>
+</footer>
+</div>
+</main>
+</body></html>

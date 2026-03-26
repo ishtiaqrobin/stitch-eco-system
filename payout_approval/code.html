@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payout Approval | UniMart Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-low": "#f3f4f5",
+            "secondary-container": "#ff6d4e",
+            "primary-fixed": "#d8e2ff",
+            "on-surface": "#191c1d",
+            "surface-container-highest": "#e1e3e4",
+            "surface-container-high": "#e7e8e9",
+            "surface": "#f8f9fa",
+            "error": "#ba1a1a",
+            "background": "#f8f9fa",
+            "on-primary-fixed": "#001a41",
+            "outline": "#727785",
+            "on-secondary-fixed": "#3e0500",
+            "on-secondary-container": "#680f00",
+            "error-container": "#ffdad6",
+            "outline-variant": "#c1c6d6",
+            "on-primary-container": "#ffffff",
+            "inverse-primary": "#adc7ff",
+            "surface-container": "#edeeef",
+            "primary-fixed-dim": "#adc7ff",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed": "#001a41",
+            "inverse-surface": "#2e3132",
+            "on-tertiary-fixed-variant": "#004493",
+            "inverse-on-surface": "#f0f1f2",
+            "tertiary-container": "#0872ed",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "on-surface-variant": "#414754",
+            "on-background": "#191c1d",
+            "on-tertiary-container": "#ffffff",
+            "tertiary-fixed-dim": "#adc6ff",
+            "tertiary": "#005abf",
+            "surface-bright": "#f8f9fa",
+            "secondary-fixed": "#ffdad3",
+            "primary-container": "#1a73e8",
+            "surface-variant": "#e1e3e4",
+            "surface-tint": "#005bc0",
+            "secondary-fixed-dim": "#ffb4a4",
+            "on-error": "#ffffff"
+          },
+          fontFamily: {
+            "headline": ["Manrope"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- TopNavBar (Shared Component Execution) -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 h-16 border-b border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 z-50 shadow-sm">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">UniMart Admin</span>
+<div class="hidden md:flex items-center bg-surface-container rounded-full px-4 py-1.5 gap-2">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-64 text-on-surface" placeholder="Search payout ID or seller..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors rounded-full relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden">
+<img alt="Admin Profile Menu" class="w-full h-full object-cover" data-alt="professional male portrait with glasses wearing a navy suit and smiling friendly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIZbSwlKbXHKmuqIGnIHd5-ccdWmcfbXrJ-3G03y7U6f_ff-I_oT0tPWpkN6rBWno-EgMlYu5VFaQ7xjTQyJWGACJ9aKulW8yYbbuNPbjOGPc0CXErQRIKNbZEF10RNQ2xjDX675ETGCZ4vGkbt4aGMwL8b9AusbeROWSFz-25vNGMfQxNtpOBYQsEL2GyRwvc0v8Y-2SVkR39M5xU_kvfv1H1amyQvvxyBRQO4FEluO7hRoHqyJQXv57k40lPB1PVVhLF0gAK65E"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Shared Component Execution) -->
+<aside class="fixed left-0 top-0 h-full w-64 pt-20 pb-6 px-4 flex flex-col gap-2 overflow-y-auto bg-slate-50 dark:bg-slate-950 border-r border-slate-100 dark:border-slate-800">
+<div class="mb-6 px-4">
+<div class="text-lg font-bold text-blue-600">Admin Central</div>
+<div class="text-xs text-slate-500">Management Suite</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-medium">User Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="font-medium">Moderation</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-medium">Operations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+<span class="font-medium">Platform</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 rounded-lg shadow-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-medium">Finance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium">System</span>
+</a>
+</nav>
+<div class="mt-auto px-4 pt-4">
+<button class="w-full bg-primary text-on-primary py-2.5 rounded-full font-semibold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+<span>Export Reports</span>
+</button>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 pt-20 p-8 min-h-screen">
+<!-- Header Summary Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
+<div class="col-span-1 md:col-span-2 bg-surface-container-lowest p-6 rounded-xl flex flex-col justify-between relative overflow-hidden">
+<div class="relative z-10">
+<p class="text-sm font-medium text-outline mb-1">Total Funds Scheduled for Release</p>
+<h2 class="text-4xl font-extrabold text-on-surface tracking-tight">৳ 4,82,500.00</h2>
+<div class="flex items-center gap-2 mt-4">
+<span class="flex items-center text-xs font-bold text-primary bg-primary-fixed px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="trending_up">trending_up</span>
+              12% vs last week
+            </span>
+<span class="text-xs text-outline italic">42 requests queued</span>
+</div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-9xl" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+</div>
+<div class="bg-primary text-on-primary p-6 rounded-xl flex flex-col justify-between shadow-xl shadow-primary/10">
+<div>
+<p class="text-sm font-medium opacity-80 mb-1">System Reserves</p>
+<h2 class="text-3xl font-bold tracking-tight">৳ 12,40,000</h2>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<span class="text-xs">Safe Threshold</span>
+<span class="h-1.5 w-24 bg-white/20 rounded-full overflow-hidden">
+<span class="block h-full w-[85%] bg-white"></span>
+</span>
+</div>
+</div>
+<div class="bg-secondary-fixed p-6 rounded-xl flex flex-col justify-between">
+<div>
+<p class="text-sm font-medium text-on-secondary-fixed mb-1">High Risk Flagged</p>
+<h2 class="text-3xl font-bold text-on-secondary-fixed tracking-tight">04</h2>
+</div>
+<button class="text-xs font-bold text-secondary uppercase tracking-widest flex items-center gap-1 hover:gap-2 transition-all">
+          Review Alerts <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Main Content Layout (Asymmetric) -->
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- Left Column: Queue -->
+<div class="flex-grow lg:w-2/3 space-y-6">
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-xl font-bold tracking-tight text-on-surface">Pending Payout Requests</h3>
+<div class="flex gap-2">
+<button class="bg-surface-container-high px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="filter_list">filter_list</span>
+              Filters
+            </button>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full text-sm font-bold shadow-md hover:scale-[0.98] transition-all">
+              Bulk Approve Platinum
+            </button>
+</div>
+</div>
+<!-- Request Queue (Elevated Table Replacement) -->
+<div class="space-y-4">
+<!-- Row Item: Active/Selected -->
+<div class="bg-surface-container-lowest p-5 rounded-xl border-l-4 border-primary shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center font-bold text-primary">
+                  DA
+                </div>
+<div>
+<h4 class="font-bold text-on-surface">Dhaka Artisans Ltd</h4>
+<p class="text-xs text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                    Platinum Seller • ID: #UA-8829
+                  </p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xl font-bold text-on-surface">৳ 84,200.00</p>
+<p class="text-xs text-outline">Requested 4h ago</p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-4 border-t border-surface-container-low">
+<div>
+<p class="text-[10px] uppercase font-bold text-outline tracking-widest mb-1">Wallet Balance</p>
+<p class="text-sm font-semibold">৳ 1,02,450.00</p>
+</div>
+<div>
+<p class="text-[10px] uppercase font-bold text-outline tracking-widest mb-1">Bank Details</p>
+<p class="text-sm font-semibold truncate">City Bank • **** 9928</p>
+</div>
+<div>
+<p class="text-[10px] uppercase font-bold text-outline tracking-widest mb-1">Risk Score</p>
+<span class="text-xs font-bold text-green-600 bg-green-100 px-2 py-0.5 rounded-full flex items-center w-fit">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="check_circle">check_circle</span>
+                  Low Risk
+                </span>
+</div>
+<div class="flex justify-end gap-2">
+<button class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors text-outline">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+<button class="p-2 rounded-lg bg-primary-container text-white shadow-sm hover:bg-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="done_all">done_all</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Row Item: Warning State -->
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-pointer opacity-90 hover:opacity-100">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center font-bold text-secondary">
+                  KS
+                </div>
+<div>
+<h4 class="font-bold text-on-surface">Kushia Silks</h4>
+<p class="text-xs text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="star">star</span>
+                    Silver Seller • ID: #UA-4211
+                  </p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xl font-bold text-on-surface">৳ 12,500.00</p>
+<p class="text-xs text-outline">Requested 12h ago</p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-4 border-t border-surface-container-low">
+<div>
+<p class="text-[10px] uppercase font-bold text-outline tracking-widest mb-1">Wallet Balance</p>
+<p class="text-sm font-semibold">৳ 14,000.00</p>
+</div>
+<div>
+<p class="text-[10px] uppercase font-bold text-outline tracking-widest mb-1">Bank Details</p>
+<p class="text-sm font-semibold">bKash • 017xxxx882</p>
+</div>
+<div>
+<p class="text-[10px] uppercase font-bold text-outline tracking-widest mb-1">Risk Score</p>
+<span class="text-xs font-bold text-orange-600 bg-orange-100 px-2 py-0.5 rounded-full flex items-center w-fit">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="warning">warning</span>
+                  Medium Risk
+                </span>
+</div>
+<div class="flex justify-end gap-2">
+<button class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors text-outline">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container text-outline hover:bg-primary-container hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="done_all">done_all</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Row Item: High Risk -->
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm border border-error/10 hover:shadow-md transition-shadow cursor-pointer">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-error-container flex items-center justify-center font-bold text-error">
+                  BT
+                </div>
+<div>
+<h4 class="font-bold text-on-surface">Bazaar Tech Solutions</h4>
+<p class="text-xs text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="report">report</span>
+                    Standard Seller • ID: #UA-0129
+                  </p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xl font-bold text-error">৳ 1,92,000.00</p>
+<p class="text-xs text-outline">Requested 2d ago</p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-4 border-t border-surface-container-low">
+<div>
+<p class="text-[10px] uppercase font-bold text-outline tracking-widest mb-1">Wallet Balance</p>
+<p class="text-sm font-semibold">৳ 1,93,500.00</p>
+</div>
+<div>
+<p class="text-[10px] uppercase font-bold text-outline tracking-widest mb-1">Bank Details</p>
+<p class="text-sm font-semibold">DBBL • **** 1102</p>
+</div>
+<div>
+<p class="text-[10px] uppercase font-bold text-outline tracking-widest mb-1">Risk Score</p>
+<span class="text-xs font-bold text-error bg-error-container px-2 py-0.5 rounded-full flex items-center w-fit">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="emergency">emergency</span>
+                  High Risk
+                </span>
+</div>
+<div class="flex justify-end gap-2">
+<button class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors text-outline">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container text-outline hover:bg-primary-container hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="done_all">done_all</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Audit Pane & Actions -->
+<div class="lg:w-1/3 space-y-6">
+<div class="glass-card p-6 rounded-2xl shadow-xl sticky top-24 border border-white/40">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-bold text-on-surface">Financial Audit</h3>
+<span class="text-[10px] px-2 py-1 bg-surface-container-highest rounded text-outline font-bold">LIVE SNAPSHOT</span>
+</div>
+<div class="mb-8">
+<div class="flex items-center justify-between text-xs font-bold uppercase tracking-widest text-outline mb-4">
+<span>Performance (Last 30 Days)</span>
+<span class="text-primary">Dhaka Artisans</span>
+</div>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-sm mb-1.5">
+<span class="text-on-surface font-medium">Net Sales</span>
+<span class="font-bold">৳ 4,12,000</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[88%] rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-1.5">
+<span class="text-on-surface font-medium">Returns &amp; Refunds</span>
+<span class="text-secondary font-bold">৳ 18,400</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[12%] rounded-full"></div>
+</div>
+<p class="text-[10px] text-outline mt-1.5">Return Rate: 4.4% (Below Industry Avg 7%)</p>
+</div>
+</div>
+</div>
+<!-- Transaction Summary -->
+<div class="bg-surface p-4 rounded-xl mb-8 space-y-3">
+<div class="flex justify-between text-sm">
+<span class="text-outline">Disputed Orders</span>
+<span class="font-bold text-on-surface">01</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-outline">Total Orders (30d)</span>
+<span class="font-bold text-on-surface">1,402</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-outline">Avg Delivery Time</span>
+<span class="font-bold text-on-surface">2.4 Days</span>
+</div>
+</div>
+<!-- Execution Actions -->
+<div class="space-y-3">
+<button class="w-full py-4 bg-primary text-white rounded-xl font-bold flex items-center justify-center gap-3 shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined" data-icon="task_alt">task_alt</span>
+              Approve Payout
+            </button>
+<div class="grid grid-cols-2 gap-3">
+<button class="py-3 bg-surface-container-high text-on-surface font-bold rounded-xl text-sm hover:bg-surface-container-highest transition-colors">
+                Hold (Audit)
+              </button>
+<button class="py-3 border-2 border-error/20 text-error font-bold rounded-xl text-sm hover:bg-error-container/30 transition-colors">
+                Reject Fraud
+              </button>
+</div>
+</div>
+<p class="text-[10px] text-center text-outline mt-6">
+            Action will be logged under Admin: <strong>Saruar J.</strong><br/>
+            Timestamp: Oct 24, 2023 - 14:22:10
+          </p>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Footer Summary for Mobile (Hidden on Web) -->
+<div class="md:hidden fixed bottom-0 left-0 w-full bg-white p-4 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] flex justify-between items-center z-50">
+<div>
+<p class="text-[10px] text-outline uppercase font-bold">Release Queue</p>
+<p class="font-bold text-on-surface">৳ 4.82 Lakh</p>
+</div>
+<button class="bg-primary text-white px-6 py-2 rounded-full font-bold shadow-lg">
+      Review 42 Items
+    </button>
+</div>
+</body></html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Seller Notifications | UniMart Seller Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#191c1d",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "secondary": "#ad3219",
+              "on-primary-container": "#ffffff",
+              "surface-tint": "#005bc0",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#ff6d4e",
+              "surface-variant": "#e1e3e4",
+              "on-secondary-fixed": "#3e0500",
+              "on-primary-fixed-variant": "#004493",
+              "inverse-surface": "#2e3132",
+              "secondary-fixed": "#ffdad3",
+              "surface-container-highest": "#e1e3e4",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed-dim": "#adc7ff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "primary-container": "#1a73e8",
+              "inverse-primary": "#adc7ff",
+              "surface-container-high": "#e7e8e9",
+              "on-primary-fixed": "#001a41",
+              "primary": "#005bbf",
+              "tertiary-fixed": "#d8e2ff",
+              "on-error-container": "#93000a",
+              "outline-variant": "#c1c6d6",
+              "on-error": "#ffffff",
+              "surface-bright": "#f8f9fa",
+              "surface-container": "#edeeef",
+              "surface": "#f8f9fa",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-tertiary-container": "#ffffff",
+              "error": "#ba1a1a",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-container-low": "#f3f4f5",
+              "on-background": "#191c1d",
+              "tertiary-container": "#0872ed",
+              "on-primary": "#ffffff",
+              "tertiary": "#005abf",
+              "on-secondary-container": "#680f00",
+              "surface-dim": "#d9dadb",
+              "on-tertiary-fixed": "#001a41",
+              "on-surface-variant": "#414754",
+              "on-tertiary-fixed-variant": "#004493",
+              "primary-fixed": "#d8e2ff",
+              "background": "#f8f9fa",
+              "outline": "#727785"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            background: rgba(248, 249, 250, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 flex items-center justify-between px-6 py-3 w-full bg-white dark:bg-slate-900 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold text-blue-700 dark:text-blue-400 tracking-tight font-headline">UniMart Seller Studio</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-container-highest border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/40 w-64" placeholder="Search alerts..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-blue-700 dark:text-blue-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors rounded-full relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="ml-2 w-8 h-8 rounded-full overflow-hidden bg-surface-container-high border-2 border-primary/10">
+<img alt="Merchant Profile Avatar" data-alt="professional portrait of a confident entrepreneur in a modern office setting with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtp0WHJDUlNN-DK09RR8Q6N-e7bj-fV_4jUEmd83YRp7peMFvr6G6_vt-Da7kS8dqofq61rswh7xdwjrjM8QnMf9e6Hh7vNjEzDJboGzcTKoE9ckrdFczNVGy2G-o1H-elpCk2t7oOkv039nOHWNRd0NV3vWNZ7R0k9OEjS9PKMdwwpBXUVihP6mTvvJtYQosaeFxL52f0xCMQECpklghSpXlcJ7QUKpVZS7jrmRBAKHRkYUH0EVKyP0to_FlkP-bT7QPugxTEDbs"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-4 z-40 bg-slate-50 dark:bg-slate-950 w-64 border-r border-transparent">
+<div class="mt-16 flex flex-col gap-1 flex-1">
+<div class="flex items-center gap-3 px-4 py-4 mb-4">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white font-bold text-lg">U</div>
+<div>
+<p class="font-bold text-slate-900 dark:text-white font-headline text-sm">Official Store</p>
+<p class="text-xs text-slate-500">Verified Merchant</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-sm font-medium">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="warehouse">warehouse</span>
+<span class="text-sm font-medium">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-sm font-medium">Payments</span>
+</a>
+</nav>
+<div class="mt-8 px-4">
+<button class="w-full py-3 px-4 bg-gradient-to-br from-primary to-primary-container text-white rounded-full font-semibold text-sm shadow-md hover:opacity-90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+                        Add New Product
+                    </button>
+</div>
+</div>
+<div class="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 p-8 bg-surface">
+<!-- Header Section -->
+<div class="max-w-5xl mx-auto mb-12">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="text-4xl font-extrabold font-headline text-on-surface tracking-tight">Business Alerts</h1>
+<p class="text-on-surface-variant mt-2">Manage your notifications and stay updated on your store activity.</p>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-2 text-sm font-semibold text-primary hover:bg-primary/5 rounded-full transition-colors">Mark all as read</button>
+<button class="px-4 py-2 text-sm font-semibold bg-surface-container-high rounded-full hover:bg-surface-container-highest transition-colors">Clear all</button>
+</div>
+</div>
+<!-- Bento Grid Filters -->
+<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-10">
+<button class="col-span-1 flex flex-col items-center justify-center p-4 rounded-xl bg-surface-container-lowest shadow-sm border-2 border-primary/20 transition-all">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="all_inclusive">all_inclusive</span>
+<span class="text-xs font-bold uppercase tracking-wider text-primary">All</span>
+</button>
+<button class="col-span-1 flex flex-col items-center justify-center p-4 rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-on-surface-variant mb-2" data-icon="shopping_bag">shopping_bag</span>
+<span class="text-xs font-medium text-on-surface-variant">Orders</span>
+</button>
+<button class="col-span-1 flex flex-col items-center justify-center p-4 rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-on-surface-variant mb-2" data-icon="assignment_return">assignment_return</span>
+<span class="text-xs font-medium text-on-surface-variant">Returns</span>
+</button>
+<button class="col-span-1 flex flex-col items-center justify-center p-4 rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-on-surface-variant mb-2" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-xs font-medium text-on-surface-variant">Payouts</span>
+</button>
+<button class="col-span-1 flex flex-col items-center justify-center p-4 rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-on-surface-variant mb-2" data-icon="inventory">inventory</span>
+<span class="text-xs font-medium text-on-surface-variant">Stock</span>
+</button>
+<button class="col-span-1 flex flex-col items-center justify-center p-4 rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-on-surface-variant mb-2" data-icon="campaign">campaign</span>
+<span class="text-xs font-medium text-on-surface-variant">System</span>
+</button>
+</div>
+<!-- Notification Feed -->
+<div class="space-y-4">
+<!-- Urgent / Unread Payout -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container-lowest p-6 transition-all hover:translate-x-1">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary"></div>
+<div class="flex items-start gap-5">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary" data-icon="payments" data-weight="fill" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-on-surface text-lg">Payout Successful</h3>
+<span class="text-[0.6875rem] font-medium text-primary uppercase bg-primary-fixed-dim/20 px-2 py-0.5 rounded-full">New</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed">Your revenue for the week of Oct 12 - Oct 18 (৳42,500.00) has been successfully transferred to your linked bank account ending in **4921.</p>
+<div class="mt-4 flex items-center gap-4">
+<span class="text-[0.6875rem] text-outline font-medium">10 mins ago</span>
+<button class="text-xs font-bold text-primary flex items-center gap-1 group-hover:underline">
+                                        View Transaction <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Low Stock Alert -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container-lowest p-6 transition-all hover:translate-x-1">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div class="flex items-start gap-5">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary" data-icon="warning">warning</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-on-surface text-lg">Low Stock Warning</h3>
+<span class="text-[0.6875rem] text-outline font-medium">2 hours ago</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed">Inventory for "Handwoven Jamdani Saree - Emerald Green" is critically low (2 items left). Restock soon to avoid losing sales momentum.</p>
+<div class="mt-4 flex gap-2">
+<button class="px-4 py-1.5 bg-secondary text-white text-xs font-bold rounded-full hover:opacity-90 transition-all">Update Stock</button>
+<button class="px-4 py-1.5 bg-surface-container-low text-on-surface-variant text-xs font-bold rounded-full">Dismiss</button>
+</div>
+</div>
+</div>
+</div>
+<!-- New Order -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container-lowest p-6 transition-all hover:translate-x-1">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary/20"></div>
+<div class="flex items-start gap-5">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center shrink-0 overflow-hidden">
+<img alt="Product thumbnail" data-alt="high-quality close up shot of a vibrant green traditional Jamdani textile with intricate gold patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2I6vC39PqQmb5fRfgFmEdQg_CItJBDO800ER4X5TiQi-0cvmRldJnNfdsGv9-Qk5sGY9Gqj3BqKH-G8518TqyQAxc5jvXsXufiKOCoQdA3__O_cBAJ0Ul57B3R91qJII_5pOeuIbFaGcxWb8YK6sZrDJ0Ddo60w53Op9OkJrf169YBvi6altVrm2NqYxQpP6ZCPlWAV3LF6eT9BpjwFnsDvUzOjv3wHfF5heE8aG4uEU291aifC0aWT-rU-eB-7may4QnKwzjKBk"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-on-surface text-lg">New Order #UM-88219</h3>
+<span class="text-[0.6875rem] text-outline font-medium">4 hours ago</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed">Customer "Farhan Ahmed" placed an order for 2 items. Total value: ৳3,450.00. Preparation deadline: Tomorrow, 10:00 AM.</p>
+<div class="mt-4 flex items-center gap-4">
+<button class="text-xs font-bold text-primary flex items-center gap-1 group-hover:underline">
+                                        Ship Order <span class="material-symbols-outlined text-sm" data-icon="local_shipping">local_shipping</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- System Update - Editorial Style -->
+<div class="group relative overflow-hidden rounded-xl bg-tertiary-fixed text-on-tertiary-fixed p-6 transition-all hover:shadow-lg border border-primary/10">
+<div class="flex items-start gap-5">
+<div class="w-12 h-12 rounded-full bg-white/40 backdrop-blur flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="flex-1">
+<h3 class="font-extrabold font-headline text-xl mb-2">Studio 2.0 is Here!</h3>
+<p class="text-on-tertiary-fixed/80 leading-relaxed mb-4">We've upgraded our analytics engine. You can now see real-time visitor heatmaps for your product pages and deeper demographic insights from the "Analytics" tab.</p>
+<button class="px-6 py-2 bg-primary text-white text-xs font-bold rounded-full shadow-sm">Explore New Features</button>
+</div>
+</div>
+</div>
+<!-- Return Request -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container-lowest p-6 transition-all hover:translate-x-1 opacity-80">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-outline"></div>
+<div class="flex items-start gap-5">
+<div class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-error" data-icon="assignment_return">assignment_return</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-on-surface text-lg line-through text-outline">Return Request: #UM-87221</h3>
+<span class="text-[0.6875rem] text-outline font-medium">Yesterday</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed">Customer requested a return for "Modern Terracotta Vase". Reason: Arrived damaged. (Resolved: Refund Processed)</p>
+<div class="mt-4">
+<span class="px-3 py-1 bg-surface-container text-outline text-[0.6875rem] font-bold rounded-full uppercase">Archived</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More / Empty State Spacer -->
+<div class="mt-12 text-center">
+<button class="px-8 py-3 bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant font-bold text-sm rounded-full transition-all border border-outline-variant/20">
+                        Load older notifications
+                    </button>
+</div>
+</div>
+</main>
+</div>
+<!-- Contextual Floating Action Button -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="flex items-center gap-3 px-6 py-4 bg-primary text-white rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span class="font-bold text-sm tracking-wide">Seller Support</span>
+</button>
+</div>
+</body></html>

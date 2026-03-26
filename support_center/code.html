@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UniMart Seller Studio - Support &amp; Help Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed": "#d8e2ff",
+                        "on-surface": "#191c1d",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#ffffff",
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface": "#f8f9fa",
+                        "error-container": "#ffdad6",
+                        "primary": "#005bbf",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-container-low": "#f3f4f5",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "surface-dim": "#d9dadb",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "on-surface-variant": "#414754",
+                        "surface-tint": "#005bc0",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#001a41",
+                        "tertiary": "#005abf",
+                        "secondary": "#ad3219",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#3e0500",
+                        "on-tertiary-fixed": "#001a41",
+                        "inverse-primary": "#adc7ff",
+                        "outline": "#727785",
+                        "surface-container": "#edeeef",
+                        "secondary-fixed": "#ffdad3",
+                        "on-secondary-fixed-variant": "#8b1a02",
+                        "on-secondary-container": "#680f00",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-variant": "#e1e3e4",
+                        "primary-fixed-dim": "#adc7ff",
+                        "on-primary-fixed-variant": "#004493",
+                        "on-primary-container": "#ffffff",
+                        "primary-container": "#1a73e8",
+                        "inverse-surface": "#2e3132",
+                        "background": "#f8f9fa",
+                        "surface-bright": "#f8f9fa",
+                        "secondary-container": "#ff6d4e",
+                        "outline-variant": "#c1c6d6",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary-container": "#0872ed"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .headline { font-family: 'Manrope', sans-serif; }
+        .glass-effect {
+            background: rgba(248, 249, 250, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-surface-container-lowest shadow-sm">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold text-blue-700 tracking-tight">UniMart Seller Studio</span>
+<div class="hidden md:flex items-center gap-6">
+<nav class="flex gap-6 text-[1.125rem] font-medium">
+<a class="text-gray-500 hover:text-blue-600 transition-colors" href="#">Dashboard</a>
+<a class="text-gray-500 hover:text-blue-600 transition-colors" href="#">Products</a>
+<a class="text-blue-700 font-bold border-b-2 border-blue-700" href="#">Help Center</a>
+</nav>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-gray-100 rounded-full transition-colors material-symbols-outlined" data-icon="notifications">notifications</button>
+<button class="p-2 hover:bg-gray-100 rounded-full transition-colors material-symbols-outlined" data-icon="help_outline">help_outline</button>
+<button class="p-2 hover:bg-gray-100 rounded-full transition-colors material-symbols-outlined" data-icon="apps">apps</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden">
+<img alt="Merchant Profile Avatar" class="w-full h-full object-cover" data-alt="professional portrait of a confident smiling south asian male merchant in business casual attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU_w8k8efQ3FDgSXIbRB5gerC04FjEcV8eKrG96bcCZV1-z06SIKtGjNj84zOHkwgY3l3htVudFshPH-O5bTHCDxUQaBJm8KuEI_Cs35MNJH9wpMkJUHiz0JeCjUQJZPszAxKKpgllHr9sNstCQwMxJxDl5YFsmjAKdgDbF9A4U6QM0tVq0ThIa_U2gxEzpULNB6laxZvkoJIiUua_Y18iRcEOtczGwp12iDDDs4EuEfOSRqsLYQfrw2bbnqqanfUiUL3BWK1nijU"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full w-64 flex flex-col p-4 z-40 bg-surface-container-low mt-16 hidden md:flex">
+<div class="flex flex-col gap-1 flex-1">
+<a class="flex items-center gap-3 text-gray-600 px-4 py-3 hover:bg-gray-200 rounded-lg transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[0.875rem] font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 px-4 py-3 hover:bg-gray-200 rounded-lg transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-[0.875rem] font-medium">Products</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 px-4 py-3 hover:bg-gray-200 rounded-lg transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-[0.875rem] font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 px-4 py-3 hover:bg-gray-200 rounded-lg transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="text-[0.875rem] font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 bg-white text-blue-700 rounded-lg px-4 py-3 font-semibold shadow-sm transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support" style="font-variation-settings: 'FILL' 1;">contact_support</span>
+<span class="text-[0.875rem]">Help Center</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 px-4 py-3 hover:bg-gray-200 rounded-lg transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[0.875rem] font-medium">Settings</span>
+</a>
+</div>
+<div class="pt-4 border-t border-outline-variant/15">
+<a class="flex items-center gap-3 text-gray-600 px-4 py-3 hover:bg-gray-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-[0.875rem] font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-64 mt-16 p-8 min-h-screen">
+<div class="max-w-6xl mx-auto">
+<!-- Hero Section / Editorial Moment -->
+<section class="mb-16 py-12 px-8 bg-gradient-to-br from-primary to-primary-container rounded-xl text-on-primary shadow-lg relative overflow-hidden">
+<div class="relative z-10 md:w-2/3">
+<h1 class="text-4xl md:text-5xl font-extrabold headline mb-4 tracking-tight">How can we help you today?</h1>
+<p class="text-lg opacity-90 mb-8 font-body">Search our extensive documentation or connect with our merchant success team.</p>
+<!-- Search Bar -->
+<div class="relative max-w-xl group">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-gray-400">search</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-full border-none bg-surface-container-lowest text-on-surface focus:ring-2 focus:ring-primary/40 text-lg transition-all shadow-xl group-hover:scale-[1.01]" placeholder="Search for documentation, guides, or order issues..." type="text"/>
+</div>
+</div>
+<!-- Decorative Abstract Element -->
+<div class="absolute right-[-10%] top-[-20%] w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute right-[5%] bottom-[10%] opacity-20 hidden lg:block">
+<span class="material-symbols-outlined text-[12rem]" data-icon="support_agent">support_agent</span>
+</div>
+</section>
+<!-- Bento Grid Categories -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+<!-- Account Management -->
+<div class="col-span-1 bg-surface-container-lowest p-8 rounded-xl transition-all hover:translate-y-[-4px] group">
+<div class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center mb-6 text-primary">
+<span class="material-symbols-outlined" data-icon="manage_accounts">manage_accounts</span>
+</div>
+<h3 class="text-xl font-bold headline mb-3 group-hover:text-primary transition-colors">Account Management</h3>
+<p class="text-on-surface-variant mb-6 text-sm leading-relaxed">Update your shop details, verify identity, and manage sub-user permissions.</p>
+<ul class="space-y-3">
+<li><a class="text-sm font-semibold text-primary hover:underline flex items-center gap-2" href="#">KYC Verification <span class="material-symbols-outlined text-[1rem]" data-icon="arrow_forward">arrow_forward</span></a></li>
+<li><a class="text-sm font-semibold text-primary hover:underline flex items-center gap-2" href="#">Updating Bank Info <span class="material-symbols-outlined text-[1rem]" data-icon="arrow_forward">arrow_forward</span></a></li>
+</ul>
+</div>
+<!-- Order Issues & Logistics -->
+<div class="col-span-1 md:col-span-1 bg-surface-container-lowest p-8 rounded-xl transition-all hover:translate-y-[-4px] group">
+<div class="w-12 h-12 rounded-lg bg-secondary-fixed flex items-center justify-center mb-6 text-secondary">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+</div>
+<h3 class="text-xl font-bold headline mb-3 group-hover:text-secondary transition-colors">Order Issues</h3>
+<p class="text-on-surface-variant mb-6 text-sm leading-relaxed">Manage returns, track delayed pickups, and resolve delivery disputes.</p>
+<ul class="space-y-3">
+<li><a class="text-sm font-semibold text-primary hover:underline flex items-center gap-2" href="#">Processing Returns <span class="material-symbols-outlined text-[1rem]" data-icon="arrow_forward">arrow_forward</span></a></li>
+<li><a class="text-sm font-semibold text-primary hover:underline flex items-center gap-2" href="#">Delivery Delays <span class="material-symbols-outlined text-[1rem]" data-icon="arrow_forward">arrow_forward</span></a></li>
+</ul>
+</div>
+<!-- Payouts & Finance -->
+<div class="col-span-1 bg-surface-container-lowest p-8 rounded-xl transition-all hover:translate-y-[-4px] group">
+<div class="w-12 h-12 rounded-lg bg-tertiary-fixed flex items-center justify-center mb-6 text-tertiary">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<h3 class="text-xl font-bold headline mb-3 group-hover:text-tertiary transition-colors">Payouts &amp; Finance</h3>
+<p class="text-on-surface-variant mb-6 text-sm leading-relaxed">Understand payment cycles, commission rates, and reconciliation reports.</p>
+<ul class="space-y-3">
+<li><a class="text-sm font-semibold text-primary hover:underline flex items-center gap-2" href="#">Payout Schedule <span class="material-symbols-outlined text-[1rem]" data-icon="arrow_forward">arrow_forward</span></a></li>
+<li><a class="text-sm font-semibold text-primary hover:underline flex items-center gap-2" href="#">Commission Structure <span class="material-symbols-outlined text-[1rem]" data-icon="arrow_forward">arrow_forward</span></a></li>
+</ul>
+</div>
+</div>
+<!-- Contact Support Section -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16 items-start">
+<!-- Ticket Raising System -->
+<div class="bg-surface-container-low p-10 rounded-xl relative">
+<h2 class="text-3xl font-extrabold headline mb-6">Need expert assistance?</h2>
+<p class="text-on-surface-variant mb-8">Our support team is available 24/7. Create a ticket and we'll get back to you within 4 business hours.</p>
+<form class="space-y-5">
+<div class="space-y-2">
+<label class="text-sm font-bold headline ml-1">Issue Category</label>
+<select class="w-full p-4 rounded-xl border-none bg-surface-container-highest focus:ring-2 focus:ring-primary/40 appearance-none">
+<option>Select a category</option>
+<option>Technical Glitch</option>
+<option>Billing Discrepancy</option>
+<option>Logistics Support</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold headline ml-1">Describe your problem</label>
+<textarea class="w-full p-4 rounded-xl border-none bg-surface-container-highest focus:ring-2 focus:ring-primary/40 placeholder:text-gray-400" placeholder="Please provide order IDs or specific details..." rows="4"></textarea>
+</div>
+<button class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-full shadow-lg transition-all active:scale-95">Raise Ticket Now</button>
+</form>
+</div>
+<!-- Live Chat Card (Editorial Style) -->
+<div class="h-full flex flex-col justify-between">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/15 flex-1 mb-6">
+<div class="flex items-center gap-4 mb-8">
+<div class="relative">
+<img alt="Support Agent" class="w-16 h-16 rounded-full object-cover" data-alt="close up of a friendly professional female customer support representative wearing a headset with soft office background lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDxVZzR0TcdmLhQpZPBDSFc849jRBXLFgv0WQEL6Xc1oGSH_dRqXv6AWjMIEq4iETX-VoJAfLAsXCz_4Nxoehz0EZT9q63pOv16BvklXUQ30NfbuNsxP0UQw-UByC8aJ48bDnUwvrVpmKIAUwYtrJUDq3kW_ZM5pVyh9lfvk8xBMRcz4-So8_GVC-LSHxx6SSkMOlR5my8QFUnqJ0iWdo8lcrjRez8JRzug0AKLlNVb0YLssrXEUekxsqgWYBJKCt0Vm-ba4dFiR4"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></span>
+</div>
+<div>
+<h4 class="text-lg font-bold headline">Live Chat Support</h4>
+<p class="text-sm text-green-600 font-semibold">Available Now • Response time: 2m</p>
+</div>
+</div>
+<p class="text-on-surface-variant mb-8 italic">"Hi there! I'm Sarah from the UniMart Seller Success team. I can help you with real-time order tracking and payout queries."</p>
+<!-- Technical Reference Hint -->
+<div class="p-4 bg-surface-container rounded-lg border-l-4 border-primary mb-8">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="code">code</span>
+<span class="text-xs font-bold uppercase tracking-wider text-primary">System Notice</span>
+</div>
+<p class="text-xs text-on-surface-variant">Real-time connectivity powered by Socket.io engine. For developer documentation on our merchant API integration, <a class="text-primary underline" href="#">click here</a>.</p>
+</div>
+<button class="flex items-center justify-center gap-3 w-full py-4 bg-surface-container-high text-primary font-bold rounded-full hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+                            Start Live Chat
+                        </button>
+</div>
+<div class="flex gap-4">
+<div class="flex-1 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 flex items-center gap-4 group cursor-pointer hover:bg-primary/5 transition-colors">
+<div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-700">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant font-bold">Email Support</p>
+<p class="text-sm font-semibold">help@unimart.com</p>
+</div>
+</div>
+<div class="flex-1 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 flex items-center gap-4 group cursor-pointer hover:bg-secondary/5 transition-colors">
+<div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant font-bold">Call Center</p>
+<p class="text-sm font-semibold">+880 1234 5678</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- FAQ Section -->
+<section class="mb-24">
+<div class="flex items-end justify-between mb-10">
+<div>
+<span class="text-primary font-bold uppercase tracking-[0.2em] text-[0.6875rem] mb-2 block">Quick Answers</span>
+<h2 class="text-4xl font-extrabold headline">Common Questions</h2>
+</div>
+<a class="text-primary font-bold underline decoration-2 underline-offset-4 hidden md:block" href="#">View all FAQs</a>
+</div>
+<div class="space-y-4">
+<!-- FAQ 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden group">
+<button class="w-full text-left p-6 flex justify-between items-center">
+<span class="text-lg font-bold headline">When will I receive my payouts for successful deliveries?</span>
+<span class="material-symbols-outlined text-gray-400 group-hover:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</button>
+<div class="px-6 pb-6 text-on-surface-variant leading-relaxed">
+<p>Payouts are processed weekly on Tuesdays for all orders that have completed the 7-day return period. You can track pending payouts in your Wallet dashboard under the 'Scheduled' tab.</p>
+</div>
+</div>
+<!-- FAQ 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden group">
+<button class="w-full text-left p-6 flex justify-between items-center">
+<span class="text-lg font-bold headline">How do I handle a customer return request?</span>
+<span class="material-symbols-outlined text-gray-400" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+<!-- FAQ 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden group">
+<button class="w-full text-left p-6 flex justify-between items-center">
+<span class="text-lg font-bold headline">What are the current commission rates for the Fashion category?</span>
+<span class="material-symbols-outlined text-gray-400" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+<!-- FAQ 4 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden group">
+<button class="w-full text-left p-6 flex justify-between items-center">
+<span class="text-lg font-bold headline">How can I join the UniMart Premium Seller program?</span>
+<span class="material-symbols-outlined text-gray-400" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Final CTA Editorial -->
+<section class="mb-16 p-12 bg-surface-container-highest rounded-2xl flex flex-col md:flex-row items-center gap-10">
+<div class="md:w-1/3">
+<img alt="University Partnership" class="w-full rounded-xl shadow-md rotate-[-2deg]" data-alt="close-up of hands typing on a modern laptop with a coffee mug nearby on a bright wooden desk in an editorial style minimalist workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDM3tnQan9XApT0lhfwTW_8k8aKj5QlxcqOdf2XxtRvgzlcj32ZfkVOzyMlBdVx6YPc7ju_JfUW1fMmjDBQ6WK0EuVt_zKeOqcu7wnFKomKYVU490vNhrnOoe8fOB7I4wzq4pkfdNl8hQXca_FNfCxAcnf1_bI6byJEwEjT00WEKqDCHFF4ueK_JL7NfJtZq4H-IVajD-49EKT_2gWtg6U8bcvRoOr0P4dNSRLe1rdz0520ktV56p3wUNROFUuCZFnAuzXwrLVr-CQ"/>
+</div>
+<div class="md:w-2/3">
+<h2 class="text-3xl font-extrabold headline mb-4">Want to master selling on UniMart?</h2>
+<p class="text-on-surface-variant mb-8 text-lg">Join our weekly 'Seller Studio Webinars' where we share tips on catalog optimization, seasonal trends, and marketing strategies to double your sales.</p>
+<div class="flex gap-4">
+<button class="px-8 py-3 bg-primary text-on-primary font-bold rounded-full shadow-md hover:shadow-lg transition-all">Enroll in Academy</button>
+<button class="px-8 py-3 bg-surface-container-lowest text-primary font-bold rounded-full border border-outline-variant/30">Browse Guides</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar Shell (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-lowest flex justify-around items-center h-16 z-50 shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
+<button class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[0.6rem] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-[0.6rem] font-medium">Inventory</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-blue-700">
+<span class="material-symbols-outlined" data-icon="contact_support" style="font-variation-settings: 'FILL' 1;">contact_support</span>
+<span class="text-[0.6rem] font-bold">Help</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[0.6rem] font-medium">Settings</span>
+</button>
+</nav>
+</body></html>

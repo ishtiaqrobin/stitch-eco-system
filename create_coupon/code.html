@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create Coupon | UniMart Seller Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface": "#191c1d",
+                        "on-secondary-fixed-variant": "#8b1a02",
+                        "secondary": "#ad3219",
+                        "on-primary-container": "#ffffff",
+                        "surface-tint": "#005bc0",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#ff6d4e",
+                        "surface-variant": "#e1e3e4",
+                        "on-secondary-fixed": "#3e0500",
+                        "on-primary-fixed-variant": "#004493",
+                        "inverse-surface": "#2e3132",
+                        "secondary-fixed": "#ffdad3",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#adc7ff",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "primary-container": "#1a73e8",
+                        "inverse-primary": "#adc7ff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-primary-fixed": "#001a41",
+                        "primary": "#005bbf",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#c1c6d6",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container": "#edeeef",
+                        "surface": "#f8f9fa",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "on-tertiary-container": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container-low": "#f3f4f5",
+                        "on-background": "#191c1d",
+                        "tertiary-container": "#0872ed",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#005abf",
+                        "on-secondary-container": "#680f00",
+                        "surface-dim": "#d9dadb",
+                        "on-tertiary-fixed": "#001a41",
+                        "on-surface-variant": "#414754",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "primary-fixed": "#d8e2ff",
+                        "background": "#f8f9fa",
+                        "outline": "#727785"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 flex items-center justify-between px-6 py-3 w-full bg-white dark:bg-slate-900 shadow-sm dark:shadow-none border-b border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold text-blue-700 dark:text-blue-400 tracking-tight">UniMart Seller Studio</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center bg-surface-container-low px-4 py-2 rounded-full w-96">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full ml-2" placeholder="Search orders, products..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-colors"><span class="material-symbols-outlined">help</span></button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-colors"><span class="material-symbols-outlined">settings</span></button>
+<div class="h-8 w-8 rounded-full bg-primary-fixed-dim overflow-hidden ml-2">
+<img alt="Merchant Profile Avatar" data-alt="professional headshot of a south asian merchant smiling in a modern office environment with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfzOeg5RvEryTMbFwzapPuJIxcZwL5Pj-F5DMCdBLBy9FEOHY9kKzAG6b3x7A_S5zp764EwL5PuVoG0OugOfDzPxEsHepURmeKLvUDSXm4_XoWnNSJF-Rb2boFG_96WntAIiww9PLfBuCv1hjgdyoNCSotK9lWP7HAull0oaCKkOyUZTUO__mPXyoEQlU4X2WBz01dmMlGBPEKwmsAS12y863OecS0hH81EJj1gJUR6_QrHuOIw2RJOnunzZJ0m_QkRzq72Co0wLE"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 border-r bg-slate-50 dark:bg-slate-950 flex flex-col p-4 z-40 hidden md:flex">
+<div class="mb-8 px-4 py-4 rounded-xl bg-white dark:bg-slate-900 shadow-sm flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-blue-700 flex items-center justify-center text-white">
+<span class="material-symbols-outlined">store</span>
+</div>
+<div>
+<h3 class="text-sm font-bold leading-tight">Official Store</h3>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">Verified Merchant</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-sm font-medium">Products</span>
+</a>
+<!-- Active Item for context of Promotions/Coupons -->
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-400 rounded-lg shadow-sm font-bold scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
+<span class="text-sm">Coupons</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-sm font-medium">Payments</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-error hover:bg-error-container/20 rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 p-4 md:p-10 bg-surface">
+<div class="max-w-5xl mx-auto">
+<!-- Breadcrumbs & Header -->
+<nav class="flex items-center gap-2 text-xs font-semibold text-outline mb-4">
+<span>Promotions</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-primary">Create Coupon</span>
+</nav>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div>
+<h1 class="text-4xl font-extrabold text-on-surface tracking-tight mb-2">Configure Coupon</h1>
+<p class="text-on-surface-variant max-w-lg">Boost your sales by offering strategic discounts. Design a coupon that rewards your most loyal customers.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-6 py-2.5 rounded-full font-bold text-sm bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-all">Discard Draft</button>
+<button class="px-8 py-2.5 rounded-full font-bold text-sm bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-lg shadow-primary/20 hover:opacity-90 transition-all">Publish Coupon</button>
+</div>
+</div>
+<!-- Form Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Primary Settings (LHS) -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Coupon Basics Section -->
+<section class="p-8 rounded-xl bg-surface-container-lowest shadow-sm border border-outline-variant/10">
+<h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">edit_note</span>
+                                Coupon Identity
+                            </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant">Coupon Code</label>
+<input class="w-full px-4 py-3 rounded-lg bg-surface-container-high border-none focus:ring-2 focus:ring-primary/40 transition-all font-mono uppercase tracking-widest" placeholder="e.g. SUMMER60" type="text"/>
+<p class="text-[10px] text-outline">Customers will enter this code at checkout.</p>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant">Internal Description</label>
+<input class="w-full px-4 py-3 rounded-lg bg-surface-container-high border-none focus:ring-2 focus:ring-primary/40 transition-all" placeholder="Summer Flash Sale 2024" type="text"/>
+</div>
+</div>
+</section>
+<!-- Discount Configuration -->
+<section class="p-8 rounded-xl bg-surface-container-lowest shadow-sm border border-outline-variant/10">
+<h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">payments</span>
+                                Discount Logic
+                            </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+<div class="flex flex-col gap-4">
+<label class="block text-sm font-bold text-on-surface-variant">Discount Type</label>
+<div class="grid grid-cols-2 gap-2 p-1 bg-surface-container-high rounded-xl">
+<button class="py-3 px-4 rounded-lg text-sm font-bold bg-white shadow-sm text-primary">Percentage</button>
+<button class="py-3 px-4 rounded-lg text-sm font-medium text-on-surface-variant hover:bg-white/50">Fixed Amount</button>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant">Discount Value</label>
+<div class="relative">
+<input class="w-full px-4 py-3 rounded-lg bg-surface-container-high border-none focus:ring-2 focus:ring-primary/40 transition-all pr-12 text-lg font-bold" placeholder="0" type="number"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 font-bold text-outline">%</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant">Minimum Order Value (৳)</label>
+<div class="relative">
+<input class="w-full px-4 py-3 rounded-lg bg-surface-container-high border-none focus:ring-2 focus:ring-primary/40 transition-all pl-10" placeholder="500" type="number"/>
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-outline">৳</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant">Maximum Discount Limit (৳)</label>
+<div class="relative">
+<input class="w-full px-4 py-3 rounded-lg bg-surface-container-high border-none focus:ring-2 focus:ring-primary/40 transition-all pl-10" placeholder="No limit" type="number"/>
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-outline">৳</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Restrictions -->
+<section class="p-8 rounded-xl bg-surface-container-lowest shadow-sm border border-outline-variant/10 overflow-hidden">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">inventory</span>
+                                    Applicable Products
+                                </h2>
+<button class="text-sm font-bold text-primary flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-sm">add</span> Add Selection
+                                </button>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl group hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded bg-white overflow-hidden flex-shrink-0">
+<img alt="Product thumbnail" data-alt="clean professional studio shot of a vibrant red luxury sneaker on a neutral gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjgmXdznXpGERYIHWCSkl-AmZBC4UoGG6OQpbo-mPj9IYpA97hNdKMnTgMkH9OtDTVJiP67tnWaTCAzuHzJbh_uJcSq1pYKAVMiSbpSN146yeB2oLE5hG1mdvovC9U1yDeLhgl7Le2JSRVCF4fdKFCdnIHVH-5ao2EDrffSxhG7nfamERt3H6E1rAgJMLglT7ozXCXa4lECQVpgLfs-KuSYotW16B_4KFWX858XeJ0yZq-0B-01wTqgAB7VsMb8-jIFHOrWydhRCU"/>
+</div>
+<div>
+<p class="text-sm font-bold">Luxe Athletic V2 Sneakers</p>
+<p class="text-xs text-outline">Electronics &amp; Lifestyle • SKU: LA-V2-RD</p>
+</div>
+</div>
+<button class="p-2 text-outline hover:text-error transition-colors"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl group hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded bg-white overflow-hidden flex-shrink-0">
+<img alt="Product thumbnail" data-alt="minimalist aesthetic product photo of a high-end analog watch with white dial and leather strap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM86-t4U3GF9aft8soaWvUoqosFANYDhaAv-Jrhd-JYQeK-srNG5fS4fRVwoqIClUXp-BtFKUdpjEQNTT2_CiiHe0tLQPyDF4zijtwcXIbBSs3dDhMM5uLbl6Gn-XOMo66NhP-8ipl7AIKAUz85mh4QvayiOMrDffA2AwMlA-3-05SQtXFUdfJ6tNOkdEPZ7t6x1iV_oMjpmGT2UW3ExMEIhjbRFkZZA_qGKmlyX36aKWbuFf6Jm_oA6a_vUGznlt1pvhyFwQpnmw"/>
+</div>
+<div>
+<p class="text-sm font-bold">Classic Minimalist Watch</p>
+<p class="text-xs text-outline">Fashion • SKU: CW-MIN-BL</p>
+</div>
+</div>
+<button class="p-2 text-outline hover:text-error transition-colors"><span class="material-symbols-outlined">close</span></button>
+</div>
+</div>
+<div class="mt-6 flex items-center justify-center p-8 border-2 border-dashed border-outline-variant rounded-xl bg-surface-container-low/30">
+<div class="text-center">
+<span class="material-symbols-outlined text-4xl text-outline mb-2">search_check</span>
+<p class="text-sm font-medium text-outline">Search and add more products to restrict this coupon's usage.</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Side Settings (RHS) -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Scheduling -->
+<section class="p-8 rounded-xl bg-surface-container-lowest shadow-sm border border-outline-variant/10">
+<h2 class="text-lg font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+                                Schedule &amp; Validity
+                            </h2>
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant">Start Date</label>
+<input class="w-full px-4 py-3 rounded-lg bg-surface-container-high border-none focus:ring-2 focus:ring-primary/40 transition-all text-sm" type="date" value="2024-06-01"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant">End Date (Expiry)</label>
+<input class="w-full px-4 py-3 rounded-lg bg-surface-container-high border-none focus:ring-2 focus:ring-primary/40 transition-all text-sm" type="date" value="2024-08-31"/>
+</div>
+<div class="flex items-center gap-3 p-4 bg-primary-fixed/30 rounded-lg">
+<span class="material-symbols-outlined text-primary">info</span>
+<p class="text-xs font-medium text-on-primary-fixed-variant">This coupon will run for 92 days.</p>
+</div>
+</div>
+</section>
+<!-- Usage Limits -->
+<section class="p-8 rounded-xl bg-surface-container-lowest shadow-sm border border-outline-variant/10">
+<h2 class="text-lg font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">data_usage</span>
+                                Usage Limits
+                            </h2>
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant">Total Usage Limit</label>
+<input class="w-full px-4 py-3 rounded-lg bg-surface-container-high border-none focus:ring-2 focus:ring-primary/40 transition-all" placeholder="Unlimited" type="number"/>
+<p class="text-[10px] text-outline italic">Maximum times this coupon can be used globally.</p>
+</div>
+<div class="space-y-4 pt-4 border-t border-outline-variant/20">
+<div class="flex items-center justify-between">
+<label class="text-sm font-semibold text-on-surface">Limit to 1 use per customer</label>
+<div class="relative inline-block w-10 h-6 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-primary translate-x-4" id="toggle1" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-primary cursor-pointer" for="toggle1"></label>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<label class="text-sm font-semibold text-on-surface">Combine with other offers</label>
+<div class="relative inline-block w-10 h-6 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-outline-variant" id="toggle2" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer" for="toggle2"></label>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Preview Card -->
+<section class="relative p-8 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 text-white shadow-xl overflow-hidden group">
+<div class="absolute -right-12 -top-12 h-40 w-40 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute -left-12 -bottom-12 h-32 w-32 bg-secondary/30 rounded-full blur-2xl"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<span class="text-[10px] font-black uppercase tracking-[0.2em] opacity-70 mb-2">Live Preview</span>
+<div class="text-4xl font-extrabold mb-1">20% OFF</div>
+<p class="text-xs font-medium opacity-80 mb-6 italic">Minimum order ৳500</p>
+<div class="w-full py-4 px-2 border-2 border-dashed border-white/40 rounded-xl bg-white/5 flex items-center justify-center gap-4">
+<span class="text-2xl font-mono font-bold tracking-widest">SUMMER60</span>
+<span class="material-symbols-outlined text-xl opacity-60">content_copy</span>
+</div>
+<p class="mt-4 text-[10px] font-bold opacity-60 uppercase tracking-tighter">Valid until Aug 31, 2024</p>
+</div>
+</section>
+</div>
+</div>
+<!-- Footer Action Spacer -->
+<div class="h-20"></div>
+</div>
+</main>
+</div>
+</body></html>

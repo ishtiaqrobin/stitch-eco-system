@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Details - UniMart Seller Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface": "#191c1d",
+                        "on-secondary-fixed-variant": "#8b1a02",
+                        "secondary": "#ad3219",
+                        "on-primary-container": "#ffffff",
+                        "surface-tint": "#005bc0",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#ff6d4e",
+                        "surface-variant": "#e1e3e4",
+                        "on-secondary-fixed": "#3e0500",
+                        "on-primary-fixed-variant": "#004493",
+                        "inverse-surface": "#2e3132",
+                        "secondary-fixed": "#ffdad3",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#adc7ff",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "primary-container": "#1a73e8",
+                        "inverse-primary": "#adc7ff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-primary-fixed": "#001a41",
+                        "primary": "#005bbf",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#c1c6d6",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container": "#edeeef",
+                        "surface": "#f8f9fa",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "on-tertiary-container": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container-low": "#f3f4f5",
+                        "on-background": "#191c1d",
+                        "tertiary-container": "#0872ed",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#005abf",
+                        "on-secondary-container": "#680f00",
+                        "surface-dim": "#d9dadb",
+                        "on-tertiary-fixed": "#001a41",
+                        "on-surface-variant": "#414754",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "primary-fixed": "#d8e2ff",
+                        "background": "#f8f9fa",
+                        "outline": "#727785"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .glass-panel {
+            background: rgba(248, 249, 250, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        .asymmetric-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+        @media (max-width: 1024px) {
+            .asymmetric-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 flex items-center justify-between px-6 py-3 w-full bg-white dark:bg-slate-900 shadow-sm dark:shadow-none border-b border-slate-100">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold text-blue-700 dark:text-blue-400 tracking-tight">UniMart Seller Studio</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-50 transition-colors px-3 py-1 rounded" href="#">Dashboard</a>
+<a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700 px-3 py-1" href="#">Orders</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-50 transition-colors px-3 py-1 rounded" href="#">Products</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-highest border-none rounded-full text-sm focus:ring-2 focus:ring-primary/40 w-64" placeholder="Search orders..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-slate-50 rounded-full transition-colors text-slate-600">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-50 rounded-full transition-colors text-slate-600">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<img alt="Merchant Profile Avatar" class="w-8 h-8 rounded-full border border-outline-variant/20" data-alt="professional portrait of a confident south asian merchant in a clean studio environment with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKSKnvfqYsHdul_EAiWT_zy6vC4VxiZCHYwKfAtLWLDLUCwOlj5K3aKLlwcP4JCI4BKC7_0rZizxGjj_rOVSMw99hiZ_-E_S1BDvda0GCupLr4PkVHrQ6w_aM0TErF_izmqaYX06uClOQy4CIaAxFxj-d_uaaRjXxyyPqDVUZirhnZjUNfInRivXSYaOHYi2L0t0JfgbcISu9E9Cs0O40QRB_uzE-DSf6OD0TabwKJoxKxwAvYy28Vs-910btST5Lli4J3rTFjowY"/>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-[60px] h-[calc(100vh-60px)] w-64 flex flex-col p-4 z-40 bg-slate-50 dark:bg-slate-950 border-r border-slate-100 hidden lg:flex">
+<div class="flex items-center gap-3 px-4 py-6 mb-4">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white font-bold text-xl">U</div>
+<div>
+<p class="font-black text-slate-900 dark:text-white leading-tight">Official Store</p>
+<p class="text-xs text-slate-500">Verified Merchant</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-400 rounded-lg shadow-sm font-bold scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-sm font-medium">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">warehouse</span>
+<span class="text-sm font-medium">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-sm font-medium">Payments</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-slate-200 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-error hover:bg-error-container/10 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-64 p-4 md:p-8 bg-surface">
+<!-- Breadcrumbs & Header -->
+<div class="max-w-6xl mx-auto">
+<nav class="flex items-center gap-2 text-sm text-on-surface-variant mb-6">
+<a class="hover:text-primary transition-colors" href="#">Orders</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="font-semibold text-on-surface">#ORD-28491-BD</span>
+</nav>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div>
+<h1 class="text-3xl font-extrabold tracking-tight mb-2">Order #ORD-28491-BD</h1>
+<div class="flex flex-wrap items-center gap-3">
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold rounded-full uppercase tracking-wider">Processing</span>
+<span class="text-sm text-on-surface-variant">Placed on Oct 24, 2023, 02:45 PM</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-container-high text-primary font-semibold text-sm hover:bg-surface-container-highest transition-all">
+<span class="material-symbols-outlined text-lg">description</span>
+                            Generate Invoice
+                        </button>
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-error/10 text-error font-semibold text-sm hover:bg-error/20 transition-all">
+<span class="material-symbols-outlined text-lg">undo</span>
+                            Initiate Refund
+                        </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="asymmetric-grid">
+<!-- Left Column: Item Breakdown & Shipping -->
+<div class="space-y-8">
+<!-- Items Section -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<h3 class="text-lg font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+                                Item Breakdown
+                            </h3>
+<div class="space-y-6">
+<!-- Product Item 1 -->
+<div class="flex gap-4 items-start">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Premium Cotton Panjabi" class="w-full h-full object-cover" data-alt="premium indigo blue cotton panjabi with intricate white embroidery around the neckline, flat lay on a minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8k_cyIByKy7Kt4Fz4o7D_D1Zxot7fkkgWN-BQlP7auYL2SHybCuLOgBIp9cvuvT5BsznTNaYd_AIOjj_UsMuGf6tMSbFjbX7bbdtp-nlHmi5jifTovgE3x5w_WRfMH0OL3sNrGXBEJWzGwjpziwTLkOGNYZcNxR-w_Mi7RXyPfK1ClZci5cQamMGuMQAi5KsRXDyMzy5XSuLhOePDNJ1zFpWytOX_HuCJZ356VDeZwL838h7EjYk7rExJ12JkvROkByTIaobaapM"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-on-surface">Artisan Indigo Cotton Panjabi</h4>
+<p class="text-sm text-on-surface-variant mb-2">Size: L • Color: Deep Indigo</p>
+<span class="text-xs px-2 py-0.5 bg-surface-container-high rounded-full">SKU: APP-PJB-002-L</span>
+</div>
+<p class="font-bold text-on-surface">৳ 4,500.00</p>
+</div>
+<div class="mt-2 flex items-center justify-between">
+<span class="text-sm font-medium">Qty: 01</span>
+<span class="text-sm font-bold">৳ 4,500.00</span>
+</div>
+</div>
+</div>
+<!-- Product Item 2 -->
+<div class="flex gap-4 items-start pt-6 border-t border-surface-container">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Handcrafted Leather Sandals" class="w-full h-full object-cover" data-alt="handmade dark tan leather sandals with traditional bengali weaving details, artistic studio lighting on a neutral surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo6TQWk8mJikTx1t-kj7lo_3w38QJW3W7lxb8o1iuftknhmaJvy2xg2A1FBJidPyQggWDi24dili4OKK19cMtMhL8NNqaGZ2a5-E9pfaxtlFkcBLFwuxn6-JeZg_XY8aa98cYax4H875vfcSnO__2Gm70rpeAcCpL9FAKQJs7savuef9D0LrCuIobPPuZbZQYEnvCn7o2j1jaaWCrh4IRLM_mjvEZwS0ln3OBlTdYyPq_tWH9BzKov7JdAqDwdM1KetxPtaOVZ_jY"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-on-surface">Hand-Stitched Heritage Sandals</h4>
+<p class="text-sm text-on-surface-variant mb-2">Size: 42 • Material: Genuine Leather</p>
+<span class="text-xs px-2 py-0.5 bg-surface-container-high rounded-full">SKU: FTW-SND-114-42</span>
+</div>
+<p class="font-bold text-on-surface">৳ 2,800.00</p>
+</div>
+<div class="mt-2 flex items-center justify-between">
+<span class="text-sm font-medium">Qty: 01</span>
+<span class="text-sm font-bold">৳ 2,800.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Totals Section -->
+<div class="mt-8 pt-8 border-t-2 border-dashed border-surface-container">
+<div class="space-y-3 max-w-xs ml-auto">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Subtotal</span>
+<span class="font-medium">৳ 7,300.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Shipping Fee</span>
+<span class="font-medium">৳ 120.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Tax (5%)</span>
+<span class="font-medium">৳ 365.00</span>
+</div>
+<div class="flex justify-between text-lg font-extrabold pt-2 border-t border-surface-container">
+<span>Total</span>
+<span class="text-primary">৳ 7,785.00</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Timeline Section -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<h3 class="text-lg font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">history</span>
+                                Order Timeline
+                            </h3>
+<div class="relative pl-8 space-y-8 before:content-[''] before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container-highest">
+<!-- Status 1 -->
+<div class="relative">
+<div class="absolute -left-[26px] top-1 w-4 h-4 rounded-full bg-primary border-4 border-surface-container-lowest ring-1 ring-primary/20"></div>
+<div>
+<p class="font-bold text-sm">Order Placed</p>
+<p class="text-xs text-on-surface-variant">Oct 24, 2023 • 02:45 PM</p>
+<p class="text-sm mt-1 text-on-surface-variant">Customer confirmed the order via mobile app.</p>
+</div>
+</div>
+<!-- Status 2 -->
+<div class="relative">
+<div class="absolute -left-[26px] top-1 w-4 h-4 rounded-full bg-primary border-4 border-surface-container-lowest ring-1 ring-primary/20"></div>
+<div>
+<p class="font-bold text-sm">Payment Verified</p>
+<p class="text-xs text-on-surface-variant">Oct 24, 2023 • 03:10 PM</p>
+<p class="text-sm mt-1 text-on-surface-variant">BKash transaction #TXN29410A confirmed.</p>
+</div>
+</div>
+<!-- Status 3 (Current) -->
+<div class="relative">
+<div class="absolute -left-[26px] top-1 w-4 h-4 rounded-full bg-secondary-container border-4 border-surface-container-lowest ring-1 ring-secondary-container/20"></div>
+<div>
+<p class="font-bold text-sm text-secondary">Processing at Warehouse</p>
+<p class="text-xs text-on-surface-variant">Oct 25, 2023 • 09:00 AM</p>
+<p class="text-sm mt-1 text-on-surface-variant">Quality check in progress by Store Manager.</p>
+</div>
+</div>
+<!-- Status 4 (Future) -->
+<div class="relative">
+<div class="absolute -left-[26px] top-1 w-4 h-4 rounded-full bg-surface-container-highest border-4 border-surface-container-lowest"></div>
+<div class="opacity-50">
+<p class="font-bold text-sm">Shipped with Pathao</p>
+<p class="text-xs">Estimated Oct 26</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Customer & Payment Info -->
+<div class="space-y-8">
+<!-- Customer Info -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<h3 class="text-lg font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">person</span>
+                                Customer Details
+                            </h3>
+<div class="flex items-center gap-4 mb-6">
+<img alt="Customer Avatar" class="w-14 h-14 rounded-full" data-alt="headshot of a young professional bengali man with a friendly expression and short black hair, outdoor natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-6dDUfV_nMv4yyxdJIQRh-M1bnafMVYevFHcmr11UWLpr8O80U1JFnk7YX2LGGOyI9zXYAIdIvPVYfW7WeJGx1OB6qNg1pi9SZns9crAaJkzzz6g9irK9SAhFBa3xEvbcghth1N2Kq8TEE4KH9RADqZXDaDxwagAEdv1D_khYTnqfPXZEuGrbxcLKi8_tG__BiJzpEunAp8Wl169fQ5-5bvG8wm-GAteyEwrvzmzF0olZxxlJCdA0797NEnzpKb9KpzTkLgPhzJE"/>
+<div>
+<h4 class="font-bold">Tanvir Ahmed</h4>
+<p class="text-sm text-on-surface-variant">t.ahmed@email.com</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mt-1">call</span>
+<div>
+<p class="text-xs text-on-surface-variant uppercase font-bold tracking-tighter">Phone Number</p>
+<p class="text-sm font-medium">+880 1712-345678</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mt-1">local_shipping</span>
+<div>
+<p class="text-xs text-on-surface-variant uppercase font-bold tracking-tighter">Shipping Address</p>
+<p class="text-sm font-medium leading-relaxed">
+                                            House 42, Road 18, Block E<br/>
+                                            Banani, Dhaka - 1213<br/>
+                                            Bangladesh
+                                        </p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2.5 rounded-full border border-primary/20 text-primary font-bold text-sm hover:bg-primary/5 transition-all">
+                                View Customer History
+                            </button>
+</section>
+<!-- Payment & Shipping Details -->
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm overflow-hidden relative">
+<!-- Background Accent -->
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
+<h3 class="text-lg font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">payments</span>
+                                Transaction
+                            </h3>
+<div class="space-y-6">
+<div class="p-4 bg-surface-container-low rounded-lg">
+<div class="flex justify-between items-center mb-2">
+<p class="text-xs text-on-surface-variant font-bold uppercase tracking-tight">Method</p>
+<span class="px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-bold rounded uppercase">Paid</span>
+</div>
+<div class="flex items-center gap-2">
+<img alt="bKash" class="w-8 h-8 rounded" data-alt="minimalist logo for mobile payment service featuring bright pink colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOz6xR_HiD07dQswFBxO8nzPq8K7yK5mXf9J8h_kgve_V_Gpf_QDN1zF5RGBJfWKKzlvX7ks8XaQdFrfUZrSG7-xTiOfmHQVN-mFDmv3c4Ee5W2SBRilMwod7xW-uL3ShW1aHhbbBQe-5V3TXPC1XNh4gyxhTiYVieIMXrrWoab4Tm5jcC6-5WRyAMfBRPYeGgBo_0FywTGp8SQSaKylAkROO_5svrWhxbklsIzjGHmkODSYOJ1UKeNpmx_zRxA-G0E86Y3PMZsFc"/>
+<div>
+<p class="text-sm font-bold">bKash Digital Payment</p>
+<p class="text-xs text-on-surface-variant">ID: TXN-5523001</p>
+</div>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg">
+<div class="flex justify-between items-center mb-2">
+<p class="text-xs text-on-surface-variant font-bold uppercase tracking-tight">Logistics</p>
+<span class="text-xs font-bold text-primary underline cursor-pointer">Track</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="p-2 bg-white rounded-md shadow-sm">
+<span class="material-symbols-outlined text-secondary">local_shipping</span>
+</div>
+<div>
+<p class="text-sm font-bold">Pathao Courier</p>
+<p class="text-xs text-on-surface-variant">Standard 2-3 Day Delivery</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Internal Notes -->
+<section class="bg-surface-container-low rounded-xl p-6">
+<h3 class="text-sm font-bold mb-4 uppercase tracking-wider text-on-surface-variant">Internal Staff Notes</h3>
+<div class="bg-surface-container-lowest p-3 rounded-lg border border-outline-variant/10 mb-4">
+<p class="text-sm text-on-surface italic leading-relaxed">"Customer requested gift wrapping for the Panjabi. Check if the premium gold paper is in stock."</p>
+<p class="text-[10px] text-on-surface-variant mt-2 font-medium">— Added by Maria (Warehouse Manager)</p>
+</div>
+<textarea class="w-full bg-surface-container-highest border-none rounded-lg text-sm focus:ring-1 focus:ring-primary/40 h-20" placeholder="Add a private note for the team..."></textarea>
+<button class="mt-2 text-xs font-bold text-primary hover:underline">Save Note</button>
+</section>
+</div>
+</div>
+<!-- Action Footer (Floating on Mobile) -->
+<div class="mt-12 mb-20 flex justify-center">
+<div class="glass-panel p-2 rounded-full border border-white/50 shadow-xl flex items-center gap-1">
+<button class="px-6 py-3 rounded-full bg-primary text-white font-bold text-sm shadow-lg shadow-primary/20 hover:scale-105 transition-all">
+                            Ready for Shipping
+                        </button>
+<button class="p-3 rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">print</span>
+</button>
+<button class="p-3 rounded-full hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Mobile Bottom Navigation Shell -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-100 px-6 py-3 z-50 flex items-center justify-between">
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-blue-700" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<span class="text-[10px] font-bold">Orders</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-[10px] font-medium">Products</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-[10px] font-medium">Stats</span>
+</a>
+</nav>
+</body></html>

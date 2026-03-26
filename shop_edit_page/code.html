@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shop Edit | UniMart Seller Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#191c1d",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "secondary": "#ad3219",
+              "on-primary-container": "#ffffff",
+              "surface-tint": "#005bc0",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#ff6d4e",
+              "surface-variant": "#e1e3e4",
+              "on-secondary-fixed": "#3e0500",
+              "on-primary-fixed-variant": "#004493",
+              "inverse-surface": "#2e3132",
+              "secondary-fixed": "#ffdad3",
+              "surface-container-highest": "#e1e3e4",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed-dim": "#adc7ff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "primary-container": "#1a73e8",
+              "inverse-primary": "#adc7ff",
+              "surface-container-high": "#e7e8e9",
+              "on-primary-fixed": "#001a41",
+              "primary": "#005bbf",
+              "tertiary-fixed": "#d8e2ff",
+              "on-error-container": "#93000a",
+              "outline-variant": "#c1c6d6",
+              "on-error": "#ffffff",
+              "surface-bright": "#f8f9fa",
+              "surface-container": "#edeeef",
+              "surface": "#f8f9fa",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-tertiary-container": "#ffffff",
+              "error": "#ba1a1a",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-container-low": "#f3f4f5",
+              "on-background": "#191c1d",
+              "tertiary-container": "#0872ed",
+              "on-primary": "#ffffff",
+              "tertiary": "#005abf",
+              "on-secondary-container": "#680f00",
+              "surface-dim": "#d9dadb",
+              "on-tertiary-fixed": "#001a41",
+              "on-surface-variant": "#414754",
+              "on-tertiary-fixed-variant": "#004493",
+              "primary-fixed": "#d8e2ff",
+              "background": "#f8f9fa",
+              "outline": "#727785"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; color: #191c1d; }
+        h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(248, 249, 250, 0.7); backdrop-filter: blur(20px); }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e1e3e4; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar (Shared Component) -->
+<header class="sticky top-0 z-50 flex items-center justify-between px-6 py-3 w-full bg-white dark:bg-slate-900 shadow-sm dark:shadow-none border-b border-outline-variant/15">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold text-blue-700 dark:text-blue-400 tracking-tight font-headline">UniMart Seller Studio</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded-lg" href="#">Home</a>
+<a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700 px-3 py-1" href="#">Shop Edit</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded-lg" href="#">Marketing</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="bg-surface-container-low border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/40 w-64" placeholder="Search orders..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-slate-50 rounded-full">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-slate-50 rounded-full">help</button>
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-slate-50 rounded-full">settings</button>
+<img alt="Merchant Profile Avatar" class="w-8 h-8 rounded-full object-cover ml-2" data-alt="professional headshot of a middle-aged merchant with a friendly smile, clean studio lighting, soft gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuVlv41kA1g5PU6KL5jLtw3mXvfNJb6aiVJhgaOQUz7zl5ZGu4aYnq7QL1kzINMDY3oosVG3g2QwRSwkz-gEjatl6yalM1MciA6f1i1Ns5XrGIZQbcqklEAHiRzwTlC4UIG6PT3t1qGspHYGVeHaBeBgMwspHb9AfL6ZCEAYaKkTTlN9sDVxnkSyx4UECfQ0RPs9xCbIrJ3JWc6gfH1DvG5JnKw10ylNkOOKYuXVSjtos5bX32AvDiIBe3_Y38tiKK_rW8BsPpD2M"/>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-[65px] h-[calc(100vh-65px)] w-64 flex flex-col p-4 z-40 bg-slate-50 dark:bg-slate-950 border-r border-outline-variant/15">
+<div class="flex items-center gap-3 px-4 py-6">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center text-white font-black">OS</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white font-headline leading-none">Official Store</h3>
+<p class="text-xs text-slate-500 mt-1">Verified Merchant</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-1 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium text-sm font-label">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-medium text-sm font-label">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-400 rounded-lg shadow-sm font-bold scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-medium text-sm font-label">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">warehouse</span>
+<span class="font-medium text-sm font-label">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-medium text-sm font-label">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-medium text-sm font-label">Payments</span>
+</a>
+</nav>
+<button class="mt-4 mx-2 bg-gradient-to-br from-primary to-primary-container text-white py-3 rounded-full font-bold shadow-md hover:shadow-lg transition-all text-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">add</span>
+                Add New Product
+            </button>
+<div class="mt-auto flex flex-col gap-1 border-t border-slate-100 pt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium text-sm font-label">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-medium text-sm font-label">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 p-8 bg-surface">
+<header class="mb-12">
+<h1 class="text-4xl font-extrabold text-on-surface tracking-tight mb-2">Shop Profile Editor</h1>
+<p class="text-on-surface-variant font-body">Craft your brand story and visual identity for UniMart customers.</p>
+</header>
+<!-- Grid Layout for Editor & Preview -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Settings Form -->
+<div class="col-span-12 lg:col-span-7 space-y-8">
+<!-- Section: Core Identity -->
+<section class="bg-surface-container-lowest p-8 rounded-xl space-y-6">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-xl font-bold font-headline flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">store</span>
+                                Core Identity
+                            </h2>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2 font-label">Shop Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary/40 font-body" type="text" value="Official Store"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2 font-label">Short Bio</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary/40 font-body" placeholder="Tell your story in 150 characters..." rows="3">Curating the finest handcrafted textiles and heritage crafts from the heart of Dhaka. Quality you can trust, traditions you can wear.</textarea>
+</div>
+</div>
+</section>
+<!-- Section: Visual Assets -->
+<section class="bg-surface-container-lowest p-8 rounded-xl space-y-8">
+<h2 class="text-xl font-bold font-headline flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">image</span>
+                            Brand Visuals
+                        </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Logo Upload -->
+<div class="space-y-3">
+<span class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest font-label">Shop Logo</span>
+<div class="relative group cursor-pointer aspect-square bg-surface-container-low rounded-xl flex flex-col items-center justify-center border-2 border-dashed border-outline-variant/30 hover:border-primary/50 transition-colors">
+<img class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-20 group-hover:opacity-10 transition-opacity" data-alt="minimalist modern vector logo of a craft shop, clean lines, centered on a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbwtpmLO8zxbmcBVp49vYMcHUKDCLw_80M_bbyMIpN-qNamg1nYCttrENyLUkOr3j7hCJ40H7NCcZOOrokttAy671LSh5LUII0_TeGSe5r2Ezfdihq77W9wOSaQUQxACOA3WI8Z_wyI4Cx_PNsP1a4G99sxt1o_lDRWs72VBt6PdN9N2kKqX2MELyFkBbQt_PWDn7vji6b_X2OUMY1G05A7HGh-Ku2m5v8aPLNYWat8hehCMrMyrZGTOq0kd4nesZCIuC61KNfFZU"/>
+<span class="material-symbols-outlined text-4xl text-primary mb-2">upload_file</span>
+<p class="text-xs font-medium text-primary">Upload Logo (1:1)</p>
+</div>
+</div>
+<!-- Banner Upload -->
+<div class="space-y-3">
+<span class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest font-label">Shop Banner</span>
+<div class="relative group cursor-pointer aspect-square bg-surface-container-low rounded-xl flex flex-col items-center justify-center border-2 border-dashed border-outline-variant/30 hover:border-primary/50 transition-colors overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover rounded-xl opacity-20 group-hover:opacity-10 transition-opacity" data-alt="luxury boutique storefront interior with warm lighting and wooden shelves, high-end editorial feel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc5HATp5O5XRNvD_IkUu0JvxlFm3DWxDR-KdBPX4Tq3SRRdOan4w6ZkN2-7oy_liKYwivtDUxnZZ3Cn79vOquW0O7BQUtFL_Suho27o0OrtaX9V4JuUgjyMe1wxhQCkA-Hpj23HboPZRqf_UDbb9dHWEMzvNU-JXnGmfBqM6Jn7Y0C06N2X_FQ-nzcl-554lIYQ-JnuMrvkMKmpOEbAy36AHIDfEJudol9VuMXUdFYO4ZnrOUpd3EQy06h_myusJl3Bhkt0jANCs8"/>
+<span class="material-symbols-outlined text-4xl text-primary mb-2">add_photo_alternate</span>
+<p class="text-xs font-medium text-primary">Upload Banner (16:9)</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Social Presence -->
+<section class="bg-surface-container-lowest p-8 rounded-xl space-y-6">
+<h2 class="text-xl font-bold font-headline flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">share</span>
+                            Social Connections
+                        </h2>
+<div class="space-y-4">
+<div class="flex items-center gap-4 bg-surface-container-low p-2 rounded-lg">
+<div class="bg-surface-container-lowest p-2 rounded-md">
+<img alt="FB" class="w-5 h-5 opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHfhP6LcZ_CjOWFLib3qkkzV4-SYZ7TSKk3mSs7uT54ri4fRM22mZzREor0H9ktFUKF4r7FETGHbSgyZi8m0QMwcOZJZioqoJW5pHa3Sgdei5iDBWQgQD3Q9MOSBRJyShC4-jBk-Xr7UAzzsUkfC9r51tKu4TtpyQNQ9dCZvp8Y4ASrPmadfDtyYhFRwstBFmnf-DgWRpJm6hMgSrLRMAdRJ7vj4Lpw2ZVz9ITFjNSw1wtaOtScuyRmyS85ehwfEtdBwwWpAZ2g14"/>
+</div>
+<input class="flex-1 bg-transparent border-none text-sm focus:ring-0" placeholder="facebook.com/yourbrand" type="text"/>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-low p-2 rounded-lg">
+<div class="bg-surface-container-lowest p-2 rounded-md">
+<img alt="IG" class="w-5 h-5 opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYwVQCgliLamAeTvgp9sIwJibfBQJBGeD842ydJDggPMZqAFDmtgNN_83TofQNNF2t4gIjWjo7I5UPLMloHm_WbkZfDSRgddWDAKu3MSqpFQVr7w2IqdMhytjbpGkI1TOCuRDsbRmtMxH0LP1y46Sd8PYZM5UQjsYEqMRDR_QWljDGDA4Y3PFKq7kXCHXbGe9624ZVFs8pnz2xTNPNVKYbR_4C6fiRKSdYllMe1L5_1V-rpRiyMuJcqXmlw-2iN7MBBg7LKC4O8us"/>
+</div>
+<input class="flex-1 bg-transparent border-none text-sm focus:ring-0" placeholder="instagram.com/yourbrand" type="text"/>
+</div>
+</div>
+</section>
+<div class="flex justify-end gap-4 pb-12">
+<button class="px-8 py-3 rounded-full text-primary font-bold hover:bg-surface-container-high transition-colors">Discard Changes</button>
+<button class="px-10 py-3 rounded-full bg-gradient-to-r from-primary to-primary-container text-white font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">Save Profile</button>
+</div>
+</div>
+<!-- Right Column: Live Preview Sticky -->
+<div class="col-span-12 lg:col-span-5 relative">
+<div class="sticky top-24">
+<div class="mb-6 flex items-center justify-between">
+<h3 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant font-label">Consumer Live Preview</h3>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center"><span class="material-symbols-outlined text-sm">smartphone</span></button>
+<button class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white"><span class="material-symbols-outlined text-sm">desktop_windows</span></button>
+</div>
+</div>
+<!-- Preview Frame -->
+<div class="bg-white rounded-2xl shadow-2xl shadow-on-surface/5 border border-outline-variant/10 overflow-hidden">
+<!-- Shop Banner Preview -->
+<div class="relative h-48 w-full">
+<img alt="Banner Preview" class="w-full h-full object-cover" data-alt="luxury boutique storefront interior with warm lighting and wooden shelves, high-end editorial feel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYlHNF7PFRlousAwY2ESTOTZM2Ck5GiUyhzcGGVheF8IvKF04ywe1PNzbgdSWzyHSKmnP3epHqHv3tMu51GTOX6gE0_ro1VA0mwErrOq550BuS-t9uBFy6aTwlffx6SzzHuqPReHS60dWAEdJwyS5kWW82I-HiXdHCVVgokwwNiVJnQQR6EMlCn-t8YnquE9zbNN8fCPBf_ZxO2X4laRnkofSYLJx_ajeMuqdVbu8ZXDCtlACTxZrVtlJaFo1CLq4OtebRd7SimVQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 flex items-end gap-4">
+<div class="w-20 h-20 rounded-xl border-4 border-white shadow-xl overflow-hidden bg-white">
+<img alt="Logo Preview" class="w-full h-full object-cover" data-alt="minimalist modern vector logo of a craft shop, clean lines, centered on a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWoNZ1VRacR0b544fAAX5qwb5lzhVVWsojw9CnlRGObScm4MVqqyJKi9T44AIYlvGGB9-unKotVesIim1FdvwdjJnUIoLB3UhTSed_RMPEoN9MlWFTAAMgIAIT0q_QP_iIiP2RiiST38eA8VJy5WgXR8HpGuXRFUZEfMVVyHjw0s0n0kgjrvPeukj7oYTd6T47KU-3ePDmXS9rUZovTFSp90lK-YxGeS9R1Ks4iKuHmkTwG9ig_zAkrfqJbOwx9motch0x03uCd0s"/>
+</div>
+<div class="mb-1">
+<h4 class="text-2xl font-black text-white font-headline leading-tight">Official Store</h4>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-secondary-container" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-xs font-bold text-white/90 uppercase tracking-tighter">Verified Creator</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Preview Stats Bar -->
+<div class="flex justify-around py-4 border-b border-surface-container">
+<div class="text-center">
+<span class="block text-lg font-bold">12.4k</span>
+<span class="text-[10px] uppercase font-bold text-on-surface-variant">Followers</span>
+</div>
+<div class="text-center">
+<span class="block text-lg font-bold">4.9</span>
+<span class="text-[10px] uppercase font-bold text-on-surface-variant">Rating</span>
+</div>
+<div class="text-center">
+<span class="block text-lg font-bold">28</span>
+<span class="text-[10px] uppercase font-bold text-on-surface-variant">Stories</span>
+</div>
+</div>
+<!-- Shop Bio Preview -->
+<div class="p-6 space-y-4">
+<p class="text-sm text-on-surface leading-relaxed italic border-l-4 border-primary/20 pl-4">
+                                    "Curating the finest handcrafted textiles and heritage crafts from the heart of Dhaka. Quality you can trust, traditions you can wear."
+                                </p>
+<div class="flex gap-2">
+<button class="flex-1 bg-primary text-white py-2 rounded-lg font-bold text-xs uppercase tracking-widest shadow-lg shadow-primary/20">Follow Shop</button>
+<button class="w-10 h-10 flex items-center justify-center bg-surface-container-high rounded-lg text-primary">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+</div>
+</div>
+<!-- Product Feed Preview (Bento Style) -->
+<div class="p-6 pt-0 space-y-3">
+<h5 class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Latest Drop</h5>
+<div class="grid grid-cols-2 gap-3">
+<div class="relative rounded-xl overflow-hidden aspect-[4/5] bg-surface-container-low group">
+<img alt="Product 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="vibrant traditional bengali saree with gold embroidery, draped elegantly on a mannequin, soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBckxcqPlLlEUoeKKYhBcrIWcSoPpO9vvNmIhdFKqvEgPfFWfZ5gZEt4sGoL1LtxIpFHBby3Q-rJZg5G-BsAqlwzZ0hjOAKK2alh58h06dwFqUj4VHK57rIdpd3OFxeGaeFvBh08yesyxO4mvmSsQYP02hHXlwDotVfHgSzXHzjGhtJc8Jl47au74mQ3DkvdBFl5zHRdN37MZrzA6pk7y5XgGm3eXDJ3oZA13v_Cs8_ofpmIt99Ga5CcDGMn1J_jHpIy1_RYyKHo_0"/>
+<div class="absolute bottom-2 left-2 bg-white/90 backdrop-blur-md px-2 py-1 rounded-md">
+<span class="text-[10px] font-bold text-secondary">৳ 8,500</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="relative rounded-xl overflow-hidden aspect-square bg-surface-container-low group">
+<img alt="Product 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="luxury jewelry set on a velvet display, gold and emerald detail, high contrast commercial photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu3zpbnQ-61rCgfbvrk5IFBNbiXXQ9xc0jSTcJhZ9CEnECiTCX-uBbUOeaNFF7W_TzJxbHWJQarMDXP4WMmUM4hRXsM8pyE_4t55cGBY1POcUAQBdFfVnJcG7daOSR7lDq_k3kIBtO0sw0InDKGGaPxsD5IVjUCq5Sx4Jh5AHJG33aGrtohLS0oZiNjS_Dzbjt7cxVgPksl1E9Ol7_BazARW4Y2VCMM-_sjPawlp921vy31TRWBTHl-QBDa3K2uYb7lAGzfnPjvfg"/>
+</div>
+<div class="relative rounded-xl overflow-hidden aspect-square bg-surface-container-low group">
+<img alt="Product 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="handcrafted leather bag with intricate stitching, rustic wooden table background, warm morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTWj7u6NHzahkc7rP732QYfkSRdwDOK1vFhTJzrFgOV4KjwqZm1PnPF8kz0m9x5UJx7Fp6b4GVM4BmGpEnGqZglmWff118cMp1w2BDO9C52ZZ0lyGgh4Ki_RTfKckDnrMpuykwWoQzac34UKRQSSmDVl9rD5aPCLtNUaOT9ccYq7xRTXguePbyTOd7kA1n2nNYFgPTzOpU_Im5mumaympLhYQATNhze3cXCuIuIiCgt6LMWLqbUmVeLrsOBV70xzziODVOEEZkyto"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

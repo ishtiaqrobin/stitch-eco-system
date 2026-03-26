@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UniMart - C2C Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#3e0500",
+                        "primary-container": "#1a73e8",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-variant": "#e1e3e4",
+                        "on-secondary-fixed-variant": "#8b1a02",
+                        "surface-dim": "#d9dadb",
+                        "outline": "#727785",
+                        "on-surface-variant": "#414754",
+                        "primary": "#005bbf",
+                        "on-tertiary-fixed": "#001a41",
+                        "background": "#f8f9fa",
+                        "surface-tint": "#005bc0",
+                        "secondary-fixed": "#ffdad3",
+                        "inverse-on-surface": "#f0f1f2",
+                        "primary-fixed-dim": "#adc7ff",
+                        "tertiary": "#005abf",
+                        "outline-variant": "#c1c6d6",
+                        "secondary-container": "#ff6d4e",
+                        "inverse-primary": "#adc7ff",
+                        "on-secondary-container": "#680f00",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-background": "#191c1d",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f3f4f5",
+                        "tertiary-container": "#0872ed",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "surface": "#f8f9fa",
+                        "surface-container": "#edeeef",
+                        "surface-bright": "#f8f9fa",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "inverse-surface": "#2e3132",
+                        "on-primary-fixed-variant": "#004493",
+                        "surface-container-highest": "#e1e3e4",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#ffffff",
+                        "on-primary-container": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed": "#001a41",
+                        "secondary": "#ad3219",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-effect {
+            background: rgba(248, 249, 250, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; color: #191c1d; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar Shell -->
+<header class="bg-surface dark:bg-slate-900 shadow-sm docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-6 py-3 max-w-full">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-extrabold tracking-tight text-blue-700 dark:text-blue-400">UniMart</span>
+<div class="relative hidden md:block w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-highest border-none rounded-full py-2 pl-10 pr-4 focus:ring-2 focus:ring-primary/40 transition-all font-body text-sm" placeholder="Search for used electronics, furniture..." type="text"/>
+</div>
+</div>
+<nav class="flex items-center gap-6">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-5 py-2 rounded-full font-headline font-bold text-sm flex items-center gap-2 hover:shadow-lg transition-all active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+                    Sell Your Used Item
+                </button>
+<div class="flex items-center gap-4 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 p-2 rounded-full transition-colors">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 p-2 rounded-full transition-colors">shopping_cart</span>
+<div class="h-8 w-8 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="close-up portrait of a professional young man with friendly expression, soft natural studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK5mRA__akP32f3U6E4qN_SqPzPUCr_bVYzSEl8BEkb9sjqjLn6ySjDHkZ67s-DGXuGAsxSulys5tTtJ2JiFNHczM5vRTDHGpo9I83HAYLfxgoHWs3NWCNrDgdY9Aq7yB-wSaukiLg-7qOV3K6WYl1k23gd06FC378e-9ZPEnUL46zxAD3rvdjUBGhOEeTYWnH-Bhv3aXpUMbZSDZu5ZC_oeULk2nSLUuk2LVdn8eQ42xL7yASOQdntxKuZ7CSo-408-jpvIeGiFY"/>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar Shell -->
+<aside class="bg-surface-container-low dark:bg-slate-900 h-screen w-64 fixed left-0 top-0 pt-20 flex flex-col gap-2 px-4 py-6 hidden md:flex z-40">
+<div class="mb-6 px-2">
+<h3 class="font-manrope font-semibold text-sm text-slate-500 uppercase tracking-wider">Navigation</h3>
+<p class="text-xs text-slate-400">Explore UniMart</p>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 hover:translate-x-1 transition-transform rounded-lg" href="#">
+<span class="material-symbols-outlined">rss_feed</span>
+<span class="font-manrope font-semibold text-sm">Social Feed</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 rounded-lg shadow-sm font-bold cursor-pointer active:scale-98" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-manrope font-semibold text-sm">Market</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 hover:translate-x-1 transition-transform rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-manrope font-semibold text-sm">Seller Portal</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 hover:translate-x-1 transition-transform rounded-lg" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-manrope font-semibold text-sm">Wallet</span>
+</a>
+<div class="mt-8 border-t border-outline-variant/20 pt-6 px-2">
+<h3 class="font-manrope font-semibold text-sm text-slate-500 uppercase tracking-wider mb-4">Categories</h3>
+<div class="space-y-1">
+<button class="w-full text-left px-4 py-2 text-sm font-body text-on-surface-variant hover:bg-surface-container transition-colors rounded-md flex items-center justify-between">
+                        Electronics <span class="material-symbols-outlined text-xs">chevron_right</span>
+</button>
+<button class="w-full text-left px-4 py-2 text-sm font-body text-on-surface-variant hover:bg-surface-container transition-colors rounded-md flex items-center justify-between">
+                        Furniture <span class="material-symbols-outlined text-xs">chevron_right</span>
+</button>
+<button class="w-full text-left px-4 py-2 text-sm font-body text-on-surface-variant hover:bg-surface-container transition-colors rounded-md flex items-center justify-between">
+                        Vehicles <span class="material-symbols-outlined text-xs">chevron_right</span>
+</button>
+<button class="w-full text-left px-4 py-2 text-sm font-body text-on-surface-variant hover:bg-surface-container transition-colors rounded-md flex items-center justify-between">
+                        Apparel <span class="material-symbols-outlined text-xs">chevron_right</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 p-6 lg:p-10 space-y-12">
+<!-- Hero C2C Escrow Section -->
+<section class="relative bg-surface-container-low rounded-xl overflow-hidden min-h-[320px] flex items-center">
+<div class="absolute inset-0 z-0">
+<img alt="Secure transactions" class="w-full h-full object-cover opacity-20 mix-blend-multiply" data-alt="professional high-angle shot of two people shaking hands over a clean modern table with a digital tablet showing a green checkmark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdAtL73n3snM4XPaaao77XULNKZokqo2f6dJCC193-TDnEwCT2KXJq0zRd63_FrZd3wFKzFKKNu1Wy73wDPOyz9otTDMKul1p3avvYryGp9sFKgVJMgF7aiMMJoLzlMHzeOUFSgKn3QIoS7h-IcSUSQ-zVLhhchZSkJPdO_2CgxEQDEl9k2T_uJU1lFekDb_136PymLiyEDTIobLPgB9gY_GyhXP4kCZK92SZ61Rxp3ao3p7tbyJ_xThgr0PNCJNpUW6AdlSrPp0w"/>
+</div>
+<div class="relative z-10 p-8 lg:p-16 max-w-2xl space-y-6">
+<div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+                        UniMart Trusted Escrow
+                    </div>
+<h1 class="text-4xl lg:text-5xl font-extrabold leading-tight text-on-surface">Buy &amp; Sell with Absolute <span class="text-primary">Confidence</span>.</h1>
+<p class="text-lg text-on-surface-variant font-body leading-relaxed">Our Escrow system holds funds safely until you receive and verify your item. No more scams, just pure community commerce.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full font-headline font-bold hover:shadow-xl transition-all">Learn How It Works</button>
+<button class="bg-surface-container-highest text-primary px-8 py-3 rounded-full font-headline font-bold hover:bg-surface-variant transition-all">Browse Used Items</button>
+</div>
+</div>
+</section>
+<!-- Filters Bar -->
+<section class="space-y-6">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="space-y-1">
+<h2 class="text-2xl font-bold font-headline">Recent Listings</h2>
+<p class="text-sm text-outline">Verified items from people in your area</p>
+</div>
+<div class="flex flex-wrap items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest border border-outline-variant/30 rounded-full text-sm font-medium hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                            Dhaka, BD (5km)
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest border border-outline-variant/30 rounded-full text-sm font-medium hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+                            Sort: Newest
+                        </button>
+</div>
+</div>
+<!-- Condition Chips -->
+<div class="flex flex-wrap gap-2">
+<span class="text-xs font-bold uppercase text-outline self-center mr-2">Condition:</span>
+<button class="px-4 py-1.5 rounded-full text-sm font-medium bg-secondary-fixed text-on-secondary-fixed-variant transition-all">All Items</button>
+<button class="px-4 py-1.5 rounded-full text-sm font-medium bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-all">New</button>
+<button class="px-4 py-1.5 rounded-full text-sm font-medium bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-all">Like New</button>
+<button class="px-4 py-1.5 rounded-full text-sm font-medium bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-all">Good</button>
+<button class="px-4 py-1.5 rounded-full text-sm font-medium bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest transition-all">Fair</button>
+</div>
+</section>
+<!-- C2C Product Grid (Asymmetric/Bento style mix) -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<!-- Product Card 1 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img alt="Used Laptop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="close-up of a sleek silver high-performance laptop on a minimalist wooden desk with soft morning light from a nearby window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVbnsbk8NeEZNLXZVt8KF3aI8eSwSSS0y7lYthh8u-BOJgJss2yXAbWBWNG8YiRgCP09AJL7oa8M0KEMbGmwrz2upd_o-OcEXr35CFrXSk2H9IAkQ1csoSLIgpJ8VqovABDS1ru_oE8AgE6Dw_Bh4S-yqAbAuM3_IkeQeq645mjfixYZSGF11pSBFak1jdl5jymnmzVHSzxTNQlGkyX2oITDv4AgwQAs-n0uovppXn6QvEjaGfJ42nL8Lj2Xl_Iu99UeursR7Qn0c"/>
+<div class="absolute top-3 left-3 bg-secondary px-3 py-1 rounded-full text-[10px] font-bold text-white uppercase">C2C Verified</div>
+<div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm p-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-primary text-sm">favorite</span>
+</div>
+</div>
+<div class="p-5 space-y-3 flex-1 flex flex-col">
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-lg leading-tight group-hover:text-primary transition-colors">MacBook Pro M1 (2020) - 16GB RAM</h3>
+<span class="font-headline font-extrabold text-primary text-lg">৳85,000</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] px-2 py-0.5 bg-green-100 text-green-700 rounded font-bold uppercase">Like New</span>
+<span class="text-xs text-outline flex items-center gap-1"><span class="material-symbols-outlined text-xs">location_on</span> Banani, Dhaka</span>
+</div>
+<div class="mt-auto pt-4 flex items-center justify-between border-t border-surface-container">
+<div class="flex items-center gap-2">
+<img alt="Seller" class="w-6 h-6 rounded-full" data-alt="smiling middle-aged man with beard in casual blue shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByxdDXy_XmHNSzNnXo6qpH0JiQga3yH-iQKIbiFO_0lH5wGJzRaT38MFVBPAMbSWSPGIj4VwAUkX0TaawUbkEGhVNdQ_DGALFoBO_kZws9amswXlbMusjLBHMprRIErgIkIbTUCncGGOhX8oMLueROqCSZ7n__fueUn7rZh3nlTLHL0bmKJgMXWWqhzTx0c3qp2_erXKCqE7POz1SbSCrvzjpAl272pnxvHK0c7bCc6JQnZboHROfp1G8Ys9n-H_0RW_dg7vmr_ao"/>
+<div>
+<p class="text-xs font-bold">Rahat Kabir</p>
+<div class="flex items-center text-[10px] text-yellow-600">
+<span class="material-symbols-outlined text-[10px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.9 (24 sales)
+                                    </div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">chat_bubble</span>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img alt="Red Sneakers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="single vibrant red athletic running shoe placed on a geometric concrete block with dramatic studio shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdO3AK7l22F0C9VQvv0PSJkr0SIiIu-b96FEjtYCsDKLF497wc4ZI438b-dSZ3wLU2WSj71r8s2M38K5MNnani1DTAm_xliTdedfqT_Ll2ZgYPKfZUggrfyatek065jAF0XT9nGTaVvb_pHVqbt8D5n5QhTwuA5PRe8cqLRRWR0fweqQQrt4WMSy_MgeOegWlyhwc3c2pMKjn5JlB-aaILo-JE8kZdv-n8OkP77N8tFuy1dTIduD9XRvybjcw2I5tm5vqPSG1ksIU"/>
+<div class="absolute top-3 left-3 bg-secondary px-3 py-1 rounded-full text-[10px] font-bold text-white uppercase">C2C Verified</div>
+<div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm p-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-outline text-sm">favorite</span>
+</div>
+</div>
+<div class="p-5 space-y-3 flex-1 flex flex-col">
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-lg leading-tight group-hover:text-primary transition-colors">Nike Air Zoom - Size 10 (Authentic)</h3>
+<span class="font-headline font-extrabold text-primary text-lg">৳4,500</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] px-2 py-0.5 bg-yellow-100 text-yellow-700 rounded font-bold uppercase">Good</span>
+<span class="text-xs text-outline flex items-center gap-1"><span class="material-symbols-outlined text-xs">location_on</span> Uttara, Dhaka</span>
+</div>
+<div class="mt-auto pt-4 flex items-center justify-between border-t border-surface-container">
+<div class="flex items-center gap-2">
+<img alt="Seller" class="w-6 h-6 rounded-full" data-alt="cheerful young woman with glasses wearing a stylish headscarf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHb8rI1JExaXrq4_9EbDIIkcelKKR0X3t5l2SQTUSDTMXxq44rzWxpXE3EqxEKiTmK5N_jvvBg7ufeKd3eci6L7D6RDAZVcsOFbrNNjmlHaPfRxE-HmtuaeeNYGkfJIabmoBmU7jNmXPmdSr-AcGlfh3r5XNRRGd7l2EZUjDI5Ip3Z8obkfE6b3UezD7xUReEUXTdOzlr335ogTDYhIKan525tq2xSQ4M41IxVxyJZPuaH5McVYRINjzfzw9PHpxLKsnuzjNRi8HY"/>
+<div>
+<p class="text-xs font-bold">Sara Zaman</p>
+<div class="flex items-center text-[10px] text-yellow-600">
+<span class="material-symbols-outlined text-[10px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.7 (8 sales)
+                                    </div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">chat_bubble</span>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img alt="Headphones" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="professional studio shot of premium black wireless headphones against a dark moody background with subtle rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbWs1n0se4mMqkyz6x3zZyQI8Gxt0F_yuZH7fjADxvZjlwzLa1xRu3erVPKHlbKyOOIPlRwQCZvhhXNRxId4XEatcCluWSwbCZDcgnqKpeKTAlvkCez0x3SyNUhRoyztEb2Pa0Vsct4U02Pvxc6yb2JrJ4fT2JfUZEYocMyuyYj7TVx6COWXZ0vFri3veB39FCOxPex4WBV6wXG_Z7zYckkee6lyBS89JLUitmq9He0Mxr8GydEmF2Hqq2_c3QYbqgTdgdGuZxOpc"/>
+<div class="absolute top-3 left-3 bg-secondary px-3 py-1 rounded-full text-[10px] font-bold text-white uppercase">C2C Verified</div>
+<div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm p-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-outline text-sm">favorite</span>
+</div>
+</div>
+<div class="p-5 space-y-3 flex-1 flex flex-col">
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-lg leading-tight group-hover:text-primary transition-colors">Sony WH-1000XM4 Noise Cancelling</h3>
+<span class="font-headline font-extrabold text-primary text-lg">৳22,000</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] px-2 py-0.5 bg-blue-100 text-blue-700 rounded font-bold uppercase">Fair</span>
+<span class="text-xs text-outline flex items-center gap-1"><span class="material-symbols-outlined text-xs">location_on</span> Dhanmondi, Dhaka</span>
+</div>
+<div class="mt-auto pt-4 flex items-center justify-between border-t border-surface-container">
+<div class="flex items-center gap-2">
+<img alt="Seller" class="w-6 h-6 rounded-full" data-alt="close-up of a young male professional with a warm smile and tidy hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC18qfurIebH9o5DtbdOKFySXWNM-4b_55_uPMsSkrNKpMa9-WkgV35VYZX-ka2pYcltsScBLdhfC1kb98h9TgPmF08-WgO8ZZqdaLRS6q1oDbvJZftsQoYpqhiqJQ4LMc1h1t7hZvMvJx7iwzUVHUNYrBEWA0hUngSXDY8Gq80IeSyVGxyiXS79l3faq5X45pWnt_kHSojnyZhClJEbr0CxthKokH9TisaRs-dFIc1rWdGiDtLPru2niQnhosA857yc5NE4njc8uA"/>
+<div>
+<p class="text-xs font-bold">Tanvir Ahmed</p>
+<div class="flex items-center text-[10px] text-yellow-600">
+<span class="material-symbols-outlined text-[10px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.5 (5 sales)
+                                    </div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">chat_bubble</span>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img alt="Minimalist Watch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="close-up of a sleek white minimalist wrist watch on a soft grey textile background with soft directional light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN1g2EZrpzfT1Knp3u0_hXdDJ84cAN0dQP8QBcSQiV5lsLfvGb6M6FPsLZzquOrj3c_WujvPA3ryMZp5fM0ho-k2Klpy-n-gEish-Xm96629MiTCFYk12akq-U0YQrtmyVBPYAcEmxKzlwCBTRq01tXMIjavD2YN4ID7UKbxJ0IkcCB51qdVxW3_IJk4ge6PQ88q8E7gSrJ4ZY_2fI8JMN54HAKteZV_smEN2s1A2TtzxllAG-vCK935rH0CZR5s0TzNF2zVqHbdo"/>
+<div class="absolute top-3 left-3 bg-secondary px-3 py-1 rounded-full text-[10px] font-bold text-white uppercase">C2C Verified</div>
+<div class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm p-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-outline text-sm">favorite</span>
+</div>
+</div>
+<div class="p-5 space-y-3 flex-1 flex flex-col">
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-lg leading-tight group-hover:text-primary transition-colors">Daniel Wellington Classic White</h3>
+<span class="font-headline font-extrabold text-primary text-lg">৳7,800</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] px-2 py-0.5 bg-green-100 text-green-700 rounded font-bold uppercase">Like New</span>
+<span class="text-xs text-outline flex items-center gap-1"><span class="material-symbols-outlined text-xs">location_on</span> Mirpur, Dhaka</span>
+</div>
+<div class="mt-auto pt-4 flex items-center justify-between border-t border-surface-container">
+<div class="flex items-center gap-2">
+<img alt="Seller" class="w-6 h-6 rounded-full" data-alt="friendly woman with a professional bob hairstyle and soft makeup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR-SmnZRYOjxWfnTtOOHlSWR6cz1i5Vpx_s1RlfqP12gXXKVeYmt2hWEXNubeeUos7173X1IuE3cHcIbdED7sUt0KBeVK-Lpzqw7k8GW7hjddlRhMJfz_WhFZ1TnMPVbx3IYt7NH9aSZUSKI1fwH1SOsDSxnBoF0V0je-zGggPohGtTVwKPtmB3-8PQQsxKpLjJN1PLS2LXFBTRlfxAWax1K8RSiS-qs2M392P0me3rJiedbbS85Ldlzeb4eeEcv9r8jcyXSVYqJM"/>
+<div>
+<p class="text-xs font-bold">Nusrat Jahan</p>
+<div class="flex items-center text-[10px] text-yellow-600">
+<span class="material-symbols-outlined text-[10px]" style="font-variation-settings: 'FILL' 1;">star</span> 5.0 (12 sales)
+                                    </div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer">chat_bubble</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Banner -->
+<section class="bg-primary-container/10 p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-8 border border-primary-container/20">
+<div class="space-y-4 max-w-xl">
+<h2 class="text-3xl font-extrabold font-headline text-primary-container">Emptying your closet?</h2>
+<p class="text-on-surface-variant leading-relaxed">Join 50,000+ neighbors selling everything from vintage cameras to study tables. List your first item in under 60 seconds.</p>
+</div>
+<button class="whitespace-nowrap bg-primary-container text-white px-10 py-4 rounded-full font-headline font-bold text-lg hover:shadow-2xl transition-all scale-100 hover:scale-105">Start Selling Now</button>
+</section>
+</main>
+</div>
+<!-- Footer Shell -->
+<footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-surface-container-low dark:bg-slate-950">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 py-10 gap-8 max-w-7xl mx-auto">
+<div class="space-y-4 text-center md:text-left">
+<span class="font-manrope font-bold text-2xl text-slate-700">UniMart</span>
+<p class="text-slate-500 max-w-xs font-inter text-xs">The trusted community marketplace for Bangladesh. Buy, sell, and connect with confidence.</p>
+<p class="text-slate-500 dark:text-slate-400 font-inter text-xs">© 2024 UniMart Bangladesh. All rights reserved.</p>
+</div>
+<div class="flex gap-12">
+<div class="flex flex-col gap-3">
+<span class="text-xs font-bold uppercase text-slate-400 tracking-widest">Company</span>
+<a class="text-slate-500 hover:text-blue-500 font-inter text-xs transition-all" href="#">About Us</a>
+<a class="text-slate-500 hover:text-blue-500 font-inter text-xs transition-all" href="#">Careers</a>
+<a class="text-slate-500 hover:text-blue-500 font-inter text-xs transition-all" href="#">Press</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-xs font-bold uppercase text-slate-400 tracking-widest">Support</span>
+<a class="text-slate-500 hover:text-blue-500 font-inter text-xs transition-all" href="#">Help Center</a>
+<a class="text-slate-500 hover:text-blue-500 font-inter text-xs transition-all" href="#">Safety Tips</a>
+<a class="text-slate-500 hover:text-blue-500 font-inter text-xs transition-all" href="#">Escrow Policy</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-xs font-bold uppercase text-slate-400 tracking-widest">Legal</span>
+<a class="text-slate-500 hover:text-blue-500 font-inter text-xs transition-all" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:text-blue-500 font-inter text-xs transition-all" href="#">Terms of Service</a>
+</div>
+</div>
+<div class="flex flex-col gap-4 items-center md:items-end">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-400 hover:text-primary cursor-pointer">language</span>
+<span class="text-xs font-inter text-slate-500">English (BD)</span>
+</div>
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 hover:bg-primary hover:text-white transition-all cursor-pointer">
+<span class="material-symbols-outlined text-sm">social_leaderboard</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 hover:bg-primary hover:text-white transition-all cursor-pointer">
+<span class="material-symbols-outlined text-sm">camera</span>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

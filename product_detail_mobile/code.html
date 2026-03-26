@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#0872ed",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-primary-fixed-variant": "#004493",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "surface-dim": "#d9dadb",
+                        "primary-fixed-dim": "#adc7ff",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#edeeef",
+                        "surface": "#f8f9fa",
+                        "secondary": "#ad3219",
+                        "primary": "#005bbf",
+                        "on-secondary-container": "#680f00",
+                        "surface-container-low": "#f3f4f5",
+                        "inverse-primary": "#adc7ff",
+                        "on-tertiary-fixed": "#001a41",
+                        "on-background": "#191c1d",
+                        "background": "#f8f9fa",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-primary-container": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-bright": "#f8f9fa",
+                        "surface-variant": "#e1e3e4",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "error": "#ba1a1a",
+                        "on-surface": "#191c1d",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#ff6d4e",
+                        "outline": "#727785",
+                        "on-secondary-fixed-variant": "#8b1a02",
+                        "primary-fixed": "#d8e2ff",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#414754",
+                        "on-tertiary-container": "#ffffff",
+                        "tertiary": "#005abf",
+                        "outline-variant": "#c1c6d6",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-tint": "#005bc0",
+                        "on-primary-fixed": "#001a41",
+                        "primary-container": "#1a73e8",
+                        "secondary-fixed": "#ffdad3",
+                        "on-secondary-fixed": "#3e0500"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-nav {
+            background: rgba(248, 249, 250, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed-dim">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 flex items-center justify-between px-4 h-16 w-full bg-slate-50 transition-opacity">
+<div class="flex items-center gap-4">
+<button class="text-blue-700 active:scale-95 duration-150">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-manrope font-bold text-lg text-blue-700">UniMart</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-blue-700 active:scale-95 duration-150">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="text-blue-700 active:scale-95 duration-150">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+</div>
+</header>
+<main class="pt-16 pb-32">
+<!-- Hero Carousel Section -->
+<section class="relative bg-surface-container-low">
+<div class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar">
+<div class="flex-shrink-0 w-full snap-center px-4 py-6">
+<img class="w-full aspect-[3/4] object-cover rounded-xl shadow-sm" data-alt="Close-up of a premium Jamdari Silk Saree with intricate hand-woven gold floral patterns on a deep emerald green fabric" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtRk_kYRAYQC78wxo8s3S7j8IsjkoSU0sfQ8uavRCV5JvWaIQM7y7_8x8G0EhGVmAcFvdNE9pwwC0H3GVMf3PDP-sCM0tuE6bQCLWJLnJ1UjSO61swovwgnH9FZQVbOw1TOvTseASe3O0r83uq2mk6xPRYRhAOsQo8SW9UGMtzaI0GzwtV0f-D6jypcIEBissFualQAWC5aeedVjKKoZXzHCNgWk5fzAT-FeUMQFN8r9lCoLQoeoXJUr7wNoKLvng-HkYKPssqPsE"/>
+</div>
+<div class="flex-shrink-0 w-full snap-center px-4 py-6">
+<img class="w-full aspect-[3/4] object-cover rounded-xl shadow-sm" data-alt="Detailed texture of high-quality silk threads and delicate embroidery craftsmanship in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7YWYHH2gzmyU55o8ehdN0Lgim49HR61IyH6jdeplWhMwoNq18yPD7O1tBzsABUokCTJPPAk2yrbwePVrtYlD9Rp0Cy8TSsJuPmWQjO6pIo2_kVI4NthD5Edo11XJNTcsB4Q09HDrJwbc5pJdUMePn-t5K0lpI9hrXsBSkPixhU_sA9KNidL19FeEjhvtZFfRmcXjbuw8Gfr1OTmZucuq0WFegMZhw6WwhXY0I43xL32-DmKdp8S1be0HD0TYEiawlIPUZCXyDqQU"/>
+</div>
+</div>
+<!-- Indicator Dots -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-1.5">
+<div class="h-1.5 w-4 rounded-full bg-primary"></div>
+<div class="h-1.5 w-1.5 rounded-full bg-outline-variant/50"></div>
+<div class="h-1.5 w-1.5 rounded-full bg-outline-variant/50"></div>
+</div>
+</section>
+<!-- Product Identity Header -->
+<section class="px-6 py-4 bg-surface-container-lowest rounded-t-[2.5rem] -mt-6 relative z-10">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold px-2.5 py-1 rounded-full tracking-wider">PREMIUM COLLECTION</span>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold">4.9 (124)</span>
+</div>
+</div>
+<h2 class="text-2xl font-headline font-extrabold text-on-surface leading-tight mb-2">Jamdari Silk Saree</h2>
+<div class="flex items-baseline gap-3">
+<span class="text-3xl font-headline font-black text-primary">৳ 18,500</span>
+<span class="text-on-surface-variant line-through text-sm opacity-60">৳ 22,000</span>
+</div>
+</section>
+<!-- Seller Profile Card -->
+<section class="px-6 mt-4">
+<div class="bg-surface-container-low rounded-xl p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="Professional portrait of a boutique owner in a brightly lit traditional craft studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHZ5998oLZMnCI8Rb_-_7-xNAoXaiZjsXP5CbenqyFWlnxZo2TXeOWpjOiF99rALRVzXDrj0BlmkfCbTun069Yl1vy-Clq4AHFf0ImnLKo6wKCZksI4LEaPF0iBesjRDvHlZ_VCj2cIzcJLl8O9ke0JbX0y_CPR6HC1FZS_ystqTstBDYccOrItWxfCeBY90Z1DAf6hr0eaDIiaarlwjZTYJ1TkvtNSlqJ1IeSzjN-5R-8u784B1BWmP6uvN_OqQwt0QudJfrBHDc"/>
+</div>
+<div>
+<h4 class="font-bold text-sm text-on-surface">Dhakaiya Weaves</h4>
+<p class="text-xs text-on-surface-variant">Verified Artisan Boutique</p>
+</div>
+</div>
+<button class="bg-primary text-on-primary text-xs font-bold px-5 py-2.5 rounded-full shadow-md active:scale-95 transition-transform">Follow</button>
+</div>
+</section>
+<!-- Product Details / Description -->
+<section class="px-6 mt-8">
+<h3 class="font-headline font-bold text-lg mb-4 flex items-center gap-2">
+<span class="w-1 h-6 bg-primary rounded-full"></span>
+                Story behind the Craft
+            </h3>
+<p class="text-on-surface-variant leading-relaxed text-[15px] mb-6">
+                This Jamdari Silk Saree is a masterpiece of traditional Bengali craftsmanship. Hand-woven over 45 days, it features the iconic 'Pana' motif, representing prosperity. The fabric is a blend of pure Mulberry silk and gold zari threads, offering a weightless yet opulent drape.
+            </p>
+<!-- Features Chips -->
+<div class="flex flex-wrap gap-2">
+<div class="bg-surface-container-high px-3 py-1.5 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span class="text-xs font-semibold">100% Pure Silk</span>
+</div>
+<div class="bg-surface-container-high px-3 py-1.5 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">dry_cleaning</span>
+<span class="text-xs font-semibold">Dry Clean Only</span>
+</div>
+<div class="bg-surface-container-high px-3 py-1.5 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">local_shipping</span>
+<span class="text-xs font-semibold">Free Delivery</span>
+</div>
+</div>
+</section>
+<!-- Reviews Bento Grid -->
+<section class="px-6 mt-10">
+<div class="flex justify-between items-end mb-6">
+<h3 class="font-headline font-bold text-lg">Collector Reviews</h3>
+<span class="text-primary text-sm font-bold">View All</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm col-span-2">
+<div class="flex items-center gap-2 mb-2">
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-xs text-on-surface-variant">2 days ago</span>
+</div>
+<p class="text-sm font-medium mb-3">"Exquisite quality! The gold work is even more beautiful in person. Perfectly packaged."</p>
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-fixed flex items-center justify-center text-[10px] font-bold text-primary">SA</div>
+<span class="text-xs font-bold">Sabrina A.</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm flex flex-col justify-center items-center text-center">
+<span class="text-2xl font-black text-primary">4.9</span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Avg Rating</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm flex flex-col justify-center items-center text-center">
+<span class="text-2xl font-black text-secondary">98%</span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Recommended</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Fixed Action Bar -->
+<footer class="fixed bottom-0 left-0 w-full bg-white/70 backdrop-blur-xl px-4 py-4 pb-8 flex items-center gap-3 z-50 shadow-[0_-4px_24px_0_rgba(0,0,0,0.06)] border-t border-outline-variant/10">
+<button class="w-14 h-14 flex items-center justify-center rounded-2xl bg-surface-container-high text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined">chat</span>
+</button>
+<button class="flex-1 h-14 bg-surface-container-highest text-on-surface-variant font-bold rounded-2xl active:scale-95 transition-transform">
+            Add to Cart
+        </button>
+<button class="flex-[1.5] h-14 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-2xl shadow-lg shadow-primary/20 active:scale-95 transition-transform">
+            Buy Now
+        </button>
+</footer>
+</body></html>

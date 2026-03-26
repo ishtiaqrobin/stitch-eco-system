@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Category Management | UniMart Admin</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#f3f4f5",
+                        "secondary-container": "#ff6d4e",
+                        "primary-fixed": "#d8e2ff",
+                        "on-surface": "#191c1d",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-container-high": "#e7e8e9",
+                        "surface": "#f8f9fa",
+                        "error": "#ba1a1a",
+                        "background": "#f8f9fa",
+                        "on-primary-fixed": "#001a41",
+                        "outline": "#727785",
+                        "on-secondary-fixed": "#3e0500",
+                        "on-secondary-container": "#680f00",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c1c6d6",
+                        "on-primary-container": "#ffffff",
+                        "inverse-primary": "#adc7ff",
+                        "surface-container": "#edeeef",
+                        "primary-fixed-dim": "#adc7ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#001a41",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "inverse-on-surface": "#f0f1f2",
+                        "tertiary-container": "#0872ed",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#414754",
+                        "on-background": "#191c1d",
+                        "on-tertiary-container": "#ffffff",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "tertiary": "#005abf",
+                        "surface-dim": "#d9dadb",
+                        "primary": "#005bbf",
+                        "tertiary-fixed": "#d8e2ff",
+                        "secondary": "#ad3219",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#8b1a02",
+                        "on-primary-fixed-variant": "#004493",
+                        "surface-bright": "#f8f9fa",
+                        "secondary-fixed": "#ffdad3",
+                        "primary-container": "#1a73e8",
+                        "surface-variant": "#e1e3e4",
+                        "surface-tint": "#005bc0",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "on-error": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .glass-header {
+            backdrop-filter: blur(20px);
+            background: rgba(248, 249, 250, 0.7);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 h-16 border-b border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 z-50 shadow-sm">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">UniMart Admin</span>
+<div class="hidden md:flex items-center bg-slate-100 dark:bg-slate-800 rounded-full px-4 py-1.5 gap-2">
+<span class="material-symbols-outlined text-slate-500 text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none text-sm focus:ring-0 w-64 text-slate-700 dark:text-slate-200" placeholder="Search categories..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors rounded-full relative">
+<span class="material-symbols-outlined text-slate-500" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors rounded-full">
+<span class="material-symbols-outlined text-slate-500" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container overflow-hidden border border-outline-variant/20">
+<img alt="Admin Profile Menu" data-alt="Close-up portrait of a professional male administrator in a clean modern office setting with soft natural light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp1RQnH1zW2icUK_cwdY9_pTQOZ4QI6LnBpJAXPwZjwNwOSIP_43NquEorG_OpkXi0fmd_ulgQEA05KyuVRleHjZgycTlMXn_YmfXM7O9wS_6mZFc9YODxV4Sb7h_LwmjbR4D-0yme94yDpR_K_xLKLK5JwSukaPJ8Obol7XGWn3_wuxzpq012xLKBgJ4FMwUMy45BQsZzNa09uSTjX52-QNwXHyifqHJU6MBJWbhdUKpIUTmFPir9uWHZM2mQndQxfCsHNR2C1p8"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 pt-20 pb-6 px-4 flex flex-col gap-2 overflow-y-auto bg-slate-50 dark:bg-slate-950 border-r border-slate-100 dark:border-slate-800 z-40">
+<div class="mb-6 px-4">
+<h2 class="text-lg font-bold text-blue-600">Admin Central</h2>
+<p class="text-xs text-slate-500">Management Suite</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-medium">User Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 rounded-lg shadow-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-medium">Operations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="font-medium">Moderation</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+<span class="font-medium">Platform</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-medium">Finance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium">System</span>
+</a>
+</nav>
+<div class="mt-auto px-4">
+<button class="w-full py-3 px-4 bg-primary text-on-primary rounded-full font-semibold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                Export Reports
+            </button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 pt-16 min-h-screen bg-surface">
+<div class="p-8 max-w-7xl mx-auto">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div>
+<nav class="flex items-center gap-2 text-xs text-outline mb-2 font-label">
+<span>UniMart</span>
+<span class="material-symbols-outlined text-[10px]" data-icon="chevron_right">chevron_right</span>
+<span>Inventory</span>
+<span class="material-symbols-outlined text-[10px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-semibold">Category Management</span>
+</nav>
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2">Structure Marketplace</h1>
+<p class="text-on-surface-variant max-w-2xl">Define the editorial hierarchy of your commerce platform. Manage deep categorization, SEO metadata, and dynamic attribute mapping.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-6 py-2.5 rounded-full bg-surface-container-high text-primary font-semibold hover:bg-surface-container-highest transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-xl" data-icon="merge">merge</span>
+                        Merge
+                    </button>
+<button class="px-8 py-2.5 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold shadow-xl shadow-primary/20 hover:scale-[0.98] transition-transform flex items-center gap-2">
+<span class="material-symbols-outlined text-xl" data-icon="add">add</span>
+                        Add New Category
+                    </button>
+</div>
+</div>
+<!-- Stats Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+<div class="col-span-1 md:col-span-2 bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between overflow-hidden relative group">
+<div class="relative z-10">
+<p class="text-sm font-semibold text-outline mb-1 font-label uppercase tracking-widest">Total Active Categories</p>
+<h3 class="text-5xl font-extrabold text-on-surface">1,284</h3>
+<p class="text-xs text-secondary font-medium mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+                            +12 this month
+                        </p>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-9xl" data-icon="category">category</span>
+</div>
+</div>
+<div class="bg-primary text-on-primary p-6 rounded-xl shadow-xl flex flex-col justify-between">
+<div>
+<p class="text-xs font-semibold opacity-80 mb-1 font-label uppercase tracking-widest">Most Populated</p>
+<h3 class="text-2xl font-bold">Fashion &amp; Apparel</h3>
+<p class="text-sm opacity-90 mt-1">45,201 Products</p>
+</div>
+<div class="flex items-center gap-2 mt-4">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-primary bg-slate-200 overflow-hidden">
+<img alt="Category Sample" data-alt="High-end fashion photography of a silk dress on a minimalist background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvSSIaFF_CAglpN24bkR43sdr8Qfuf9MA1UnOy3G0WpXrfS8grai2jZpuw4xnuxR76lh1ogbijmvj5vIxOl54jFv_I1mWmoTyvKBq6LiYLYll60sIwYBF-H9AEiUMJyNSZUsXDZscIizrueH7xlbDB89HIN-9crpy5PFeB5hPzPYJcgItUKGT_Xmrt7w7AM1U44CJKSEhTNp2jBiHvK1ntncUCDmCFciPD6fGJneu4SWl4ZMXynVXDMCPud5xSotaLJlw02U8wKlA"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-primary bg-slate-300 flex items-center justify-center text-[10px] font-bold">+8</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col justify-between">
+<div>
+<p class="text-xs font-semibold text-outline mb-1 font-label uppercase tracking-widest">Visibility Rate</p>
+<h3 class="text-3xl font-extrabold text-on-surface">94.2%</h3>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden mt-4">
+<div class="bg-primary h-full w-[94%]"></div>
+</div>
+</div>
+</div>
+<!-- Content Canvas -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Category Tree & List -->
+<div class="lg:col-span-8 space-y-6">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<div class="px-6 py-4 flex items-center justify-between bg-surface-container-low/50">
+<h4 class="font-bold text-lg">Category Hierarchy</h4>
+<div class="flex items-center gap-4">
+<button class="text-primary text-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-lg" data-icon="unfold_more">unfold_more</span>
+                                    Expand All
+                                </button>
+<button class="text-outline text-sm font-semibold flex items-center gap-1 hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="swap_vert">swap_vert</span>
+                                    Reorder
+                                </button>
+</div>
+</div>
+<!-- Table-like List -->
+<div class="divide-y divide-surface-container">
+<!-- Parent Category -->
+<div class="group">
+<div class="px-6 py-5 flex items-center gap-4 hover:bg-surface-container-low transition-colors">
+<button class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="keyboard_arrow_down">keyboard_arrow_down</button>
+<div class="w-12 h-12 rounded-lg bg-surface-container-high overflow-hidden flex-shrink-0">
+<img alt="Electronics" data-alt="Modern sleek white wireless headphones on a clean gray surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuWt1ELN2_MvJAteUq09-S7AQRX4Z0HaNwteFzERkO1bdSnVxYTZ7c7cvPb33xORKe9oFwHsIEZ4sn_Z58hFJ_uBZjtfvk_swAvDq-josNxpxYDr9CM8JztxsWQz609nima5EeA39i2n6LmVxnFdBeFBY0ojbFNBqnyW6cxoC4Ojc7ImOhxTt_nG0e8LAiC7yRKGfr1oeqKnk9qTvlM2jwPFhn65LtHb9QjHv5XvB-hdRlG5Fznn0Jc37IYexduUQgsMgklg9wLzU"/>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface text-lg">Electronics</span>
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed text-[10px] font-bold uppercase tracking-tighter">Primary</span>
+</div>
+<p class="text-xs text-outline font-label">slug: electronics-main</p>
+</div>
+<div class="text-right px-4">
+<span class="block font-bold text-on-surface">12,402</span>
+<span class="text-[10px] text-outline uppercase font-label">Products</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-10 h-5 bg-tertiary-container rounded-full relative p-1 flex items-center justify-end">
+<div class="w-3 h-3 bg-white rounded-full"></div>
+</div>
+<span class="text-xs font-semibold text-on-surface-variant">Visible</span>
+</div>
+<div class="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-white rounded-lg text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+</button>
+<button class="p-2 hover:bg-white rounded-lg text-outline hover:text-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<!-- Sub-categories -->
+<div class="bg-surface-container-low/30 pl-16">
+<div class="px-6 py-4 flex items-center gap-4 hover:bg-surface-container-low transition-colors border-l-2 border-primary/20">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high overflow-hidden flex-shrink-0">
+<img alt="Smartphones" data-alt="Close-up of a modern smartphone screen showing vibrant app icons." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1FSmBlAlsX0SkW-9ob9XtUvfdoh7PaB_l2yE_tb0aoVxEpKvF4sb-iPXHplzvPsF8eGEZRdEWZ4sX_ooRqIHWem0rI9XZjjZ70BnjWdj6yBko-gA790tWqOgfa3AxBeKCNWcdesWysZDRsjytlVDwbW6MWTHUxseLhOV2YgqQR-yIyad2BlfuLHXbyJJt7a3tk7jFwYia0-S-f8m1L3zVBYKQ7oDKS5m741Pcq_uMNyiE_HQAZpLGbhfc779iTv5GRXeI6FkAiBY"/>
+</div>
+<div class="flex-grow">
+<span class="font-semibold text-on-surface">Smartphones</span>
+<p class="text-[10px] text-outline font-label">slug: phones-mobile</p>
+</div>
+<div class="text-right px-4">
+<span class="block font-medium text-on-surface text-sm">8,120</span>
+</div>
+<button class="p-2 text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<div class="px-6 py-4 flex items-center gap-4 hover:bg-surface-container-low transition-colors border-l-2 border-primary/20">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high overflow-hidden flex-shrink-0">
+<img alt="Laptops" data-alt="A thin silver laptop open on a wooden desk in a bright room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPeZUqn-NqyNmkj23iTHnJGwIYdcNZj_3NDENhHT1NQsUzj4pDg5b12_PQFF9cabFvq9Xl9IjVnJRSBpD1GdhGG2EkYHbmd7gUHQUJxGBR723i8Sr-pP-k3H5kU5HU-zGxdQIi2IVCaC4MXxPEaK5sTWA5jzlqieV8Nuwkf6Un3K-E1-EPny8mdGR79mLH7Sdgn0GjtS84O5UzVOY-lIdyxe3h5ASKJ84VX-d2s3d-Y9rwkHI9-ytM_ZAGLX0Q8gIm1jnBveV1mf0"/>
+</div>
+<div class="flex-grow">
+<span class="font-semibold text-on-surface">Laptops &amp; PCs</span>
+<p class="text-[10px] text-outline font-label">slug: computing</p>
+</div>
+<div class="text-right px-4">
+<span class="block font-medium text-on-surface text-sm">4,282</span>
+</div>
+<button class="p-2 text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Another Parent Category -->
+<div class="group">
+<div class="px-6 py-5 flex items-center gap-4 hover:bg-surface-container-low transition-colors">
+<button class="material-symbols-outlined text-outline" data-icon="keyboard_arrow_right">keyboard_arrow_right</button>
+<div class="w-12 h-12 rounded-lg bg-surface-container-high overflow-hidden flex-shrink-0">
+<img alt="Home Decor" data-alt="Minimalist living room setup with a designer chair and a large plant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRJJ9Daux9SH2p8Oj4WOWHmwEfZnd0gXtEasZaneV0C72dJ4rpSbfTl90Z14Rlg_NqFrNkDbX_ysQkULBDzh8zdlRAimcu1E623U39Vdf66zTiPeVfnNRMB5PR11D3JLOkiazPZsTuxLBgYuM7m_Wb5Gme4o5aoVqb1Bkc1Vc5MZzqGqnD8MmWogqox50080v_-4ZEGr5LXkiz48jHIjzicholAeBZ8rW4Xgg5agcQpDKS_UUpDoiLS9JbrECoVwH4EKshS_Vb4Ds"/>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface text-lg">Home &amp; Living</span>
+<span class="px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed text-[10px] font-bold uppercase tracking-tighter">Primary</span>
+</div>
+<p class="text-xs text-outline font-label">slug: home-lifestyle</p>
+</div>
+<div class="text-right px-4">
+<span class="block font-bold text-on-surface">8,950</span>
+<span class="text-[10px] text-outline uppercase font-label">Products</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-10 h-5 bg-surface-container-highest rounded-full relative p-1 flex items-center justify-start">
+<div class="w-3 h-3 bg-white rounded-full"></div>
+</div>
+<span class="text-xs font-semibold text-outline">Hidden</span>
+</div>
+<div class="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-white rounded-lg text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+</button>
+<button class="p-2 hover:bg-white rounded-lg text-outline hover:text-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Mapping & SEO Sidebar -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Mapping Tool Card -->
+<section class="bg-surface-container-low p-6 rounded-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-primary/20 text-6xl" data-icon="hub">hub</span>
+</div>
+<h4 class="font-bold text-xl mb-4 relative z-10">Attribute Mapping</h4>
+<p class="text-sm text-on-surface-variant mb-6 relative z-10">Configure which filters and attributes are active for the <span class="text-primary font-bold">Smartphones</span> category.</p>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 bg-surface-container-lowest rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="palette">palette</span>
+<span class="text-sm font-semibold">Color Palette</span>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-lowest rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="straighten">straighten</span>
+<span class="text-sm font-semibold">Screen Size</span>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-lowest rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="memory">memory</span>
+<span class="text-sm font-semibold">RAM / Storage</span>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-lowest rounded-lg opacity-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline" data-icon="footprint">footprint</span>
+<span class="text-sm font-semibold">Shoe Size</span>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+</div>
+</div>
+<button class="w-full mt-6 py-2.5 rounded-lg border-2 border-primary text-primary font-bold hover:bg-primary hover:text-on-primary transition-all">
+                            Configure Filters
+                        </button>
+</section>
+<!-- SEO Meta Card -->
+<section class="bg-surface-container-highest p-6 rounded-xl">
+<div class="flex items-center justify-between mb-4">
+<h4 class="font-bold text-xl">SEO Metadata</h4>
+<span class="px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase tracking-widest">Optimized</span>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block text-[10px] font-bold text-outline uppercase tracking-widest mb-1">Meta Title</label>
+<div class="bg-surface-container-lowest p-3 rounded-lg text-sm text-on-surface border border-outline-variant/10">
+                                    Latest Smartphones &amp; Mobile Tech | UniMart
+                                </div>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-outline uppercase tracking-widest mb-1">Description</label>
+<div class="bg-surface-container-lowest p-3 rounded-lg text-sm text-on-surface-variant border border-outline-variant/10 leading-relaxed">
+                                    Shop the newest smartphones from global brands. Find best prices on iPhone, Samsung, and more. Fast delivery across Bangladesh.
+                                </div>
+</div>
+<button class="flex items-center gap-2 text-primary font-bold text-sm hover:underline">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+                                Edit SEO Meta
+                            </button>
+</div>
+</section>
+</div>
+</div>
+<!-- Danger Zone -->
+<div class="mt-20 pt-12 border-t border-surface-container-highest">
+<div class="flex items-center justify-between p-6 bg-error-container/20 rounded-xl border border-error-container/40">
+<div>
+<h5 class="text-lg font-bold text-error">Merge &amp; Cleanup</h5>
+<p class="text-sm text-on-error-container opacity-80">Consolidate redundant categories. This action will migrate all products to the target category.</p>
+</div>
+<button class="px-6 py-2.5 bg-error text-on-error rounded-full font-bold shadow-lg shadow-error/20 hover:scale-95 transition-transform">
+                        Launch Merge Tool
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="w-14 h-14 rounded-full bg-secondary text-on-secondary shadow-2xl flex items-center justify-center hover:scale-110 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+</div>
+</body></html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Explore UniMart | Discover the Pulse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#005bc0",
+              "on-primary": "#ffffff",
+              "outline": "#727785",
+              "error-container": "#ffdad6",
+              "primary": "#005bbf",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "inverse-primary": "#adc7ff",
+              "surface-container-low": "#f3f4f5",
+              "outline-variant": "#c1c6d6",
+              "tertiary": "#005abf",
+              "on-surface-variant": "#414754",
+              "on-secondary-container": "#680f00",
+              "surface-container": "#edeeef",
+              "primary-container": "#1a73e8",
+              "surface": "#f8f9fa",
+              "on-primary-fixed-variant": "#004493",
+              "primary-fixed": "#d8e2ff",
+              "on-tertiary-fixed-variant": "#004493",
+              "on-error-container": "#93000a",
+              "secondary": "#ad3219",
+              "on-error": "#ffffff",
+              "inverse-surface": "#2e3132",
+              "surface-container-highest": "#e1e3e4",
+              "tertiary-fixed": "#d8e2ff",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "on-secondary-fixed": "#3e0500",
+              "on-surface": "#191c1d",
+              "on-primary-fixed": "#001a41",
+              "surface-bright": "#f8f9fa",
+              "error": "#ba1a1a",
+              "surface-container-high": "#e7e8e9",
+              "inverse-on-surface": "#f0f1f2",
+              "secondary-fixed": "#ffdad3",
+              "secondary-container": "#ff6d4e",
+              "on-tertiary-container": "#ffffff",
+              "background": "#f8f9fa",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed-dim": "#adc7ff",
+              "on-tertiary-fixed": "#001a41",
+              "on-background": "#191c1d",
+              "tertiary-container": "#0872ed",
+              "surface-variant": "#e1e3e4",
+              "surface-dim": "#d9dadb",
+              "on-primary-container": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            grid-auto-rows: 10px;
+            gap: 16px;
+        }
+        .masonry-item-sm { grid-row-end: span 25; }
+        .masonry-item-md { grid-row-end: span 35; }
+        .masonry-item-lg { grid-row-end: span 45; }
+        
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #c1c6d6; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 mb-4 bg-[#f8f9fa] dark:bg-slate-950 z-50 transition-colors duration-200">
+<div class="flex items-center gap-8">
+<h1 class="text-2xl font-black tracking-tight text-[#191c1d] dark:text-slate-100 font-headline">UniMart</h1>
+<!-- Desktop Nav Cluster -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-[#191c1d] dark:text-slate-400 opacity-70 hover:bg-[#f3f4f5] dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded-lg text-sm font-medium" href="#">Home</a>
+<a class="text-[#005bbf] font-bold border-b-2 border-[#005bbf] px-3 py-1 text-sm" href="#">Explore</a>
+<a class="text-[#191c1d] dark:text-slate-400 opacity-70 hover:bg-[#f3f4f5] dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded-lg text-sm font-medium" href="#">Reels</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-surface-container-low rounded-full px-4 py-2 w-64">
+<span class="material-symbols-outlined text-outline text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-outline/60" placeholder="Search curated finds..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-[#f3f4f5] transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-2 rounded-full hover:bg-[#f3f4f5] transition-colors"><span class="material-symbols-outlined">chat_bubble</span></button>
+<div class="w-8 h-8 rounded-full overflow-hidden ml-2 border border-outline-variant/20">
+<img alt="User Profile" data-alt="Close-up portrait of a stylish young professional looking confident with soft lighting against a neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnZkxKDBTDvD7iIXkgWbL8DFm8qwO8eKpg-hdD3rlWb3hNCecxignHZmbQNdZWLNann3mf8nWC9OSMGwMycfI-NAyZLFlhuAoo4hJbJwsM9lBKwaM0vSiY0MV6uTISXe0SEh83dHAsacnkQXnf9e5SjR_1cBX8bIJueQOjhgseMUkFsXu1GuICFY_GA8Nzg7WUCzqaJhXVURTjPgKU_FfUL5ahAUK5jazuuTt5gpjoB8-RZBbQ-lhF4OSYT8TDJCNSXSN1WP8bemI"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto">
+<!-- Search & Trending Bar -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="max-w-xl flex-1">
+<h2 class="text-4xl font-extrabold font-headline mb-4 tracking-tight">Discover the <span class="text-primary">Pulse</span></h2>
+<div class="relative group">
+<input class="w-full bg-surface-container-highest border-none rounded-xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-primary/40 transition-all font-medium" placeholder="Explore Fashion, Tech, or Handicrafts..." type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+</div>
+<div class="flex flex-wrap items-center gap-3 mt-4">
+<span class="text-[10px] font-bold uppercase tracking-widest text-outline">Trending:</span>
+<a class="text-xs font-semibold px-3 py-1 bg-surface-container rounded-full hover:bg-primary-fixed transition-colors" href="#">#HandmadeSilk</a>
+<a class="text-xs font-semibold px-3 py-1 bg-surface-container rounded-full hover:bg-primary-fixed transition-colors" href="#">#TechBooster</a>
+<a class="text-xs font-semibold px-3 py-1 bg-surface-container rounded-full hover:bg-primary-fixed transition-colors" href="#">#DhakaStreetStyle</a>
+</div>
+</div>
+<div class="bg-primary/5 rounded-2xl p-6 border border-primary/10 max-w-sm hidden lg:block">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-headline font-bold text-lg">Trending Now</span>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3 group cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high overflow-hidden">
+<img alt="Trend" data-alt="Detailed close-up of vibrant high-end boutique earphones with sleek metallic finish and subtle reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRlTPwmn19W-pKP2kHr80YvGdGItyPPOBDZjeWUiqO3RfMNGDiWW0asmGWumVfy7Olo3rSDNdIUb-vKnXNObukWK_jBYLLkRtE4QMl3rJy4ZfgQoAFQWpx9g5XRywv3TCwDCRWEFFaq7DyLl0_IoBqM9QA-V5vd1FHqYsifLRzqkUfSnR6gRdWtO7pQDRgeUoJpVj-wC0It4Q3I6pZWGc6nIW_ZsEAK_7vvFC4tik8cbXZbQocUWWoMe_Lhb57cxeghiwRIcGY504"/>
+</div>
+<div>
+<p class="text-sm font-bold group-hover:text-primary transition-colors leading-tight">Hyper-Focus Audio Gear</p>
+<p class="text-[10px] text-outline">2.4k views this hour</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Category Filters -->
+<section class="mb-10 overflow-x-auto no-scrollbar">
+<div class="flex items-center gap-3 pb-2">
+<button class="px-6 py-2.5 bg-primary text-on-primary rounded-full font-bold text-sm shadow-lg shadow-primary/20 whitespace-nowrap">All</button>
+<button class="px-6 py-2.5 bg-surface-container-lowest hover:bg-surface-container text-on-surface rounded-full font-bold text-sm whitespace-nowrap transition-colors">Fashion</button>
+<button class="px-6 py-2.5 bg-surface-container-lowest hover:bg-surface-container text-on-surface rounded-full font-bold text-sm whitespace-nowrap transition-colors">Tech</button>
+<button class="px-6 py-2.5 bg-surface-container-lowest hover:bg-surface-container text-on-surface rounded-full font-bold text-sm whitespace-nowrap transition-colors">Handicraft</button>
+<button class="px-6 py-2.5 bg-surface-container-lowest hover:bg-surface-container text-on-surface rounded-full font-bold text-sm whitespace-nowrap transition-colors">Lifestyle</button>
+</div>
+</section>
+<!-- Masonry Grid -->
+<section class="masonry-grid">
+<!-- Item 1: Large Editorial Card -->
+<div class="masonry-item-lg group relative overflow-hidden rounded-xl bg-surface-container-lowest">
+<img alt="Fashion Post" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="High-fashion editorial photography of a model in sustainable clothing standing against a minimalist architectural background in soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3e_nmgjjBVc3lShm8RrxsT9sFGoBT-W8YDOXjchh4hxE915Yt6xW98He_jZYI3bZmTJfi8bw3MMQTTFOhhRIntnCQ9M5hoLPixoW552QJZbRBDq-OMC-mu3nR9MZeR927vqIrNUxx5j_gXbZaTHNsCZkLvz8AaLhYQfxmyD_crVP-MiSOpWGk0qZamZYaI98ScvK4aI0f2E3BlqTr7z6eUGklO_hN9PTyiaUncawBHCeEggxxmmvEzhX1V2DfVx3yyCziIvhZlGs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+<div class="absolute bottom-0 left-0 p-6 text-white">
+<span class="bg-secondary px-3 py-1 rounded-full text-[10px] font-black uppercase mb-3 inline-block">Curated</span>
+<h3 class="font-headline font-bold text-xl leading-tight">The Modern Weaver: Reimagining Jamdani</h3>
+<div class="flex items-center gap-2 mt-4">
+<div class="w-6 h-6 rounded-full overflow-hidden border border-white/40">
+<img alt="Author" data-alt="Soft focus portrait of a creative professional woman with a warm friendly expression and natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASiz8OsyBnZghtpCQE7FFZtwjZURSbto01bhrTVMk6-L2T5Cm1HZvWOX4PPw-ktPVGjB0VRuLNCb8xJssaS-txA6XB-LYdyO6OOAXeEtNWgTZ24lsz3oUOT9fSo6IBaD8aqV6f8lK90erTFUWuP3uTnZJI0WxsXVSYoarUryKNUqH5B7xJUJaC8zLRfveXUCKlahjS09HVVhX96z25wrTZufE8re0xGfZB7akxX1sE14Jx0U0cpUUTdj0q7sYeRbFYcoU0jGfkeC8"/>
+</div>
+<span class="text-xs font-medium">Anika Kabir</span>
+</div>
+</div>
+</div>
+<!-- Item 2: Reel/Video Preview -->
+<div class="masonry-item-md group relative overflow-hidden rounded-xl bg-surface-container-lowest">
+<img alt="Product Post" class="w-full h-full object-cover" data-alt="Dynamic shot of a bright red athletic sneaker being unboxed on a clean white surface with dramatic professional studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkwp1yzjHMtaizGCVwwoudOtS6igweYs26uptIwot5C9R5lDaoXYD_glyHaxzpWDJ8v5uWXDY7RCeBnHnQ1brgtVFo-1Dh4A0uDJsHbga3hWaqIaORU-tM1MQYSrkuuomAyqoM2kPJ48oSTdIN3Xz4jyWD81rtzon-oMvroFNfpek-melb-9w7i1KX5OZM2B_l8DXsICANzeSKYLcgRphupdu2i4tXfBjgMSFXidc1gJWN4CWbQVkYJdXkedZNZZ2JBa4yYfut6zM"/>
+<div class="absolute top-4 right-4 bg-white/20 backdrop-blur-md p-2 rounded-full">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">movie_filter</span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<div class="bg-white/90 text-primary p-4 rounded-full shadow-2xl">
+<span class="material-symbols-outlined scale-150" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<!-- Item 3: Simple Product Post -->
+<div class="masonry-item-sm group bg-surface-container-lowest p-3 rounded-xl">
+<div class="h-4/5 overflow-hidden rounded-lg mb-3">
+<img alt="Tech" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Cinematic close-up of premium leather headphones resting on a rustic wooden table next to a steaming cup of coffee" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB1IA1IayW64EKoxtaNxge3iS-1Ebkz4fj5lSWEWSsYz-FQVTq5v3JxWlN0h7EtVJsF6LJo8oqVY7OjMEK3ftU1kE222yOHMR74Cv8sUEA36B4P_OORl7oaq_lLgeRqEjTelRa7fuJVyaqZ_JjfTKBY_BRxL9pjTCtXo16fb98WXISmBkA47rl8tk8YaWjoXi1JHpju9KL5PLg9800m3fkrY--TWWodIv3sB4yObK721JEElOlJ1AuCWeOmV71ji071-qAYP8H6Tc"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<p class="text-sm font-bold">Studio Pro X1</p>
+<p class="text-xs text-outline font-medium">৳ 12,500</p>
+</div>
+<button class="text-primary hover:scale-110 transition-transform"><span class="material-symbols-outlined">favorite</span></button>
+</div>
+</div>
+<!-- Item 4: Asymmetric Collection Card -->
+<div class="masonry-item-lg bg-secondary-fixed rounded-xl p-8 flex flex-col justify-end relative overflow-hidden">
+<div class="absolute -top-10 -right-10 w-48 h-48 bg-secondary-container rounded-full opacity-20 blur-3xl"></div>
+<h3 class="text-3xl font-black font-headline text-on-secondary-fixed mb-4">Artisan Essentials</h3>
+<p class="text-on-secondary-fixed/80 text-sm mb-6 leading-relaxed">Discover a collection of hand-carved home decor from the heart of Sylhet.</p>
+<div class="grid grid-cols-2 gap-2">
+<div class="aspect-square bg-white/30 rounded-lg overflow-hidden backdrop-blur-sm">
+<img alt="Decor" class="w-full h-full object-cover mix-blend-multiply opacity-80" data-alt="Minimalist wooden decor piece on a textured neutral surface with organic shadows and natural sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOmcOeHFstYoyDPlWet3ECHtV6kLNB_7B7w9Ccxkvx_35KLMe2uGttx4yDoDDgBUDX58upik_4swSez_mhcmTKOiICcd9CrtVYKGqWE2M71_JdLxoSGIXKZGValf5zbkfYm4UJzymwAjARBpfyWMlP1KvXE7r4nJCGVbbvJiqTS_EpevDJEYmnmiuJMPM3nyS2aeg0-8B7abysgZrBBA1wuIJp12G3D_ou5bBgz9msbdnhLVjta8bCCyj_no7aw0-HGo4zW5rgow4"/>
+</div>
+<div class="aspect-square bg-white/30 rounded-lg overflow-hidden backdrop-blur-sm">
+<img alt="Decor 2" class="w-full h-full object-cover mix-blend-multiply opacity-80" data-alt="Handcrafted ceramic vase with subtle texture sitting on a sun-drenched windowsill with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-2MTwkpRP7EL8xGPsF91eS02nk9bGk54QiJcHjhmEIiHWI60JkdpJlgU6zCCcPNGVpaP9_Su73Hse8xbHsoE1AEs6wiWSLG8AdwetqgkGyxv_EzDk1lsIl371jNiQfjeDy_pLC8GM43g6QsYAFCevqA7Pn-9rIpJTFQCSIxOrHqj68dvC_UJ246RV6tiTki3BFSd2lZvKe96OEituPelb3HA625kdMB3Vi-Oj-PI_jaNH99xqznrRsH3LYY-hjvDCMIWtsjNBTRA"/>
+</div>
+</div>
+</div>
+<!-- Item 5: Content Feed -->
+<div class="masonry-item-md group relative overflow-hidden rounded-xl bg-surface-container-lowest">
+<img alt="Lifestyle" class="w-full h-full object-cover" data-alt="Bright and airy retail boutique interior with neatly arranged sustainable products and lush green plants in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPOLNWhUqGfCZMS1Ty27erqdGZrE-zXC5HtsSKc7lJZca9RyliKNQ9vBGQayiOhGnk1FGzIyKAYrjniKSI57dSCw8DG-6RFu6eStrOG2HewrgFDTE5wCNZU57jSIoKiMydXCnghMCG3Lx0oveWqi19XJkWH8Mhe1p4hsoHsbQv-TJsSxPLiA4D0q_KtlNviuL-SLv2WY39VG8O1_jWTgTfWOtFEQ7A3J4qyUomzm3J3KLg3lbPCkSX90rSc7-V2y4T17-CXc9bn8w"/>
+<div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity p-6 text-center">
+<p class="text-white font-bold mb-4">Inside the Concept Store</p>
+<button class="bg-white text-on-surface px-6 py-2 rounded-full text-xs font-bold">View Guide</button>
+</div>
+</div>
+<!-- Item 6: Small Post -->
+<div class="masonry-item-sm group bg-surface-container-lowest p-3 rounded-xl">
+<div class="h-4/5 overflow-hidden rounded-lg mb-3">
+<img alt="Tshirt" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Close-up of a high-quality organic cotton t-shirt showing the fine texture and craftsmanship under bright daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtUMZJnfbay-MQa1cbJaQkDaisZKhl-vJbtcTBJtWjjW3jUvCdPexUC73X4S_VAuV37nl6yyt0FG0BMj_OuUveHMDterIQdvNc13WR_uw6HkZl4sP1JZCJAoEPGMnJZxniiTAXXwSpKIdp-iulpyTcD3qmhF5F-uUPprSjTZbFC9rCeo28sXSRXAxWueE5QpLTrlVBpttfrfftYr3uJAt6FK1TIKTL6IaufDO71qE_QlmFkI0O7vLITAhqlWDKpBdilAGi2-7_Koc"/>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded-full bg-surface-container-high overflow-hidden">
+<img alt="User" data-alt="Headshot of a smiling young man with a casual style against a soft-focus urban background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqOigbvm0rySTWW9DqIXB0h2MZlKPyBidSdC0L8IdLjzpYJmjsntQIKMF4ac3BUcEMSaHGmw_buCkku0X8SetsDUJ2DrXwBWTwiRF3vZmqiOOx-abrCKnVpa45RBkSyZHzv4RIV79j-fkKxBCIigDbEKkYMUDPk7rKRMq3dQQlPKgMcWPYTni8-P-bVjOxHcTUrdMnegDedZb5CXmDN4RcAJXj8eox_MBQR7WvRowobyIWncYlMd-Jrfy1UybddiZBQ8nwJfidkAM"/>
+</div>
+<p class="text-[10px] font-bold text-outline">Minimalist_Wear</p>
+</div>
+</div>
+<!-- Item 7: Collection Highlight -->
+<div class="masonry-item-md bg-tertiary-fixed rounded-xl p-6 flex flex-col justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">auto_awesome</span>
+<span class="font-headline font-bold text-sm tracking-tight">AI Curated For You</span>
+</div>
+<div>
+<h4 class="text-2xl font-black font-headline text-on-tertiary-fixed leading-none mb-2">Retro <br/>Future</h4>
+<p class="text-xs text-on-tertiary-fixed/60 font-medium">8 Items you'll love</p>
+</div>
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-2 border-tertiary-fixed bg-white overflow-hidden shadow-sm">
+<img alt="P1" data-alt="Classic denim jacket with high-quality stitching detail presented in a clean bright studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF9kFmVd8FDvPnUOOo_fZS2KsFh33u3A-ksg7A1kH57Bu0j4ZWwrifGNUfsDnHeSfJOBs-o1trIoFxnihs574wgy0Xao9GTL_VvLQe6r_6s9vzQyvoVX35tt2YIevLpp5uOsjYqE43pX1ROxbwHhY9nGhRaZjZpskx8X1gjRyvlyuRCfdSPyqWhvm720FAIItbnFBlOuvH2GnW59bQ6pn-Y0X5MzZh3A0TyhhmLo66xupi37al3ogR3fLJJd54j_dsfdylE-rGX3I"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-tertiary-fixed bg-white overflow-hidden shadow-sm">
+<img alt="P2" data-alt="Elegant silver watch with a minimalist face sitting on a pristine reflective surface with soft highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9l-8oO_GXylH2DfiVWuUlLvftFzqDe86LMU2xU_dhK45jQS0bp3HoAvVC95ogdCsCNTJnt0JqJt8JvEyAgzb4k3v2KWJb6acukjnvjeQuqcMhr8e-ytre1gc7dd-OqMfyX-PVOeDBGexFaR6DBD5LmKB8iBgyyinpCW5flFYAyG6x5aLjENQGAz1UjCBcz4z9ABgxUJLof9iA06GPaQxlLZcxNB5gthNdtm_kKJ_IcJMV8P4nqqjecGut0sFQOGVu4lKDbPUwkGA"/>
+</div>
+<div class="flex items-center justify-center w-10 h-10 rounded-full border-2 border-tertiary-fixed bg-white text-[10px] font-bold text-primary shadow-sm">+6</div>
+</div>
+</div>
+<!-- Item 8: High Contrast Reel -->
+<div class="masonry-item-lg group relative overflow-hidden rounded-xl bg-surface-container-lowest">
+<img alt="Fashion Post" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Bold street fashion portrait featuring a model in bright yellow clothing against a high-contrast deep blue urban wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmVIZrYAfd1dj1nZxbv6COJVa2NdLkNDwyH-CHkyAZyt3UMbaQLcCRVreS10-6MmeLMs1R4zBu0HELJRmctQ6laIopok5tB1qEXwU_Drc3ZJn5n_vBWvqF7FMRLdkxudgQTAgC3JL9yYtaopwZ3scCv-n1qfgZdhlkuCT_aw6f2thmDY4kroYRXWWwsNaMHZ4Ok4Zvtj7ffh7B34MLvFAO8tHgGpnyCqXUdyKrv9nm0n6q_4jJ53tZwOnspOqwMgHt2jKGo2iu9BI"/>
+<div class="absolute bottom-4 right-4 flex flex-col gap-2">
+<button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-lg flex items-center justify-center text-white"><span class="material-symbols-outlined">favorite</span></button>
+<button class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-lg flex items-center justify-center text-white"><span class="material-symbols-outlined">share</span></button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#f8f9fa]/70 dark:bg-slate-900/70 backdrop-blur-xl z-50 transition-all">
+<a class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#005bbf] dark:text-blue-400 bg-[#ffffff] dark:bg-slate-800 rounded-full px-4 py-1 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Explore</span>
+</a>
+<button class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60">
+<span class="material-symbols-outlined mb-1 text-4xl leading-none">add_circle</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Create</span>
+</button>
+<a class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined mb-1">movie_filter</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Reels</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Profile</span>
+</a>
+</nav>
+<!-- FAB (Suppressed for Explore Focus as per guidelines but included as a floating interaction if needed) -->
+<!-- Suppressed: Shell visibility rule prioritizes focus on Discovery Content -->
+</body></html>

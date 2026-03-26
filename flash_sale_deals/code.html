@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Flash Sale | UniMart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-dim": "#d9dadb",
+              "on-primary-fixed-variant": "#004493",
+              "tertiary": "#005abf",
+              "error": "#ba1a1a",
+              "on-primary": "#ffffff",
+              "surface-container-low": "#f3f4f5",
+              "outline": "#727785",
+              "on-secondary": "#ffffff",
+              "surface-bright": "#f8f9fa",
+              "secondary-fixed": "#ffdad3",
+              "tertiary-fixed": "#d8e2ff",
+              "primary": "#005bbf",
+              "on-error": "#ffffff",
+              "on-background": "#191c1d",
+              "primary-container": "#1a73e8",
+              "inverse-primary": "#adc7ff",
+              "outline-variant": "#c1c6d6",
+              "on-surface-variant": "#414754",
+              "tertiary-container": "#0872ed",
+              "surface-tint": "#005bc0",
+              "primary-fixed": "#d8e2ff",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-variant": "#e1e3e4",
+              "error-container": "#ffdad6",
+              "surface-container": "#edeeef",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "surface": "#f8f9fa",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed": "#3e0500",
+              "tertiary-fixed-dim": "#adc6ff",
+              "secondary-container": "#ff6d4e",
+              "on-secondary-container": "#680f00",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "on-tertiary-fixed": "#001a41",
+              "on-primary-container": "#ffffff",
+              "surface-container-high": "#e7e8e9",
+              "on-tertiary-container": "#ffffff",
+              "on-primary-fixed": "#001a41",
+              "inverse-surface": "#2e3132",
+              "surface-container-highest": "#e1e3e4",
+              "secondary": "#ad3219",
+              "on-tertiary": "#ffffff",
+              "on-tertiary-fixed-variant": "#004493",
+              "primary-fixed-dim": "#adc7ff",
+              "on-surface": "#191c1d",
+              "background": "#f8f9fa"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-gradient {
+            background: linear-gradient(135deg, #005bbf 0%, #1a73e8 100%);
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-fixed-dim">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-sm shadow-blue-900/5">
+<div class="flex justify-between items-center h-16 px-6 max-w-7xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-blue-700 dark:text-blue-400 font-headline">UniMart</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-600 pb-1 font-body" href="#">Flash Sale</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 font-body transition-colors duration-200" href="#">Deals</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 font-body transition-colors duration-200" href="#">Marketplace</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 font-body transition-colors duration-200" href="#">Categories</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="p-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-transform active:scale-90">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-transform active:scale-90">
+<span class="material-symbols-outlined text-on-surface-variant">shopping_cart</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30">
+<img alt="User Profile" data-alt="professional headshot of a smiling man in a clean studio setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXn-Kg1WGahKRcbhDb_9qV6S_-4GtPsgpJZvphEvmcubSPEQtkffOXU64KZhOJ5skxN3GlpT-MW9mZ1VMVU1hEiC6-yGPukIntcZkoL8sspEscesU3WPwb7XTXT47OJuqONF7K7ImqJ-mLznEIU6KGX8WWDY8YLDJ61RhNNV6Tigllg4tXWW7HDvzohrC2pjLwEt7aKIxx84YLNpZnk3yw3fbWs3fCYqA09DCINg9WU6GNxW2H1anqXA3sJuz90wyVTI84VOG5eg8"/>
+</div>
+</div>
+</div>
+<div class="bg-slate-100 dark:bg-slate-800 h-[1px] w-full"></div>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-[600px] flex items-center overflow-hidden bg-surface-container-low">
+<div class="absolute inset-0 z-0">
+<img alt="Abstract Background" class="w-full h-full object-cover opacity-20 scale-105" data-alt="dynamic close-up of vibrant liquid silk textures in deep blue and gold swirling together with cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA213o7YA9JS___SfcXg6rmzScIq5HOSoGiEuB4Npce1cvDS4JoLZMq-UKruAxI8Fol9yzDVS2glIrr8Hsm6yOntSoxGd8W6WXJm1Jl0V81jOSuyik2orv3z5BxviTjDjoqleZ34Lm3VjtzgsHsSXdsh8amrbI7tZ2xQcc0_PbPMxVJmlgpUD15LkHhSvJISbvXSBoHUNsNBq6NtAaDB_WYWaGzhO0e5Pfe2whEdlf5Z3XRyR1E4cLle1oDCY8_5gLJ9SvklTfPWfs"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface to-transparent"></div>
+</div>
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10 py-20">
+<div class="space-y-8">
+<div class="inline-flex items-center px-4 py-2 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-bold text-sm tracking-wide uppercase">
+<span class="material-symbols-outlined text-sm mr-2" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                        limited time only
+                    </div>
+<h1 class="text-6xl md:text-8xl font-black font-headline tracking-tighter text-on-surface leading-none">
+                        Midnight <br/><span class="text-primary">Madness</span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-md font-body leading-relaxed">
+                        Curated luxury and essential tech, heavily discounted for the next 12 hours. The future of commerce is here.
+                    </p>
+<div class="flex items-center space-x-6">
+<div class="flex flex-col items-center">
+<span class="text-4xl font-black font-headline text-primary">08</span>
+<span class="text-[10px] uppercase tracking-widest text-outline">Hours</span>
+</div>
+<span class="text-2xl font-bold text-outline-variant">:</span>
+<div class="flex flex-col items-center">
+<span class="text-4xl font-black font-headline text-primary">42</span>
+<span class="text-[10px] uppercase tracking-widest text-outline">Mins</span>
+</div>
+<span class="text-2xl font-bold text-outline-variant">:</span>
+<div class="flex flex-col items-center">
+<span class="text-4xl font-black font-headline text-primary">15</span>
+<span class="text-[10px] uppercase tracking-widest text-outline">Secs</span>
+</div>
+</div>
+<div class="pt-4">
+<button class="editorial-gradient text-on-primary px-10 py-4 rounded-full font-bold text-lg shadow-xl shadow-primary/20 transition-transform hover:scale-105 active:scale-95">
+                            Shop the Collection
+                        </button>
+</div>
+</div>
+<div class="relative hidden md:block">
+<div class="absolute -top-12 -right-12 w-64 h-64 editorial-gradient rounded-full blur-3xl opacity-20"></div>
+<div class="relative bg-surface-container-lowest p-4 rounded-xl shadow-2xl overflow-hidden transform rotate-3 hover:rotate-0 transition-transform duration-500">
+<img alt="Featured Product" class="rounded-lg w-full h-[400px] object-cover" data-alt="professional product photography of sleek black noise-canceling headphones on a minimal marble surface with soft side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWp7cfCqONBQAOwZ_EPQWrUwRK2dZTt47DYpWDXV77akX4DQ2n30_T5-4hVWpni9-PqbiFXx0NQ8xV5oSYRdLKKq-s2GYjtjbbIf5_HGVFJ3_Y1Zul7GUDXjhMrp-ZicbF92QLuB6chdS5h0tS83g8xaUjgI945NAxg5PDQzrHS9mGOonNOeNoMw4YTQk9IRcr0jarOkRNwvYQciliPC59B1RqL5rqvLW_-88Mc_NPWzo7qu7Tr-2xd481aulo6Zk-JM8seSTSKUs"/>
+<div class="absolute top-8 right-8 bg-secondary px-4 py-2 rounded-full text-on-secondary font-black font-headline text-xl">
+                            -65%
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Grid Section -->
+<section class="py-24 px-6 max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 space-y-4">
+<div class="space-y-2">
+<h2 class="text-4xl font-extrabold font-headline tracking-tight text-on-surface">Trending Drops</h2>
+<p class="text-on-surface-variant font-body">Exclusive social deals curated for the UniMart community.</p>
+</div>
+<div class="flex space-x-2">
+<button class="px-6 py-2 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-bold text-sm">All</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-medium text-sm hover:bg-surface-variant transition-colors">Electronics</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-medium text-sm hover:bg-surface-variant transition-colors">Fashion</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Product Card 1 -->
+<div class="group bg-surface-container-lowest rounded-xl p-4 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/5">
+<div class="relative aspect-[4/5] rounded-lg overflow-hidden mb-6 bg-surface-container-low">
+<img alt="Product" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="minimalist white designer watch on a soft grey concrete background with architectural shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANnBctyqyknbktJOmcvEpc9EQM6uMxCU4WU2-7EfILLxcKDTeoNFqLxHcWjLMoZ5CZG_Cb-WVcgj9FcrTAwhhKkoxYeXgT5YyNRhjAdowBoesr9KNl9LW7Rh9CoxjZk11vtc8yz1G0HrAVMIAMBaNPY4BMOvIcVrMkI7vrjpuYuv9-eQXRe-1gYRt8loqsR9kvTKQUCyhJGNqil8Vu4IcOaoBV5ercm3tbFWVRP0C8Iv9d-ohfplKVX-5tB14OW-b2YBmgWLh9cRU"/>
+<div class="absolute top-3 left-3 flex flex-col space-y-2">
+<div class="bg-secondary text-on-secondary px-3 py-1 rounded-full text-xs font-black">40% OFF</div>
+<div class="bg-primary/90 backdrop-blur-md text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">New Arrival</div>
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] text-outline uppercase tracking-widest font-bold">Accessories</p>
+<h3 class="text-lg font-bold font-headline text-on-surface">Lunar Series V2</h3>
+<div class="flex items-center space-x-2 pt-2">
+<span class="text-xl font-black text-primary">৳4,200</span>
+<span class="text-sm text-outline line-through">৳7,000</span>
+</div>
+</div>
+<button class="w-full mt-6 py-3 rounded-full bg-surface-container-high text-primary font-bold text-sm hover:bg-primary hover:text-on-primary transition-all active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined mr-2 text-sm">shopping_bag</span>
+                        Add to Bag
+                    </button>
+</div>
+<!-- Product Card 2 -->
+<div class="group bg-surface-container-lowest rounded-xl p-4 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/5">
+<div class="relative aspect-[4/5] rounded-lg overflow-hidden mb-6 bg-surface-container-low">
+<img alt="Product" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="vibrant red athletic running shoes suspended in mid-air against a clean white background with dynamic motion blur" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzxdeSKOF31ZCeutTCeq4B2Xj0UnYKc7YROyY_f58jfym7tY3c0WuHmarQeW9lX6sHe6Rk461rBhcaiUaxG1BPu0cczhwL6HOvxHY7CnUtAoXTIBtlMA1870ZqykWU_S0GCxKaWgoXdA2jU60qEIFXNaS0jkvF4LhR24G8Dp_cw4_3erdqNrOhD2UjFso0TBQuZ-VP2qgE-XJ3eZR_hu2seEHMVCopNqFS1Y9M5Hcv9klaKuji4-JFieYh0zUO_q82vAzy92ZOKro"/>
+<div class="absolute top-3 left-3">
+<div class="bg-secondary text-on-secondary px-3 py-1 rounded-full text-xs font-black">55% OFF</div>
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] text-outline uppercase tracking-widest font-bold">Footwear</p>
+<h3 class="text-lg font-bold font-headline text-on-surface">Hyper Velocity X</h3>
+<div class="flex items-center space-x-2 pt-2">
+<span class="text-xl font-black text-primary">৳8,500</span>
+<span class="text-sm text-outline line-through">৳18,900</span>
+</div>
+</div>
+<button class="w-full mt-6 py-3 rounded-full bg-surface-container-high text-primary font-bold text-sm hover:bg-primary hover:text-on-primary transition-all active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined mr-2 text-sm">shopping_bag</span>
+                        Add to Bag
+                    </button>
+</div>
+<!-- Product Card 3 -->
+<div class="group bg-surface-container-lowest rounded-xl p-4 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/5">
+<div class="relative aspect-[4/5] rounded-lg overflow-hidden mb-6 bg-surface-container-low">
+<img alt="Product" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="vintage style polaroid camera with tan leather details on a minimalist wooden desk with soft natural window light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGJEFsam7LcpcuacjD6YoJ5zRuIICP9znYimm4y1jcF7msDmlnJgaY9sLFWhiBiJ-OltvCb17XsLqEyAfR5cKDizG95xn-aRXiLO_XgdzI9KDGacwVBuUyQRmX3eJIsjDasNyuul74Hc_fYdZg2xE6Gu05Q1TpqINhRVNl78hAofzIo55ax-nPbQHNAbAfEUP07g_uUHU7vFqZsxMbmoSuhTwvi4NQ32pniR41-YvGxj89Mr11gYzpiJF2Nrh7FOq3J_FeE69ju3k"/>
+<div class="absolute top-3 left-3">
+<div class="bg-secondary text-on-secondary px-3 py-1 rounded-full text-xs font-black">30% OFF</div>
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] text-outline uppercase tracking-widest font-bold">Tech</p>
+<h3 class="text-lg font-bold font-headline text-on-surface">InstaCapture Pro</h3>
+<div class="flex items-center space-x-2 pt-2">
+<span class="text-xl font-black text-primary">৳12,000</span>
+<span class="text-sm text-outline line-through">৳17,100</span>
+</div>
+</div>
+<button class="w-full mt-6 py-3 rounded-full bg-surface-container-high text-primary font-bold text-sm hover:bg-primary hover:text-on-primary transition-all active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined mr-2 text-sm">shopping_bag</span>
+                        Add to Bag
+                    </button>
+</div>
+<!-- Product Card 4 -->
+<div class="group bg-surface-container-lowest rounded-xl p-4 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/5">
+<div class="relative aspect-[4/5] rounded-lg overflow-hidden mb-6 bg-surface-container-low">
+<img alt="Product" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="premium luxury sunglasses with gold frames on a reflective dark surface with sharp dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHRc__T2sg-h-4kRmuVk-lNaCW1On4IKWxMJbwACsZvkPklfaFqxvd20Fu4wrCLUQ-rUwE4CAqVClA_yRWIEzsyifUvxogR1Dn9GtbXVVYwxYk2dfH3E6IULpIZEVM8Yg51eGRXrEMT3gUq-xfjostPOt65O-3EozvHQYJM493egGhgAPbY3MXxotWrLCwXZcaC8kenXfOgAzhYjG_JOx3kpdjYRlCdenV9AcYb63tAyCZna2WDBCC39PVktdC_iKSLTbomjFOBIE"/>
+<div class="absolute top-3 left-3">
+<div class="bg-secondary text-on-secondary px-3 py-1 rounded-full text-xs font-black">70% OFF</div>
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] text-outline uppercase tracking-widest font-bold">Lifestyle</p>
+<h3 class="text-lg font-bold font-headline text-on-surface">Aviator Gold Edition</h3>
+<div class="flex items-center space-x-2 pt-2">
+<span class="text-xl font-black text-primary">৳2,100</span>
+<span class="text-sm text-outline line-through">৳7,000</span>
+</div>
+</div>
+<button class="w-full mt-6 py-3 rounded-full bg-surface-container-high text-primary font-bold text-sm hover:bg-primary hover:text-on-primary transition-all active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined mr-2 text-sm">shopping_bag</span>
+                        Add to Bag
+                    </button>
+</div>
+</div>
+</section>
+<!-- Editorial Bento Section -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+<div class="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden group">
+<img alt="Editorial" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="close-up of a high-tech running shoe in mid-step on wet urban asphalt with neon blue reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB3C6jGJjaQLNyPOCB3iJdDDg0z8LOq74BVV-efbJQSoDg2uVCrewKCxMKqGAGyVAb938zC5OvKQJDrFdPxOYJfSnlluBQI-MLFqsV9PrjsEsMcaCUrF8tnKL4s8wu1lVPpSgzP1idtllKE3cNZrHQY517oXlDC9-wyd9Nuw_fFt3ItkO0Y5nBsMTdQs2FXF3-diuHXb2BtGqpSu2ETu2Sk0TePz8yj3_pkagM9tHRCJHZCQBUkOyq6iVBnpKXgHWFeS_IykvVxis"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface to-transparent opacity-60"></div>
+<div class="absolute bottom-10 left-10 text-on-primary space-y-4 max-w-lg">
+<h3 class="text-4xl font-black font-headline tracking-tighter">The Urban Sprint Collection</h3>
+<p class="text-surface-variant font-body">Engineered for the fast-paced life of Dhaka. Performance meets aesthetic.</p>
+<button class="bg-surface-container-lowest text-primary px-8 py-3 rounded-full font-bold transition-transform active:scale-95">Explore Collection</button>
+</div>
+</div>
+<div class="relative rounded-3xl overflow-hidden bg-primary p-10 flex flex-col justify-between group">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-on-primary text-6xl opacity-20 group-hover:scale-125 transition-transform duration-500">redeem</span>
+</div>
+<div class="space-y-4 relative z-10">
+<h4 class="text-2xl font-black font-headline text-on-primary tracking-tight">Refer &amp; Earn</h4>
+<p class="text-on-primary-container font-body text-sm">Get an extra ৳500 for every friend who joins the Flash Sale.</p>
+</div>
+<a class="text-on-primary font-bold flex items-center group/link" href="#">
+                            Invite Friends 
+                            <span class="material-symbols-outlined ml-2 group-hover/link:translate-x-2 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="relative rounded-3xl overflow-hidden group">
+<img alt="Support" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="close-up of a smartphone screen showing a sleek modern e-commerce application interface in a dimly lit room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLEKUXRfe5o0TMpTjElaIQd8SytpJ4CS2UsQbVZ-in2PnrwY8H4C2X3FGQaGvc9j74-lPk-_wrP4tyPBk9aniivcemQFRpuQW4m1lyNc9b5-6H8JHoHFEkrwzpJKk7u7SCbVqqkFK-QQmnOD71nDGdY01tGj7g6NoBFCgGb0shQqr68f4p7-P4MeV_K0p7z7dPUkx4a-FRJTBW6AeuGLlg22fyZi9I6djbs7MpTzaGN--9lF2qgN4GlP0FBC8Q-ZZG4OsdqfOWzKc"/>
+<div class="absolute inset-0 bg-secondary/80 mix-blend-multiply"></div>
+<div class="absolute inset-0 p-8 flex flex-col justify-end">
+<h4 class="text-2xl font-black font-headline text-on-secondary">24/7 Support</h4>
+<p class="text-secondary-fixed text-sm font-medium">We're here to help you secure the best deals.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-100 dark:bg-slate-950 w-full py-12 border-t-0">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-6 max-w-7xl mx-auto">
+<div class="space-y-4">
+<div class="text-xl font-bold text-slate-900 dark:text-slate-100 font-headline">UniMart</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 font-body leading-relaxed">
+                    Elevating social commerce through curated editorial experiences and premium marketplace connectivity.
+                </p>
+</div>
+<div>
+<h5 class="text-xs tracking-wider uppercase text-slate-900 dark:text-slate-100 font-bold mb-6">Explore</h5>
+<ul class="space-y-4">
+<li><a class="text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-body transition-transform duration-200 hover:translate-x-1 inline-block" href="#">Flash Sale</a></li>
+<li><a class="text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-body transition-transform duration-200 hover:translate-x-1 inline-block" href="#">Marketplace</a></li>
+<li><a class="text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-body transition-transform duration-200 hover:translate-x-1 inline-block" href="#">Categories</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-xs tracking-wider uppercase text-slate-900 dark:text-slate-100 font-bold mb-6">Support</h5>
+<ul class="space-y-4">
+<li><a class="text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-body transition-transform duration-200 hover:translate-x-1 inline-block" href="#">FAQ</a></li>
+<li><a class="text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-body transition-transform duration-200 hover:translate-x-1 inline-block" href="#">Contact</a></li>
+<li><a class="text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 font-body transition-transform duration-200 hover:translate-x-1 inline-block" href="#">Terms</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-xs tracking-wider uppercase text-slate-900 dark:text-slate-100 font-bold mb-6">Newsletter</h5>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-none rounded-full px-6 py-3 text-sm focus:ring-2 focus:ring-primary/40 transition-all" placeholder="Email address" type="email"/>
+<button class="absolute right-1 top-1 bg-primary text-on-primary px-4 py-2 rounded-full text-xs font-bold">Join</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-200 dark:border-slate-800">
+<p class="text-sm text-slate-500 dark:text-slate-400 font-body text-center md:text-left">
+                © 2024 UniMart Editorial Social Commerce. All rights reserved.
+            </p>
+</div>
+</footer>
+</body></html>

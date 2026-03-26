@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edit Profile | UniMart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-primary": "#adc7ff",
+                        "on-secondary-fixed": "#3e0500",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-variant": "#e1e3e4",
+                        "background": "#f8f9fa",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "on-surface-variant": "#414754",
+                        "on-background": "#191c1d",
+                        "on-primary-container": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "on-tertiary-fixed": "#001a41",
+                        "tertiary": "#005abf",
+                        "surface-tint": "#005bc0",
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary": "#ad3219",
+                        "inverse-surface": "#2e3132",
+                        "primary": "#005bbf",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#d8e2ff",
+                        "secondary-container": "#ff6d4e",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed": "#001a41",
+                        "surface": "#f8f9fa",
+                        "tertiary-container": "#0872ed",
+                        "on-tertiary-container": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f8f9fa",
+                        "error": "#ba1a1a",
+                        "primary-container": "#1a73e8",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#680f00",
+                        "on-secondary-fixed-variant": "#8b1a02",
+                        "outline": "#727785",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "primary-fixed-dim": "#adc7ff",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#ffdad3",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-primary-fixed-variant": "#004493",
+                        "outline-variant": "#c1c6d6",
+                        "surface-container-high": "#e7e8e9"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #191c1d;
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-black text-blue-700 tracking-tighter font-headline">UniMart</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-slate-600 font-medium hover:text-blue-600 transition-colors" href="#">Feed</a>
+<a class="text-slate-600 font-medium hover:text-blue-600 transition-colors" href="#">Marketplace</a>
+<a class="text-blue-700 font-bold border-b-2 border-blue-600" href="#">Profile</a>
+</nav>
+<div class="flex items-center space-x-4">
+<div class="relative hidden sm:block">
+<input class="bg-surface-container-high border-none rounded-full px-6 py-2 text-sm w-64 focus:ring-2 focus:ring-primary/40 transition-all" placeholder="Search curated items..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-slate-600 hover:text-blue-600">shopping_cart</button>
+<button class="material-symbols-outlined text-slate-600 hover:text-blue-600">notifications</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary">
+<img class="w-full h-full object-cover" data-alt="professional headshot of a smiling young man in a modern office setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSLUyjDJCOnEmsnpS5E5sb3wE0QGO6gbkVMaUkO7BVBqs8ro7OFiyRCsVYOgUFOlTh2g6lUAPY-IY3Wo2PyswqcFid1gYYnfPsjd4qO3eh2Sjjq5Cb05w8Y862_EKT4uFeoU-GRrq-4bhj5Gcy1MLpgL_4AYtHtDLUmk7T1wYnn6x-ep2UMSsJ3X7l8KFrJSCmJ4wsam3bUMwrUUimsidFng1xhqzY8yPaCb_JqvYfMKEh74Khplz6vdmd359bDNCN0_w1APOI2cU"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-28 pb-20 px-4 md:px-8 max-w-7xl mx-auto">
+<div class="editorial-grid">
+<!-- Left Sidebar Navigation -->
+<aside class="hidden lg:block col-span-3 space-y-2 sticky top-28 h-fit">
+<div class="bg-surface-container-lowest rounded-xl p-6 mb-4">
+<p class="text-[10px] font-headline font-bold uppercase tracking-widest text-outline mb-4">Account Settings</p>
+<nav class="space-y-1">
+<a class="flex items-center space-x-3 bg-blue-50 text-blue-700 rounded-xl px-4 py-3 transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-headline font-semibold text-sm">Edit Profile</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-500 hover:bg-slate-50 rounded-xl px-4 py-3 transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-headline font-semibold text-sm">Wallet &amp; Earnings</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-500 hover:bg-slate-50 rounded-xl px-4 py-3 transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">package_2</span>
+<span class="font-headline font-semibold text-sm">My Listings</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-500 hover:bg-slate-50 rounded-xl px-4 py-3 transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-headline font-semibold text-sm">Preferences</span>
+</a>
+</nav>
+</div>
+</aside>
+<!-- Main Content Area -->
+<section class="col-span-12 lg:col-span-9 space-y-8">
+<!-- Header Editorial Moment -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-outline-variant/15 pb-8">
+<div class="space-y-2">
+<h1 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter text-on-background">Public Identity</h1>
+<p class="text-on-surface-variant font-medium max-w-md">Update how you appear to the community. Your editorial presence starts with a great story.</p>
+</div>
+<div class="flex space-x-3">
+<button class="px-6 py-2.5 rounded-full border border-outline text-on-surface font-semibold text-sm hover:bg-surface-container transition-all active:scale-95">Discard Changes</button>
+<button class="px-8 py-2.5 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95">Save Changes</button>
+</div>
+</div>
+<!-- Form Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Profile Picture Block -->
+<div class="md:col-span-1 bg-surface-container-lowest rounded-xl p-8 flex flex-col items-center text-center space-y-6">
+<div class="relative group">
+<div class="w-40 h-40 rounded-full overflow-hidden ring-4 ring-primary-fixed ring-offset-4 ring-offset-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="close-up of a smiling professional man with short dark hair in a bright airy studio environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGfD5Zm-FIQfGn7kg7Ps0BaxrWZi61bqe-RF8BwdQ98Zn5MNRN5xj1eRMIBHm94BpKP3dhomPPUzVwUPGSAm8PP5Asqb6srU32TzWMsprZFGz7_10ZHCZ4cljgewmJD5_Imz5Zy0SF0Hg6-T0jXFl8vQZxiWv4D5syf_A_F8WieIlpycmJcTNbdtNVvKqnIrlVDKJnVxMsQfDnG_6O4GC8cHt__-iL1f7kyFv3KfazdhB3JLHUli0pdMRFfqHV0GcK7eD57IOzQMQ"/>
+</div>
+<button class="absolute bottom-2 right-2 bg-primary text-white p-3 rounded-full shadow-lg border-4 border-white hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+</button>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline font-bold text-lg">Profile Photo</h3>
+<p class="text-xs text-outline leading-relaxed">At least 800x800 px recommended. JPG or PNG is preferred.</p>
+</div>
+</div>
+<!-- Personal Info Block -->
+<div class="md:col-span-2 bg-surface-container-lowest rounded-xl p-8 space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-headline font-bold uppercase tracking-widest text-outline">Full Name</label>
+<input class="w-full bg-surface-container-highest border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/40 outline-none" type="text" value="Arif Rahman"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-headline font-bold uppercase tracking-widest text-outline">Username</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-outline text-sm">@</span>
+<input class="w-full bg-surface-container-highest border-none rounded-xl pl-8 pr-4 py-3 text-sm focus:ring-2 focus:ring-primary/40 outline-none" type="text" value="arif_dhaka"/>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-headline font-bold uppercase tracking-widest text-outline">Short Bio</label>
+<textarea class="w-full bg-surface-container-highest border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/40 outline-none resize-none" rows="4">Passionate about vintage electronics and sustainable tech. Based in Dhaka, shipping nationwide. Verified member since 2022.</textarea>
+<div class="flex justify-between items-center px-1">
+<p class="text-[10px] text-outline">Brief description for your profile.</p>
+<p class="text-[10px] text-outline">124 / 160</p>
+</div>
+</div>
+</div>
+<!-- Social Accounts Block -->
+<div class="md:col-span-3 bg-surface-container-lowest rounded-xl p-8">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div class="space-y-1">
+<h3 class="font-headline font-bold text-xl tracking-tight">Connected Ecosystem</h3>
+<p class="text-sm text-on-surface-variant">Link your social presence to build trust and increase sales velocity.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- Social Item -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl border-l-4 border-primary">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary">alternate_email</span>
+</div>
+<div>
+<p class="text-sm font-bold">Instagram</p>
+<p class="text-xs text-outline">@arif_creative</p>
+</div>
+</div>
+<button class="text-xs font-bold text-error hover:underline">Disconnect</button>
+</div>
+<!-- Social Item -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-slate-400">language</span>
+</div>
+<div>
+<p class="text-sm font-bold">Portfolio</p>
+<p class="text-xs text-outline">Not linked</p>
+</div>
+</div>
+<button class="text-xs font-bold text-primary hover:underline">Connect</button>
+</div>
+<!-- Social Item -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl border-l-4 border-primary">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary">social_leaderboard</span>
+</div>
+<div>
+<p class="text-sm font-bold">Facebook</p>
+<p class="text-xs text-outline">Arif Rahman</p>
+</div>
+</div>
+<button class="text-xs font-bold text-error hover:underline">Disconnect</button>
+</div>
+</div>
+</div>
+<!-- Regional Settings -->
+<div class="md:col-span-3 bg-surface-container-lowest rounded-xl p-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div class="space-y-4">
+<h3 class="font-headline font-bold text-xl tracking-tight">Regional Identity</h3>
+<div class="space-y-4">
+<div class="space-y-2">
+<label class="text-xs font-headline font-bold uppercase tracking-widest text-outline">Primary Location</label>
+<select class="w-full bg-surface-container-highest border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/40 outline-none appearance-none">
+<option>Dhaka, Bangladesh</option>
+<option>Chittagong, Bangladesh</option>
+<option>Sylhet, Bangladesh</option>
+<option>Rajshahi, Bangladesh</option>
+</select>
+</div>
+<div class="flex items-center space-x-4">
+<div class="flex items-center space-x-2">
+<input class="rounded text-primary focus:ring-primary" id="show_loc" type="checkbox"/>
+<label class="text-sm font-medium" for="show_loc">Show location on profile</label>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-2xl overflow-hidden h-48 relative shadow-inner">
+<img class="w-full h-full object-cover opacity-80" data-alt="simplified map illustration of a bustling city center with stylized streets and green parks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfdc7Z4oOSaBBAJsfZhR_tVwOUYaMp3eYtK430I21XV9taWQwYRoVp4LJdTvaYbHSacn40F6mFvSDrlOExGk2B1LqT57S1Ry10pYlXOB6uCGCZp8qMDqgxxiDJc0t_yDWGPb0cs3TBhzLZvJzhOKbWLefwUm5JvUvXd_ZG0dnT1bJJwG0D_zdY71Jgi1otfC1YcVJm5sPriYc13wdTIzueH49hAcacjQ7uYNi2IzdfFlgWKXUC_hjYpb8pD7zhuXXM2iJvS-Iv1Ek"/>
+<div class="absolute inset-0 bg-primary/10 flex items-center justify-center">
+<div class="bg-white/90 backdrop-blur px-4 py-2 rounded-full shadow-lg flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="text-xs font-bold">Dhaka Metropolitan</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Danger Zone -->
+<div class="bg-error-container/30 rounded-xl p-8 border border-error/10">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="space-y-1">
+<h3 class="font-headline font-bold text-xl text-error">Deactivate Account</h3>
+<p class="text-sm text-on-error-container">Temporary hide your profile and listings from the UniMart ecosystem.</p>
+</div>
+<button class="px-6 py-2.5 rounded-full bg-error text-on-error font-bold text-sm shadow-sm hover:shadow-md transition-all active:scale-95">Deactivate Profile</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 backdrop-blur-lg shadow-[0_-4px_20px_rgba(0,0,0,0.05)] z-50 rounded-t-3xl">
+<a class="flex flex-col items-center justify-center text-slate-400 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-headline font-bold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">local_mall</span>
+<span class="text-[10px] font-headline font-bold uppercase tracking-widest mt-1">Shop</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">add_box</span>
+<span class="text-[10px] font-headline font-bold uppercase tracking-widest mt-1">Sell</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">wallet</span>
+<span class="text-[10px] font-headline font-bold uppercase tracking-widest mt-1">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-blue-600 scale-110 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="text-[10px] font-headline font-bold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

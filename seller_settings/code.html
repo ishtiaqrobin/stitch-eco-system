@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Seller Settings | UniMart Seller Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#191c1d",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "secondary": "#ad3219",
+              "on-primary-container": "#ffffff",
+              "surface-tint": "#005bc0",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#ff6d4e",
+              "surface-variant": "#e1e3e4",
+              "on-secondary-fixed": "#3e0500",
+              "on-primary-fixed-variant": "#004493",
+              "inverse-surface": "#2e3132",
+              "secondary-fixed": "#ffdad3",
+              "surface-container-highest": "#e1e3e4",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed-dim": "#adc7ff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "primary-container": "#1a73e8",
+              "inverse-primary": "#adc7ff",
+              "surface-container-high": "#e7e8e9",
+              "on-primary-fixed": "#001a41",
+              "primary": "#005bbf",
+              "tertiary-fixed": "#d8e2ff",
+              "on-error-container": "#93000a",
+              "outline-variant": "#c1c6d6",
+              "on-error": "#ffffff",
+              "surface-bright": "#f8f9fa",
+              "surface-container": "#edeeef",
+              "surface": "#f8f9fa",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-tertiary-container": "#ffffff",
+              "error": "#ba1a1a",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-container-low": "#f3f4f5",
+              "on-background": "#191c1d",
+              "tertiary-container": "#0872ed",
+              "on-primary": "#ffffff",
+              "tertiary": "#005abf",
+              "on-secondary-container": "#680f00",
+              "surface-dim": "#d9dadb",
+              "on-tertiary-fixed": "#001a41",
+              "on-surface-variant": "#414754",
+              "on-tertiary-fixed-variant": "#004493",
+              "primary-fixed": "#d8e2ff",
+              "background": "#f8f9fa",
+              "outline": "#727785"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(248, 249, 250, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 flex items-center justify-between px-6 py-3 w-full bg-white dark:bg-slate-900 shadow-sm dark:shadow-none border-b">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold text-blue-700 dark:text-blue-400 tracking-tight font-headline">UniMart Seller Studio</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center bg-surface-container-high rounded-full px-4 py-1.5">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-64 font-body" placeholder="Search settings..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-slate-500">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-slate-500">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-blue-700 font-semibold border-b-2 border-blue-700">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="ml-2 w-8 h-8 rounded-full overflow-hidden border border-outline-variant/15">
+<img alt="Merchant Profile Avatar" data-alt="professional headshot of a smiling merchant in business casual attire with a soft office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB581bBSwD7D4csCtZEQvhmo8r4w0uSjpytGpEzUVkKdCqle46ho_nbAf8ATQuLFnVLnzJPkNHcpERSapvePHcY9nQkLmusRZhuxUUnCV3z1rCIwMI1tUvdHh8l6hIjCNk7-3ql1shQH-t9t5YYV5H3AG8rEAvh5M1pU1zsMgNCbT8lO6_jdwEGnrspSozIm_vPihJUZKwj0bGrjdFrOrKtJjP2pvQsKpjDQQ8fIU3vd0Cfx0pP3Fjl2D_RJZgi3E86xRHBwTHQjbU"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 flex flex-col p-4 z-40 bg-slate-50 dark:bg-slate-950 border-r overflow-y-auto">
+<div class="flex items-center gap-3 mb-8 px-2">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="store">store</span>
+</div>
+<div>
+<h3 class="font-bold font-headline text-slate-900 dark:text-white leading-tight">Official Store</h3>
+<p class="text-xs text-slate-500 font-medium">Verified Merchant</p>
+</div>
+</div>
+<nav class="space-y-1 flex-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium font-label">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-sm font-medium font-label">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="inventory_2">inventory_2</span>
+<span class="text-sm font-medium font-label">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="warehouse">warehouse</span>
+<span class="text-sm font-medium font-label">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="monitoring">monitoring</span>
+<span class="text-sm font-medium font-label">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg group" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="payments">payments</span>
+<span class="text-sm font-medium font-label">Payments</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-slate-200 dark:border-slate-800 mt-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-400 rounded-lg shadow-sm font-bold" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="settings">settings</span>
+<span class="text-sm font-medium font-label">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="logout">logout</span>
+<span class="text-sm font-medium font-label">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 p-8 bg-surface">
+<header class="mb-12">
+<h1 class="text-4xl font-extrabold font-headline text-on-surface tracking-tight mb-2">Seller Settings</h1>
+<p class="text-on-surface-variant font-body">Manage your studio preferences, tax identity, and security protocols.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Bento Grid Left Column: Personal & Logistics -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Shipping Origin Card (Asymmetric Layout) -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h2 class="text-xl font-bold font-headline mb-1">Shipping Origin</h2>
+<p class="text-sm text-on-surface-variant">Primary warehouse or store pickup location</p>
+</div>
+<button class="text-primary font-semibold text-sm hover:underline">Edit Location</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-4">
+<div>
+<label class="block text-xs font-semibold text-outline mb-1 uppercase tracking-wider">Street Address</label>
+<p class="text-on-surface font-medium">House 42, Road 7, Sector 3</p>
+</div>
+<div>
+<label class="block text-xs font-semibold text-outline mb-1 uppercase tracking-wider">City &amp; District</label>
+<p class="text-on-surface font-medium">Uttara, Dhaka 1230</p>
+</div>
+<div>
+<label class="block text-xs font-semibold text-outline mb-1 uppercase tracking-wider">Country</label>
+<p class="text-on-surface font-medium">Bangladesh</p>
+</div>
+</div>
+<div class="h-48 rounded-lg overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale" data-alt="minimalist map view of a city grid with clean lines and soft grey tones" data-location="Dhaka" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1o-ryoFITI1g8iNQCFP9gjT4pM980qy4EAPqHdcKWULmR1T_i549MeM6HZ9EbYMMRmKVr5OGMdxAxiQMG3UfH_2IwRjvCvDYBLEZLX06gmBz8N-CmAfqM2fr432IXcGg_SYk6JU_ahdTWkhxwXW3Ys6oTIZrx0jxsNvtqqOhhvBBYgltkrw20sExttR-sYAhRB_S3H_hxJVpXNnCfmYXhwsOPnlCylV9qlTKJOiadeBh5zKlK8lFx8e-4RES9J7nuyYi9KhO7ZQ8"/>
+<div class="absolute inset-0 bg-primary/10 flex items-center justify-center">
+<div class="w-8 h-8 bg-primary rounded-full border-4 border-white shadow-lg flex items-center justify-center">
+<div class="w-2 h-2 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tax & Identity Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Tax Information Card -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border-t-4 border-primary">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="description">description</span>
+<h2 class="text-xl font-bold font-headline">Tax Identity</h2>
+</div>
+<div class="space-y-6">
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-2">Electronic TIN (e-TIN)</label>
+<div class="bg-surface-container-high rounded-lg p-3 font-mono text-sm tracking-widest text-on-surface flex justify-between items-center">
+<span>4820 •••• •••• 192</span>
+<span class="material-symbols-outlined text-outline text-lg cursor-pointer" data-icon="visibility">visibility</span>
+</div>
+<p class="text-[0.6875rem] text-outline mt-2 italic">Verified on Dec 12, 2023</p>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface mb-2">VAT Registration Number</label>
+<p class="text-sm text-on-surface-variant mb-3">Include this on your buyer invoices.</p>
+<input class="w-full bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-primary/40 text-sm py-3 px-4 font-body" type="text" value="BIN-9023412-DH"/>
+</div>
+</div>
+</section>
+<!-- Notification Preferences -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-secondary" data-icon="notifications_active">notifications_active</span>
+<h2 class="text-xl font-bold font-headline">Alerts</h2>
+</div>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-bold text-on-surface">Email Notifications</p>
+<p class="text-xs text-on-surface-variant">Daily summaries &amp; billing</p>
+</div>
+<div class="w-10 h-6 bg-primary rounded-full relative flex items-center px-1">
+<div class="w-4 h-4 bg-white rounded-full ml-auto shadow-sm"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-bold text-on-surface">SMS Notifications</p>
+<p class="text-xs text-on-surface-variant">Urgent order updates</p>
+</div>
+<div class="w-10 h-6 bg-surface-container-highest rounded-full relative flex items-center px-1">
+<div class="w-4 h-4 bg-white rounded-full shadow-sm"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-bold text-on-surface">Web Push</p>
+<p class="text-xs text-on-surface-variant">New message alerts</p>
+</div>
+<div class="w-10 h-6 bg-primary rounded-full relative flex items-center px-1">
+<div class="w-4 h-4 bg-white rounded-full ml-auto shadow-sm"></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Right Column: Security & Actions -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Security Glass Card -->
+<section class="glass-panel border border-white/50 rounded-xl p-8 shadow-lg">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="security" data-weight="fill" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<h2 class="text-xl font-bold font-headline">Security Hub</h2>
+</div>
+<div class="space-y-8">
+<div class="p-4 bg-white/50 rounded-lg border border-outline-variant/10">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-sm font-bold font-headline">Two-Factor (2FA)</h3>
+<span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed-variant text-[0.625rem] font-bold rounded uppercase">Active</span>
+</div>
+<p class="text-xs text-on-surface-variant mb-4 leading-relaxed">Secured via Google Authenticator. High-level protection enabled.</p>
+<button class="w-full py-2 bg-surface-container-high text-primary font-bold text-xs rounded-full hover:bg-surface-container-highest transition-colors">Manage Keys</button>
+</div>
+<div class="space-y-4">
+<h3 class="text-xs font-semibold text-outline uppercase tracking-widest">Active Sessions</h3>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="laptop_mac">laptop_mac</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold">MacBook Pro · Dhaka</p>
+<p class="text-[10px] text-outline">Active now</p>
+</div>
+</div>
+<div class="flex items-center gap-3 opacity-60">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="smartphone">smartphone</span>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold">iPhone 15 Pro · Sylhet</p>
+<p class="text-[10px] text-outline">2 hours ago</p>
+</div>
+</div>
+</div>
+<button class="w-full py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-full shadow-md text-sm">Save All Changes</button>
+<button class="w-full py-3 text-error font-bold text-xs hover:bg-error-container/20 rounded-full transition-colors">Deactivate Account</button>
+</div>
+</section>
+<!-- Editorial Tip Card -->
+<div class="bg-tertiary-fixed rounded-xl p-6 relative overflow-hidden group">
+<div class="relative z-10">
+<h4 class="text-on-tertiary-fixed font-bold font-headline mb-2">Seller Pro Tip</h4>
+<p class="text-on-tertiary-fixed-variant text-sm leading-relaxed">Verified merchants with completed TIN information see a 15% higher trust rating from enterprise buyers.</p>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-8xl text-on-tertiary/10 rotate-12 group-hover:rotate-0 transition-transform duration-500" data-icon="verified">verified</span>
+</div>
+</div>
+</div>
+<!-- Footer Spacing -->
+<div class="h-16"></div>
+</main>
+</div>
+</body></html>

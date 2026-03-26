@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UniMart - Secure Checkout</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#c1c6d6",
+              "on-tertiary-container": "#ffffff",
+              "error": "#ba1a1a",
+              "surface-container-highest": "#e1e3e4",
+              "on-surface": "#191c1d",
+              "surface-container-low": "#f3f4f5",
+              "on-error-container": "#93000a",
+              "error-container": "#ffdad6",
+              "surface": "#f8f9fa",
+              "primary": "#005bbf",
+              "on-primary-fixed": "#001a41",
+              "secondary-fixed-dim": "#ffb4a4",
+              "surface-dim": "#d9dadb",
+              "on-primary": "#ffffff",
+              "inverse-primary": "#adc7ff",
+              "primary-container": "#1a73e8",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "inverse-surface": "#2e3132",
+              "primary-fixed": "#d8e2ff",
+              "inverse-on-surface": "#f0f1f2",
+              "on-error": "#ffffff",
+              "surface-container-high": "#e7e8e9",
+              "on-background": "#191c1d",
+              "tertiary-fixed": "#d8e2ff",
+              "on-surface-variant": "#414754",
+              "on-tertiary-fixed-variant": "#004493",
+              "surface-container": "#edeeef",
+              "surface-bright": "#f8f9fa",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#001a41",
+              "tertiary-container": "#0872ed",
+              "outline": "#727785",
+              "on-secondary-fixed": "#3e0500",
+              "surface-variant": "#e1e3e4",
+              "surface-tint": "#005bc0",
+              "on-primary-fixed-variant": "#004493",
+              "secondary": "#ad3219",
+              "on-tertiary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "background": "#f8f9fa",
+              "on-secondary-container": "#680f00",
+              "tertiary-fixed-dim": "#adc6ff",
+              "secondary-fixed": "#ffdad3",
+              "secondary-container": "#ff6d4e",
+              "primary-fixed-dim": "#adc7ff",
+              "tertiary": "#005abf",
+              "on-primary-container": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .btn-gradient {
+            background: linear-gradient(135deg, #005bbf 0%, #1a73e8 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
+<div class="flex justify-between items-center px-6 py-3 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<a class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container rounded-full p-2 transition-colors" href="#">arrow_back</a>
+<span class="text-2xl font-extrabold tracking-tight text-blue-700">UniMart</span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<div class="flex items-center gap-2 text-blue-700 font-bold border-b-2 border-blue-700 pb-1">
+<span class="material-symbols-outlined text-sm">shopping_cart_checkout</span>
+<span class="font-headline tracking-wide uppercase text-[10px]">Secure Checkout</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="lock">lock</span>
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-widest hidden sm:inline">128-bit Encryption</span>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-4 md:px-8 max-w-7xl mx-auto">
+<!-- Step Indicator -->
+<div class="flex justify-center items-center mb-12 space-x-4 md:space-x-12">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-sm font-bold">1</div>
+<span class="text-sm font-bold text-primary hidden sm:inline">Shipping</span>
+</div>
+<div class="h-[2px] w-12 bg-primary"></div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-sm font-bold">2</div>
+<span class="text-sm font-bold text-primary hidden sm:inline">Payment</span>
+</div>
+<div class="h-[2px] w-12 bg-surface-container-highest"></div>
+<div class="flex items-center gap-3 opacity-40">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center text-sm font-bold">3</div>
+<span class="text-sm font-medium hidden sm:inline">Review</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Column: Checkout Details -->
+<div class="lg:col-span-8 space-y-12">
+<!-- Escrow Protection Badge -->
+<section class="bg-primary/5 rounded-xl p-6 border border-primary/10 flex items-start gap-5">
+<div class="bg-primary-container text-white p-3 rounded-xl shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<h3 class="font-headline font-bold text-lg text-primary">UniMart Escrow Protection</h3>
+<p class="text-on-surface-variant text-sm mt-1 leading-relaxed">
+                            Your payment is held securely in escrow. Funds are only released to the seller after you confirm receipt and satisfaction of the items.
+                        </p>
+</div>
+</section>
+<!-- Shipping Section -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline text-2xl font-extrabold">Shipping Address</h2>
+<button class="text-primary text-sm font-bold flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-base">add_location_alt</span>
+                            Add New Address
+                        </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Address Card Active -->
+<div class="p-5 rounded-xl bg-surface-container-lowest border-2 border-primary ring-4 ring-primary/5 relative">
+<div class="absolute top-4 right-4 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="inline-block px-2 py-1 bg-primary-fixed text-on-primary-fixed text-[10px] font-bold uppercase rounded mb-3 tracking-wider">Home</span>
+<h4 class="font-bold text-on-surface mb-1">Naimur Rahman</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                                House 42, Road 12, Block C<br/>
+                                Banani, Dhaka 1213<br/>
+                                Bangladesh
+                            </p>
+<div class="mt-4 pt-4 border-t border-surface-container text-xs font-semibold text-on-surface-variant flex gap-4">
+<span>+880 1712 345678</span>
+</div>
+</div>
+<!-- Address Card Inactive -->
+<div class="p-5 rounded-xl bg-surface-container-low border border-transparent hover:border-outline-variant transition-all cursor-pointer">
+<span class="inline-block px-2 py-1 bg-surface-container-highest text-on-surface-variant text-[10px] font-bold uppercase rounded mb-3 tracking-wider">Office</span>
+<h4 class="font-bold text-on-surface mb-1">Naimur Rahman</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                                Level 8, Crystal Tower<br/>
+                                Gulshan-2, Dhaka 1212
+                            </p>
+</div>
+</div>
+</section>
+<!-- Payment Options -->
+<section>
+<h2 class="font-headline text-2xl font-extrabold mb-6">Payment Method</h2>
+<div class="space-y-4">
+<!-- SSLCommerz -->
+<label class="group block relative cursor-pointer">
+<input checked="" class="peer sr-only" name="payment" type="radio"/>
+<div class="p-5 rounded-xl bg-surface-container-low peer-checked:bg-surface-container-lowest peer-checked:ring-2 peer-checked:ring-primary transition-all flex items-center justify-between">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">credit_card</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">SSLCommerz (Cards / Net Banking)</h4>
+<p class="text-xs text-on-surface-variant">Secure checkout with VISA, Mastercard, or AMEX</p>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center transition-all">
+<div class="w-2 h-2 rounded-full bg-white opacity-0 peer-checked:opacity-100"></div>
+</div>
+</div>
+</label>
+<!-- bKash / Nagad -->
+<label class="group block relative cursor-pointer">
+<input class="peer sr-only" name="payment" type="radio"/>
+<div class="p-5 rounded-xl bg-surface-container-low peer-checked:bg-surface-container-lowest peer-checked:ring-2 peer-checked:ring-primary transition-all flex items-center justify-between">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-3xl">account_balance_wallet</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Mobile Financial Services</h4>
+<p class="text-xs text-on-surface-variant">Pay using bKash, Nagad, or Upay</p>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center transition-all"></div>
+</div>
+</label>
+<!-- Pay with UniCoins -->
+<label class="group block relative cursor-pointer">
+<input class="peer sr-only" name="payment" type="radio"/>
+<div class="p-5 rounded-xl bg-surface-container-low peer-checked:bg-surface-container-lowest peer-checked:ring-2 peer-checked:ring-primary transition-all flex items-center justify-between">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded-lg bg-amber-500/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-amber-600 text-3xl" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-bold text-on-surface">Pay with UniCoins</h4>
+<span class="bg-amber-100 text-amber-800 text-[10px] px-1.5 py-0.5 rounded font-bold">1:1 Conversion</span>
+</div>
+<p class="text-xs text-on-surface-variant">Balance: <span class="text-amber-700 font-bold">14,250 UniCoins</span> (৳14,250.00)</p>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center transition-all"></div>
+</div>
+</label>
+<!-- Cash on Delivery -->
+<label class="group block relative cursor-pointer">
+<input class="peer sr-only" name="payment" type="radio"/>
+<div class="p-5 rounded-xl bg-surface-container-low peer-checked:bg-surface-container-lowest peer-checked:ring-2 peer-checked:ring-primary transition-all flex items-center justify-between">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl">payments</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Cash on Delivery</h4>
+<p class="text-xs text-on-surface-variant">Pay when the product arrives at your door</p>
+</div>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant peer-checked:border-primary peer-checked:bg-primary flex items-center justify-center transition-all"></div>
+</div>
+</label>
+</div>
+</section>
+</div>
+<!-- Right Column: Order Summary (Sticky) -->
+<div class="lg:col-span-4 lg:sticky lg:top-24 h-fit">
+<div class="bg-surface-container-lowest rounded-2xl p-8 shadow-sm">
+<h3 class="font-headline text-xl font-extrabold mb-8">Order Summary</h3>
+<div class="space-y-6">
+<!-- Product Items -->
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg bg-surface-container-low overflow-hidden flex-shrink-0">
+<img alt="product" class="w-full h-full object-cover" data-alt="vibrant red sneaker shoe on a clean minimalist white background with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDigy7MpJeU-bl9LToWFZxinQPfYtiAXn3ocAkQum1pG3ZXzfX8AJeiaf7Zhq46W1NYAqCkqJt8-9rJE11hrjDwdWM06RjMNN0JAiJskJnav0haqQEighaVQSioJd2gFuVtP0qNO3Vn9SvQHpQik7iwmo9tgbCkKHrX-OmO1OO_9sU8HsoFlg4LDE-JmZUMJFl78x71dH_IOk9v4Vti9s0CZTTtNSSqFE0HCp16aHP6uftPY30-GGSDHexHz9dGPN99HoKVUffxw6E"/>
+</div>
+<div class="flex-grow">
+<h5 class="text-sm font-bold line-clamp-1">Velociti Performance Runner</h5>
+<p class="text-xs text-on-surface-variant">Size: 42 | Red</p>
+<div class="flex justify-between items-center mt-1">
+<span class="text-xs font-semibold">Qty: 1</span>
+<span class="text-sm font-bold">৳8,450.00</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-lg bg-surface-container-low overflow-hidden flex-shrink-0">
+<img alt="product" class="w-full h-full object-cover" data-alt="brushed aluminum modern smartwatch with a clean white watch face and silicon strap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEOwWMb9EjhG9kj8zC1Hg6yfTlxGPMNKLGhALTF0XoLkxdCRb-9tKcgqBR_i2sYlmhpE4d0-NV2BNd5cvCtzyrhK8Yp8SBgkgqSoyKw3ExgkVdOK5PrDb5mnZKsM34HTqZJa6O4Ojbn9SrToaqfR2Hd2pVOdRGlelZVL4F67cChHYlrehodwQb0ZaEORWoCQCdTyiQ5XqKBDjiS17y4JjMnm4HhCb38FfIaEJxVZvTIxiNXy4zQotL-JreozEfijrNk4oL7MRJyFc"/>
+</div>
+<div class="flex-grow">
+<h5 class="text-sm font-bold line-clamp-1">Skyline Smart Watch Gen 2</h5>
+<p class="text-xs text-on-surface-variant">Silver Aluminum</p>
+<div class="flex justify-between items-center mt-1">
+<span class="text-xs font-semibold">Qty: 1</span>
+<span class="text-sm font-bold">৳12,200.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pricing Breakdown -->
+<div class="mt-8 pt-8 border-t border-surface-container space-y-3">
+<div class="flex justify-between text-sm text-on-surface-variant">
+<span>Subtotal</span>
+<span>৳20,650.00</span>
+</div>
+<div class="flex justify-between text-sm text-on-surface-variant">
+<span>Shipping</span>
+<span>৳120.00</span>
+</div>
+<div class="flex justify-between text-sm text-on-surface-variant">
+<span>Tax (VAT 5%)</span>
+<span>৳1,032.50</span>
+</div>
+<div class="flex justify-between text-lg font-extrabold text-on-surface pt-4">
+<span>Total</span>
+<span class="text-primary">৳21,802.50</span>
+</div>
+</div>
+<!-- Coupon -->
+<div class="mt-8">
+<div class="flex gap-2">
+<input class="flex-grow bg-surface-container-low border-none rounded-lg text-sm px-4 focus:ring-2 focus:ring-primary/20" placeholder="Promo Code" type="text"/>
+<button class="bg-surface-container-high px-4 py-2 rounded-lg text-sm font-bold text-primary hover:bg-surface-container-highest transition-colors">Apply</button>
+</div>
+</div>
+<!-- Proceed CTA -->
+<button class="w-full mt-8 btn-gradient text-on-primary py-4 rounded-full font-bold text-lg shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3">
+<span class="material-symbols-outlined">lock</span>
+                        Confirm &amp; Pay
+                    </button>
+<p class="text-[10px] text-center text-on-surface-variant mt-4 leading-relaxed uppercase tracking-widest font-bold">
+                        Transaction secured by UniMart Pay
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 backdrop-blur-lg rounded-t-3xl border-t border-slate-100 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="text-[11px] font-semibold font-body">Market</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined" data-icon="diversity_3">diversity_3</span>
+<span class="text-[11px] font-semibold font-body">Social</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-blue-100 text-blue-800 rounded-full px-5 py-1.5">
+<span class="material-symbols-outlined" data-icon="local_mall" style="font-variation-settings: 'FILL' 1;">local_mall</span>
+<span class="text-[11px] font-semibold font-body">Orders</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[11px] font-semibold font-body">Profile</span>
+</div>
+</nav>
+<!-- Footer Trust Indicators -->
+<footer class="bg-surface-container-low pt-12 pb-32 md:pb-12 mt-12">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-container text-3xl">local_shipping</span>
+<div>
+<h5 class="font-bold text-sm">Insured Delivery</h5>
+<p class="text-xs text-on-surface-variant">Real-time tracking for every order</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-container text-3xl">verified</span>
+<div>
+<h5 class="font-bold text-sm">Authenticity Guaranteed</h5>
+<p class="text-xs text-on-surface-variant">Curated products from verified sellers</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary-container text-3xl">support_agent</span>
+<div>
+<h5 class="font-bold text-sm">24/7 Priority Support</h5>
+<p class="text-xs text-on-surface-variant">Dedicated team for buyer protection</p>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-surface-container-highest flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="text-lg font-extrabold text-blue-700">UniMart</span>
+<span class="text-xs text-on-surface-variant">© 2024 Editorial Social Commerce. All rights reserved.</span>
+</div>
+<div class="flex gap-6">
+<a class="text-xs font-bold text-on-surface-variant hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-xs font-bold text-on-surface-variant hover:text-primary" href="#">Terms of Service</a>
+<a class="text-xs font-bold text-on-surface-variant hover:text-primary" href="#">Refund Policy</a>
+</div>
+</div>
+</footer>
+</body></html>

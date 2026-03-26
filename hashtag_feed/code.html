@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#005bc0",
+              "on-primary": "#ffffff",
+              "outline": "#727785",
+              "error-container": "#ffdad6",
+              "primary": "#005bbf",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "inverse-primary": "#adc7ff",
+              "surface-container-low": "#f3f4f5",
+              "outline-variant": "#c1c6d6",
+              "tertiary": "#005abf",
+              "on-surface-variant": "#414754",
+              "on-secondary-container": "#680f00",
+              "surface-container": "#edeeef",
+              "primary-container": "#1a73e8",
+              "surface": "#f8f9fa",
+              "on-primary-fixed-variant": "#004493",
+              "primary-fixed": "#d8e2ff",
+              "on-tertiary-fixed-variant": "#004493",
+              "on-error-container": "#93000a",
+              "secondary": "#ad3219",
+              "on-error": "#ffffff",
+              "inverse-surface": "#2e3132",
+              "surface-container-highest": "#e1e3e4",
+              "tertiary-fixed": "#d8e2ff",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "on-secondary-fixed": "#3e0500",
+              "on-surface": "#191c1d",
+              "on-primary-fixed": "#001a41",
+              "surface-bright": "#f8f9fa",
+              "error": "#ba1a1a",
+              "surface-container-high": "#e7e8e9",
+              "inverse-on-surface": "#f0f1f2",
+              "secondary-fixed": "#ffdad3",
+              "secondary-container": "#ff6d4e",
+              "on-tertiary-container": "#ffffff",
+              "background": "#f8f9fa",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed-dim": "#adc7ff",
+              "on-tertiary-fixed": "#001a41",
+              "on-background": "#191c1d",
+              "tertiary-container": "#0872ed",
+              "surface-variant": "#e1e3e4",
+              "surface-dim": "#d9dadb",
+              "on-primary-container": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(248, 249, 250, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 mb-4 bg-[#f8f9fa] dark:bg-slate-950 z-50">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tight text-[#191c1d] dark:text-slate-100">UniMart</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-[#005bbf] font-bold border-b-2 border-[#005bbf]" href="#">Explore</a>
+<a class="text-[#191c1d] dark:text-slate-400 opacity-70 hover:bg-[#f3f4f5] dark:hover:bg-slate-800 transition-colors" href="#">Home</a>
+<a class="text-[#191c1d] dark:text-slate-400 opacity-70 hover:bg-[#f3f4f5] dark:hover:bg-slate-800 transition-colors" href="#">Reels</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center bg-surface-container rounded-full px-4 py-2">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 font-body" placeholder="Search #BengalStyle" type="text"/>
+</div>
+<div class="flex gap-3">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-[#f3f4f5] p-2 rounded-full transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-[#f3f4f5] p-2 rounded-full transition-colors">chat_bubble</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-[#f3f4f5] p-2 rounded-full transition-colors">add_box</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User Profile" data-alt="professional headshot of a young entrepreneur in a soft-lit modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFFY_9SJwd7fSuMIfcDZnfed8YdUuVGN-pBykRyCKSPy4F3AK77s91WuxJCpjty-QwJNZoexCJwO6dHFBItxfdjWEI3Mkusr05KOSGF00UX_FvK39kti08qG1oQCKKh0dkAKFxwkpJQP5ONExMvrYMwJaKHKq6Rxp-HHovd-G6ob93vWWz6bcIuVWAaITn3DeqgWs1qmcmcFyVKaBPtZyMxDmt9QbXVwwFlG8CxSMPgL86X_PE21wClT707Q3L9VCKRC33swp6OqY"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-28 max-w-7xl mx-auto px-6">
+<!-- Hashtag Hero Header -->
+<section class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="flex items-center gap-6">
+<div class="w-24 h-24 md:w-32 md:h-32 rounded-xl bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="vibrant traditional Bangladeshi textile patterns with intricate embroidery and rich crimson and gold threads" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5S2TlvSImLngdoDxFkzXvNEXyw32NQhN4asRyievgmQU7UQI0_0kqC822dassLrCIsJRenz8mgR4CQrwz0ya09Ip15Pw-MRtVy2ozbWk_BwL2TXGlCrwbDpBOhoS_XBhUP7uKkALcKt_wm8qIg6u2mAti_J2235n12g9BwmgVNejh3-2jH_F8oG53jNP86FHEg5httmBDziTKiSFWRYSwdXZlnhLu3sHuJhSBGO0InTwxEk07bMwQyewSj4O_3PcFyLK2zVBoGUw"/>
+</div>
+<div>
+<h1 class="text-4xl md:text-5xl font-black font-headline tracking-tighter text-on-surface">#BengalStyle</h1>
+<p class="text-on-surface-variant font-medium mt-1">1.2M Posts • <span class="text-primary">24.5K Following</span></p>
+<div class="flex gap-2 mt-4">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-bold text-sm shadow-md transition-transform active:scale-95">Follow Hashtag</button>
+<button class="bg-surface-container-high text-on-surface px-4 py-2 rounded-full font-semibold text-sm hover:bg-surface-container-highest transition-colors">Share</button>
+</div>
+</div>
+</div>
+<!-- Related Hashtags -->
+<div class="md:max-w-md w-full">
+<h3 class="text-xs font-bold uppercase tracking-widest text-outline mb-3">Related Trends</h3>
+<div class="flex flex-wrap gap-2">
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant px-3 py-1 rounded-full text-xs font-bold cursor-pointer hover:opacity-80 transition-opacity">#DhakaFashion</span>
+<span class="bg-surface-container-low text-on-surface-variant px-3 py-1 rounded-full text-xs font-semibold cursor-pointer hover:bg-surface-container-high">#JamdaniLove</span>
+<span class="bg-surface-container-low text-on-surface-variant px-3 py-1 rounded-full text-xs font-semibold cursor-pointer hover:bg-surface-container-high">#SareeTwitter</span>
+<span class="bg-surface-container-low text-on-surface-variant px-3 py-1 rounded-full text-xs font-semibold cursor-pointer hover:bg-surface-container-high">#ArtisanMade</span>
+</div>
+</div>
+</section>
+<!-- Top Posts (Asymmetric Grid) -->
+<section class="mb-16">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-2xl font-bold font-headline">Top Posts</h2>
+<button class="text-primary font-bold text-sm flex items-center gap-1">View All <span class="material-symbols-outlined text-sm">arrow_forward</span></button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-4 h-[600px]">
+<div class="col-span-2 row-span-2 relative rounded-xl overflow-hidden group cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="a stunning woman wearing a traditional royal blue jamdani saree posing in a historic courtyard with dappled sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHElPoqB5BDSg06XJw4yqmLIWz73lkmwk-idC95hHo_PPpSf0ZsCd0JYBilACWAm5ps_KrpkS9QL1rUBolNGrHmrtx0wugRaN_mIBnMc3qEwS90E26oEXNfD7RuLL0PgByeTGgCgnzS9KctUVzrvRFtSh9SiZYkNXOV2m2LfGMpdQQ9GLbgnn_NAVyStA_ORL6iV6eY84MLvw00CLI6N-9Op9w8egMSMGN0IfzSO-EHCiUsl5ogAI2g2xdkmM69j6QCMxF1XiBCx0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+<div class="flex items-center gap-2 mb-2 text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-bold">12.4K</span>
+</div>
+<p class="text-white text-sm font-medium">Authentic Jamdani weaving from the heart of Narayanganj.</p>
+</div>
+</div>
+<div class="relative rounded-xl overflow-hidden group cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="close up of handcrafted gold jewelry with ruby accents on a background of silk fabric" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs4sL0XbNHxEU6CaC42BlwaDHMQgtONBuT3t3xd4Gd5cc1npoKxYrGRYKL0hkY0yiNjb6cIKpVmDVYc1hS3v4zjNQFnq7DVuHkv28nTlGcNZjYb4PmarQng554ULPzkNtCuhqvk-egl-k_u7PjLdYivhEwl_esycK-I-XiNy_q-5KpeynA6eiERgOBTHaQJhJVKWYN4uR0vL1yxDSeFBl-Jd98ndZOUYYISX13iAVcShZ8m22UXfejgXIR1uK0-y_-SfWlgkYrgK0"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">movie_filter</span>
+</div>
+</div>
+<div class="relative rounded-xl overflow-hidden group cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="minimalist lifestyle shot of designer shoes on a contemporary pedestal with soft morning shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm3bag4CwyZq2i16SHEeMj9kJIsM-m1Aa-C-6FlhQHrFiaHq7g66u2FDLDYKkvpjEOKYPivP1bSVAoiEFMUKVmBCdDwZv24FAHf3909N4T7_eeemJCA9SDRWHRR8fZ7WTX7Q4_vKjxTW5s05X7BjZxZ8RRRoj542SLre6Z2LBEgcXIsLUQf9TLBkNOWRUEVfKL5DFqsTOn2yNW2o1Gbov9pRlK6CJ-u5T9Kz0hfMNSwq9DqKOjHepOwITNa5t_L24ecxu8ARpkb68"/>
+</div>
+<div class="col-span-2 md:col-span-1 relative rounded-xl overflow-hidden group cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="fashionable urban streetwear photoshoot in the bustling streets of Dhaka at sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc2H1nZ2muXvFXI6ME9hFg1sT25bdpA4-wwOCPSVTRxJg8-RIBm798nXuc-i_8mJDPH4x8gXDlDbokyee8YPmvV1H3PMbZgvrgvTcYXqGug7ATFj0jdXfdxN9g1MX5ysjtTc7sO2abLiuYBcoXTPWg05PTozEz_MpMQjzaUze7IiSROid2deP0-OV6oNe0knB5aWONcRwYyWmzpBVdPZi-i0Uxxdh7RlgXqTbS6faEYGsUcfOEyI5BPx8uS9I-tSv4u7KYBmcUxY8"/>
+</div>
+<div class="relative rounded-xl overflow-hidden group cursor-pointer">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="model wearing a mustard yellow modern panjabi against a clean architectural concrete background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQgHEE_bdbwCgVmf2kUNZIxswT3o-y3ihoUXPSjmD5P-Sr-Jqs7g5lSZLh1axRVNdtlNhDwycE5Ve50_EkqlDtEE1gDTBtRRu3HuSRRcBHfnHqmkro9EWIm7NiEPrUDuCuZjYlLnuvSNwbG1h0TQ-Kh1KFvJjmxw4yDJd68LPn9wpOLDRUohaGAkqZyyjP5brFrnzPiAerZF9MnFUXf3uiku5Xyj0PeYFWjCDZtIN6Xlcp-M0rUrR1DjGi6hsTcpX9hZ5UU_1u1e0"/>
+</div>
+</div>
+</section>
+<!-- Recent Posts (Bento Style) -->
+<section>
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-2xl font-bold font-headline">Recent Posts</h2>
+<div class="flex gap-2">
+<button class="bg-surface-container-lowest border border-outline-variant/15 p-2 rounded-lg material-symbols-outlined text-on-surface-variant">grid_view</button>
+<button class="bg-surface-container border border-outline-variant/15 p-2 rounded-lg material-symbols-outlined text-on-surface-variant opacity-50">list</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Post Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm group">
+<div class="aspect-square relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="detailed texture shot of indigo dyed khadi fabric with natural variations in the weave" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0cPdaUqH_DtCCTnedwlvLxPCDRqzIZKFZcRJSiqPzk6-4b9ir_k3z0_nZTmtHNoMbVtr9JdOLw6OTalChFxkXWEXUQ87j9P4bw366ixEsCoAdr0Zy2Dqt1fT4hPB51iL4PJk82ZdQucvIFCKNr6Tm-fDi8sPUDEpUs2XETJF_LEaBLIw19nawwHjxpq7keQJujjOckbtot42gUxOE8PV1yxLSMIMPsrxho5QCUl8inbDY0qE5axe7GdFUXZ0AaaBL63hE2IeEWeM"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary text-xl">shopping_bag</span>
+</div>
+</div>
+<div class="p-4">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="portrait of a male creator wearing glasses and a denim shirt with a warm smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD_GKs-zEOUPpyEqe4gCWGPWETNZYQ7TB50yszAlXLXpp1JGSl2HrPVrltxls39HzNY5BBYZWM_XPzzpx7QAHFSGkSm-AQf0qVYp2Edbv2QRcHv-2XsVRHw4OLxgwqTkKLP3aOVXiOw9IXMNhSVzsRTErRjGQ1M2d7OO6WJXgekQXt-ZR4oMaUSSmUkOC5GeMMaBGEeOAWvady3B19r9sZE7ix0nAaiMfJomBsg8R3nq_3uGCjfYisvC-AZj4sQBSpnJd9ee591BI"/>
+</div>
+<span class="text-sm font-bold">Rahat Ahmed</span>
+<span class="text-[10px] text-outline ml-auto font-label uppercase tracking-tighter">2h ago</span>
+</div>
+<p class="text-sm text-on-surface-variant line-clamp-2">Exploring the resurgence of Indigo in modern #BengalStyle. This fabric tells a thousand stories.</p>
+<div class="mt-4 pt-4 border-t border-surface-container-low flex justify-between items-center">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-outline text-xl cursor-pointer hover:text-primary transition-colors">favorite</span>
+<span class="material-symbols-outlined text-outline text-xl cursor-pointer hover:text-primary transition-colors">chat_bubble</span>
+</div>
+<span class="material-symbols-outlined text-outline text-xl cursor-pointer hover:text-primary transition-colors">bookmark</span>
+</div>
+</div>
+</div>
+<!-- Post Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm group">
+<div class="aspect-square relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="lifestyle product photo of three different colored linen shirts neatly folded on a wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBypMOQtSTiiL_DbPSk6l1P2HcpOZ1JqvQUIJ5zk55Dbib46ee57dQqpXSnYs0phy4VqHH5fEhCBiOv6yDJDTF4KOlbj0pfTAqvN-BacUdTL-09P1MCi7aVpyZWuHiSHKcaZr1q8t2YqQLZnGnHZf26i-bB4d6MXxzgWbrnAo6gZSAKe4qoJ3jJAE7JotLnK_LzUD62FxnQdv0r4Tfmax93XWX3AqAXPp27C4-2opU7IEkurM4fDxEO7XVxAPrAZHI2bqNiQe5ptcI"/>
+</div>
+<div class="p-4">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="candid portrait of a smiling woman with curly hair in a bright studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUfu-CJZcHoXOtmJDAPpJdNE3-VoZ4ASpRR8ZQUrg4JM99ikqwoCU0238YYQkWYt6wpmdD0lU2piaBs7SB1k3w8SoEIsosEGQdU6Bpr7u8l9sGNakNTrqoRaTvYj8nV5C-T-IytBP84NCqHxzd-wF2NM8Ese_C3W_2jDPlieNPJ1kPAsN3gKkB0CyEa0ZOEayG-RN8F2Yh1awVuZI91u548n_EgjTHOQbVaXrPEVlDJKXE_o-CediJ_0fa01FVmqLVhPfl4eE_mtE"/>
+</div>
+<span class="text-sm font-bold">Sarah Kabir</span>
+<span class="text-[10px] text-outline ml-auto font-label uppercase tracking-tighter">5h ago</span>
+</div>
+<p class="text-sm text-on-surface-variant line-clamp-2">Just dropped! New linen collection for the upcoming festival. Minimal, breathable, and very #BengalStyle.</p>
+<div class="mt-4 pt-4 border-t border-surface-container-low flex justify-between items-center">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-outline text-xl cursor-pointer hover:text-primary transition-colors">favorite</span>
+<span class="material-symbols-outlined text-outline text-xl cursor-pointer hover:text-primary transition-colors">chat_bubble</span>
+</div>
+<span class="material-symbols-outlined text-outline text-xl cursor-pointer hover:text-primary transition-colors">bookmark</span>
+</div>
+</div>
+</div>
+<!-- Post Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm group">
+<div class="aspect-square relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="a rack of high-end designer clothes in a luxury boutique with warm spotlighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLfBULIUnV-AiVp3IyyTvVZdMgI0AbTRkU5Yjskzc2Gmo7Bcj5QBdeg94Tb47ZdaDTT4gxZXhkjJjB6vLwI6ErB0JyvanwnPjJIEtP8Y1ImVnPH08PJNqsuNBN6GsZ6P6In5Pw62ZxfMapnaIGOcq004-ObehdS4h9hsykPCeQipMrdI6wtEX0xJaay4vrhRCEL8l1sSE5AUyd3meeEH2KWAShKRIoLISIpIvwNS0rQhnvKOkwyDyPGCliY1N_a_2DDK_FTVG2ujQ"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div class="p-4">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="headshot of a man with a beard wearing a white t-shirt looking directly at the camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl0O8fva9ESsyqoyikoehlHx-aSzHfYuMHtAcmY3GoeHGBluufnJ7YFxbtd6PKkdPbM7q03oAecTpnhIyrlfIrpKV8XbDpGRIdZrlo6ehRIHrbyOtLWnMQ8fi9zdVp62CG2UQMprJ4vaRSzRtUmzQk0WnetT14QCS8ALWaMdnKj-4347sOEy0Ag8c7G6OmDzgIpqxSdhOMEIQc62cRwc7lEWN244_4zR8c2BMRl144wxYCw9cuzmPfgR7jIpSVVkzWWGosShJ7H-Y"/>
+</div>
+<span class="text-sm font-bold">Artisan Hub</span>
+<span class="text-[10px] text-outline ml-auto font-label uppercase tracking-tighter">8h ago</span>
+</div>
+<p class="text-sm text-on-surface-variant line-clamp-2">Behind the scenes at our workshop. See how we craft every piece by hand. #BengalStyle #Artisan</p>
+<div class="mt-4 pt-4 border-t border-surface-container-low flex justify-between items-center">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-outline text-xl cursor-pointer hover:text-primary transition-colors">favorite</span>
+<span class="material-symbols-outlined text-outline text-xl cursor-pointer hover:text-primary transition-colors">chat_bubble</span>
+</div>
+<span class="material-symbols-outlined text-outline text-xl cursor-pointer hover:text-primary transition-colors">bookmark</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 flex justify-center">
+<button class="px-8 py-3 rounded-full border border-outline-variant font-bold text-sm hover:bg-surface-container transition-colors">Load More Content</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#f8f9fa]/70 dark:bg-slate-900/70 backdrop-blur-xl z-50">
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#005bbf] dark:text-blue-400 bg-[#ffffff] dark:bg-slate-800 rounded-full px-4 py-1 Active: scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Create</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">movie_filter</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Reels</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Profile</span>
+</div>
+</nav>
+</body></html>

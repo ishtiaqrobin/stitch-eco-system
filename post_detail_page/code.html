@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UniMart | Editorial Post Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#005bc0",
+              "on-primary": "#ffffff",
+              "outline": "#727785",
+              "error-container": "#ffdad6",
+              "primary": "#005bbf",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "inverse-primary": "#adc7ff",
+              "surface-container-low": "#f3f4f5",
+              "outline-variant": "#c1c6d6",
+              "tertiary": "#005abf",
+              "on-surface-variant": "#414754",
+              "on-secondary-container": "#680f00",
+              "surface-container": "#edeeef",
+              "primary-container": "#1a73e8",
+              "surface": "#f8f9fa",
+              "on-primary-fixed-variant": "#004493",
+              "primary-fixed": "#d8e2ff",
+              "on-tertiary-fixed-variant": "#004493",
+              "on-error-container": "#93000a",
+              "secondary": "#ad3219",
+              "on-error": "#ffffff",
+              "inverse-surface": "#2e3132",
+              "surface-container-highest": "#e1e3e4",
+              "tertiary-fixed": "#d8e2ff",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "on-secondary-fixed": "#3e0500",
+              "on-surface": "#191c1d",
+              "on-primary-fixed": "#001a41",
+              "surface-bright": "#f8f9fa",
+              "error": "#ba1a1a",
+              "surface-container-high": "#e7e8e9",
+              "inverse-on-surface": "#f0f1f2",
+              "secondary-fixed": "#ffdad3",
+              "secondary-container": "#ff6d4e",
+              "on-tertiary-container": "#ffffff",
+              "background": "#f8f9fa",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed-dim": "#adc7ff",
+              "on-tertiary-fixed": "#001a41",
+              "on-background": "#191c1d",
+              "tertiary-container": "#0872ed",
+              "surface-variant": "#e1e3e4",
+              "surface-dim": "#d9dadb",
+              "on-primary-container": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary/20">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 mb-4 bg-[#f8f9fa] dark:bg-slate-950 z-50">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tight text-[#191c1d] dark:text-slate-100">UniMart</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-[#005bbf] font-bold border-b-2 border-[#005bbf] text-sm font-inter" href="#">Explore</a>
+<a class="text-[#191c1d] dark:text-slate-400 opacity-70 hover:bg-[#f3f4f5] dark:hover:bg-slate-800 transition-colors text-sm font-inter" href="#">Trending</a>
+<a class="text-[#191c1d] dark:text-slate-400 opacity-70 hover:bg-[#f3f4f5] dark:hover:bg-slate-800 transition-colors text-sm font-inter" href="#">Creators</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center bg-surface-container rounded-full px-4 py-2 w-64">
+<span class="material-symbols-outlined text-outline mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full" placeholder="Search creators &amp; styles" type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-[#f3f4f5] dark:hover:bg-slate-800 transition-colors rounded-full text-[#005bbf] dark:text-blue-400">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-[#f3f4f5] dark:hover:bg-slate-800 transition-colors rounded-full text-[#005bbf] dark:text-blue-400">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<button class="p-2 hover:bg-[#f3f4f5] dark:hover:bg-slate-800 transition-colors rounded-full text-[#005bbf] dark:text-blue-400">
+<span class="material-symbols-outlined">add_box</span>
+</button>
+<img alt="User Profile" class="w-8 h-8 rounded-full object-cover ml-2" data-alt="Close up portrait of a stylish young woman with minimalist aesthetic and soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpP7NxZZMVJwEAbe_05f1DFxH_E3Vvxzg-LmjHsPuNedF-ZzYcTN1C5snBGpkZLkvVV-zdK39q6KMyVOZk7mZReaA0k9EEiaJjps5J9TmvLuynJHlhSaecw6zEh2NeuJHvv4vfX7q47RmOLTA2AcMY5TQx66SmEKUOssj8lZQ3-w5W9LxzCifz57gjhq5yKhwDfz47uhaSXJ2baNiSmk7Ow_R_LhaGfn_wZhXlcox2fAHi_2lvGsjGLk01WApNYCNJXhehf_eQv3o"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-20 md:pb-0 min-h-screen">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_450px] min-h-[calc(100vh-6rem)]">
+<!-- Left Column: Media Player -->
+<section class="bg-surface-container-low flex items-center justify-center p-4 lg:p-12 relative">
+<div class="w-full h-full max-h-[800px] rounded-xl overflow-hidden shadow-2xl relative group">
+<img alt="Editorial Fashion" class="w-full h-full object-cover" data-alt="Editorial fashion photography of a model in high-contrast vibrant yellow clothing against a muted architectural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx9OBJ0OPZsn20wDmrbdL9NshfUQIYoDWPhi8aNPEhCC3tOYZ5JSd38KUqgSseXR8he5XBp3MkXA0V9tIa4asnPKISjMmCMIz83iejnSWdz9qn7QA6pl8toVhG98R4FyAzqX6z50syMnicoqlXmhSGcibEwJOt28tRxCbk44T6Us_3kp8QPQl-YD6jKoy6dt7gYMbASx-20u3A54Rrng1iAt4npx_fxqP43Uih6b8Pny4sgu2o92G_cdLyDEqNe9ZlNQRMh7qtnVQ"/>
+<!-- Media Controls Overlay -->
+<div class="absolute bottom-6 right-6 flex flex-col gap-4">
+<button class="w-12 h-12 rounded-full bg-surface-container-lowest/20 backdrop-blur-md flex items-center justify-center text-white border border-white/20 hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">fullscreen</span>
+</button>
+</div>
+<!-- Slide Indicators -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+<div class="w-8 h-1 bg-white rounded-full"></div>
+<div class="w-2 h-1 bg-white/40 rounded-full"></div>
+<div class="w-2 h-1 bg-white/40 rounded-full"></div>
+</div>
+</div>
+</section>
+<!-- Right Column: Context & Commerce -->
+<aside class="bg-surface-container-lowest border-l border-outline-variant/10 flex flex-col h-full">
+<!-- Header -->
+<div class="p-6 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-primary to-secondary">
+<img alt="Curator" class="w-full h-full rounded-full object-cover border-2 border-surface-container-lowest" data-alt="Professional headshot of a smiling female curator in a creative studio setting with warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTZVeW8WGN_2XK9YD8gcueO4kSl3KmG_BlNQWxnMhA550_ixUhIeGHrAvzqMmohoSSr5tnQzPvxbPZ8msqTnHiD0Na47dxFaYN7Ff8BJiGN0Eb_NKGck-eR1zJHFhyN0P3AjvHGsA9geIZbTywMqKmdUaGiki5h8VBwdrO1RCZC3o3FQ-ooon7ayKkx4IcIrYLnRX4sznWstKD2wZGZaH17dTH3EgWNovq66ncEmpAigijFxKk7Mj5Uo36cQrx2GLAk_yTzEY9U6Q"/>
+</div>
+<div>
+<h3 class="font-bold text-on-surface leading-tight">Sarah.Styles</h3>
+<p class="text-xs text-outline font-medium">Verified Curator • Dhaka</p>
+</div>
+</div>
+<button class="px-6 py-2 bg-primary text-on-primary rounded-full text-sm font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
+                        Follow
+                    </button>
+</div>
+<!-- Engagement Actions -->
+<div class="px-6 py-4 flex items-center justify-between border-y border-surface-container">
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-1.5 group">
+<span class="material-symbols-outlined text-secondary group-hover:scale-125 transition-transform" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="text-sm font-bold">12.4k</span>
+</button>
+<button class="flex items-center gap-1.5 group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:scale-125 transition-transform">chat_bubble</span>
+<span class="text-sm font-bold">842</span>
+</button>
+<button class="flex items-center gap-1.5 group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:scale-125 transition-transform">share</span>
+</button>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">bookmark</button>
+</div>
+<!-- Content Body -->
+<div class="flex-1 overflow-y-auto hide-scrollbar">
+<!-- Caption -->
+<div class="p-6">
+<p class="text-on-surface leading-relaxed text-[15px]">
+                            Embracing the vibrant hues of the season. This curated collection blends traditional craftsmanship with a contemporary street-style edge. Every piece tells a story of heritage and future. ✨
+                        </p>
+<div class="mt-4 flex flex-wrap gap-2">
+<span class="text-primary font-semibold text-sm">#ContemporaryHeritage</span>
+<span class="text-primary font-semibold text-sm">#DhakaVibes</span>
+<span class="text-primary font-semibold text-sm">#SustainableStyle</span>
+</div>
+<p class="mt-4 text-[11px] text-outline uppercase tracking-widest font-bold">2 hours ago</p>
+</div>
+<!-- Tagged Products -->
+<div class="bg-surface-container-low/50 py-6">
+<div class="px-6 mb-4 flex justify-between items-end">
+<h4 class="font-headline font-extrabold text-lg">Tagged Products</h4>
+<span class="text-xs font-bold text-primary">3 Items</span>
+</div>
+<div class="flex gap-4 overflow-x-auto px-6 pb-2 hide-scrollbar">
+<!-- Product Card 1 -->
+<div class="min-w-[200px] bg-surface-container-lowest rounded-xl p-3 shadow-sm group">
+<div class="relative overflow-hidden rounded-lg aspect-square mb-3">
+<img alt="Product" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Close up of a premium mustard yellow silk scarf with intricate traditional patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS5jFFQWA7tStDfy1M4X_FnpF7M7UaimVGTYMg6R5OblAmUfGyLkYtygkC4HuAPXJI65qcMJ6fXAod-WNd-3q3FA5N5abl0E8Js2uKaUq_T_04JrHKvadI5dWl88ugb1sK6Jfw30-zE_IIUSjsOLDYC3gWIkxKoOvhAwSNaL8JFM1LCMNigmoYMOA5fNkKFaLleYtIErN4p3IrXFWAMDlKjFoF6Ro_alTkwgPRMto9FOUEGQpD33m3lgXGto1Bw9YCF0JaKLaEWBg"/>
+</div>
+<h5 class="font-bold text-sm truncate">Artisan Silk Wrap</h5>
+<p class="text-secondary font-bold text-sm mt-1">৳ 2,450</p>
+<button class="w-full mt-3 py-2 bg-surface-container-high hover:bg-primary hover:text-white transition-all rounded-lg text-xs font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">shopping_bag</span>
+                                    Add to Bag
+                                </button>
+</div>
+<!-- Product Card 2 -->
+<div class="min-w-[200px] bg-surface-container-lowest rounded-xl p-3 shadow-sm group">
+<div class="relative overflow-hidden rounded-lg aspect-square mb-3">
+<img alt="Product" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Classic denim jacket with modern custom embroidery on the back displayed in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXRCm05NYWFM4s9WgwFDz8RwC0VK8Qluz3NwS6Ogh8pc0-BjkMK5-CealM0Y1GZ1rMJdVf3yBNEEaLFE4j1qnKio2iDcoxKhaP5hbNpaBxn3qRi26e1Ud1fHLUecQ3K8BOppapqRDt7Crf1EwP-cBEmqpanjpGkOq0LZpXx3ACkhQYQuFQ7zfPKY5Dd-cX5l89clm8nGpJ5Yyd-ge0tMEVLWX40WHxXjXOWWnxSjIjg93yY79QI0fgP6mDtqDGeHJF9B4SofpKNsE"/>
+</div>
+<h5 class="font-bold text-sm truncate">Urban Denim Shell</h5>
+<p class="text-secondary font-bold text-sm mt-1">৳ 5,800</p>
+<button class="w-full mt-3 py-2 bg-surface-container-high hover:bg-primary hover:text-white transition-all rounded-lg text-xs font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">shopping_bag</span>
+                                    Add to Bag
+                                </button>
+</div>
+</div>
+</div>
+<!-- Comments -->
+<div class="p-6">
+<h4 class="font-headline font-extrabold text-lg mb-6">Comments</h4>
+<div class="space-y-6">
+<!-- Comment 1 -->
+<div class="flex gap-3">
+<img alt="User" class="w-8 h-8 rounded-full object-cover" data-alt="Portrait of a young man with glasses and a friendly expression, natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYVFSSJCKOzSV_foAImgOxJpuMYTQg7U0_4gBI_aHpHhmbBv240Nbd8HC5n5fnx0fpGlOVyLAsLmeAQ7VSBHkW4rnDZN1ArEpqQiiAJbdgH54VaENY8nYbQLDMF9fyOCcDr2D1BcIk1PNfgAfy2m5glg0Ec4KbG-oZsDASYOHeKJkCkfbQ0EI_glkl0LyKpYP9q4pzYhOAzvxWHhyZCKG8oRUVqPyAIRRWkhNcGv35nkx6btKEE7oOvT1z6_-f_1vuFsmHIm4nOsY"/>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold">Rahat_Al_K</span>
+<span class="text-[10px] text-outline">1h</span>
+</div>
+<p class="text-sm mt-1 text-on-surface-variant">The color grading in this shoot is absolutely breathtaking! Need that jacket ASAP. 🔥</p>
+<div class="mt-2 flex items-center gap-4">
+<button class="text-xs font-bold text-outline hover:text-primary">Reply</button>
+<button class="flex items-center gap-1 text-[10px] font-bold text-outline">
+<span class="material-symbols-outlined text-sm">favorite</span> 12
+                                        </button>
+</div>
+<!-- Threaded Reply -->
+<div class="mt-4 flex gap-3 border-l-2 border-surface-container pl-4">
+<img alt="Curator" class="w-6 h-6 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbaAJ8bnQB2LdCTPdL88F-_XUbCSm1c8g8zq-Pa1pHYmrubftEIX5w8TeJT3VvdAS05R9WUflZS7j7Vv5297D_ApzyFTrS0q1OEt52iYbEI9ujwipWuaiMeykPTsxoFb61Y1er9IJAwr1KP7la10vy5IQyOKzEcRgM2xNnjXIZLi4Cm6peh8ZLzkJ1K9Bp5LWAxjTGOwQSy1Z-oxFv4l3FVFrs_otC_8vtDqvW6SisHw7SPMZza4CqsLSV3lMzzg8xba2X-2h6KV0"/>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-primary">Sarah.Styles</span>
+<span class="bg-primary/10 text-primary text-[8px] px-1.5 rounded uppercase font-bold">Author</span>
+</div>
+<p class="text-sm mt-1 text-on-surface-variant">Thanks Rahat! It's actually available for next-day delivery in Dhaka.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Comment 2 -->
+<div class="flex gap-3">
+<img alt="User" class="w-8 h-8 rounded-full object-cover" data-alt="Creative studio portrait of a woman with artistic makeup and lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVbN2gOA6MJPMNynml0nT-JZ8MaHK-J5NJBgbH3oHqy-_jDBXou8W-S0ZFjPmbXCHiWL913R59QWvCzGVz9nTxlOzwXESt7dh5pL3hoPI2iwvfaV2PiB3qteyTUNCBHegKVz5_dWxgaL6kgH4B6QtXdTOHd6s29kWdHjxxZ0TrovDbh1rMGRrZcTADL0xrMzcCL1lndYjI11GFdgGRUwchM-pgTxweib1gKtOaJHWtCPbE4qa4esxUWpnoif8_bNSH2EDYuT0Rv-I"/>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold">Nishat_Islam</span>
+<span class="text-[10px] text-outline">45m</span>
+</div>
+<p class="text-sm mt-1 text-on-surface-variant">Love the fusion aspect. So glad to see local materials being used this way.</p>
+<div class="mt-2 flex items-center gap-4">
+<button class="text-xs font-bold text-outline hover:text-primary">Reply</button>
+<button class="flex items-center gap-1 text-[10px] font-bold text-outline">
+<span class="material-symbols-outlined text-sm">favorite</span> 4
+                                        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Comment Input -->
+<div class="p-4 bg-surface-container-lowest border-t border-surface-container flex items-center gap-3">
+<img alt="Self" class="w-9 h-9 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMoMp9bQRUNRe552Q8DnN6PeRmZpNxSDk8mspMF3nGJ76ajHNYFPkf0a17Igp7Z_ynuBgtfdvUa67UOE1lzTkWdXJhKc-AejVWer8FecKVhPwYSaJy03sPLjxC2DD001qGrMytfEWX20rGBwUysQ2AdrqEa7uNnfAy1T1wdyI4TUw_7Db-G_6T8CTLensMQb7I4pZ-63C1hlu9rLss1ont-brD5c6pgVnFYeNNKVsyjIEU99uGD-jpRJbBOYnR0PpCrBVbC80kCco"/>
+<div class="flex-1 relative">
+<input class="w-full bg-surface-container rounded-full py-2.5 px-4 text-sm border-none focus:ring-1 focus:ring-primary/40" placeholder="Add a comment..." type="text"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-primary font-bold text-sm">Post</button>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#f8f9fa]/70 dark:bg-slate-900/70 backdrop-blur-xl z-50 shadow-[0_-8px_24px_rgba(25,28,29,0.04)]">
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#005bbf] dark:text-blue-400 bg-[#ffffff] dark:bg-slate-800 rounded-full px-4 py-1">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Create</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60">
+<span class="material-symbols-outlined">movie_filter</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Reels</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Profile</span>
+</div>
+</nav>
+</body></html>

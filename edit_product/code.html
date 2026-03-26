@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edit Product | UniMart Seller Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#191c1d",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "secondary": "#ad3219",
+              "on-primary-container": "#ffffff",
+              "surface-tint": "#005bc0",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#ff6d4e",
+              "surface-variant": "#e1e3e4",
+              "on-secondary-fixed": "#3e0500",
+              "on-primary-fixed-variant": "#004493",
+              "inverse-surface": "#2e3132",
+              "secondary-fixed": "#ffdad3",
+              "surface-container-highest": "#e1e3e4",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed-dim": "#adc7ff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "primary-container": "#1a73e8",
+              "inverse-primary": "#adc7ff",
+              "surface-container-high": "#e7e8e9",
+              "on-primary-fixed": "#001a41",
+              "primary": "#005bbf",
+              "tertiary-fixed": "#d8e2ff",
+              "on-error-container": "#93000a",
+              "outline-variant": "#c1c6d6",
+              "on-error": "#ffffff",
+              "surface-bright": "#f8f9fa",
+              "surface-container": "#edeeef",
+              "surface": "#f8f9fa",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-tertiary-container": "#ffffff",
+              "error": "#ba1a1a",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-container-low": "#f3f4f5",
+              "on-background": "#191c1d",
+              "tertiary-container": "#0872ed",
+              "on-primary": "#ffffff",
+              "tertiary": "#005abf",
+              "on-secondary-container": "#680f00",
+              "surface-dim": "#d9dadb",
+              "on-tertiary-fixed": "#001a41",
+              "on-surface-variant": "#414754",
+              "on-tertiary-fixed-variant": "#004493",
+              "primary-fixed": "#d8e2ff",
+              "background": "#f8f9fa",
+              "outline": "#727785"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="sticky top-0 z-50 flex items-center justify-between px-6 py-3 w-full bg-white dark:bg-slate-900 shadow-sm dark:shadow-none border-b">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold text-blue-700 dark:text-blue-400 tracking-tight font-headline">UniMart Seller Studio</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded" href="#">Dashboard</a>
+<a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700 px-3 py-1" href="#">Products</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded" href="#">Orders</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="pl-10 pr-4 py-1.5 rounded-full border-none bg-slate-100 dark:bg-slate-800 text-sm focus:ring-2 focus:ring-blue-700/20 w-64" placeholder="Search products..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full"><span class="material-symbols-outlined">help</span></button>
+<div class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden border border-slate-200">
+<img alt="Merchant Profile Avatar" data-alt="professional portrait of a middle-aged merchant in a clean office environment with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwVJz2Wk6NcdWq5DMP5K7L-7pS7utfwLX8TQRvWdUN0T2uke-6w-ZySvelBmOk1UYlBhdf6_VgsdtFvcnDWorjEayF2U7H5E4uBTw2OvUIUccZf9KzwEe073FmD6_mtlOEUg4PTZVGS0a57Dod5fB-Ei4wJ8B9MGRY9wxIUP8704TSQQiMkRhcxnP2Cg22vJVBtpMsJ_5qBRx4ccGA4eVaLKFJeaSsN3E6Che9aiNwJWfHCrPZ9aFdK08W-bUjN9cOnTwHQMJ02EE"/>
+</div>
+</div>
+</div>
+</nav>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-4 z-40 h-screen w-64 border-r bg-slate-50 dark:bg-slate-950 pt-20">
+<div class="flex items-center gap-3 mb-8 px-2">
+<div class="w-10 h-10 bg-blue-700 rounded-lg flex items-center justify-center text-white font-bold">OS</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white font-headline text-sm">Official Store</h3>
+<p class="text-[10px] text-slate-500 font-medium">Verified Merchant</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium font-label">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-sm font-medium font-label">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-400 rounded-lg shadow-sm font-bold scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="text-sm font-medium font-label">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">warehouse</span>
+<span class="text-sm font-medium font-label">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-sm font-medium font-label">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-sm font-medium font-label">Payments</span>
+</a>
+</nav>
+<div class="mt-auto space-y-1 pt-4 border-t border-slate-200 dark:border-slate-800">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium font-label">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-error">logout</span>
+<span class="text-sm font-medium font-label">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 p-8 bg-surface-container-low min-h-screen">
+<div class="max-w-5xl mx-auto">
+<!-- Page Header -->
+<header class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 text-slate-500 mb-2">
+<span class="text-xs font-medium font-label">Products</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-xs font-medium font-label">Edit Product</span>
+</div>
+<h1 class="text-3xl font-extrabold font-headline text-on-surface">Edit Product Details</h1>
+<p class="text-on-surface-variant mt-1">Product ID: #UNI-8842-BNG</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 rounded-full font-semibold text-sm border-2 border-outline-variant/30 text-slate-600 bg-surface-container-lowest hover:bg-surface-container transition-all">Discard Changes</button>
+<button class="px-8 py-2.5 rounded-full font-semibold text-sm text-on-primary bg-gradient-to-br from-primary to-primary-container shadow-lg shadow-primary/20 hover:opacity-90 transition-all">Update Product</button>
+</div>
+</header>
+<!-- Editorial Layout Content -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Core Details -->
+<div class="lg:col-span-8 space-y-8">
+<!-- General Information Card -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<h2 class="text-xl font-bold font-headline mb-6">General Information</h2>
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-on-surface-variant font-label">Product Name</label>
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary/40 transition-all" type="text" value="Handcrafted Jamdani Silk Saree - Midnight Azure"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-on-surface-variant font-label">Product Description (Editorial Style)</label>
+<textarea class="w-full bg-surface-container-highest border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary/40 transition-all" rows="6">This exquisite Handcrafted Jamdani Silk Saree in Midnight Azure tells a story of centuries-old weaving traditions from the heart of Dhaka. 
+
+Expertly woven with fine silk threads, it features intricate floral motifs that seem to float on the semi-transparent fabric. Each piece is unique, requiring over 40 days of meticulous manual labor by master artisans. Perfect for festive occasions where elegance meets cultural heritage.</textarea>
+</div>
+</div>
+</section>
+<!-- Media Gallery Section -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold font-headline">Product Gallery</h2>
+<button class="text-sm font-bold text-primary flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-sm">add_circle</span> Add Media
+                                </button>
+</div>
+<!-- Bento Grid for Media -->
+<div class="grid grid-cols-4 gap-4 aspect-[4/2]">
+<div class="col-span-2 row-span-2 relative rounded-lg overflow-hidden group">
+<img alt="Primary Product Image" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="high-detail close-up of an elegant navy blue silk saree with intricate gold embroidery and traditional patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBzl-XQj4hIzT950qv3bynaHxanqn7hOKNgY0qrTZRkvx6kUwUL9gWOTFYGrjckFqmG-61I48g-QT125I9OuX3dOifnGycwlFuSVGQOiyGz-gZqD6vVw66EMTPeq0qzMwkgLJwevheU5DkTm2l8J2bZXVFx-_gwLUK3N2-RjelgAZ9Bhmd_V974pYC7g7f0XDsO-RYDinfhkDCcS8JfX3YcTqCknoKKKrBtGvwKzpjX67tzwAoxE1tHLOfOtvDXf-shLOxCLPGIWA"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+<button class="w-10 h-10 rounded-full bg-white text-on-surface flex items-center justify-center hover:bg-surface-bright"><span class="material-symbols-outlined">edit</span></button>
+<button class="w-10 h-10 rounded-full bg-white text-error flex items-center justify-center hover:bg-error-container"><span class="material-symbols-outlined">delete</span></button>
+</div>
+<div class="absolute top-4 left-4 bg-primary text-on-primary text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">Cover Image</div>
+</div>
+<div class="relative rounded-lg overflow-hidden group">
+<img alt="Gallery detail 1" class="w-full h-full object-cover" data-alt="macro shot of fine silk weaving detail showing golden thread patterns on dark blue fabric" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJBJAKiTQC3zO27Wb1cbNd7fcB-N8bxYegs9dsULe8X6AXkG5leuGY_7iPbAX1Lwhc2T7XYQ_qrV-JSgpfjFChvsk-uQ-EwPBONhaVcN4KHcBzIot8U0_U-kksKIzknjHZv0hQGG9tgrM_BPt3uFnhht0QxCoEnf4Hr-NEVw3Z7I6BR5fATzc7QUfJvFVUud5N76MtM6rwsWxVHQptZ72zRo8If89L_Z1Bl8j8peXXQVm9EONOs_W6vAkslCUEpA-W2fjpM9olOSA"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="w-8 h-8 rounded-full bg-white text-error flex items-center justify-center"><span class="material-symbols-outlined text-sm">delete</span></button>
+</div>
+</div>
+<div class="relative rounded-lg overflow-hidden group">
+<img alt="Gallery detail 2" class="w-full h-full object-cover" data-alt="lifestyle shot of a woman wearing a traditional jamdani saree in a bright courtyard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtCXqiRqx4YVE5wMf82xNRz36IT7nH--Fu4gB-GaZv3ZVf5CtqxREhV4GLfNk7jAbmbXQxB5H50wlsrYhtjVy8AzTnOPWcvcC9CK6jOvJucMkgXIYFO26AGjtRgyjm0U_1TJcrGZF1gbRnPOTtyN6rhzAkub60webtT16DIIYyezf211kthlvfu0GxnEH96n7FpxNVo31HjUhwZVLt1CRaK5e_h8nbMcp3OrA7dQR5JrpfYa9Zl6V7XX3lGEVzQXs16T8Eth3TQI0"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="w-8 h-8 rounded-full bg-white text-error flex items-center justify-center"><span class="material-symbols-outlined text-sm">delete</span></button>
+</div>
+</div>
+<div class="relative rounded-lg border-2 border-dashed border-outline-variant/50 flex flex-col items-center justify-center bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary mb-1">upload</span>
+<span class="text-[10px] font-bold text-slate-500 font-label">Upload</span>
+</div>
+<div class="relative rounded-lg border-2 border-dashed border-outline-variant/50 flex flex-col items-center justify-center bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary mb-1">videocam</span>
+<span class="text-[10px] font-bold text-slate-500 font-label">Add Reel</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Pricing & Meta -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Pricing Card -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<h2 class="text-xl font-bold font-headline mb-6">Pricing &amp; Inventory</h2>
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-on-surface-variant font-label">Base Price (BDT)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-slate-400">৳</span>
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-3 pl-8 pr-4 text-on-surface font-bold focus:ring-2 focus:ring-primary/40" type="number" value="12500"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-on-surface-variant font-label">Discounted Price (Optional)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-bold text-slate-400">৳</span>
+<input class="w-full bg-surface-container-highest border-none rounded-lg py-3 pl-8 pr-4 text-on-surface font-bold focus:ring-2 focus:ring-primary/40" type="number" value="10999"/>
+</div>
+<p class="text-[10px] text-slate-500">Currently showing 12% OFF to customers.</p>
+</div>
+<div class="pt-4 border-t border-surface-container-low grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="block text-[10px] font-bold text-slate-500 uppercase font-label">Stock Qty</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg py-2 px-3 text-sm font-semibold" type="number" value="8"/>
+</div>
+<div class="space-y-1">
+<label class="block text-[10px] font-bold text-slate-500 uppercase font-label">SKU ID</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg py-2 px-3 text-sm font-semibold" type="text" value="SRE-JD-001"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Categorization Card -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<h2 class="text-xl font-bold font-headline mb-6">Categorization</h2>
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="block text-sm font-semibold text-on-surface-variant font-label">Primary Category</label>
+<select class="w-full bg-surface-container-highest border-none rounded-lg py-3 px-4 text-on-surface focus:ring-2 focus:ring-primary/40 appearance-none">
+<option>Women's Ethnic Wear</option>
+<option selected="">Sarees &amp; Lehengas</option>
+<option>Traditional Handicrafts</option>
+</select>
+</div>
+<div class="space-y-3">
+<label class="block text-sm font-semibold text-on-surface-variant font-label">Tags</label>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-1 px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant rounded-full text-xs font-bold">
+                                            #Jamdani <span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</span>
+<span class="inline-flex items-center gap-1 px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant rounded-full text-xs font-bold">
+                                            #Handmade <span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</span>
+<span class="inline-flex items-center gap-1 px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant rounded-full text-xs font-bold">
+                                            #Silk <span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</span>
+<button class="w-6 h-6 rounded-full bg-surface-container-high text-slate-500 flex items-center justify-center hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Shipping Rules -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<h2 class="text-xl font-bold font-headline mb-4">Shipping Info</h2>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 bg-surface-container rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+<span class="text-sm font-semibold">Standard Delivery</span>
+</div>
+<span class="text-xs font-bold text-primary">Active</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container rounded-lg opacity-60">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">bolt</span>
+<span class="text-sm font-semibold">Express (24h)</span>
+</div>
+<span class="text-xs font-bold text-slate-500">Disabled</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Footer Action Bar (Mobile Sticky) -->
+<div class="mt-12 mb-20 md:hidden flex gap-3">
+<button class="flex-1 py-4 bg-surface-container-lowest rounded-xl font-bold border border-outline-variant/30">Cancel</button>
+<button class="flex-[2] py-4 bg-primary text-on-primary rounded-xl font-bold shadow-lg">Save Changes</button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

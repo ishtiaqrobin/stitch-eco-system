@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Write Review | UniMart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-primary": "#adc7ff",
+                        "on-secondary-fixed": "#3e0500",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-variant": "#e1e3e4",
+                        "background": "#f8f9fa",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "on-surface-variant": "#414754",
+                        "on-background": "#191c1d",
+                        "on-primary-container": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "on-tertiary-fixed": "#001a41",
+                        "tertiary": "#005abf",
+                        "surface-tint": "#005bc0",
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary": "#ad3219",
+                        "inverse-surface": "#2e3132",
+                        "primary": "#005bbf",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#d8e2ff",
+                        "secondary-container": "#ff6d4e",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed": "#001a41",
+                        "surface": "#f8f9fa",
+                        "tertiary-container": "#0872ed",
+                        "on-tertiary-container": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f8f9fa",
+                        "error": "#ba1a1a",
+                        "primary-container": "#1a73e8",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#680f00",
+                        "on-secondary-fixed-variant": "#8b1a02",
+                        "outline": "#727785",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "primary-fixed-dim": "#adc7ff",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#ffdad3",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-primary-fixed-variant": "#004493",
+                        "outline-variant": "#c1c6d6",
+                        "surface-container-high": "#e7e8e9"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .star-active {
+            font-variation-settings: 'FILL' 1;
+            color: #ffb4a4;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #191c1d;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-surface">
+<!-- TopNavBar - Fixed Shell -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface cursor-pointer p-2 hover:bg-surface-container rounded-full transition-colors">arrow_back</span>
+<span class="text-2xl font-black text-blue-700 dark:text-blue-500 tracking-tighter">UniMart</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex gap-6">
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Feed</a>
+<a class="text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-600" href="#">Marketplace</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Wallet</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-600 hover:text-blue-600 transition-colors cursor-pointer" data-icon="shopping_cart">shopping_cart</span>
+<span class="material-symbols-outlined text-slate-600 hover:text-blue-600 transition-colors cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-slate-600 hover:text-blue-600 transition-colors cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+<div class="bg-slate-100 dark:bg-slate-800 h-[1px]"></div>
+</header>
+<main class="pt-24 pb-32 px-4 max-w-5xl mx-auto">
+<!-- Editorial Header -->
+<section class="mb-12">
+<span class="text-blue-600 font-headline font-bold uppercase tracking-widest text-xs mb-2 block">Share Your Experience</span>
+<h1 class="text-4xl md:text-5xl font-headline font-extrabold text-on-surface tracking-tight leading-tight">Rate your recent purchase.</h1>
+<p class="text-on-surface-variant font-body mt-4 max-w-2xl text-lg">Help the UniMart community by sharing your honest thoughts on the quality, fit, and style of your item.</p>
+</section>
+<!-- Product Context Card -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Side: Product Info & Rating (Sticky on Desktop) -->
+<aside class="lg:col-span-4 lg:sticky lg:top-28 space-y-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm">
+<img alt="Premium Handwoven Cotton Saree" class="w-full h-64 object-cover rounded-lg mb-4" data-alt="close-up of a premium handwoven emerald green cotton saree with intricate gold border detailing on a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgIsFEquwgQQLXbaOq6l040yeB-eOEF7HXGm-Y9F5t810wJwwsYEwnzab58dc8RqcES1dxXsiEUGhTjN4mk3l9bEE9gs-7862-mPTSHKVBCXfayQxSSyQnfFXuv3x4Yup-jzISDFog-TQTCjbi3KFSbXlS4epADvW0dfQ1IEx5fHaZcL4y2-2kG6aqHVjrZfMOw7PPp6DKFEtQGK2q0l_AvcEhJNolhnrVo6HiKBMrlwAyoXQVsjm7UzTHa7zVOSJCRc-5mXNK_p0"/>
+<h3 class="font-headline font-bold text-xl text-on-surface">Artisan Jamdani Saree</h3>
+<p class="text-on-surface-variant text-sm font-medium mt-1">Order #UM-89234 • Delivered Oct 12</p>
+<div class="mt-8">
+<p class="font-headline font-bold text-sm uppercase tracking-wider text-outline mb-4">Overall Rating</p>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-4xl star-active cursor-pointer" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-4xl star-active cursor-pointer" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-4xl star-active cursor-pointer" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-4xl star-active cursor-pointer" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-4xl text-surface-variant cursor-pointer" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+<p class="text-secondary font-bold mt-2 text-sm italic">"Very Good"</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="verified">verified</span>
+<span class="font-headline font-bold text-sm">Review Guidelines</span>
+</div>
+<ul class="text-xs text-on-surface-variant space-y-3 font-medium">
+<li class="flex gap-2"><span class="w-1 h-1 bg-primary rounded-full mt-1.5 shrink-0"></span> Keep it relevant to the product quality and fit.</li>
+<li class="flex gap-2"><span class="w-1 h-1 bg-primary rounded-full mt-1.5 shrink-0"></span> Avoid mentioning shipping or customer service issues here.</li>
+<li class="flex gap-2"><span class="w-1 h-1 bg-primary rounded-full mt-1.5 shrink-0"></span> Bright, clear photos help other shoppers the most.</li>
+</ul>
+</div>
+</aside>
+<!-- Right Side: The Form -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Review Content -->
+<section class="bg-surface-container-lowest p-8 rounded-xl shadow-sm space-y-8">
+<div>
+<label class="block font-headline font-bold text-lg mb-4">Write your review</label>
+<textarea class="w-full min-h-[200px] p-4 bg-surface-container-highest border-none rounded-xl focus:ring-2 focus:ring-primary/40 text-on-surface placeholder:text-outline font-body text-base leading-relaxed" placeholder="How was the fabric quality? Did it match the pictures? Is the size accurate? We'd love to hear your story..."></textarea>
+</div>
+<!-- Media Upload Bento Grid -->
+<div>
+<div class="flex justify-between items-end mb-4">
+<div>
+<h4 class="font-headline font-bold text-base">Add Photos or Video</h4>
+<p class="text-on-surface-variant text-sm">Upload up to 5 media files</p>
+</div>
+<button class="text-primary font-bold text-sm hover:underline">Clear all</button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Upload Trigger -->
+<div class="aspect-square bg-surface-container-low rounded-xl border-2 border-dashed border-outline-variant flex flex-col items-center justify-center cursor-pointer hover:bg-surface-container transition-all group">
+<span class="material-symbols-outlined text-3xl text-outline group-hover:text-primary transition-colors">add_a_photo</span>
+<span class="text-[10px] font-bold uppercase mt-2 text-outline tracking-wider">Upload</span>
+</div>
+<!-- Preview Placeholder 1 -->
+<div class="relative aspect-square rounded-xl overflow-hidden group">
+<img alt="Review Preview" class="w-full h-full object-cover" data-alt="high-resolution close-up of soft cotton fabric texture in natural daylight showing the intricate weave patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs_UUcZfbPQSd3w43EZF8lx_CjKtX7m2ieHrnCVDCGCLbqXepJw504Bylcti4V2_B5JmyiPxXxAF0-EvkMaJt3U-tm8SeihCrkRJwspBFVApnlQ7m9O6gJMQY81PFqzXiSkdnfKaodG0da4R4Yu_gx_1OvBUN8hR66wRvCE5cxLXTHX8NdGAMH--3vxhi-hZ1pFFDtUcd-9MoWnavO3MGLgzWTB5PHst8HcTW6S-YmK2WSo2tsUzQ8jdb3ZkiD09JKUmVIzjhGBIE"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white cursor-pointer">delete</span>
+</div>
+</div>
+<!-- Preview Placeholder 2 -->
+<div class="relative aspect-square rounded-xl overflow-hidden group">
+<img alt="Review Preview" class="w-full h-full object-cover" data-alt="a lifestyle photo of a green saree draped over a chair in a sunlit room with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8qMt4m766LCNFxk38MCV37Yq3HfilGIb-XMOJAzYcPADaSxZosx9g6tRW923h64JGCevk4bURVWSttAo3-ZYUme45KqDAtgZPwUIagnCPc0fMOrCCG_EjxP4A6PPZubncp3LfYvQtrVa6xrleAKaoECwaEwK3C0rNVKKd-RtN4ZGUHWcNDlH7i3vgg5I7ktQhuO_mwYsY2_Wx-QebnhEYekzpFI4HxBzwoR5dZv_PGeWIuKV_52ZDekYVpUGuRcjqqWyDimLinxg"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white cursor-pointer">delete</span>
+</div>
+</div>
+<div class="aspect-square bg-surface-container-low rounded-xl border-2 border-dashed border-outline-variant flex flex-col items-center justify-center text-outline-variant">
+<span class="material-symbols-outlined text-2xl">image</span>
+</div>
+</div>
+</div>
+<!-- Interaction Chips -->
+<div>
+<h4 class="font-headline font-bold text-base mb-4">How did it fit?</h4>
+<div class="flex flex-wrap gap-3">
+<button class="px-6 py-2 rounded-full border border-outline-variant text-on-surface font-semibold text-sm hover:border-primary transition-colors">Small</button>
+<button class="px-6 py-2 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-bold text-sm ring-2 ring-secondary/20">True to Size</button>
+<button class="px-6 py-2 rounded-full border border-outline-variant text-on-surface font-semibold text-sm hover:border-primary transition-colors">Large</button>
+</div>
+</div>
+<div class="pt-4">
+<label class="flex items-start gap-3 cursor-pointer">
+<input class="mt-1 rounded border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm text-on-surface-variant font-medium">Post this review anonymously? Your profile name will be hidden from other shoppers.</span>
+</label>
+</div>
+</section>
+<!-- Action Buttons -->
+<div class="flex flex-col md:flex-row gap-4 items-center justify-end">
+<button class="w-full md:w-auto px-8 py-4 text-on-surface font-bold hover:bg-surface-container rounded-full transition-all">Save as Draft</button>
+<button class="w-full md:w-auto px-12 py-4 bg-gradient-to-br from-primary to-primary-container text-white font-headline font-extrabold rounded-full shadow-lg shadow-primary/20 scale-100 active:scale-95 transition-all">Submit Review</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar - Mobile Only Shell -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg rounded-t-3xl z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-blue-600 dark:text-blue-400 scale-110 transition-all">
+<span class="material-symbols-outlined" data-icon="local_mall">local_mall</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Shop</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="add_box">add_box</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Sell</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="wallet">wallet</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Wallet</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Profile</span>
+</div>
+</nav>
+</body></html>

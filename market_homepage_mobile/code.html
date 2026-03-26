@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UniMart - Curated Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-bright": "#f8f9fa",
+              "secondary-fixed-dim": "#ffb4a4",
+              "primary-container": "#1a73e8",
+              "on-tertiary-container": "#ffffff",
+              "on-primary-container": "#ffffff",
+              "surface-container": "#edeeef",
+              "on-secondary-fixed": "#3e0500",
+              "tertiary-container": "#0872ed",
+              "secondary-fixed": "#ffdad3",
+              "on-secondary": "#ffffff",
+              "background": "#f8f9fa",
+              "on-tertiary-fixed": "#001a41",
+              "on-primary": "#ffffff",
+              "error": "#ba1a1a",
+              "primary-fixed-dim": "#adc7ff",
+              "on-surface-variant": "#414754",
+              "on-secondary-container": "#680f00",
+              "tertiary": "#005abf",
+              "on-primary-fixed-variant": "#004493",
+              "surface-container-lowest": "#ffffff",
+              "on-surface": "#191c1d",
+              "inverse-primary": "#adc7ff",
+              "inverse-surface": "#2e3132",
+              "surface": "#f8f9fa",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-tint": "#005bc0",
+              "surface-container-high": "#e7e8e9",
+              "surface-container-low": "#f3f4f5",
+              "on-error": "#ffffff",
+              "secondary-container": "#ff6d4e",
+              "outline": "#727785",
+              "tertiary-fixed": "#d8e2ff",
+              "surface-dim": "#d9dadb",
+              "surface-variant": "#e1e3e4",
+              "primary-fixed": "#d8e2ff",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "on-tertiary-fixed-variant": "#004493",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed": "#001a41",
+              "primary": "#005bbf",
+              "tertiary-fixed-dim": "#adc6ff",
+              "surface-container-highest": "#e1e3e4",
+              "on-background": "#191c1d",
+              "outline-variant": "#c1c6d6",
+              "secondary": "#ad3219",
+              "on-error-container": "#93000a",
+              "error-container": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 h-16 bg-[#f8f9fa] dark:bg-slate-950 z-50">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a stylish young individual with a clean aesthetic and soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALmJlyZG1B2YbKkTk7Q8QMV_1Hh7RUotg32lbS-0pPkFBKRGWGTtrHgF9jUow-n4NA2zpTbhNus1PCiguEqhYULkq8spi_LvtGYx55ZaqfEIuoUXFd7ia_wafcDu-ROZEUo3gFUHoB7pcpJWxQuC-rTEwzSCB9-Q9aAvz7L1U24x64IaTe4XfABZmFhQX0xMdItSxEPfCkOi55fLedzZRb1qersTH-NTZPQX_Mm9IpRXReaCJ71kZnIN6ECYsYtvGyUoEJ2-igB8A"/>
+</div>
+<h1 class="font-['Manrope'] font-extrabold text-xl tracking-tighter text-[#1A73E8] dark:text-blue-400">UniMart</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#191c1d] dark:text-slate-300 hover:bg-black/5 p-2 rounded-full transition-colors active:scale-95 duration-150" data-icon="search">search</button>
+<button class="material-symbols-outlined text-[#191c1d] dark:text-slate-300 hover:bg-black/5 p-2 rounded-full transition-colors active:scale-95 duration-150" data-icon="notifications">notifications</button>
+</div>
+</header>
+<main class="pt-16 pb-24 px-4 space-y-8">
+<!-- Hero Banner Section -->
+<section class="mt-4">
+<div class="relative w-full h-48 rounded-xl overflow-hidden shadow-sm">
+<img alt="Hero Banner" class="w-full h-full object-cover" data-alt="high-end cinematic shot of premium lifestyle products arranged artfully with warm sunlight and soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBgylbgyjTDzjorNiJtDBApLn6vHklt20HBADxKAWyh0wVVPs1VZEDCf71ZaFATWmCq5EgHTWLvVwIWqtz99pOS5KAvPQjHPMRD2n9gqHZtdW6iIAE0R9VVLOhBG2qooFn9yeG8jK-ekTeGOUDiNCHQTpzHUFqUdmX3mMmBUXfiKBAfLbNbhSBHsMupEpTciUxza5aeMFzuVgYF-U7wBNgqXht9EfqXO73d8Z386fyq5rMY0IBOm55L5IqhXo_gQ943Z8IHfaedMc"/>
+<div class="absolute inset-0 bg-gradient-to-r from-on-surface/60 to-transparent flex flex-col justify-center px-6">
+<span class="text-white text-[10px] font-bold tracking-[0.2em] uppercase mb-2">Editor's Choice</span>
+<h2 class="text-white font-headline font-bold text-2xl leading-tight max-w-[200px]">The Art of Modern Living</h2>
+<button class="mt-4 w-fit px-6 py-2 bg-primary-container text-white rounded-full text-xs font-semibold shadow-lg shadow-primary/20">Shop Now</button>
+</div>
+</div>
+</section>
+<!-- Vertical Grid: Product Categories -->
+<section>
+<div class="flex justify-between items-end mb-4">
+<h3 class="font-headline font-extrabold text-lg text-on-surface tracking-tight">Curated Categories</h3>
+<span class="text-primary text-xs font-semibold">See all</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-surface-container-lowest rounded-xl p-4 flex flex-col items-center justify-center space-y-2 aspect-square group active:scale-95 duration-200">
+<div class="w-16 h-16 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed-variant">
+<span class="material-symbols-outlined text-3xl" data-icon="apparel">apparel</span>
+</div>
+<span class="font-headline font-bold text-sm">Fashion</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 flex flex-col items-center justify-center space-y-2 aspect-square active:scale-95 duration-200">
+<div class="w-16 h-16 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined text-3xl" data-icon="chair">chair</span>
+</div>
+<span class="font-headline font-bold text-sm">Home</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 flex flex-col items-center justify-center space-y-2 aspect-square active:scale-95 duration-200">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-3xl" data-icon="watch">watch</span>
+</div>
+<span class="font-headline font-bold text-sm">Tech</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 flex flex-col items-center justify-center space-y-2 aspect-square active:scale-95 duration-200">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-3xl" data-icon="face_5">face_5</span>
+</div>
+<span class="font-headline font-bold text-sm">Beauty</span>
+</div>
+</div>
+</section>
+<!-- Horizontal Scroll: Flash Sales -->
+<section class="-mx-4">
+<div class="px-4 flex justify-between items-center mb-4">
+<div class="flex items-center gap-2">
+<h3 class="font-headline font-extrabold text-lg text-on-surface tracking-tight">Limited Drops</h3>
+<div class="bg-secondary px-2 py-0.5 rounded-full">
+<span class="text-white text-[10px] font-bold">02:45:12</span>
+</div>
+</div>
+<span class="text-primary text-xs font-semibold">View Drops</span>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar px-4 gap-4">
+<!-- Flash Card 1 -->
+<div class="flex-none w-64 bg-surface-container-lowest rounded-xl overflow-hidden">
+<div class="relative h-48">
+<img alt="Flash Sale Item" class="w-full h-full object-cover" data-alt="minimalist architectural ceramic vase on a textured stone surface with sharp geometric lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe1naA83bzNhc-M01tFkv6mH1LhE_KuLkdxFh8ZR55qyDgD_Aj9NiDBoOG6yn9iQrVfduKTbDA8ED8YP9VUQr_J_x0BStP39fa3GBlHoPlm7-I7TtaC47jsZBgjTuDrFFZ8Eekm2C2306-n-ias8ZcxUlAchXaCVBLv0PRUSV-fEIpHr1De6xYG-lrDzys5ixq676fOvkbrOGSmW1h4dBV7UwNyO5uk11TLoYywbhG6Ffczsd4YmlRPWnSR3JWtdm2Xe3opNbAHLc"/>
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded text-[10px] font-bold text-secondary">40% OFF</div>
+</div>
+<div class="p-4 space-y-1">
+<h4 class="font-headline font-bold text-sm text-on-surface truncate">Artisan Nordic Vase</h4>
+<div class="flex justify-between items-center">
+<div class="flex flex-col">
+<span class="text-xs text-outline line-through">৳ 4,500</span>
+<span class="text-base font-extrabold text-primary">৳ 2,700</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-lg" data-icon="shopping_bag">shopping_bag</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Flash Card 2 -->
+<div class="flex-none w-64 bg-surface-container-lowest rounded-xl overflow-hidden">
+<div class="relative h-48">
+<img alt="Flash Sale Item" class="w-full h-full object-cover" data-alt="luxury designer leather bag detail with gold hardware on a dark velvet background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNaxgWe7lkvEoVygkP2UlBUkuP6B8AmvwkmDbCpGIT9JQqaFHT87J_RChc5ApK3zrD8A8xw_RZacffgPoNi0q4fnTC5TQEyHkKEL3PBDfdKxwOo3cGoFa82SDzxlBwlVhJn946Ah8A-nuis70pwYPYRd41SeJkrv4zt66g2SHOb07U4X7_1FkvR3sj6zHW-iw-nRxZAcqVWq4UnTDonsyuCcXrrXNnYXdOdu8r1D7isrvpIf1euHDpjZgx-bc0L1_RZzGjg2zzxJE"/>
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded text-[10px] font-bold text-secondary">25% OFF</div>
+</div>
+<div class="p-4 space-y-1">
+<h4 class="font-headline font-bold text-sm text-on-surface truncate">Tonal Leather Tote</h4>
+<div class="flex justify-between items-center">
+<div class="flex flex-col">
+<span class="text-xs text-outline line-through">৳ 12,000</span>
+<span class="text-base font-extrabold text-primary">৳ 9,000</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-lg" data-icon="shopping_bag">shopping_bag</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trending Bento Grid -->
+<section>
+<h3 class="font-headline font-extrabold text-lg text-on-surface tracking-tight mb-4">Trending Stories</h3>
+<div class="grid grid-cols-2 grid-rows-2 gap-3 h-[400px]">
+<div class="col-span-1 row-span-2 bg-surface-container-low rounded-xl relative overflow-hidden">
+<img alt="Trending" class="w-full h-full object-cover" data-alt="fashion editorial photography of a model in a vibrant silk dress moving through an urban architectural space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKxtrzXAZE19fv4uiVE9eCq37WGqTAJk-SBLoE5vKm647duWZcWIsW2Zf5zdqLOWqAtdzB8cENnxPm-QVAov1ewezSXx0rOIa_dGp6Ns-CTlFb0drmT0_twgGK6U8f1tHQ9YR-zJJFxTn_iDf9YrVAW3LNoMkGfG_u5vjNvt4xF-yGp82Xq-3s-WTLHVGTq2wOilfh4Debm6jnzK9K7oLDF9c70VJdFueKlBfnK9_QVc2W26YytuHFrXkx-oNGwjQz_qXjn-lcgkU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent p-4 flex flex-col justify-end">
+<span class="text-white/80 text-[10px] font-bold tracking-widest uppercase">Editorial</span>
+<h4 class="text-white font-headline font-bold text-sm">Summer Silks 2024</h4>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl relative overflow-hidden">
+<img alt="Trending" class="w-full h-full object-cover" data-alt="close-up of artisan handcrafted jewelry reflecting light on a warm wood surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5l-u03AqvQCyJeqfVhcy-5wg-0naekeyNvCYjKklBx9WVyZKSrYjLcs1c5RsOtndHt20_nR8VKTGDoSojQ4CQ12xP1HpK3KlA2ghZcfqZh2E6nbBRAbD3d2kLdPARk_qIbCLc6JI1HwdmRR-4apL-yyZuopUL0VkFI3efEW62nPjA74welHUl6ybV3jsJmqZ69Yt23Lx8Xs4m1jWulP9V-gsDu-rgrNRoqD-xcIcw0uskz_PbK2O271TzOf-TP1CTy9160OR-Yv8"/>
+<div class="absolute inset-0 bg-black/20 p-3">
+<h4 class="text-white font-headline font-bold text-xs">Aura Jewelry</h4>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl relative overflow-hidden">
+<img alt="Trending" class="w-full h-full object-cover" data-alt="organic skincare products in frosted glass bottles on a clean white marble shelf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBPFjLYHZolKMn2cVREEtwCiWuM9g28-Ho2bhtS07BTMROuZXhB_Tcobo866fSIHX7AfjU9AJGou60M1aLELK9eZ-GfpOwS5Udxh7ieHuT8rBLALJNahpnEFAcNgMKadUOnny7MdRyAESOqvSyrs1wC6MxVWIv6lOjeZFti9NzqWIAcEe1FCVllaiXiiLVzAF4jJI4QlgwWxRMBgCWU6qwHrl1-5T8cbNBUcWosJ351ka9IgRwQMfI0DehW0rtj7XeXawvjOJW_LE"/>
+<div class="absolute inset-0 bg-black/20 p-3">
+<h4 class="text-white font-headline font-bold text-xs">Botanical Care</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Recommendation List -->
+<section class="space-y-4">
+<h3 class="font-headline font-extrabold text-lg text-on-surface tracking-tight">For You</h3>
+<div class="space-y-4">
+<div class="flex gap-4 p-3 bg-surface-container-lowest rounded-xl">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-none">
+<img alt="Recommended" class="w-full h-full object-cover" data-alt="modern minimalist headphones in matte finish on a clean desk background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB34gMT4OiTTKPZJi_LGrekLZ2vfBqeJS8bDwUT1p0qh4q5pZ9tQTt5Bu9v-972l6wiw4bdIPjbNZeDGFZEGU2cT2EyJQHtC7vnlWHlJSa5l2IQd9Ijdr1sfeGCbOF4TCJU0UQ81IN8uGtZ5leLujeG9uacIw-c46RBa6eN31k6kGhjAjQ5mxv0JQrYxKGBMGUd06k_gKjZyL1ZyGa12DqkkIfL3KExV7OcSLYn4nXmgiV112Mzl5udWdBR-xbtkHgo9H9P3nBv-4"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-grow">
+<div>
+<h4 class="font-headline font-bold text-sm leading-tight">Pro Sound Headphones</h4>
+<p class="text-xs text-outline">Electronics • New Arrival</p>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-primary font-extrabold">৳ 8,900</span>
+<div class="flex items-center gap-1 text-[10px] font-bold text-on-surface-variant">
+<span class="material-symbols-outlined text-[12px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.9
+                            </div>
+</div>
+</div>
+</div>
+<div class="flex gap-4 p-3 bg-surface-container-lowest rounded-xl">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-none">
+<img alt="Recommended" class="w-full h-full object-cover" data-alt="luxury candle with elegant packaging on a dark tray" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtwakJyb7Rl1C79oATjBMoHqY5PIA2yAjGNbcV4oFejy1JssJpG_i5wRVVougOrSzIoUdDXCzMP3stvMNE08qsecx1X2Z7JRabudwmyqNpmZOZ_nTm6DR1jY0qIFMUKwqUUsv34KmfRMTLy_Dcl7bpfcNhJbE9dxZ0A_Nde3bB1muRl-G2koiZcvd9c7CdOgihDguWz_PfOyRFbNIXS90ZTVY4yOfpkrQQqcSgCRjjPQS_34AsrQgeIv2eTC5ddc6LxgBzOPm3IJs"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-grow">
+<div>
+<h4 class="font-headline font-bold text-sm leading-tight">Scented Soy Candle</h4>
+<p class="text-xs text-outline">Home Deco • Trending</p>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-primary font-extrabold">৳ 1,200</span>
+<div class="flex items-center gap-1 text-[10px] font-bold text-on-surface-variant">
+<span class="material-symbols-outlined text-[12px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.7
+                            </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#f8f9fa]/70 dark:bg-slate-950/70 backdrop-blur-xl rounded-t-3xl shadow-[0_-8px_40px_rgba(25,28,29,0.04)]">
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 p-2 hover:opacity-80 transition-opacity active:scale-90 duration-200 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#1A73E8] text-white rounded-full p-3 shadow-lg shadow-blue-500/30 transition-opacity active:scale-90 duration-200 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 p-2 hover:opacity-80 transition-opacity active:scale-90 duration-200 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Create</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 p-2 hover:opacity-80 transition-opacity active:scale-90 duration-200 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 p-2 hover:opacity-80 transition-opacity active:scale-90 duration-200 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

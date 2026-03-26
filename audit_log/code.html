@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Audit Log | AdminSuite</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-container": "#ffffff",
+              "tertiary-fixed-dim": "#adc6ff",
+              "primary-fixed": "#d8e2ff",
+              "primary-fixed-dim": "#adc7ff",
+              "on-secondary-container": "#680f00",
+              "on-tertiary": "#ffffff",
+              "background": "#f8f9fa",
+              "surface": "#f8f9fa",
+              "tertiary-fixed": "#d8e2ff",
+              "surface-dim": "#d9dadb",
+              "surface-container": "#edeeef",
+              "on-background": "#191c1d",
+              "inverse-primary": "#adc7ff",
+              "secondary": "#ad3219",
+              "surface-container-low": "#f3f4f5",
+              "on-error": "#ffffff",
+              "tertiary": "#005abf",
+              "primary": "#005bbf",
+              "on-primary-fixed": "#001a41",
+              "error": "#ba1a1a",
+              "outline-variant": "#c1c6d6",
+              "error-container": "#ffdad6",
+              "on-tertiary-fixed-variant": "#004493",
+              "secondary-fixed-dim": "#ffb4a4",
+              "secondary-fixed": "#ffdad3",
+              "surface-container-lowest": "#ffffff",
+              "outline": "#727785",
+              "surface-bright": "#f8f9fa",
+              "on-primary": "#ffffff",
+              "surface-container-high": "#e7e8e9",
+              "on-tertiary-container": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "on-surface": "#191c1d",
+              "primary-container": "#1a73e8",
+              "tertiary-container": "#0872ed",
+              "secondary-container": "#ff6d4e",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed": "#001a41",
+              "surface-variant": "#e1e3e4",
+              "surface-container-highest": "#e1e3e4",
+              "inverse-on-surface": "#f0f1f2",
+              "on-primary-fixed-variant": "#004493",
+              "on-surface-variant": "#414754",
+              "on-secondary-fixed": "#3e0500",
+              "inverse-surface": "#2e3132",
+              "surface-tint": "#005bc0"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-4 gap-2 h-screen w-64 border-r bg-slate-50 dark:bg-slate-950 z-40">
+<div class="mb-8 px-4">
+<h1 class="text-lg font-black tracking-tight text-blue-700">AdminSuite</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mt-1">System Control</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-medium">User Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">percent</span>
+<span class="text-sm font-medium">Commissions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-sm font-medium">Financial Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="text-sm font-medium">Logistics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-sm font-medium">Payments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">flag</span>
+<span class="text-sm font-medium">Feature Flags</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 rounded-lg shadow-sm font-bold transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">security</span>
+<span class="text-sm">Audit Log</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-1">
+<button class="w-full mb-4 bg-blue-600 text-white py-2.5 rounded-lg text-sm font-semibold shadow-md hover:bg-blue-700 transition-colors">Export Global Data</button>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 text-sm hover:text-slate-900 transition-colors" href="#">
+<span class="material-symbols-outlined text-base">menu_book</span>
+<span>Documentation</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 text-sm hover:text-slate-900 transition-colors" href="#">
+<span class="material-symbols-outlined text-base">support_agent</span>
+<span>Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-64 min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-30 flex justify-between items-center px-6 h-16 w-full bg-white dark:bg-slate-900 shadow-sm border-b border-slate-100">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-blue-500 transition-all" placeholder="Search system logs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 dark:bg-slate-700 mx-2"></div>
+<div class="flex items-center gap-3 pl-2">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold text-slate-900 dark:text-slate-100 leading-none">Super Admin</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-tighter mt-1 font-semibold">Active Session</p>
+</div>
+<img alt="Super Admin Profile" class="w-10 h-10 rounded-full bg-blue-100 border-2 border-white shadow-sm" data-alt="professional headshot of a senior system administrator in a clean modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-bMjDUKTmIZ87VxwiABWtZ97TUPMi3_LqDlrC8HwWholwwFYdufvuylLdcYYpIgJ8dLbbay0Qt6e2SZcKIkpu5zUPuandBQmtC-kG5bSNNWgaa9N-8jJU86vZfqOigUsv27xRcm3gz1n0rAV_J3GWFMwAl1nNaCoddmmetU7M1mi1B0Y2UMQT7StXzrVOEfGNp7Set6NETySzUbk8e8-qsZndqOA1-9VbF1h4c95cnBpyGcgRO7hSOcGAe9OusdCPfXJ8qp-h9mU"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-8 flex flex-col gap-8 bg-surface-container-low flex-1">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="text-3xl font-extrabold tracking-tight text-on-surface">Audit Log</h2>
+<p class="text-on-surface-variant mt-1">Real-time surveillance of administrative and system-level operations.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-highest text-on-surface rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined text-lg">filter_list</span>
+<span>Advanced Filters</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-bold shadow-lg shadow-primary/20 hover:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-lg">download</span>
+<span>Export CSV</span>
+</button>
+</div>
+</div>
+<!-- Dashboard Stats (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<span class="p-2 bg-blue-50 text-blue-600 rounded-lg">
+<span class="material-symbols-outlined">security</span>
+</span>
+<span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-full">+12%</span>
+</div>
+<p class="text-3xl font-extrabold mt-2">2,842</p>
+<p class="text-xs font-semibold text-slate-500 uppercase">Total Actions (24h)</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col gap-2 border-l-4 border-error">
+<div class="flex justify-between items-start">
+<span class="p-2 bg-red-50 text-red-600 rounded-lg">
+<span class="material-symbols-outlined">report</span>
+</span>
+<span class="text-xs font-bold text-red-600 bg-red-50 px-2 py-1 rounded-full">High Alert</span>
+</div>
+<p class="text-3xl font-extrabold mt-2">14</p>
+<p class="text-xs font-semibold text-slate-500 uppercase">Security Flags</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<span class="p-2 bg-amber-50 text-amber-600 rounded-lg">
+<span class="material-symbols-outlined">person_pin</span>
+</span>
+</div>
+<p class="text-3xl font-extrabold mt-2">86</p>
+<p class="text-xs font-semibold text-slate-500 uppercase">Active Admins</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<span class="p-2 bg-slate-100 text-slate-600 rounded-lg">
+<span class="material-symbols-outlined">devices</span>
+</span>
+</div>
+<p class="text-3xl font-extrabold mt-2">102</p>
+<p class="text-xs font-semibold text-slate-500 uppercase">Unique IP Origins</p>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="bg-surface-container-lowest rounded-xl p-4 flex flex-wrap items-center gap-4">
+<div class="flex-1 min-w-[200px]">
+<label class="text-[10px] font-bold text-slate-400 uppercase ml-1">Admin User</label>
+<select class="w-full mt-1 bg-surface-container border-none rounded-lg text-sm py-2 px-3 focus:ring-2 focus:ring-blue-500">
+<option>All Administrators</option>
+<option>Super Admin (ID: 001)</option>
+<option>John Doe (ID: 042)</option>
+<option>Sarah Smith (ID: 109)</option>
+</select>
+</div>
+<div class="flex-1 min-w-[200px]">
+<label class="text-[10px] font-bold text-slate-400 uppercase ml-1">Action Type</label>
+<select class="w-full mt-1 bg-surface-container border-none rounded-lg text-sm py-2 px-3 focus:ring-2 focus:ring-blue-500">
+<option>All Actions</option>
+<option>Delete Entry</option>
+<option>Edit Permissions</option>
+<option>Login / Logout</option>
+<option>Financial Override</option>
+</select>
+</div>
+<div class="flex-1 min-w-[200px]">
+<label class="text-[10px] font-bold text-slate-400 uppercase ml-1">Date Range</label>
+<div class="relative mt-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">calendar_today</span>
+<input class="w-full bg-surface-container border-none rounded-lg text-sm py-2 pl-10 px-3 focus:ring-2 focus:ring-blue-500" type="text" value="Last 7 Days"/>
+</div>
+</div>
+<button class="self-end mb-1 p-2 bg-surface-container text-slate-500 rounded-lg hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined">refresh</span>
+</button>
+</div>
+<!-- Log Table Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full border-collapse">
+<thead>
+<tr class="bg-surface-container-high text-left">
+<th class="px-6 py-4 text-[11px] font-black uppercase text-slate-500 tracking-wider">Timestamp</th>
+<th class="px-6 py-4 text-[11px] font-black uppercase text-slate-500 tracking-wider">Admin User</th>
+<th class="px-6 py-4 text-[11px] font-black uppercase text-slate-500 tracking-wider">Action</th>
+<th class="px-6 py-4 text-[11px] font-black uppercase text-slate-500 tracking-wider">Target Entity</th>
+<th class="px-6 py-4 text-[11px] font-black uppercase text-slate-500 tracking-wider">IP Address</th>
+<th class="px-6 py-4 text-[11px] font-black uppercase text-slate-500 tracking-wider">Status</th>
+<th class="px-6 py-4"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs font-bold text-slate-900">Oct 24, 2023</p>
+<p class="text-[10px] text-slate-400">14:22:15 GMT+6</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 bg-blue-100 rounded-full flex items-center justify-center text-[10px] font-bold text-blue-700">SA</div>
+<div>
+<p class="text-sm font-semibold text-slate-900 leading-none">Super Admin</p>
+<p class="text-[10px] text-slate-500">master_admin_01</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 py-1 bg-red-50 text-red-600 text-[10px] font-black uppercase rounded">DELETE_ENTRY</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs font-mono bg-slate-100 px-2 py-1 rounded inline-block text-slate-600">user_inv_#92311</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs text-slate-600 font-mono">192.168.1.104</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
+<span class="text-[11px] font-bold text-slate-700">SUCCESS</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="opacity-0 group-hover:opacity-100 text-blue-600 hover:underline text-xs font-bold transition-opacity">Details</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs font-bold text-slate-900">Oct 24, 2023</p>
+<p class="text-[10px] text-slate-400">14:20:01 GMT+6</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<img class="w-7 h-7 rounded-full" data-alt="avatar of female administrator with glasses and a friendly smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7BHmjkhAOtThvsbqNvZp2R8SStr5c4dYDy6wXLYbpBudlRqvSSUyNU-rnbPiD3q-VfWxL3ADG83vBZOmyDwFNQ7-XEvmSdhmi5gk61Kyi-jv40wzxCGbTvZ36Sz5ohPAkIXRxoPdMtKJqoMYpikvQkRjWjhOSu32J7Pl1sW1Sg5J3kZXcxQF85LZzDCc2dUDPx5iqpalmbKu-AGlpILjeEMgQKo0NdIah5zJY5U9X18D3qNDXzF2n0e0Ndo77EVXbfYNuKrnvcU0"/>
+<div>
+<p class="text-sm font-semibold text-slate-900 leading-none">Jane Smith</p>
+<p class="text-[10px] text-slate-500">fin_mgr_west</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 py-1 bg-blue-50 text-blue-600 text-[10px] font-black uppercase rounded">EDIT_PERM</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs font-mono bg-slate-100 px-2 py-1 rounded inline-block text-slate-600">role_group_finance</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs text-slate-600 font-mono">45.22.109.12</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
+<span class="text-[11px] font-bold text-slate-700">SUCCESS</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="opacity-0 group-hover:opacity-100 text-blue-600 hover:underline text-xs font-bold transition-opacity">Details</button>
+</td>
+</tr>
+<!-- Row 3 (Error State) -->
+<tr class="hover:bg-slate-50 transition-colors group bg-red-50/30">
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs font-bold text-slate-900">Oct 24, 2023</p>
+<p class="text-[10px] text-slate-400">14:18:55 GMT+6</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 bg-slate-200 rounded-full flex items-center justify-center text-[10px] font-bold text-slate-500">?</div>
+<div>
+<p class="text-sm font-semibold text-slate-900 leading-none">Unknown User</p>
+<p class="text-[10px] text-slate-500">failed_auth_attempt</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 py-1 bg-amber-50 text-amber-600 text-[10px] font-black uppercase rounded">LOGIN_FAIL</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs font-mono bg-slate-100 px-2 py-1 rounded inline-block text-slate-600">sys_auth_node_02</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs text-red-600 font-bold font-mono">103.44.21.1</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<div class="w-1.5 h-1.5 rounded-full bg-error"></div>
+<span class="text-[11px] font-bold text-error">BLOCKED</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="opacity-0 group-hover:opacity-100 text-blue-600 hover:underline text-xs font-bold transition-opacity">Investigate</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs font-bold text-slate-900">Oct 24, 2023</p>
+<p class="text-[10px] text-slate-400">14:15:22 GMT+6</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<img class="w-7 h-7 rounded-full" data-alt="professional portrait of a young male developer in a tech office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABNHjFegrfocJ2oXZ4g9GKWdhEC3m1WR7VQH31MxpjIjcKb8dIAXUb528EhSJ0ndoc2B-7WkBtIrweu8MUMQlL7WxPv5ZCWgMh1tzSR7AjCApTEiLCYvd7Y3_UliGVSM4n0Ng3gkfIRhiARU5jp9mwA_ROVlkNOqZXTXu2X8mtfZanaFO7KFMNQyXUz0LDSfpM1p8W33FFelDEQepn5k9FwzXDomc3LbOCKowa3beVGVjkK5Mmgy2lhcWKIqUh-dEg4hxFpKmNvl4"/>
+<div>
+<p class="text-sm font-semibold text-slate-900 leading-none">Ahmed Musa</p>
+<p class="text-[10px] text-slate-500">dev_lead_ops</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 py-1 bg-green-50 text-green-600 text-[10px] font-black uppercase rounded">FEAT_FLAG</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs font-mono bg-slate-100 px-2 py-1 rounded inline-block text-slate-600">v3_checkout_flow</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs text-slate-600 font-mono">182.16.0.54</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
+<span class="text-[11px] font-bold text-slate-700">SUCCESS</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="opacity-0 group-hover:opacity-100 text-blue-600 hover:underline text-xs font-bold transition-opacity">Details</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs font-bold text-slate-900">Oct 24, 2023</p>
+<p class="text-[10px] text-slate-400">14:10:05 GMT+6</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 bg-purple-100 rounded-full flex items-center justify-center text-[10px] font-bold text-purple-700">KD</div>
+<div>
+<p class="text-sm font-semibold text-slate-900 leading-none">Karim Dawud</p>
+<p class="text-[10px] text-slate-500">auditor_ext_04</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 py-1 bg-slate-50 text-slate-600 text-[10px] font-black uppercase rounded">EXPORT_DATA</span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs font-mono bg-slate-100 px-2 py-1 rounded inline-block text-slate-600">fin_q3_report.pdf</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<p class="text-xs text-slate-600 font-mono">202.5.114.9</p>
+</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<div class="w-1.5 h-1.5 rounded-full bg-green-500"></div>
+<span class="text-[11px] font-bold text-slate-700">SUCCESS</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="opacity-0 group-hover:opacity-100 text-blue-600 hover:underline text-xs font-bold transition-opacity">Details</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-surface-container-low border-t border-slate-100 flex items-center justify-between">
+<p class="text-xs font-medium text-slate-500">Showing 1 to 25 of 4,812 entries</p>
+<div class="flex gap-1">
+<button class="p-1.5 rounded hover:bg-white text-slate-400 disabled:opacity-50">
+<span class="material-symbols-outlined text-lg">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary text-white text-xs font-bold">1</button>
+<button class="w-8 h-8 rounded hover:bg-white text-slate-600 text-xs font-bold">2</button>
+<button class="w-8 h-8 rounded hover:bg-white text-slate-600 text-xs font-bold">3</button>
+<button class="w-8 h-8 rounded hover:bg-white text-slate-600 text-xs font-bold">4</button>
+<button class="p-1.5 rounded hover:bg-white text-slate-600">
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Detailed Event Snapshot (Asymmetric Section) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+<div class="lg:col-span-2 bg-surface-container-lowest p-6 rounded-xl shadow-sm border-l-4 border-blue-600">
+<div class="flex justify-between items-start mb-6">
+<h3 class="text-lg font-bold">Live Stream Activity</h3>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+<span class="text-[10px] font-black uppercase text-slate-400">Monitoring Active</span>
+</div>
+</div>
+<div class="space-y-4 font-mono text-[11px] text-slate-600 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
+<div class="p-3 bg-slate-50 rounded border-l-2 border-slate-200">
+<span class="text-blue-600 font-bold">[14:22:15]</span> <span class="font-bold">SYSTEM:</span> Action <span class="text-red-600">DELETE</span> initiated on object <span class="underline">inv_#92311</span> by <span class="font-bold">master_admin_01</span>. Verification token validated.
+                        </div>
+<div class="p-3 bg-slate-50 rounded border-l-2 border-slate-200">
+<span class="text-blue-600 font-bold">[14:22:08]</span> <span class="font-bold">AUTH:</span> User <span class="font-bold">master_admin_01</span> provided secondary OTP for critical action deletion.
+                        </div>
+<div class="p-3 bg-slate-50 rounded border-l-2 border-slate-200">
+<span class="text-blue-600 font-bold">[14:21:44]</span> <span class="font-bold">SYSTEM:</span> Cache invalidated for <span class="italic">user_session_cluster_B</span>. Performance impact minimal.
+                        </div>
+<div class="p-3 bg-slate-50 rounded border-l-2 border-slate-200">
+<span class="text-blue-600 font-bold">[14:20:01]</span> <span class="font-bold">ADMIN:</span> Jane Smith modified <span class="text-blue-600">role_group_finance</span> permissions (ADD: export_full).
+                        </div>
+<div class="p-3 bg-red-50 rounded border-l-2 border-error">
+<span class="text-error font-bold">[14:18:55]</span> <span class="font-bold">SECURITY:</span> Brute force threshold reached for IP <span class="font-bold underline">103.44.21.1</span>. Automated firewall block enabled for 3600s.
+                        </div>
+</div>
+</div>
+<div class="lg:col-span-1 flex flex-col gap-6">
+<div class="bg-primary text-white p-6 rounded-xl shadow-lg relative overflow-hidden">
+<div class="relative z-10">
+<p class="text-[10px] font-black uppercase tracking-widest opacity-80">System Health</p>
+<h4 class="text-2xl font-black mt-2">Optimal</h4>
+<p class="text-xs mt-4 opacity-90 leading-relaxed">Security protocols are running at 100% capacity. No unauthorized penetration detected in the last 72 hours.</p>
+<button class="mt-6 w-full py-2 bg-white text-primary rounded-lg text-xs font-bold hover:bg-blue-50 transition-colors">Run Security Audit</button>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-8xl opacity-10">shield</span>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm">
+<h4 class="text-xs font-black uppercase text-slate-400 mb-4 tracking-wider">Top Access Locations</h4>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-sm">🇧🇩</span>
+<span class="text-xs font-bold text-slate-700">Dhaka, Bangladesh</span>
+</div>
+<span class="text-xs font-mono text-slate-400">82%</span>
+</div>
+<div class="w-full h-1 bg-slate-100 rounded-full overflow-hidden">
+<div class="w-[82%] h-full bg-blue-500"></div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-sm">🇺🇸</span>
+<span class="text-xs font-bold text-slate-700">New York, USA</span>
+</div>
+<span class="text-xs font-mono text-slate-400">12%</span>
+</div>
+<div class="w-full h-1 bg-slate-100 rounded-full overflow-hidden">
+<div class="w-[12%] h-full bg-blue-300"></div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-sm">🇬🇧</span>
+<span class="text-xs font-bold text-slate-700">London, UK</span>
+</div>
+<span class="text-xs font-mono text-slate-400">6%</span>
+</div>
+<div class="w-full h-1 bg-slate-100 rounded-full overflow-hidden">
+<div class="w-[6%] h-full bg-slate-300"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="p-6 bg-white dark:bg-slate-900 border-t border-slate-100 text-center">
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">© 2023 AdminSuite Security Infrastructure. Proprietary &amp; Confidential.</p>
+</footer>
+</main>
+</body></html>

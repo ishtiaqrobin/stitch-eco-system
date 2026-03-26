@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UniMart Seller Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-bright": "#f8f9fa",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "primary-container": "#1a73e8",
+                        "on-tertiary-container": "#ffffff",
+                        "on-primary-container": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "on-secondary-fixed": "#3e0500",
+                        "tertiary-container": "#0872ed",
+                        "secondary-fixed": "#ffdad3",
+                        "on-secondary": "#ffffff",
+                        "background": "#f8f9fa",
+                        "on-tertiary-fixed": "#001a41",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#adc7ff",
+                        "on-surface-variant": "#414754",
+                        "on-secondary-container": "#680f00",
+                        "tertiary": "#005abf",
+                        "on-primary-fixed-variant": "#004493",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "inverse-primary": "#adc7ff",
+                        "inverse-surface": "#2e3132",
+                        "surface": "#f8f9fa",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-tint": "#005bc0",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-container-low": "#f3f4f5",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#ff6d4e",
+                        "outline": "#727785",
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface-dim": "#d9dadb",
+                        "surface-variant": "#e1e3e4",
+                        "primary-fixed": "#d8e2ff",
+                        "on-secondary-fixed-variant": "#8b1a02",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#001a41",
+                        "primary": "#005bbf",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-background": "#191c1d",
+                        "outline-variant": "#c1c6d6",
+                        "secondary": "#ad3219",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopAppBar from JSON -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 h-16 bg-[#f8f9fa] dark:bg-slate-950 z-50">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="professional male seller headshot with warm friendly expression in a modern office setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfyJp5LLN3vrRzG38V8vFRi7WfZY_r5Fy9a6pWG21GvipQQ7jV8b10Qik-fBrOFUL6O1oV96GAZtW7Zsx5JxH-2PxPFRs41oyPGCivJlzVPLfblwK4cPnBrMP1Jq0a2t6qygK1UvcXLhs-LxliFNLd2V4cQyr9TLiDur6jGxVtjXY9po6MApAhMoY58npIsiXNDt0sBrfoJyxnrP1yFjdyZcoFktKZm35lDP_2hgDuEjZq7kOCYIpRm9PQBGwI2_ZRe0OEZPHfJIg"/>
+</div>
+<h1 class="font-['Manrope'] font-bold text-lg tracking-tight text-[#1A73E8] dark:text-blue-400">UniMart</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-[#191c1d] dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/5 transition-colors p-2 rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-20 pb-28 px-4 max-w-md mx-auto space-y-8">
+<!-- Dashboard Welcome Section -->
+<section>
+<h2 class="font-headline text-2xl font-extrabold tracking-tight mb-1">Store Overview</h2>
+<p class="text-sm text-on-surface-variant">Last updated: Today, 10:42 AM</p>
+</section>
+<!-- Quick Action Bento Grid -->
+<section class="grid grid-cols-2 gap-3">
+<button class="bg-primary-container text-white p-4 rounded-xl flex flex-col items-start gap-3 active:scale-95 duration-150 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined p-2 bg-white/20 rounded-lg">add_box</span>
+<span class="font-semibold text-sm">Add Product</span>
+</button>
+<button class="bg-surface-container-lowest p-4 rounded-xl flex flex-col items-start gap-3 active:scale-95 duration-150">
+<span class="material-symbols-outlined p-2 bg-surface-container text-primary rounded-lg">inventory_2</span>
+<span class="font-semibold text-sm text-on-surface">Inventory</span>
+</button>
+<button class="bg-surface-container-lowest p-4 rounded-xl flex flex-col items-start gap-3 active:scale-95 duration-150">
+<span class="material-symbols-outlined p-2 bg-surface-container text-secondary rounded-lg">local_shipping</span>
+<span class="font-semibold text-sm text-on-surface">Shipments</span>
+</button>
+<button class="bg-surface-container-lowest p-4 rounded-xl flex flex-col items-start gap-3 active:scale-95 duration-150">
+<span class="material-symbols-outlined p-2 bg-surface-container text-tertiary rounded-lg">campaign</span>
+<span class="font-semibold text-sm text-on-surface">Promotion</span>
+</button>
+</section>
+<!-- Stacked Metric Cards -->
+<section class="space-y-4">
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-xs font-medium uppercase tracking-wider text-on-surface-variant mb-1">Total Sales</p>
+<h3 class="text-2xl font-extrabold font-headline">৳ 1,42,500</h3>
+</div>
+<div class="flex items-center text-green-600 bg-green-50 px-2 py-1 rounded-full text-xs font-bold">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                        12%
+                    </div>
+</div>
+<!-- Mini Chart Placeholder -->
+<div class="h-16 w-full flex items-end gap-1">
+<div class="bg-primary-container/20 w-full h-1/2 rounded-t-sm"></div>
+<div class="bg-primary-container/20 w-full h-2/3 rounded-t-sm"></div>
+<div class="bg-primary-container/20 w-full h-1/3 rounded-t-sm"></div>
+<div class="bg-primary-container/20 w-full h-3/4 rounded-t-sm"></div>
+<div class="bg-primary-container w-full h-full rounded-t-sm"></div>
+<div class="bg-primary-container/20 w-full h-1/2 rounded-t-sm"></div>
+<div class="bg-primary-container/20 w-full h-4/5 rounded-t-sm"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-xs font-medium uppercase tracking-wider text-on-surface-variant mb-1">Pending Orders</p>
+<h3 class="text-2xl font-extrabold font-headline">24</h3>
+</div>
+<span class="material-symbols-outlined text-secondary bg-secondary-fixed p-2 rounded-full">shopping_cart</span>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<p class="text-xs text-on-surface-variant">6 orders require immediate action</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-xs font-medium uppercase tracking-wider text-on-surface-variant mb-1">Store Analytics</p>
+<h3 class="text-2xl font-extrabold font-headline">1.2k Views</h3>
+</div>
+<button class="text-primary text-xs font-bold uppercase tracking-tight">View More</button>
+</div>
+<div class="relative pt-1">
+<div class="flex mb-2 items-center justify-between">
+<div>
+<span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-primary bg-primary-fixed">
+                                Conversion Rate
+                            </span>
+</div>
+<div class="text-right">
+<span class="text-xs font-semibold inline-block text-primary">
+                                4.2%
+                            </span>
+</div>
+</div>
+<div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-surface-container">
+<div class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary" style="width:42%"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Activity Social Tones -->
+<section>
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline text-lg font-bold">Recent Orders</h3>
+<span class="text-primary text-xs font-bold uppercase cursor-pointer">View All</span>
+</div>
+<div class="space-y-3">
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="minimalist white wristwatch on a clean aesthetic background with soft shadows and professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbZmCbnd5HlA3LMnYincDMETrDNrYaz8oh5s9q3ndQUvyDaANtC_HcLnmwKjHbqwgBiW76BHeGW9ec9d-_O2JZxmENv03WyW4Nxl8vFzJMuPR-FxAbY_Jm_2Fa5ct0wo-pijqFM86f54UCK62WoW40OA9dfFW8rFF3K8c-SVRAPvRlcpI3C-USDOUEFzsMAqYhqKVXcJnUXKSqoDLWIRBM1ZWhNx7nL6-WR8VsEiw2cehSNC2atNCFb6eQJj7RCEvXGOGx90kYfP0"/>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-sm">Minimalist Watch</p>
+<p class="text-xs text-on-surface-variant">Order #9821 • 2 mins ago</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-sm text-primary">৳ 4,500</p>
+<p class="text-[10px] text-green-600 font-bold uppercase">Paid</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="studio lighting setup of luxury wireless headphones with metallic finish and leather padding" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHmVrB2F-riYi2tgy7csjmwlUpxNqIYcT1nzr2gbXUy-zesxX8EdHiFCoFisdR3FZ6W0V8a1SGDGQfP3aB9b-vNEzifEbvMhmSgOWvRXGxHetyJ9OTfXAusS1l72bt5RFvjrQQa7lrfGf3bTuIgShKw83tAuLaDurHKwPssVwYzyesrv42in09uznQ0Wn81ti4k4JONbX6wjaEGaVF53WZLnEBDSU9QZA2yVvw6GUVK9J1_mvoI8b-eUxFLTYQMGV7IzW477YfkJU"/>
+</div>
+<div class="flex-1">
+<p class="font-semibold text-sm">Premium Headphones</p>
+<p class="text-xs text-on-surface-variant">Order #9820 • 15 mins ago</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-sm text-primary">৳ 12,200</p>
+<p class="text-[10px] text-secondary font-bold uppercase">Pending</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar from JSON -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#f8f9fa]/70 dark:bg-slate-950/70 backdrop-blur-xl rounded-t-3xl shadow-[0_-8px_40px_rgba(25,28,29,0.04)]">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center bg-[#1A73E8] text-white rounded-full p-3 shadow-lg shadow-blue-500/30 active:scale-90 duration-200 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Home</span>
+</a>
+<!-- Market -->
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 p-2 hover:opacity-80 transition-opacity active:scale-90 duration-200 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Market</span>
+</a>
+<!-- Create -->
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 p-2 hover:opacity-80 transition-opacity active:scale-90 duration-200 ease-out" href="#">
+<span class="material-symbols-outlined text-3xl" data-icon="add_circle">add_circle</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Create</span>
+</a>
+<!-- Wallet -->
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 p-2 hover:opacity-80 transition-opacity active:scale-90 duration-200 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Wallet</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 p-2 hover:opacity-80 transition-opacity active:scale-90 duration-200 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-wide uppercase mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

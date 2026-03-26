@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AdminSuite | Platform Settings</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-container": "#ffffff",
+              "tertiary-fixed-dim": "#adc6ff",
+              "primary-fixed": "#d8e2ff",
+              "primary-fixed-dim": "#adc7ff",
+              "on-secondary-container": "#680f00",
+              "on-tertiary": "#ffffff",
+              "background": "#f8f9fa",
+              "surface": "#f8f9fa",
+              "tertiary-fixed": "#d8e2ff",
+              "surface-dim": "#d9dadb",
+              "surface-container": "#edeeef",
+              "on-background": "#191c1d",
+              "inverse-primary": "#adc7ff",
+              "secondary": "#ad3219",
+              "surface-container-low": "#f3f4f5",
+              "on-error": "#ffffff",
+              "tertiary": "#005abf",
+              "primary": "#005bbf",
+              "on-primary-fixed": "#001a41",
+              "error": "#ba1a1a",
+              "outline-variant": "#c1c6d6",
+              "error-container": "#ffdad6",
+              "on-tertiary-fixed-variant": "#004493",
+              "secondary-fixed-dim": "#ffb4a4",
+              "secondary-fixed": "#ffdad3",
+              "surface-container-lowest": "#ffffff",
+              "outline": "#727785",
+              "surface-bright": "#f8f9fa",
+              "on-primary": "#ffffff",
+              "surface-container-high": "#e7e8e9",
+              "on-tertiary-container": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "on-surface": "#191c1d",
+              "primary-container": "#1a73e8",
+              "tertiary-container": "#0872ed",
+              "secondary-container": "#ff6d4e",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed": "#001a41",
+              "surface-variant": "#e1e3e4",
+              "surface-container-highest": "#e1e3e4",
+              "inverse-on-surface": "#f0f1f2",
+              "on-primary-fixed-variant": "#004493",
+              "on-surface-variant": "#414754",
+              "on-secondary-fixed": "#3e0500",
+              "inverse-surface": "#2e3132",
+              "surface-tint": "#005bc0"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-panel {
+        backdrop-filter: blur(20px);
+        background: rgba(248, 249, 250, 0.7);
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        color: #191c1d;
+      }
+      h1, h2, h3 {
+        font-family: 'Manrope', sans-serif;
+      }
+    </style>
+</head>
+<body class="bg-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-4 gap-2 bg-slate-50 border-r w-64 z-50 overflow-y-auto">
+<div class="mb-8 px-4">
+<h2 class="text-lg font-black tracking-tight text-blue-700">System Control</h2>
+<p class="text-xs font-medium text-slate-500 uppercase tracking-widest">Super Admin Access</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-sm font-medium">User Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="percent">percent</span>
+<span class="text-sm font-medium">Commissions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-sm font-medium">Financial Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="text-sm font-medium">Logistics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-sm font-medium">Payments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="flag">flag</span>
+<span class="text-sm font-medium">Feature Flags</span>
+</a>
+<!-- Active State: Feature Flags is closest conceptually, but we'll treat this as a generic Settings page matching Audit Log or global control -->
+<a class="flex items-center gap-3 px-4 py-3 bg-white text-blue-600 rounded-lg shadow-sm font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm font-medium">Platform Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-slate-200 flex flex-col gap-1">
+<button class="w-full mb-4 px-4 py-2 bg-gradient-to-br from-primary to-primary-container text-white rounded-full text-sm font-bold shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="upload">upload</span>
+                Export Global Data
+            </button>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="text-sm font-medium">Documentation</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span class="text-sm font-medium">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- Top Bar -->
+<header class="sticky top-0 z-40 flex justify-between items-center px-8 h-16 w-full bg-white border-b shadow-sm">
+<div class="flex items-center gap-6 flex-1">
+<h1 class="text-xl font-bold text-slate-900">AdminSuite</h1>
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-100 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20" placeholder="Search system configs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-sm font-bold leading-none">Super Admin</p>
+<p class="text-[10px] text-slate-500 font-medium">platform_owner_v2</p>
+</div>
+<img alt="Super Admin Profile" class="h-10 w-10 rounded-full object-cover ring-2 ring-white shadow-sm" data-alt="Close-up professional portrait of a tech executive with glasses and a friendly expression, studio lighting, clean gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtfp6kc0s6-lSvq1pJ47Rk-Hw-W2D2aFsDudR--tyrUNM6vRu35erMotBeysCn3PqiXXJsLHwvIV8v6iFH_xMOaEsLfG_Uog8mOs4DG1_q6Sll27szvClUGvyQQ2GwQZ_awanXFWUupgS1Um4Wowlj3CnREf3Iyg7T52TPAtIFAjFS5lUWOWd5Jc7QoH-jsdh_bWhc05NgDpLbReY_rLVyAfKydTmYl82_IiuUk7qewZyvNHpr_YdDLe-smimzMccIk5TB0hsyfiE"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-12 space-y-16 max-w-7xl mx-auto">
+<!-- Hero Header Section -->
+<section class="relative overflow-hidden rounded-xl p-12 flex flex-col justify-end min-h-[320px] bg-primary-container text-white">
+<img alt="Abstract infrastructure" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-40" data-alt="Global digital network visualization with glowing nodes and data streams in deep blue and teal tones, cinematic atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqrRM-rFdDxuEBacHkrey2p1rwKUHgalW1bkPu0QXhX_8P26nsCeSY5NBpeOgUVNzy4HOItUXB8EP93yO8gIbyCddlXaME3Yn4llCZ6LBlNh1hpgMfSohPcuKYP1D-jMDBpze89_gawYQohSkZ5atPIAebuGiBig3ujwMXhTqDOnU6BbtPmkj311GgPGk2hVHVaTZ49GElO4Kq2jCUzSfOyCnhG4AxAL_uXUpdirn4sIIlmh2hMx73nwvDfIEVz9dY_LZQ17E0u7I"/>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-4">
+<span class="px-3 py-1 rounded-full bg-white/20 text-xs font-bold uppercase tracking-widest backdrop-blur-md">Core Engine v4.2.0</span>
+<span class="flex items-center gap-1 px-3 py-1 rounded-full bg-green-400/20 text-green-200 text-xs font-bold backdrop-blur-md">
+<span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span> Systems Nominal
+                        </span>
+</div>
+<h2 class="text-5xl font-extrabold mb-4 tracking-tight">Platform Infrastructure</h2>
+<p class="text-xl text-primary-fixed max-w-2xl font-medium leading-relaxed">Modify global behavioral constants, search heuristics, and accessibility thresholds for the entire domain.</p>
+</div>
+</section>
+<!-- Bento Configuration Grid -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Maintenance Mode - High Impact Card -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-low p-8 rounded-xl flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-8">
+<div class="p-3 bg-secondary-container/10 rounded-xl">
+<span class="material-symbols-outlined text-secondary-container text-3xl" data-icon="construction">construction</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-14 h-7 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<h3 class="text-2xl font-bold mb-2">Maintenance Mode</h3>
+<p class="text-slate-500 text-sm leading-relaxed mb-6">Instantly disconnect all public-facing storefronts and display a scheduled maintenance screen. Admin login remains active.</p>
+</div>
+<div class="p-4 bg-white/50 rounded-lg border-l-4 border-secondary">
+<p class="text-[10px] font-bold text-secondary uppercase tracking-tighter mb-1">Impact Warning</p>
+<p class="text-xs text-slate-600 italic">This will affect ~42,000 active sessions across all clusters.</p>
+</div>
+</div>
+<!-- Global Search Weights - Interactive Slider Card -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-8 rounded-xl shadow-sm space-y-8">
+<div class="flex items-start justify-between">
+<div>
+<h3 class="text-2xl font-bold">Search Algorithm Heuristics</h3>
+<p class="text-slate-500 text-sm">Fine-tune the relevance weights for the global commerce engine.</p>
+</div>
+<button class="flex items-center gap-2 text-primary font-bold text-sm hover:underline">
+<span class="material-symbols-outlined text-lg" data-icon="history">history</span>
+                            Reset Defaults
+                        </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 pt-4">
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-700">Keyword Density</label>
+<span class="text-sm font-black text-primary">0.85</span>
+</div>
+<input class="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-primary" type="range" value="85"/>
+<p class="text-[11px] text-slate-400">Higher values prioritize exact title matches over metadata.</p>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-700">Seller Authority</label>
+<span class="text-sm font-black text-primary">0.42</span>
+</div>
+<input class="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-primary" type="range" value="42"/>
+<p class="text-[11px] text-slate-400">Weights search results based on historical seller trust scores.</p>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-700">Stock Velocity</label>
+<span class="text-sm font-black text-primary">0.12</span>
+</div>
+<input class="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-primary" type="range" value="12"/>
+<p class="text-[11px] text-slate-400">Boosts trending products with high conversion rates.</p>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<label class="text-xs font-bold uppercase tracking-wider text-slate-700">Geographic Proximity</label>
+<span class="text-sm font-black text-primary">0.60</span>
+</div>
+<input class="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-primary" type="range" value="60"/>
+<p class="text-[11px] text-slate-400">Prioritizes sellers within a 50km radius of the user.</p>
+</div>
+</div>
+</div>
+<!-- Registration Limits - Data Card -->
+<div class="col-span-12 lg:col-span-5 bg-surface-container-low p-8 rounded-xl">
+<div class="flex items-center gap-4 mb-8">
+<div class="p-3 bg-primary/10 rounded-xl">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="person_add">person_add</span>
+</div>
+<div>
+<h3 class="text-xl font-bold">User Registration Limits</h3>
+<p class="text-xs text-slate-500 font-medium">Anti-spam &amp; Sybil Protection</p>
+</div>
+</div>
+<div class="space-y-6">
+<div class="bg-white p-4 rounded-lg flex items-center justify-between border-l-4 border-primary">
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase">Hourly Throttle</p>
+<p class="text-lg font-bold">500 Registrations / Hr</p>
+</div>
+<button class="p-2 hover:bg-slate-50 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-slate-400" data-icon="edit">edit</span>
+</button>
+</div>
+<div class="bg-white p-4 rounded-lg flex items-center justify-between border-l-4 border-slate-200">
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase">Domain Blacklist</p>
+<p class="text-lg font-bold">14 Active Filters</p>
+</div>
+<button class="p-2 hover:bg-slate-50 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-slate-400" data-icon="settings_ethernet">settings_ethernet</span>
+</button>
+</div>
+<div class="bg-white p-4 rounded-lg flex items-center justify-between border-l-4 border-slate-200">
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase">Verification Level</p>
+<p class="text-lg font-bold">Double Opt-In + SMS</p>
+</div>
+<button class="p-2 hover:bg-slate-50 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-slate-400" data-icon="verified_user">verified_user</span>
+</button>
+</div>
+</div>
+</div>
+<!-- SEO & Metadata - Complex Form Card -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-slate-100">
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="public">public</span>
+<h3 class="text-xl font-bold">Domain Metadata &amp; SEO</h3>
+</div>
+<span class="text-[10px] font-bold py-1 px-3 bg-primary/10 text-primary rounded-full uppercase tracking-widest">Global Scope</span>
+</div>
+<form class="space-y-6">
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-700 uppercase tracking-tight">Canonical Site Name</label>
+<input class="w-full px-4 py-3 bg-slate-50 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20 transition-all" type="text" value="AdminSuite Global Marketplace"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-700 uppercase tracking-tight">Robot Directives</label>
+<select class="w-full px-4 py-3 bg-slate-50 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20 transition-all">
+<option>index, follow, max-image-preview:large</option>
+<option>noindex, nofollow</option>
+<option>index, nofollow</option>
+</select>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-700 uppercase tracking-tight">Global Meta Description</label>
+<textarea class="w-full px-4 py-3 bg-slate-50 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Enter site-wide meta description..." rows="3"></textarea>
+</div>
+<div class="pt-4 flex items-center gap-4">
+<button class="px-8 py-3 bg-gradient-to-br from-primary to-primary-container text-white font-bold rounded-lg shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all duration-200" type="button">
+                                Deploy Configuration
+                            </button>
+<button class="px-8 py-3 bg-slate-100 text-slate-600 font-bold rounded-lg hover:bg-slate-200 transition-all" type="button">
+                                Preview Headers
+                            </button>
+</div>
+</form>
+</div>
+</div>
+<!-- Footer Stats / Action -->
+<div class="bg-surface-container-high/40 p-8 rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Last Deploy</p>
+<p class="text-sm font-bold">14 Oct 2023, 09:42 AM</p>
+</div>
+<div class="w-[1px] h-10 bg-slate-300"></div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Active Clusters</p>
+<p class="text-sm font-bold">US-East, EU-West, AP-South</p>
+</div>
+<div class="w-[1px] h-10 bg-slate-300"></div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Config Version</p>
+<p class="text-sm font-bold">B-845.21</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400" data-icon="cloud_done">cloud_done</span>
+<span class="text-xs font-medium text-slate-500">All edge nodes synced</span>
+</div>
+</div>
+</div>
+</main>
+</body></html>

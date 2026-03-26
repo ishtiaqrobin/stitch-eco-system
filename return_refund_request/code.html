@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Return / Refund Request | UniMart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-primary": "#adc7ff",
+                        "on-secondary-fixed": "#3e0500",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-variant": "#e1e3e4",
+                        "background": "#f8f9fa",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "on-surface-variant": "#414754",
+                        "on-background": "#191c1d",
+                        "on-primary-container": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "on-tertiary-fixed": "#001a41",
+                        "tertiary": "#005abf",
+                        "surface-tint": "#005bc0",
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary": "#ad3219",
+                        "inverse-surface": "#2e3132",
+                        "primary": "#005bbf",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#d8e2ff",
+                        "secondary-container": "#ff6d4e",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed": "#001a41",
+                        "surface": "#f8f9fa",
+                        "tertiary-container": "#0872ed",
+                        "on-tertiary-container": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f8f9fa",
+                        "error": "#ba1a1a",
+                        "primary-container": "#1a73e8",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#680f00",
+                        "on-secondary-fixed-variant": "#8b1a02",
+                        "outline": "#727785",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "primary-fixed-dim": "#adc7ff",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#ffdad3",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-primary-fixed-variant": "#004493",
+                        "outline-variant": "#c1c6d6",
+                        "surface-container-high": "#e7e8e9"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-fixed selection:text-on-primary-fixed-variant">
+<!-- TopAppBar Execution -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-blue-700 tracking-tighter font-headline">UniMart</span>
+<nav class="hidden md:flex space-x-8">
+<a class="text-slate-600 font-medium hover:text-blue-600 transition-colors" href="#">Feed</a>
+<a class="text-slate-600 font-medium hover:text-blue-600 transition-colors" href="#">Marketplace</a>
+<a class="text-blue-700 font-bold border-b-2 border-blue-600" href="#">Orders</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-highest rounded-full border-none focus:ring-2 focus:ring-primary/40 w-64 text-sm" placeholder="Search orders..." type="text"/>
+</div>
+<div class="flex gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">shopping_cart</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">account_circle</button>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-4 sm:px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Context & Order Details -->
+<div class="lg:col-span-4 space-y-6">
+<div class="flex flex-col gap-2 mb-8">
+<h1 class="font-headline font-extrabold text-4xl tracking-tight text-on-surface leading-tight">Return Request</h1>
+<p class="text-on-surface-variant text-lg leading-relaxed">Let's get this sorted. Tell us what went wrong with your order.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border-none">
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="text-xs font-label font-bold uppercase tracking-widest text-outline mb-1">Order ID</p>
+<p class="font-headline font-bold text-lg">#UM-8829-2024</p>
+</div>
+<span class="bg-surface-container text-on-surface-variant px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Delivered</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4 p-3 bg-surface-container-low rounded-lg group transition-all hover:translate-x-1">
+<img class="w-16 h-16 rounded-lg object-cover" data-alt="vibrant red athletic sneaker on a clean white studio background with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQaOQ5b1O5q_062d3k_U152PU9zaXiUo3GquvgI-Zvkz1uzk-YUlNXRACu-WlCds5rIC3vGU00-93Ccvwwky655phNZv3E5SsLYok64vtgMa7y4CXffHcN_giJ14bGNmcDMy-ll5tDooHZgs89dI2jb8tgy_jzB6QUWzDLMQ_1phiqiTLXW1DqjXKroTc44mI09amvzZa09-Hy4jSf08p0ygsQT_9Ih4ybzF8AcE-4v9FvE9y40DXVSDom26eqhXka82ijVC9GBJM"/>
+<div>
+<p class="font-headline font-semibold text-sm">AeroStride Pro Z2</p>
+<p class="text-xs text-on-surface-variant">Size: 42 | Crimson Red</p>
+<p class="text-sm font-bold mt-1">৳ 4,500</p>
+</div>
+</div>
+<div class="flex gap-4 p-3 bg-surface-container-low rounded-lg group transition-all hover:translate-x-1">
+<img class="w-16 h-16 rounded-lg object-cover" data-alt="minimalist white designer watch with silver metal casing and tan leather strap on neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLCJxm9g9omhUID_meiN1Nxx-9v19IK7PAisD-i-3PIQUzgCaVHsl4Bb2gNC4oXx-wPu0xVFe5mSRtZpial6jM-r5nIhKFZndTRdnWxydpjbNZ_HLhRzDNrAuH-2LmQ_qrXByXY-hyiAgD-rKDf1LcXU9VZFN6GWYmtMRir12O13UvM_luWaSOPRK-XGXjdiNW1AyEIyv5T-mHLDsutHjobGWi_FSE1BdIUjUQPEafDJlmAl4hYMrbsKbdiWxr6zK-HKT2DeN-ukw"/>
+<div>
+<p class="font-headline font-semibold text-sm">Luna Quartz Minimalist</p>
+<p class="text-xs text-on-surface-variant">Silver Edition</p>
+<p class="text-sm font-bold mt-1">৳ 2,800</p>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-surface-variant/30">
+<div class="flex justify-between text-sm mb-2">
+<span class="text-on-surface-variant">Subtotal</span>
+<span class="font-medium text-on-surface">৳ 7,300</span>
+</div>
+<div class="flex justify-between text-sm mb-4">
+<span class="text-on-surface-variant">Shipping</span>
+<span class="font-medium text-on-surface">৳ 60</span>
+</div>
+<div class="flex justify-between font-headline font-bold text-lg">
+<span>Total Paid</span>
+<span class="text-primary">৳ 7,360</span>
+</div>
+</div>
+</div>
+<div class="bg-blue-50/50 p-6 rounded-xl space-y-3">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-bold text-sm">Buyer Protection Enabled</span>
+</div>
+<p class="text-xs text-slate-600 leading-relaxed">UniMart guarantees a full refund if items are returned in original packaging within 7 days of delivery.</p>
+</div>
+</div>
+<!-- Right Column: The Form -->
+<div class="lg:col-span-8">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="bg-surface-container-low px-8 py-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">1</div>
+<h2 class="font-headline font-bold text-xl">Select Items to Return</h2>
+</div>
+</div>
+<form class="p-8 space-y-12">
+<!-- Item Selection Bento -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<label class="relative block group cursor-pointer">
+<input checked="" class="peer absolute opacity-0" type="checkbox"/>
+<div class="p-4 rounded-xl bg-surface-container-low border-2 border-transparent peer-checked:border-primary peer-checked:bg-white transition-all">
+<div class="flex gap-4">
+<img class="w-20 h-20 rounded-lg object-cover" data-alt="vibrant red athletic sneaker on a clean white studio background with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3YpeChjE9p2QSuEmyJSvBPTiMk1ElTUJuHkbM6U3g87kdN8dob325y-3Yafu42AqLr7cTp51FyQwMvsUzPYusXyT00iidsnY8LYEbLEz-eeZRB64LsVRle6nTlQzDXvcYrbqH7USRoojN7N_EJgzkqKdipUt622GK33cz1MCvhV-wGeGl8zEAM5uxwJoOhsU-ws7Ia1gL4b92vss5mVPe6fksDc-VX5w4iF-xkGK7BLl4wyzhP_ECk80732Af_to9TB5USsI1FLU"/>
+<div class="flex-1">
+<div class="flex justify-between">
+<p class="font-headline font-bold">AeroStride Pro Z2</p>
+<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100">check_circle</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1">Condition: New</p>
+<div class="mt-3 flex items-center justify-between">
+<span class="font-bold text-primary">৳ 4,500</span>
+<select class="text-xs bg-surface-container rounded px-2 py-1 border-none font-bold">
+<option>Qty: 1</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+</label>
+<label class="relative block group cursor-pointer">
+<input class="peer absolute opacity-0" type="checkbox"/>
+<div class="p-4 rounded-xl bg-surface-container-low border-2 border-transparent peer-checked:border-primary peer-checked:bg-white transition-all">
+<div class="flex gap-4">
+<img class="w-20 h-20 rounded-lg object-cover" data-alt="minimalist white designer watch with silver metal casing and tan leather strap on neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAunQfulhFtX3bBa8DrTng9ik5sZo2DhCiZml3P_UQRzOonFGtgBEz_hsO7KA_QWDxg3K_9bkX6l74EWgmTVpl2yV4k1UgQzAD7Va3V6YRYB6CZ_88zTMgfnkoDYfRL6dvZgyAQtW6oY72Z0IcSMZxPxUtO8psA3XzIjsabMHm0EHo2VtxuurNAXyZiH56ZvaXLibvT36VCrY2FXxG9SXJGB0AhWlofyEsbR554OiOMOfYMFNvPRLO_-_JpFpW2C6-5faHG7_6rNOM"/>
+<div class="flex-1">
+<div class="flex justify-between">
+<p class="font-headline font-bold">Luna Quartz Minimalist</p>
+<span class="material-symbols-outlined text-primary opacity-0 peer-checked:opacity-100">check_circle</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1">Condition: New</p>
+<div class="mt-3 flex items-center justify-between">
+<span class="font-bold text-primary">৳ 2,800</span>
+<select class="text-xs bg-surface-container rounded px-2 py-1 border-none font-bold">
+<option>Qty: 1</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+</label>
+</div>
+<!-- Step 2: Reason -->
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">2</div>
+<h2 class="font-headline font-bold text-xl">Reason for Request</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<button class="flex flex-col items-center gap-2 p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all text-sm font-semibold" type="button">
+<span class="material-symbols-outlined text-secondary">cancel</span>
+                                Damaged/Defective
+                            </button>
+<button class="flex flex-col items-center gap-2 p-4 rounded-xl border-2 border-primary bg-primary/5 text-sm font-bold" type="button">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">straighten</span>
+                                Wrong Size
+                            </button>
+<button class="flex flex-col items-center gap-2 p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all text-sm font-semibold" type="button">
+<span class="material-symbols-outlined text-tertiary">sentiment_dissatisfied</span>
+                                Not as Described
+                            </button>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-on-surface-variant">Detailed Explanation (Optional)</label>
+<textarea class="w-full bg-surface-container-highest border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/40 text-sm" placeholder="Tell us more about the issue..." rows="4"></textarea>
+</div>
+</div>
+<!-- Step 3: Photos -->
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">3</div>
+<h2 class="font-headline font-bold text-xl">Upload Proof</h2>
+</div>
+<div class="flex gap-4 overflow-x-auto pb-2 no-scrollbar">
+<button class="flex-shrink-0 w-32 h-32 rounded-xl bg-surface-container-low border-2 border-dashed border-outline-variant flex flex-col items-center justify-center gap-2 hover:bg-surface-container transition-all group" type="button">
+<span class="material-symbols-outlined text-outline group-hover:text-primary">add_a_photo</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-outline">Upload</span>
+</button>
+<!-- Dummy Uploaded Image -->
+<div class="relative flex-shrink-0 w-32 h-32 rounded-xl overflow-hidden group">
+<img class="w-full h-full object-cover" data-alt="close up of a sneaker with a minor scuff mark on the red fabric heel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI2jIs5AQDNt8Syl6T19YAhL7mBQPQ20133QPF4mQYDB8Af0pIbYdZ5z92F0nONPUIMEtCAxI-HSKN3ioeJvx_Y2-NYoN7DjS3DX179RPOP_vAtOVQ3idBlLFYpwJd-PJtX7s-ijeg6fdv2sdE4do-8Y23we1t7BksuH2Pn3NmUgTZG0ApWVN4iz1fqwShtaIGH8OSn51b85YmJ6OW-R_xJ52C309egmsl2wlG45BhJnXfs_XIzomU2nRBO9adegOKXUBoJyoQl4w"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-white cursor-pointer">delete</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Refund Method -->
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">4</div>
+<h2 class="font-headline font-bold text-xl">Refund Method</h2>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl space-y-4">
+<label class="flex items-center gap-4 cursor-pointer">
+<input checked="" class="text-primary focus:ring-primary h-5 w-5" name="refund" type="radio"/>
+<div class="flex-1">
+<p class="font-bold">UniMart Wallet (Instant)</p>
+<p class="text-xs text-on-surface-variant">Funds available immediately for your next purchase.</p>
+</div>
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant px-3 py-1 rounded-full text-[10px] font-black uppercase">Recommended</span>
+</label>
+<label class="flex items-center gap-4 cursor-pointer pt-4 border-t border-surface-variant/20">
+<input class="text-primary focus:ring-primary h-5 w-5" name="refund" type="radio"/>
+<div class="flex-1">
+<p class="font-bold">Original Payment Method (3-5 Days)</p>
+<p class="text-xs text-on-surface-variant">Visa ending in •••• 4492</p>
+</div>
+</label>
+</div>
+</div>
+<!-- Submit Section -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-surface-variant/30">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="text-sm font-medium">Need help? <a class="text-primary font-bold" href="#">Contact Support</a></span>
+</div>
+<div class="flex gap-4 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none px-8 py-4 rounded-full font-bold text-on-surface hover:bg-surface-container transition-all" type="button">Cancel</button>
+<button class="flex-1 sm:flex-none px-12 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-full font-bold shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all" type="submit">Submit Request</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</main>
+<!-- BottomNavBar Execution -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-lg flex justify-around items-center px-4 pb-6 pt-3 z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-3xl">
+<button class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined">local_mall</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Shop</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined">add_box</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Sell</span>
+</button>
+<button class="flex flex-col items-center justify-center text-blue-600 scale-110">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">wallet</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Wallet</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Profile</span>
+</button>
+</nav>
+</body></html>

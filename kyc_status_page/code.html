@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KYC Status | UniMart Seller Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#191c1d",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "secondary": "#ad3219",
+              "on-primary-container": "#ffffff",
+              "surface-tint": "#005bc0",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#ff6d4e",
+              "surface-variant": "#e1e3e4",
+              "on-secondary-fixed": "#3e0500",
+              "on-primary-fixed-variant": "#004493",
+              "inverse-surface": "#2e3132",
+              "secondary-fixed": "#ffdad3",
+              "surface-container-highest": "#e1e3e4",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed-dim": "#adc7ff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "primary-container": "#1a73e8",
+              "inverse-primary": "#adc7ff",
+              "surface-container-high": "#e7e8e9",
+              "on-primary-fixed": "#001a41",
+              "primary": "#005bbf",
+              "tertiary-fixed": "#d8e2ff",
+              "on-error-container": "#93000a",
+              "outline-variant": "#c1c6d6",
+              "on-error": "#ffffff",
+              "surface-bright": "#f8f9fa",
+              "surface-container": "#edeeef",
+              "surface": "#f8f9fa",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-tertiary-container": "#ffffff",
+              "error": "#ba1a1a",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-container-low": "#f3f4f5",
+              "on-background": "#191c1d",
+              "tertiary-container": "#0872ed",
+              "on-primary": "#ffffff",
+              "tertiary": "#005abf",
+              "on-secondary-container": "#680f00",
+              "surface-dim": "#d9dadb",
+              "on-tertiary-fixed": "#001a41",
+              "on-surface-variant": "#414754",
+              "on-tertiary-fixed-variant": "#004493",
+              "primary-fixed": "#d8e2ff",
+              "background": "#f8f9fa",
+              "outline": "#727785"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(248, 249, 250, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #191c1d;
+            background-color: #f8f9fa;
+        }
+        h1, h2, h3, .font-headline {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 flex items-center justify-between px-6 py-3 w-full bg-white shadow-sm transition-colors">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold text-blue-700 tracking-tight">UniMart Seller Studio</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-slate-500 font-medium hover:bg-slate-50 transition-colors px-2 py-1 rounded" href="#">Dashboard</a>
+<a class="text-slate-500 font-medium hover:bg-slate-50 transition-colors px-2 py-1 rounded" href="#">Orders</a>
+<a class="text-blue-700 font-semibold border-b-2 border-blue-700 px-2 py-1" href="#">Settings</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-surface-container-high border-none rounded-full text-sm focus:ring-2 focus:ring-primary-container w-64" placeholder="Search orders..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden">
+<img class="h-full w-full object-cover" data-alt="professional male merchant avatar portrait with clean business attire and neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq_EGg2zlSYVfZ0D5E2xLP7sHlxI7TTGxD3HhdfVTCQ1WfKqmUpxLTijJOU52PbZCDYrH-kjQGAC0oPp0cB43XhBCuIRrufF6Yyvb1HT6hYuz_vKYH9epWk9n5SIwQgFZ4qy5k1R36lu-WwlPXKVzC8Ml4yTR-AM1XimS-2eGl4wGbSo2JC6xb4NhkDosMB97ynFTIl7a-7uSc3sNTI07r9eYzvfc8Ahu_WwA2tJktVdmHVm2wiLdZgEDf6y-xgzBCekUQE46j3Xo"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-[60px] h-[calc(100vh-60px)] w-64 flex flex-col p-4 z-40 bg-slate-50 transition-colors">
+<div class="mb-8 px-4 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">store</span>
+</div>
+<div>
+<h3 class="font-bold text-sm text-slate-900 leading-tight">Official Store</h3>
+<p class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Verified Merchant</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-sm font-medium">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">warehouse</span>
+<span class="text-sm font-medium">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-sm font-medium">Payments</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-white text-blue-700 rounded-lg shadow-sm font-bold scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 p-8">
+<!-- Header Section -->
+<div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<nav class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+<span>Settings</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-medium">Merchant KYC</span>
+</nav>
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface">KYC &amp; Verification</h1>
+<p class="mt-2 text-on-surface-variant max-w-lg">Complete your business verification to unlock higher withdrawal limits and the "Verified Merchant" badge.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 rounded-full bg-surface-container-high text-primary font-bold text-sm hover:opacity-90 transition-all">
+                        Download Report
+                    </button>
+<button class="px-6 py-2.5 rounded-full bg-gradient-to-br from-primary to-primary-container text-white font-bold text-sm shadow-md hover:scale-[1.02] active:scale-95 transition-all">
+                        Update Documents
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Overall Status Card -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<div class="bg-surface-container-lowest rounded-xl p-8 transition-shadow hover:shadow-xl relative overflow-hidden group">
+<!-- Background Decorative Element -->
+<div class="absolute -right-16 -top-16 w-64 h-64 bg-primary/5 rounded-full group-hover:scale-110 transition-transform duration-700"></div>
+<div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+<div class="flex items-center gap-6">
+<div class="w-20 h-20 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-[10px] font-bold uppercase tracking-wider">Action Required</span>
+<span class="text-xs text-on-surface-variant font-medium">Last updated 2 days ago</span>
+</div>
+<h2 class="text-2xl font-bold text-on-surface">Verification Partially Complete</h2>
+<p class="text-on-surface-variant mt-1">2 out of 4 documents approved. Please re-upload your Trade License.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 md:border-l border-slate-100 md:pl-8">
+<div class="text-center">
+<p class="text-3xl font-black text-primary">75%</p>
+<p class="text-[10px] font-bold text-slate-400 uppercase">Score</p>
+</div>
+<div class="w-[2px] h-10 bg-slate-100"></div>
+<div class="text-center">
+<p class="text-3xl font-black text-on-surface">2<span class="text-sm font-medium text-slate-400">/4</span></p>
+<p class="text-[10px] font-bold text-slate-400 uppercase">Steps</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Document Table / List -->
+<div class="bg-surface-container-low rounded-xl p-1 overflow-hidden">
+<div class="bg-surface-container-lowest rounded-lg">
+<div class="px-6 py-4 border-b border-surface-container flex items-center justify-between">
+<h3 class="font-bold text-lg">Document Status</h3>
+<span class="material-symbols-outlined text-slate-400">filter_list</span>
+</div>
+<!-- Document Item 1 -->
+<div class="px-6 py-5 flex items-center justify-between hover:bg-surface-bright transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+<span class="material-symbols-outlined">badge</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">National ID (NID)</p>
+<p class="text-xs text-on-surface-variant">Front and Back clear scans</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden sm:block text-right">
+<p class="text-xs font-semibold text-on-surface">nid_card_final.pdf</p>
+<p class="text-[10px] text-slate-400">Uploaded on 12 Oct 2023</p>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[11px] font-bold">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                        Verified
+                                    </div>
+</div>
+</div>
+<!-- Document Item 2 -->
+<div class="px-6 py-5 flex items-center justify-between hover:bg-surface-bright transition-colors border-t border-surface-container">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Trade License</p>
+<p class="text-xs text-on-surface-variant">2023-2024 Renewal Copy</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden sm:block text-right">
+<p class="text-xs font-semibold text-on-surface text-error">Blurry Image</p>
+<p class="text-[10px] text-slate-400">Rejected on 14 Oct 2023</p>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-error-container text-on-error-container text-[11px] font-bold animate-pulse">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">info</span>
+                                        Action Required
+                                    </div>
+</div>
+</div>
+<!-- Document Item 3 -->
+<div class="px-6 py-5 flex items-center justify-between hover:bg-surface-bright transition-colors border-t border-surface-container">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Bank Statement / Cheque</p>
+<p class="text-xs text-on-surface-variant">Showing account holder name</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden sm:block text-right">
+<p class="text-xs font-semibold text-on-surface">cancelled_cheque.jpg</p>
+<p class="text-[10px] text-slate-400">Uploaded 4 hours ago</p>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-[11px] font-bold">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">schedule</span>
+                                        Pending
+                                    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side Column: Tips & Info -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Tips Card -->
+<div class="bg-primary text-white rounded-xl p-8 relative overflow-hidden shadow-lg">
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]">lightbulb</span>
+</div>
+<h3 class="text-xl font-extrabold mb-4">Tips for Fast Approval</h3>
+<ul class="space-y-4 relative z-10">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed">check_circle</span>
+<p class="text-sm font-medium">Ensure all 4 corners of the document are visible in the photo.</p>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed">check_circle</span>
+<p class="text-sm font-medium">Avoid using camera flash on glossy paper to prevent glare.</p>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed">check_circle</span>
+<p class="text-sm font-medium">Documents must be valid and not expired (Check Trade License date).</p>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed">check_circle</span>
+<p class="text-sm font-medium">File size should be under 5MB per document.</p>
+</li>
+</ul>
+</div>
+<!-- Promo/Help Card -->
+<div class="bg-surface-container-low rounded-xl p-6 border-none">
+<div class="rounded-lg overflow-hidden mb-4">
+<img class="w-full h-32 object-cover" data-alt="close-up of a professional desk with a laptop, spectacles, and a cup of tea in a bright modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk40qYK1pEohPwwUwfbscbc8q8Zeq1TY51NdkgmWpnq8epimln4VuqDjroqnwkFa3UqOOSZM42gLW-Sx-P_k1h1CH1nAAd1Em0bgI4ZQVYrccnk_q4qeCPoIzGNmGff_kX_KBjqkkaOhK6W0phMrYu813YVivBZ6txSk7GCeF6gidmg_GXWtyYmkQ1EQ0Lg7yqhkjj_eQIoR0PtwyOoJIsDnG0VidoA09pJuDgLVLyiReY_BgmSkMXSp-zc_gQyL8xKskqGY3GuyI"/>
+</div>
+<h4 class="font-bold text-on-surface">Need assistance?</h4>
+<p class="text-sm text-on-surface-variant mt-2 mb-4">Our merchant support team is available 24/7 to help you with the verification process.</p>
+<button class="w-full py-3 rounded-lg bg-surface-container-highest text-primary font-bold text-sm hover:bg-surface-container-high transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">support_agent</span>
+                            Contact Support
+                        </button>
+</div>
+<!-- Security Badge Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 flex items-center gap-4">
+<span class="material-symbols-outlined text-3xl text-slate-400">lock</span>
+<div>
+<p class="text-xs font-bold text-on-surface">Encrypted &amp; Secure</p>
+<p class="text-[10px] text-slate-500">Your documents are processed using 256-bit SSL encryption and stored securely.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- FAQ Section -->
+<section class="mt-16 mb-12">
+<h3 class="text-2xl font-extrabold mb-8">Frequently Asked Questions</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="p-6 rounded-xl bg-surface-container-low border-none">
+<p class="font-bold text-on-surface mb-2">How long does verification take?</p>
+<p class="text-sm text-on-surface-variant">Typically, documents are reviewed within 24-48 business hours. You will receive a notification once the status changes.</p>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-low border-none">
+<p class="font-bold text-on-surface mb-2">Can I start selling before verification?</p>
+<p class="text-sm text-on-surface-variant">Yes, you can list products and receive orders, but fund withdrawals will be restricted until KYC is completed.</p>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

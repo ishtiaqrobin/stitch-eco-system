@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UniMart Live - Bengal Pulse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#005bc0",
+              "on-primary": "#ffffff",
+              "outline": "#727785",
+              "error-container": "#ffdad6",
+              "primary": "#005bbf",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "inverse-primary": "#adc7ff",
+              "surface-container-low": "#f3f4f5",
+              "outline-variant": "#c1c6d6",
+              "tertiary": "#005abf",
+              "on-surface-variant": "#414754",
+              "on-secondary-container": "#680f00",
+              "surface-container": "#edeeef",
+              "primary-container": "#1a73e8",
+              "surface": "#f8f9fa",
+              "on-primary-fixed-variant": "#004493",
+              "primary-fixed": "#d8e2ff",
+              "on-tertiary-fixed-variant": "#004493",
+              "on-error-container": "#93000a",
+              "secondary": "#ad3219",
+              "on-error": "#ffffff",
+              "inverse-surface": "#2e3132",
+              "surface-container-highest": "#e1e3e4",
+              "tertiary-fixed": "#d8e2ff",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "on-secondary-fixed": "#3e0500",
+              "on-surface": "#191c1d",
+              "on-primary-fixed": "#001a41",
+              "surface-bright": "#f8f9fa",
+              "error": "#ba1a1a",
+              "surface-container-high": "#e7e8e9",
+              "inverse-on-surface": "#f0f1f2",
+              "secondary-fixed": "#ffdad3",
+              "secondary-container": "#ff6d4e",
+              "on-tertiary-container": "#ffffff",
+              "background": "#f8f9fa",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed-dim": "#adc7ff",
+              "on-tertiary-fixed": "#001a41",
+              "on-background": "#191c1d",
+              "tertiary-container": "#0872ed",
+              "surface-variant": "#e1e3e4",
+              "surface-dim": "#d9dadb",
+              "on-primary-container": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            background: rgba(248, 249, 250, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        .video-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(25, 28, 29, 0.4) 0%, transparent 20%, transparent 80%, rgba(25, 28, 29, 0.6) 100%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Top Navigation Bar (Shared Component Implementation) -->
+<nav class="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 mb-4 bg-[#f8f9fa] dark:bg-slate-950 z-50">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tight text-[#191c1d] dark:text-slate-100">UniMart</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-[#005bbf] font-bold border-b-2 border-[#005bbf] font-inter text-sm" href="#">Live</a>
+<a class="text-[#191c1d] dark:text-slate-400 opacity-70 hover:bg-[#f3f4f5] dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded font-inter text-sm" href="#">Marketplace</a>
+<a class="text-[#191c1d] dark:text-slate-400 opacity-70 hover:bg-[#f3f4f5] dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded font-inter text-sm" href="#">Community</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex bg-surface-container rounded-full px-4 py-2 items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 font-inter" placeholder="Search streams..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-low rounded-full">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-low rounded-full">chat_bubble</button>
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-surface-container-low rounded-full">add_box</button>
+<div class="w-8 h-8 rounded-full overflow-hidden ml-2 ring-2 ring-primary-container">
+<img alt="User Profile" data-alt="professional portrait of a young woman with a friendly smile, studio lighting, clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2iF8Lfb5bTxQqDNV0tZjcTCzYAbfrVPOEsef5gKHnPgxyHxNzZ5GAn9BdkBoHNg8qg092dH1IIM7rBv6NmBBwgewyhg-AnFwvb0Yd0J16jXI89nvVQ_RnUgyMJlFlUHyz4ASJpLJDOE0OB5DuMGELGVBaFVT3EtFuHSiQ0370aZJLIXUz5tm5jROamfJolPqOioGBF_j9kS2tUaeUTMKUa3eTbIiNpoQg1zrUXaM3abczC9r2NpNjoWfG8tfyhGqXe5MMwXSnjqc"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="pt-20 pb-24 md:pb-0 px-4 md:px-6 h-screen flex flex-col md:flex-row gap-6 overflow-hidden">
+<!-- Video Canvas Section -->
+<section class="flex-1 relative flex flex-col min-h-0">
+<!-- Header Overlay -->
+<div class="absolute top-6 left-6 z-20 flex items-center gap-4">
+<div class="bg-secondary px-3 py-1 rounded-full flex items-center gap-2 shadow-lg">
+<span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+<span class="text-white text-[10px] font-bold uppercase tracking-widest font-label">Live</span>
+</div>
+<div class="glass-effect px-4 py-2 rounded-xl flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border-2 border-primary overflow-hidden">
+<img alt="Merchant" data-alt="close-up portrait of an artisan merchant wearing a traditional linen shirt, warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEFVzEKG61v79GP_vosMaFBnG3wmjodwhbUtWtDnUQsjRsFS9oDF-eyt-fdyhHHcnhEUBWEGdaJKvHVbMszEFMclgiyK_WiVuWtMcp1s3-GlEHTwkIZtaERi0eW3mY5SUSfejG01tugPs_WawFD91a38q1XxoCrNzrXS1HSEf5JskUfC54Nutu9uOjZby9VQblL1ThfmKHl8gOGBLsak5e0_VQK0tufEn-jNIVRowWRN1Hlz_mFq4YFb17G5VtNDjsh0zjlR9ONPU"/>
+</div>
+<div>
+<h1 class="text-sm font-bold font-headline leading-none">Traditional Jamdani Showcase</h1>
+<p class="text-[10px] text-on-surface-variant font-label">by Heritage Silks</p>
+</div>
+<button class="ml-2 bg-primary text-on-primary px-4 py-1.5 rounded-full text-xs font-bold hover:opacity-90 transition-all">Follow</button>
+</div>
+</div>
+<!-- Main Video Player -->
+<div class="video-container relative flex-1 rounded-2xl overflow-hidden bg-black shadow-2xl group">
+<img alt="Live Stream Feed" class="w-full h-full object-cover opacity-90" data-alt="cinematic shot of a vibrant traditional textile boutique with colorful fabrics draped elegantly under warm spotlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7yoSQH19quIN4sMqJHh7my7U25bCI5K4ATV3WblIJXoyabat9FuaeD3_0kCF6eIZx5Q1lIL70OTBkLEA5W2LxOn5OIrGjaDKW0FSz3_l5oad1Xkd7tDObOenazO-LZdAKr3EE8JgS9NALzCQEvZxD7lJJ093NyOAoRNSBA_pFZ6CNOVh6jkpWL6_IP0MvGNIacwE6sBex3jyQKgarIzzh0QDhMruEXb2ptaZzy4diGOeLMVD_s1fD5hgrT9chOLUVwLDgaVPWaiI"/>
+<!-- Video Controls Overlay -->
+<div class="absolute bottom-6 right-6 z-20 flex flex-col gap-4">
+<div class="flex flex-col items-center gap-1 group/btn">
+<button class="w-12 h-12 glass-effect rounded-full flex items-center justify-center text-on-surface transition-transform hover:scale-110">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+<span class="text-white text-[10px] font-bold drop-shadow-md">12.4K</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<button class="w-12 h-12 glass-effect rounded-full flex items-center justify-center text-on-surface transition-transform hover:scale-110">
+<span class="material-symbols-outlined">share</span>
+</button>
+<span class="text-white text-[10px] font-bold drop-shadow-md">Share</span>
+</div>
+</div>
+<!-- Stats Floating -->
+<div class="absolute bottom-6 left-6 z-20 flex items-center gap-4">
+<div class="glass-effect px-4 py-2 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-on-surface-variant">visibility</span>
+<span class="text-xs font-bold font-label">2,841 watching</span>
+</div>
+</div>
+</div>
+<!-- Shoppable Items Tray (Horizontal Bento Style) -->
+<div class="mt-6 mb-4">
+<h3 class="text-sm font-bold font-headline mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-lg">shopping_bag</span>
+                    Featured in Stream
+                </h3>
+<div class="flex gap-4 overflow-x-auto pb-4 no-scrollbar">
+<!-- Product Card 1 -->
+<div class="flex-shrink-0 w-64 bg-surface-container-lowest p-3 rounded-xl flex gap-3 group cursor-pointer transition-all hover:translate-y-[-4px]">
+<div class="w-20 h-20 rounded-lg overflow-hidden bg-surface-container">
+<img alt="Product" data-alt="close-up of exquisite hand-woven silk fabric with gold thread detailing, soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-deQnWnZkA7L1rsaysH70lbOd5sRMYXuD9B59DtOLd0NdzviUUgrsgnNUAN-0-erRTWL35dqNai5GsLDhP9y0FejRHDGTVhATR3yIzYUfBerKbW24RySRCOOaXmqbhnfXQdLnEqvW9FWaCzvuOH1MX3bf9SqDoj5-xipM1D2CNC3ya2_rczb7_1982AhXwU1-Yxr-WzufGPjTtadXo5UdOSqxO_MkD1JSzkBrpC2wZikzSf590vbdvtPkB4EnL8j4IXW63NUAZTY"/>
+</div>
+<div class="flex flex-col justify-between py-0.5">
+<div>
+<h4 class="text-xs font-bold leading-tight">Emerald Royal Jamdani Saree</h4>
+<span class="text-xs font-bold text-secondary">৳ 12,500</span>
+</div>
+<button class="bg-primary-container text-on-primary-container text-[10px] font-bold py-1 px-3 rounded-full self-start hover:opacity-90">Add to Cart</button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="flex-shrink-0 w-64 bg-surface-container-lowest p-3 rounded-xl flex gap-3 group cursor-pointer transition-all hover:translate-y-[-4px]">
+<div class="w-20 h-20 rounded-lg overflow-hidden bg-surface-container">
+<img alt="Product" data-alt="detail shot of traditional gold jewelry on a velvet cushion, warm accent lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpSgGuuCfkIYnbVSEvYgDkNW4ZRog1rymOTtgUCCssgNUGJ6UZ78rfw3KjbpcRwCuTgAa3MpIrv2x7c8piikDPfkmYnSqBy8gFiu38LpfmXJTyRxczryO7-DSn-VMMrzd5zfqFCmod2XYEPHTEi2FhqGkad7_zDWwU29V80xjbsPd_5nlvrB_uHZfrcC_53ZTX_xv-H6HmBVcBVEfG2BJBGIyOTLjkzX-FVb1Oi9ScbQ2nOHRQ_Kte1AuHd22SNtRyk8psi4PEp-k"/>
+</div>
+<div class="flex flex-col justify-between py-0.5">
+<div>
+<h4 class="text-xs font-bold leading-tight">Handcrafted Meenakari Set</h4>
+<span class="text-xs font-bold text-secondary">৳ 4,200</span>
+</div>
+<button class="bg-primary-container text-on-primary-container text-[10px] font-bold py-1 px-3 rounded-full self-start hover:opacity-90">Add to Cart</button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="flex-shrink-0 w-64 bg-surface-container-lowest p-3 rounded-xl flex gap-3 group cursor-pointer transition-all hover:translate-y-[-4px]">
+<div class="w-20 h-20 rounded-lg overflow-hidden bg-surface-container">
+<img alt="Product" data-alt="folded stack of pastel colored luxury fabrics, soft editorial lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmZnIlBOFTwQYLiZlNlI2OK8b4ds1i1J5vIvMiaAYFvRwsHJgmHn0N33XagWsy9Pmo3RjBwFqCMjdSSmfET-y2AU-9bimxttBUx16Aoe1XG2ByG5lvZH2jI41uQBiFnTt8fpRa-gF2PXKn5vwY8tyI4C1wAjSdMCM-BFBedwqWnA-b1Hsi9-ldzN9hAxFUueF3rqppD5tWlgDlIOXayj0d6srN5-808bAbXxgULoOjAB3TAa5r30Z9pPELrp4NuYZej96_k7xv-3Y"/>
+</div>
+<div class="flex flex-col justify-between py-0.5">
+<div>
+<h4 class="text-xs font-bold leading-tight">Classic Muslin Tunic</h4>
+<span class="text-xs font-bold text-secondary">৳ 2,800</span>
+</div>
+<button class="bg-primary-container text-on-primary-container text-[10px] font-bold py-1 px-3 rounded-full self-start hover:opacity-90">Add to Cart</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Interaction Panel (Chat) -->
+<aside class="w-full md:w-96 flex flex-col bg-surface-container-low rounded-t-3xl md:rounded-2xl min-h-0 h-[512px] md:h-full overflow-hidden shadow-sm">
+<!-- Chat Header -->
+<div class="px-6 py-4 flex justify-between items-center bg-surface-container-lowest">
+<h2 class="text-sm font-bold font-headline uppercase tracking-widest text-on-surface-variant">Live Chat</h2>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">settings</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">close</span>
+</div>
+</div>
+<!-- Chat Messages -->
+<div class="flex-1 overflow-y-auto p-6 space-y-4 no-scrollbar">
+<!-- Message 1 -->
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+<img alt="User" data-alt="portrait of a young man with glasses, smiling, outdoor background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAwMRMrFiPJsqx_TWYsuMRS6Ku7ThMUK5GfaSFrOO-eeFjPWXn-ZYwrotDacMwoHiYyZSIKlyIqrhfur-6Z9AupLbqXkc7EgAIhV_z1BPdCZXSGP07CLi2W8C_tXobY-1b5zyYrsh56sFPuHTedB2OcOVhB76h6UNOd4JmSTLUhdByUwhS_iVKrYQkT8DBPFoBl523a_vLCDVofGf6yHGqf4gP3Amx9F20ydwFbTCYZ5denagnU6VqFs70RB-y6GArs_xul_dBebM"/>
+</div>
+<div>
+<p class="text-[10px] font-bold text-primary mb-1">Rifat Ahmed</p>
+<div class="bg-surface-container-lowest p-3 rounded-xl rounded-tl-none shadow-sm">
+<p class="text-xs leading-relaxed">The quality of that Jamdani is incredible! Is there a discount for the live stream?</p>
+</div>
+</div>
+</div>
+<!-- Message 2 -->
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+<img alt="User" data-alt="portrait of a woman with long dark hair, soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIqACUnQ9Ts-VaFrmuhLzVJyz7X42ITcsVLNRnhU3oMqx-s23P0sZKVttxfNqoLVrlazA9eGDBAs8sAV9aXNeG_s1nFZeFZrnyuRwPvyVhvwH5XZxivP9KyMDXWcO2oRzoVfZLZPc9d0jYM3d1XhTbp0sR9a-OU6wd1vcfukOIgxaQK-EZu3J6vks7dJEHtdIotEIzR_QX8YhwocLbl8F3VkrI-dT1spiWI3L8apFZNBtjZm79veIMfeQybr-hfyZJJfIYEPXcT5U"/>
+</div>
+<div>
+<p class="text-[10px] font-bold text-secondary-container mb-1">Sara Khan</p>
+<div class="bg-surface-container-lowest p-3 rounded-xl rounded-tl-none shadow-sm">
+<p class="text-xs leading-relaxed">Just bought the emerald one! ❤️ Can't wait!</p>
+</div>
+</div>
+</div>
+<!-- System Message -->
+<div class="text-center py-2">
+<span class="text-[10px] font-semibold text-on-surface-variant bg-surface-container px-3 py-1 rounded-full uppercase">Zubair joined the stream</span>
+</div>
+<!-- Message 3 -->
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+<img alt="User" data-alt="portrait of a mature man with a beard, studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxkmeiIGM_fptDtjXOeR43XWRm3BVNuyTc7AXvs-kbfKVKIpCSXu1Y7BWSWAF85iPq9EwchFpDG7RPyivdUA8iRBsCoU9DcOvycxvjbWobqCKJKhd69ZQtBXDmxgcFsH-W6BEIscVoLaGB4rp1Ra3wULtTDY5HBQdBSwFmOMcTFv_BRdmXqYx7Or4SvDpCYhNGLLItefwyT-Rc4qFDjjmEezlPRc2jKKgycJk0A3_hhZ_xOrDLEys988uo0KqWbIoSv9eYOnB1904"/>
+</div>
+<div>
+<p class="text-[10px] font-bold text-tertiary-container mb-1">Tanvir Islam</p>
+<div class="bg-surface-container-lowest p-3 rounded-xl rounded-tl-none shadow-sm">
+<p class="text-xs leading-relaxed">Can we see the gold thread work closer?</p>
+</div>
+</div>
+</div>
+<!-- Message 4 (Reaction) -->
+<div class="flex gap-3 items-center">
+<div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
+<img alt="User" data-alt="close up profile of a smiling person, bokeh lights background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAakeCMn0YyeXW13tRgqfU3ThuqEha_yP6hq-YGGe-Q-PzK7t6TyfjamHnxZlU41t1_BQ1RrWft8T4sHK_2DWt8oam5L013rXExnp07oy9u8ruBK1cO8SG_6XAB4Pnwi5Pj6khXJopP0F1biPpzm9BGG7rZLusjchngQ8BFUNn4IaNLG5nmOBSXjuMOADJkHElQTwQPDea77VdnsZ5jI0WExyHDj8Rw_SR7UBaYnDq9Lhoc4mARBTgPlHGVBJcOBSWgRTwyrcQFXUc"/>
+</div>
+<div class="flex items-center gap-2 text-xs font-bold text-secondary italic">
+                        sent a super heart! 
+                        <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+</div>
+</div>
+<!-- Chat Input -->
+<div class="p-6 bg-surface-container-lowest border-t border-surface-container">
+<div class="flex items-center gap-3 bg-surface-container-low rounded-full px-4 py-1">
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-xs py-3 font-inter" placeholder="Say something..." type="text"/>
+<div class="flex gap-2">
+<button class="material-symbols-outlined text-on-surface-variant text-xl">mood</button>
+<button class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">send</button>
+</div>
+</div>
+</div>
+</aside>
+</main>
+<!-- Bottom Navigation Bar (Shared Component Implementation - Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#f8f9fa]/70 dark:bg-slate-900/70 backdrop-blur-xl z-50">
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#005bbf] dark:text-blue-400 bg-[#ffffff] dark:bg-slate-800 rounded-full px-4 py-1">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Create</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">movie_filter</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Reels</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Profile</span>
+</div>
+</nav>
+<!-- Bengal Pulse Interactive Floating Pulse Button -->
+<button class="fixed bottom-32 right-8 md:bottom-8 md:right-8 w-16 h-16 bg-gradient-to-br from-primary to-primary-container rounded-full flex items-center justify-center text-white shadow-2xl z-40 transition-transform active:scale-90 overflow-hidden">
+<div class="absolute inset-0 bg-white opacity-20 animate-ping rounded-full"></div>
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</button>
+</body></html>

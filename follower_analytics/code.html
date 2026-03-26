@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Follower Analytics | UniMart Seller Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#191c1d",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "secondary": "#ad3219",
+              "on-primary-container": "#ffffff",
+              "surface-tint": "#005bc0",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#ff6d4e",
+              "surface-variant": "#e1e3e4",
+              "on-secondary-fixed": "#3e0500",
+              "on-primary-fixed-variant": "#004493",
+              "inverse-surface": "#2e3132",
+              "secondary-fixed": "#ffdad3",
+              "surface-container-highest": "#e1e3e4",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed-dim": "#adc7ff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "primary-container": "#1a73e8",
+              "inverse-primary": "#adc7ff",
+              "surface-container-high": "#e7e8e9",
+              "on-primary-fixed": "#001a41",
+              "primary": "#005bbf",
+              "tertiary-fixed": "#d8e2ff",
+              "on-error-container": "#93000a",
+              "outline-variant": "#c1c6d6",
+              "on-error": "#ffffff",
+              "surface-bright": "#f8f9fa",
+              "surface-container": "#edeeef",
+              "surface": "#f8f9fa",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-tertiary-container": "#ffffff",
+              "error": "#ba1a1a",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-container-low": "#f3f4f5",
+              "on-background": "#191c1d",
+              "tertiary-container": "#0872ed",
+              "on-primary": "#ffffff",
+              "tertiary": "#005abf",
+              "on-secondary-container": "#680f00",
+              "surface-dim": "#d9dadb",
+              "on-tertiary-fixed": "#001a41",
+              "on-surface-variant": "#414754",
+              "on-tertiary-fixed-variant": "#004493",
+              "primary-fixed": "#d8e2ff",
+              "background": "#f8f9fa",
+              "outline": "#727785"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fa;
+        color: #191c1d;
+      }
+      h1, h2, h3, h4 {
+        font-family: 'Manrope', sans-serif;
+      }
+      .glass-effect {
+        background: rgba(248, 249, 250, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+    </style>
+</head>
+<body class="bg-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-4 z-40 h-screen w-64 bg-slate-50 border-r border-outline-variant/15">
+<div class="mb-10 px-2">
+<h2 class="text-lg font-black text-slate-900 tracking-tight">Official Store</h2>
+<p class="text-xs text-slate-500 font-medium">Verified Merchant</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl">shopping_cart</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl">inventory_2</span>
+<span class="text-sm font-medium">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl">warehouse</span>
+<span class="text-sm font-medium">Inventory</span>
+</a>
+<!-- Active State: Analytics -->
+<a class="flex items-center gap-3 px-4 py-3 bg-white text-blue-700 rounded-lg shadow-sm font-bold scale-95 duration-200" href="#">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+<span class="text-sm">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl">payments</span>
+<span class="text-sm font-medium">Payments</span>
+</a>
+</nav>
+<div class="mt-auto space-y-1 pt-4 border-t border-outline-variant/15">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 flex items-center justify-between px-8 py-4 w-full bg-white shadow-sm">
+<div class="flex items-center gap-4">
+<h1 class="text-xl font-extrabold text-blue-700 tracking-tight">UniMart Seller Studio</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="absolute inset-y-0 left-3 flex items-center text-slate-400 group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">search</span>
+</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm focus:ring-2 focus:ring-primary/40 w-64 transition-all" placeholder="Search analytics..." type="text"/>
+</div>
+<div class="flex items-center gap-4 border-l border-outline-variant/30 pl-6">
+<button class="text-slate-500 hover:text-primary transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="text-slate-500 hover:text-primary transition-colors"><span class="material-symbols-outlined">help</span></button>
+<button class="text-slate-500 hover:text-primary transition-colors"><span class="material-symbols-outlined">settings</span></button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-slate-200 ring-2 ring-primary/10">
+<img alt="Merchant Profile Avatar" data-alt="professional portrait of a middle-aged South Asian business owner in a modern office setting, soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbNUlc3-rXLxJta-_rGWJbuFceRDBClYeAT2BH1qYhx4dTF1usfDCgJjF-ZoSqCrzIc0WJpn4Y1VqsgBqvfSyDT5PwWxtErP4uKzMAx81rVXYtZjjnZeevHObi8wb0pMdmMsvXebG99jjMoV6kLQMSa9ruOUx6-Pif0DfyE8NnhdoB7uy3zYrZNGVjQ2mlXOsbf17sfFredW_Mk7BkH8t3GMX-omSuMHsjiLT1i4MejykNwuKGaPD7PxlAfzzsLIJFcBrRc5uix2E"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Analytics Canvas -->
+<div class="p-10 max-w-7xl mx-auto space-y-16">
+<!-- Page Header Section -->
+<section class="flex justify-between items-end">
+<div class="space-y-2">
+<span class="text-primary font-bold tracking-widest text-xs uppercase">Audience Intelligence</span>
+<h2 class="text-4xl font-extrabold text-on-surface">Follower Insights</h2>
+<p class="text-on-surface-variant max-w-md">Understand your community growth, peak activity hours, and content preferences to drive higher conversions.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 bg-surface-container-high text-primary font-semibold rounded-full hover:bg-primary/10 transition-colors">Export Report</button>
+<button class="px-6 py-2.5 bg-gradient-to-br from-primary to-primary-container text-white font-semibold rounded-full shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">add</span> Add New Product
+                    </button>
+</div>
+</section>
+<!-- Key Metrics Bento Grid -->
+<section class="grid grid-cols-12 gap-6">
+<!-- Main Growth Chart -->
+<div class="col-span-8 bg-surface-container-lowest p-8 rounded-xl shadow-sm space-y-8">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xl font-bold">Growth Over Time</h3>
+<p class="text-sm text-on-surface-variant">Net follower acquisition across the last 30 days</p>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full">30 Days</span>
+<span class="px-3 py-1 text-on-surface-variant text-xs font-medium rounded-full cursor-pointer hover:bg-surface-container">90 Days</span>
+</div>
+</div>
+<!-- Mock Chart Visualization -->
+<div class="h-64 flex items-end justify-between gap-2 px-2">
+<div class="w-full bg-primary/10 rounded-t-lg relative group h-[40%] hover:bg-primary/20 transition-colors">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 text-[10px] font-bold bg-on-surface text-white px-2 py-1 rounded">1.2k</div>
+</div>
+<div class="w-full bg-primary/10 rounded-t-lg relative group h-[55%] hover:bg-primary/20 transition-colors"></div>
+<div class="w-full bg-primary/10 rounded-t-lg relative group h-[45%] hover:bg-primary/20 transition-colors"></div>
+<div class="w-full bg-primary/20 rounded-t-lg relative group h-[70%] hover:bg-primary/30 transition-colors"></div>
+<div class="w-full bg-primary/30 rounded-t-lg relative group h-[85%] hover:bg-primary/40 transition-colors"></div>
+<div class="w-full bg-primary-container rounded-t-lg relative group h-[95%] shadow-lg">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-100 text-[10px] font-bold bg-primary text-white px-2 py-1 rounded">2.8k</div>
+</div>
+<div class="w-full bg-primary/40 rounded-t-lg relative group h-[75%] hover:bg-primary/50 transition-colors"></div>
+<div class="w-full bg-primary/20 rounded-t-lg relative group h-[60%] hover:bg-primary/30 transition-colors"></div>
+</div>
+<div class="flex justify-between text-[10px] text-on-surface-variant font-bold uppercase tracking-widest border-t border-outline-variant/15 pt-4">
+<span>Week 1</span>
+<span>Week 2</span>
+<span>Week 3</span>
+<span>Week 4</span>
+</div>
+</div>
+<!-- Secondary Metric Cards -->
+<div class="col-span-4 flex flex-col gap-6">
+<div class="bg-surface-container-low p-6 rounded-xl flex-1 border border-outline-variant/10">
+<div class="flex justify-between items-center mb-4">
+<span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded-lg">group</span>
+<span class="text-green-600 text-xs font-bold flex items-center"><span class="material-symbols-outlined text-sm">trending_up</span> +12%</span>
+</div>
+<h4 class="text-on-surface-variant text-sm font-medium">Total Followers</h4>
+<p class="text-3xl font-black mt-1">42,890</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl flex-1 shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<span class="material-symbols-outlined text-secondary p-2 bg-secondary/10 rounded-lg">favorite</span>
+<span class="text-green-600 text-xs font-bold flex items-center"><span class="material-symbols-outlined text-sm">trending_up</span> +8.4%</span>
+</div>
+<h4 class="text-on-surface-variant text-sm font-medium">Engagement Rate</h4>
+<p class="text-3xl font-black mt-1">4.2%</p>
+</div>
+</div>
+</section>
+<!-- Audience Depth & Behavior -->
+<section class="grid grid-cols-12 gap-8">
+<!-- Interest Profiles (Left - 5 cols) -->
+<div class="col-span-5 bg-surface-container-low rounded-xl p-8 relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="text-xl font-bold mb-2">Interest Profiles</h3>
+<p class="text-sm text-on-surface-variant mb-8">What your audience is searching for</p>
+<div class="space-y-5">
+<div class="space-y-2">
+<div class="flex justify-between text-sm">
+<span class="font-semibold">Traditional Panjabi</span>
+<span class="text-on-surface-variant">64%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[64%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm">
+<span class="font-semibold">Eco-friendly Fabrics</span>
+<span class="text-on-surface-variant">48%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary/70 w-[48%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm">
+<span class="font-semibold">Handmade Jewelry</span>
+<span class="text-on-surface-variant">32%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary/50 w-[32%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Background Element -->
+<div class="absolute -right-10 -bottom-10 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: 'FILL' 1;">interests</span>
+</div>
+</div>
+<!-- Engagement Heatmap (Right - 7 cols) -->
+<div class="col-span-7 bg-surface-container-lowest p-8 rounded-xl shadow-sm">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="text-xl font-bold">Top Engagement Times</h3>
+<p class="text-sm text-on-surface-variant">Peak active hours for your followers</p>
+</div>
+<span class="material-symbols-outlined text-slate-400">info</span>
+</div>
+<div class="grid grid-cols-7 gap-3">
+<!-- Simplified Heatmap Mockup -->
+<div class="text-center">
+<span class="text-[10px] font-bold text-slate-400 block mb-2 uppercase">Mon</span>
+<div class="space-y-1">
+<div class="h-8 bg-primary/5 rounded-md"></div>
+<div class="h-8 bg-primary/10 rounded-md"></div>
+<div class="h-8 bg-primary/20 rounded-md"></div>
+<div class="h-8 bg-primary/40 rounded-md"></div>
+<div class="h-8 bg-primary/10 rounded-md"></div>
+</div>
+</div>
+<div class="text-center">
+<span class="text-[10px] font-bold text-slate-400 block mb-2 uppercase">Tue</span>
+<div class="space-y-1">
+<div class="h-8 bg-primary/10 rounded-md"></div>
+<div class="h-8 bg-primary/20 rounded-md"></div>
+<div class="h-8 bg-primary/60 rounded-md"></div>
+<div class="h-8 bg-primary/80 rounded-md"></div>
+<div class="h-8 bg-primary/20 rounded-md"></div>
+</div>
+</div>
+<div class="text-center">
+<span class="text-[10px] font-bold text-slate-400 block mb-2 uppercase">Wed</span>
+<div class="space-y-1">
+<div class="h-8 bg-primary/5 rounded-md"></div>
+<div class="h-8 bg-primary/10 rounded-md"></div>
+<div class="h-8 bg-primary/30 rounded-md"></div>
+<div class="h-8 bg-primary/50 rounded-md"></div>
+<div class="h-8 bg-primary/10 rounded-md"></div>
+</div>
+</div>
+<div class="text-center">
+<span class="text-[10px] font-bold text-primary block mb-2 uppercase">Thu</span>
+<div class="space-y-1">
+<div class="h-8 bg-primary/20 rounded-md"></div>
+<div class="h-8 bg-primary/40 rounded-md"></div>
+<div class="h-8 bg-primary/80 rounded-md"></div>
+<div class="h-8 bg-primary-container rounded-md"></div>
+<div class="h-8 bg-primary/40 rounded-md"></div>
+</div>
+</div>
+<div class="text-center">
+<span class="text-[10px] font-bold text-slate-400 block mb-2 uppercase">Fri</span>
+<div class="space-y-1">
+<div class="h-8 bg-secondary/10 rounded-md"></div>
+<div class="h-8 bg-secondary/20 rounded-md"></div>
+<div class="h-8 bg-secondary/40 rounded-md"></div>
+<div class="h-8 bg-secondary/60 rounded-md"></div>
+<div class="h-8 bg-secondary/20 rounded-md"></div>
+</div>
+</div>
+<div class="text-center">
+<span class="text-[10px] font-bold text-slate-400 block mb-2 uppercase">Sat</span>
+<div class="space-y-1">
+<div class="h-8 bg-primary/5 rounded-md"></div>
+<div class="h-8 bg-primary/10 rounded-md"></div>
+<div class="h-8 bg-primary/10 rounded-md"></div>
+<div class="h-8 bg-primary/20 rounded-md"></div>
+<div class="h-8 bg-primary/5 rounded-md"></div>
+</div>
+</div>
+<div class="text-center">
+<span class="text-[10px] font-bold text-slate-400 block mb-2 uppercase">Sun</span>
+<div class="space-y-1">
+<div class="h-8 bg-primary/5 rounded-md"></div>
+<div class="h-8 bg-primary/10 rounded-md"></div>
+<div class="h-8 bg-primary/20 rounded-md"></div>
+<div class="h-8 bg-primary/10 rounded-md"></div>
+<div class="h-8 bg-primary/5 rounded-md"></div>
+</div>
+</div>
+</div>
+<div class="mt-4 flex justify-between items-center text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+<span>9:00 AM</span>
+<span>Best Time: Thu, 6 PM - 9 PM</span>
+<span>11:00 PM</span>
+</div>
+</div>
+</section>
+<!-- Content Performance Insights -->
+<section class="space-y-8">
+<div class="flex items-center gap-4">
+<h3 class="text-2xl font-bold">Content Resonance</h3>
+<div class="h-[1px] flex-1 bg-outline-variant/20"></div>
+</div>
+<div class="grid grid-cols-3 gap-6">
+<!-- High Performance Insight -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm group border border-transparent hover:border-primary/20 transition-all">
+<div class="h-48 relative">
+<img alt="Video performance thumbnail" class="w-full h-full object-cover" data-alt="vibrant short-form video screenshot showing artisan silk weaving process with golden thread and skilled hands" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC24lHYdiNKg8yVNMvLARz1_P37LCws3OUY3-XjcTKsSRDURNOxWHXUA5GWNJWkaXYUCnxYP7L-DXFN8uKAnLAGdFh3lPwySDu680xivRXi8IUXbdP-hXVnBRXNDUAYC666Cj7imYpaGNJCxmaBq8_y0y-eHZi6b1rk5B0H5b0RuQ3kBu8bFfU6nhJ6nyTy41QPQdtfcWMdDgtWYzFVTXiANiTDqeh2F4-XIY-tQCGFKBPBg9_FLkvFpHhqIFNnwBnQH_zVUDoOdSs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 to-transparent"></div>
+<div class="absolute bottom-4 left-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span class="text-white text-xs font-bold uppercase tracking-wider">Shorts / Video</span>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<div>
+<h4 class="font-bold text-lg leading-tight mb-1">Behind the Scenes: Silk Weaving</h4>
+<p class="text-sm text-on-surface-variant line-clamp-2">Authenticity drives 3.4x more saves than studio photography.</p>
+</div>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant/15">
+<div class="flex gap-4">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-slate-400">LIKES</span>
+<span class="font-bold text-primary">12.4k</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-slate-400">SAVES</span>
+<span class="font-bold text-primary">1.8k</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-green-500">trending_up</span>
+</div>
+</div>
+</div>
+<!-- Medium Performance -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-transparent hover:border-primary/20 transition-all">
+<div class="h-48 relative">
+<img alt="Carousel performance thumbnail" class="w-full h-full object-cover" data-alt="professional editorial photoshoot of a man wearing a deep navy traditional panjabi, minimalist white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB83CrWAUbdMnI9UN81vEKNFodKeeeld_MPvSjFOLjALc27lPQdG5H2ptsLDlS71ZUZzJUQ8Jj4QLO6YayVlslsV-rKlVh5_b03gLVWpyNXkQeBvPUjePtPcFoTQpt_Pha-RNiW33CgZawFTKMpdoUTtnh_co__5w8EyMQLNazOu4h1HvBrbV3hDT_7gBUNbIfdj6xo3QyrlgzAdqB9sitDEIX07N2Tu9yJkndbmZqgTjoBFHzwgkR38PAnX9kATnGsMeatWap52JM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 to-transparent"></div>
+<div class="absolute bottom-4 left-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1;">view_carousel</span>
+<span class="text-white text-xs font-bold uppercase tracking-wider">Carousel / Lookbook</span>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<div>
+<h4 class="font-bold text-lg leading-tight mb-1">Eid Collection '24 Lookbook</h4>
+<p class="text-sm text-on-surface-variant line-clamp-2">High conversion from "Add to Cart" interactions on last slide.</p>
+</div>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant/15">
+<div class="flex gap-4">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-slate-400">LIKES</span>
+<span class="font-bold text-primary">8.2k</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-slate-400">CLICKS</span>
+<span class="font-bold text-primary">2.1k</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-blue-500">equalizer</span>
+</div>
+</div>
+</div>
+<!-- Insight Summary Card -->
+<div class="bg-primary p-8 rounded-xl text-white flex flex-col justify-between relative overflow-hidden shadow-xl shadow-primary/30">
+<div>
+<span class="material-symbols-outlined text-3xl mb-4" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h4 class="text-2xl font-bold mb-3 leading-tight">Expert Recommendation</h4>
+<p class="text-primary-fixed-dim text-sm leading-relaxed">Your audience shows a 24% higher engagement on <strong>Friday evenings</strong> between <strong>7-9 PM</strong>. We suggest scheduling your next collection teaser for this window.</p>
+</div>
+<button class="mt-8 py-3 bg-white text-primary font-bold rounded-full w-full hover:bg-opacity-90 transition-colors">Apply Strategy</button>
+<!-- Floating Glassy Element -->
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sticky Footer Analytics Bar (Subtle) -->
+<footer class="bg-surface-container p-6 border-t border-outline-variant/10 text-center">
+<p class="text-on-surface-variant text-xs font-medium uppercase tracking-widest">Powered by UniMart Pulse Intelligence Engine © 2024</p>
+</footer>
+</main>
+</body></html>

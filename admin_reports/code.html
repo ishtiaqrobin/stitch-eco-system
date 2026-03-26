@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Reports | UniMart Central</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#f3f4f5",
+                        "secondary-container": "#ff6d4e",
+                        "primary-fixed": "#d8e2ff",
+                        "on-surface": "#191c1d",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-container-high": "#e7e8e9",
+                        "surface": "#f8f9fa",
+                        "error": "#ba1a1a",
+                        "background": "#f8f9fa",
+                        "on-primary-fixed": "#001a41",
+                        "outline": "#727785",
+                        "on-secondary-fixed": "#3e0500",
+                        "on-secondary-container": "#680f00",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c1c6d6",
+                        "on-primary-container": "#ffffff",
+                        "inverse-primary": "#adc7ff",
+                        "surface-container": "#edeeef",
+                        "primary-fixed-dim": "#adc7ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#001a41",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "inverse-on-surface": "#f0f1f2",
+                        "tertiary-container": "#0872ed",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#414754",
+                        "on-background": "#191c1d",
+                        "on-tertiary-container": "#ffffff",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "tertiary": "#005abf",
+                        "surface-dim": "#d9dadb",
+                        "primary": "#005bbf",
+                        "tertiary-fixed": "#d8e2ff",
+                        "secondary": "#ad3219",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#8b1a02",
+                        "on-primary-fixed-variant": "#004493",
+                        "surface-bright": "#f8f9fa",
+                        "secondary-fixed": "#ffdad3",
+                        "primary-container": "#1a73e8",
+                        "surface-variant": "#e1e3e4",
+                        "surface-tint": "#005bc0",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "on-error": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .glass-panel {
+            background: rgba(248, 249, 250, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 h-16 border-b border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm z-50">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">UniMart Admin</span>
+<div class="hidden md:flex items-center bg-surface-container-low px-4 py-2 rounded-full w-96">
+<span class="material-symbols-outlined text-outline mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full font-body" placeholder="Global search for past reports..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-50 transition-colors rounded-full relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full border-2 border-white"></span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden">
+<img alt="Admin Profile" data-alt="professional portrait of a male business executive in a grey suit with a confident and friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAthz6ddyjrTfYkjb6Dp2kn9Nttb6raotQ4SvdRPyrS_IsAnJxcCK6OGXEft3uqH58VY93jGFtNfOY5Sks157In5ji9jMTARRVCTOcn7Dpi32k5a35_r2_dxR0jBMvr5A9dhiynPVY1LrW5s3LaBMa65je4CWNWCIOjoNfNwbC_xd3OQ5ToHF6l8mWsHRbq1yKheDZC-xtJzZjOFuulKucGApifregCUxVnKGj08awQ9Q6BO2a9bdvlBpY71DKKj1YnVyajnGeTQAg"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 pt-20 pb-6 px-4 flex flex-col gap-2 overflow-y-auto bg-slate-50 dark:bg-slate-950 border-r border-outline-variant/15 hidden md:flex">
+<div class="px-4 mb-6">
+<div class="flex items-center gap-3 mb-1">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm" data-icon="analytics">analytics</span>
+</div>
+<h2 class="text-lg font-bold text-blue-600 font-headline">Admin Central</h2>
+</div>
+<p class="text-xs text-slate-500 font-body">Management Suite</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-100 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-100 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-sm font-medium">User Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white text-blue-600 shadow-sm rounded-lg font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring" data-weight="fill" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+<span class="text-sm">BI Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-100 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="text-sm font-medium">Moderation</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-100 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-sm font-medium">Operations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-100 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+<span class="text-sm font-medium">Platform</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-100 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-sm font-medium">Finance</span>
+</a>
+</nav>
+<div class="mt-auto px-4 py-6">
+<button class="w-full py-3 bg-primary-container text-white rounded-full font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="file_export">file_export</span>
+                Export Reports
+            </button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="md:ml-64 pt-24 pb-12 px-8">
+<!-- Header & Summary Row -->
+<header class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-6">
+<div>
+<nav class="flex gap-2 text-xs text-outline mb-2 font-label">
+<span>Reports</span> / <span>Business Intelligence</span>
+</nav>
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface font-headline mb-2">Platform Performance</h1>
+<p class="text-on-surface-variant font-body">Real-time business insights and historical trend analysis.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-5 py-2.5 bg-surface-container-highest text-primary font-bold rounded-full flex items-center gap-2 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="calendar_today">calendar_today</span>
+                    Last 30 Days
+                </button>
+<button class="px-5 py-2.5 bg-primary text-white font-bold rounded-full flex items-center gap-2 shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+                    New Report
+                </button>
+</div>
+</header>
+<!-- KPI Bento Grid -->
+<section class="bento-grid mb-12">
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl" data-icon="payments">payments</span>
+</div>
+<p class="text-xs font-bold text-outline uppercase tracking-widest mb-2 font-label">Monthly Gross Revenue</p>
+<h3 class="text-3xl font-extrabold font-headline mb-1">৳ 4,281,900</h3>
+<div class="flex items-center gap-1 text-green-600 text-sm font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+                    +12.4% vs last month
+                </div>
+</div>
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl" data-icon="group">group</span>
+</div>
+<p class="text-xs font-bold text-outline uppercase tracking-widest mb-2 font-label">Active Users</p>
+<h3 class="text-3xl font-extrabold font-headline mb-1">84,231</h3>
+<div class="flex items-center gap-1 text-green-600 text-sm font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+                    +8.2% vs last month
+                </div>
+</div>
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl" data-icon="timer">timer</span>
+</div>
+<p class="text-xs font-bold text-outline uppercase tracking-widest mb-2 font-label">Avg. Moderation Speed</p>
+<h3 class="text-3xl font-extrabold font-headline mb-1">14.2 min</h3>
+<div class="flex items-center gap-1 text-secondary text-sm font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="trending_down">trending_down</span>
+                    -2.1% (improvement)
+                </div>
+</div>
+</section>
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Library & Builder -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-8">
+<!-- Report Library -->
+<div class="bg-surface-container p-8 rounded-xl">
+<h2 class="text-xl font-extrabold font-headline mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="folder_open">folder_open</span>
+                        Report Library
+                    </h2>
+<div class="space-y-3">
+<button class="w-full flex justify-between items-center p-4 bg-surface-container-lowest rounded-lg hover:translate-x-1 transition-transform group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="sell">sell</span>
+<span class="font-semibold text-sm">Sales Reports</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex justify-between items-center p-4 bg-surface-container-lowest rounded-lg hover:translate-x-1 transition-transform group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-orange-600" data-icon="inventory_2">inventory_2</span>
+<span class="font-semibold text-sm">Inventory Analytics</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-orange-600" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex justify-between items-center p-4 bg-surface-container-lowest rounded-lg hover:translate-x-1 transition-transform group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-600" data-icon="person_add">person_add</span>
+<span class="font-semibold text-sm">User Growth</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-green-600" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex justify-between items-center p-4 bg-surface-container-lowest rounded-lg hover:translate-x-1 transition-transform group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-red-600" data-icon="bolt">bolt</span>
+<span class="font-semibold text-sm">Moderation Speed</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-red-600" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex justify-between items-center p-4 bg-surface-container-lowest rounded-lg hover:translate-x-1 transition-transform group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-800" data-icon="account_balance">account_balance</span>
+<span class="font-semibold text-sm">Finance &amp; Tax</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-blue-800" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Custom Builder -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/15 shadow-xl shadow-slate-200/50">
+<h2 class="text-xl font-extrabold font-headline mb-6">Report Builder</h2>
+<form class="space-y-5">
+<div class="space-y-2">
+<label class="text-xs font-bold text-outline uppercase font-label">Date Range</label>
+<select class="w-full bg-surface-container-highest border-none rounded-lg text-sm p-3 focus:ring-2 focus:ring-primary/40 transition-all">
+<option>Current Quarter (Q3 2023)</option>
+<option>Last 6 Months</option>
+<option>Custom Range</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-outline uppercase font-label">Primary Category</label>
+<select class="w-full bg-surface-container-highest border-none rounded-lg text-sm p-3 focus:ring-2 focus:ring-primary/40 transition-all">
+<option>Fashion &amp; Apparel</option>
+<option>Electronics</option>
+<option>Home &amp; Living</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-outline uppercase font-label">Metric Selector</label>
+<div class="grid grid-cols-2 gap-2">
+<div class="p-3 bg-surface-container-low rounded-lg flex items-center gap-2 cursor-pointer border-2 border-primary/20">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-xs font-medium">Revenue</span>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg flex items-center gap-2 cursor-pointer border-2 border-transparent hover:border-outline-variant/50">
+<span class="material-symbols-outlined text-outline text-sm" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+<span class="text-xs font-medium">Unit Sales</span>
+</div>
+</div>
+</div>
+<button class="w-full py-4 bg-gradient-to-br from-primary to-primary-container text-white rounded-full font-bold shadow-lg shadow-primary/30 hover:shadow-xl hover:opacity-90 transition-all mt-4" type="button">
+                            Generate Live Report
+                        </button>
+</form>
+</div>
+</div>
+<!-- Right Column: Visual Charts & Data -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<!-- User Activity Heatmap -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h2 class="text-xl font-extrabold font-headline">User Activity Heatmap</h2>
+<p class="text-sm text-outline">Traffic concentration by hour and day of week.</p>
+</div>
+<div class="flex gap-2">
+<button class="p-2 bg-surface-container rounded hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined" data-icon="fullscreen">fullscreen</span></button>
+<button class="p-2 bg-surface-container rounded hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button>
+</div>
+</div>
+<!-- Mock Heatmap -->
+<div class="grid grid-cols-24 gap-1 h-64">
+<!-- Repeating pattern to simulate a heatmap -->
+<div class="bg-primary/10 rounded-sm"></div><div class="bg-primary/20 rounded-sm"></div><div class="bg-primary/5 rounded-sm"></div><div class="bg-primary/40 rounded-sm"></div><div class="bg-primary/60 rounded-sm"></div><div class="bg-primary/80 rounded-sm"></div><div class="bg-primary/90 rounded-sm"></div><div class="bg-primary/100 rounded-sm"></div><div class="bg-primary/70 rounded-sm"></div><div class="bg-primary/30 rounded-sm"></div><div class="bg-primary/10 rounded-sm"></div><div class="bg-primary/5 rounded-sm"></div><div class="bg-primary/10 rounded-sm"></div><div class="bg-primary/20 rounded-sm"></div><div class="bg-primary/5 rounded-sm"></div><div class="bg-primary/40 rounded-sm"></div><div class="bg-primary/60 rounded-sm"></div><div class="bg-primary/80 rounded-sm"></div><div class="bg-primary/90 rounded-sm"></div><div class="bg-primary/100 rounded-sm"></div><div class="bg-primary/70 rounded-sm"></div><div class="bg-primary/30 rounded-sm"></div><div class="bg-primary/10 rounded-sm"></div><div class="bg-primary/5 rounded-sm"></div>
+<div class="col-span-24 h-4 text-[10px] flex justify-between text-outline mt-2 font-label">
+<span>12 AM</span><span>4 AM</span><span>8 AM</span><span>12 PM</span><span>4 PM</span><span>8 PM</span><span>11 PM</span>
+</div>
+<!-- Just a visualization of the grid pattern -->
+<div class="col-span-24 grid grid-cols-24 gap-1 mt-1 h-12">
+<div class="bg-primary/50 rounded-sm"></div><div class="bg-primary/10 rounded-sm"></div><div class="bg-primary/20 rounded-sm"></div><div class="bg-primary/40 rounded-sm"></div><div class="bg-primary/10 rounded-sm"></div><div class="bg-primary/5 rounded-sm"></div><div class="bg-primary/60 rounded-sm"></div><div class="bg-primary/100 rounded-sm"></div><div class="bg-primary/100 rounded-sm"></div><div class="bg-primary/90 rounded-sm"></div><div class="bg-primary/80 rounded-sm"></div><div class="bg-primary/40 rounded-sm"></div><div class="bg-primary/20 rounded-sm"></div><div class="bg-primary/10 rounded-sm"></div><div class="bg-primary/5 rounded-sm"></div><div class="bg-primary/40 rounded-sm"></div><div class="bg-primary/60 rounded-sm"></div><div class="bg-primary/80 rounded-sm"></div><div class="bg-primary/90 rounded-sm"></div><div class="bg-primary/100 rounded-sm"></div><div class="bg-primary/70 rounded-sm"></div><div class="bg-primary/30 rounded-sm"></div><div class="bg-primary/10 rounded-sm"></div><div class="bg-primary/5 rounded-sm"></div>
+</div>
+</div>
+</div>
+<!-- Retention Cohorts & Export Options -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Cohort Analysis Mockup -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm">
+<h2 class="text-lg font-extrabold font-headline mb-4">Retention Cohorts</h2>
+<div class="space-y-3">
+<div class="flex items-center gap-4">
+<span class="text-[10px] w-12 font-bold text-outline">JUL 2023</span>
+<div class="flex-1 h-6 bg-surface-container-low rounded-sm flex overflow-hidden">
+<div class="w-[100%] bg-primary h-full"></div>
+<div class="w-[85%] bg-primary/80 h-full border-l border-white/20"></div>
+<div class="w-[72%] bg-primary/60 h-full border-l border-white/20"></div>
+<div class="w-[60%] bg-primary/40 h-full border-l border-white/20"></div>
+</div>
+<span class="text-xs font-bold">100%</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-[10px] w-12 font-bold text-outline">AUG 2023</span>
+<div class="flex-1 h-6 bg-surface-container-low rounded-sm flex overflow-hidden">
+<div class="w-[100%] bg-primary h-full"></div>
+<div class="w-[78%] bg-primary/80 h-full border-l border-white/20"></div>
+<div class="w-[65%] bg-primary/60 h-full border-l border-white/20"></div>
+</div>
+<span class="text-xs font-bold">78%</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-[10px] w-12 font-bold text-outline">SEP 2023</span>
+<div class="flex-1 h-6 bg-surface-container-low rounded-sm flex overflow-hidden">
+<div class="w-[100%] bg-primary h-full"></div>
+<div class="w-[82%] bg-primary/80 h-full border-l border-white/20"></div>
+</div>
+<span class="text-xs font-bold">82%</span>
+</div>
+</div>
+<p class="mt-6 text-xs text-outline leading-relaxed italic">Retention is calculated based on monthly active users returning for second-month transaction.</p>
+</div>
+<!-- Export Actions -->
+<div class="bg-surface-container-highest p-6 rounded-xl flex flex-col justify-center gap-4">
+<h2 class="text-lg font-extrabold font-headline mb-2">Export Data</h2>
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg hover:shadow-md transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-red-600" data-icon="picture_as_pdf">picture_as_pdf</span>
+<span class="text-sm font-semibold">Download PDF</span>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="download">download</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg hover:shadow-md transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-700" data-icon="table_chart">table_chart</span>
+<span class="text-sm font-semibold">Export to Excel</span>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="download">download</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 bg-primary text-white rounded-lg hover:opacity-90 transition-all shadow-lg shadow-primary/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+<span class="text-sm font-semibold">Schedule Weekly Email</span>
+</div>
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Comparison Chart Placeholder -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 shadow-sm overflow-hidden">
+<div class="flex justify-between items-center mb-10">
+<h2 class="text-xl font-extrabold font-headline">Retention vs. Acquisition</h2>
+<div class="flex gap-4 items-center">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-primary rounded-full"></span>
+<span class="text-xs font-medium text-outline">Acquisition</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-secondary rounded-full"></span>
+<span class="text-xs font-medium text-outline">Retention</span>
+</div>
+</div>
+</div>
+<!-- Mock Line Chart Path -->
+<div class="h-64 w-full relative">
+<svg class="w-full h-full" viewbox="0 0 800 200">
+<!-- Grid Lines -->
+<line stroke="rgba(0,0,0,0.05)" x1="0" x2="800" y1="0" y2="0"></line>
+<line stroke="rgba(0,0,0,0.05)" x1="0" x2="800" y1="50" y2="50"></line>
+<line stroke="rgba(0,0,0,0.05)" x1="0" x2="800" y1="100" y2="100"></line>
+<line stroke="rgba(0,0,0,0.05)" x1="0" x2="800" y1="150" y2="150"></line>
+<line stroke="rgba(0,0,0,0.05)" x1="0" x2="800" y1="200" y2="200"></line>
+<!-- Area under path -->
+<path d="M0 200 L0 120 C 100 80, 200 150, 300 100 S 500 20, 800 60 L 800 200 Z" fill="rgba(0,91,191,0.05)"></path>
+<!-- Line 1 -->
+<path d="M0 120 C 100 80, 200 150, 300 100 S 500 20, 800 60" fill="none" stroke="#005bbf" stroke-linecap="round" stroke-width="4"></path>
+<!-- Line 2 -->
+<path d="M0 180 C 150 140, 300 160, 450 120 S 650 180, 800 140" fill="none" stroke="#ad3219" stroke-dasharray="8 4" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+<div class="flex justify-between mt-4 text-[10px] font-bold text-outline px-2">
+<span>WK 1</span><span>WK 2</span><span>WK 3</span><span>WK 4</span><span>WK 5</span><span>WK 6</span><span>WK 7</span><span>WK 8</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<footer class="mt-16 flex flex-col md:flex-row justify-between items-center py-8 border-t border-outline-variant/15 text-on-surface-variant font-body text-sm gap-4">
+<p>© 2023 UniMart Admin - Proprietary Intelligence Platform</p>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Contact Support</a>
+</div>
+</footer>
+</main>
+<!-- Floating Tooltip Context (Search Quick Access) -->
+<div class="fixed bottom-8 right-8 z-[60]">
+<button class="w-14 h-14 bg-surface-container-lowest text-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform border border-outline-variant/20 group">
+<span class="material-symbols-outlined text-3xl group-hover:rotate-12 transition-transform" data-icon="help">help</span>
+</button>
+</div>
+</body></html>

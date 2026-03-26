@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Return Requests | UniMart Seller Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#191c1d",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "secondary": "#ad3219",
+              "on-primary-container": "#ffffff",
+              "surface-tint": "#005bc0",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#ff6d4e",
+              "surface-variant": "#e1e3e4",
+              "on-secondary-fixed": "#3e0500",
+              "on-primary-fixed-variant": "#004493",
+              "inverse-surface": "#2e3132",
+              "secondary-fixed": "#ffdad3",
+              "surface-container-highest": "#e1e3e4",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed-dim": "#adc7ff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "primary-container": "#1a73e8",
+              "inverse-primary": "#adc7ff",
+              "surface-container-high": "#e7e8e9",
+              "on-primary-fixed": "#001a41",
+              "primary": "#005bbf",
+              "tertiary-fixed": "#d8e2ff",
+              "on-error-container": "#93000a",
+              "outline-variant": "#c1c6d6",
+              "on-error": "#ffffff",
+              "surface-bright": "#f8f9fa",
+              "surface-container": "#edeeef",
+              "surface": "#f8f9fa",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-tertiary-container": "#ffffff",
+              "error": "#ba1a1a",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-container-low": "#f3f4f5",
+              "on-background": "#191c1d",
+              "tertiary-container": "#0872ed",
+              "on-primary": "#ffffff",
+              "tertiary": "#005abf",
+              "on-secondary-container": "#680f00",
+              "surface-dim": "#d9dadb",
+              "on-tertiary-fixed": "#001a41",
+              "on-surface-variant": "#414754",
+              "on-tertiary-fixed-variant": "#004493",
+              "primary-fixed": "#d8e2ff",
+              "background": "#f8f9fa",
+              "outline": "#727785"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fa;
+        color: #191c1d;
+      }
+      h1, h2, h3, .font-headline {
+        font-family: 'Manrope', sans-serif;
+      }
+      .glass-effect {
+        backdrop-filter: blur(20px);
+        background-color: rgba(248, 249, 250, 0.7);
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 flex items-center justify-between px-6 py-3 w-full bg-white dark:bg-slate-900 shadow-sm dark:shadow-none border-b border-outline-variant/15">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold text-blue-700 dark:text-blue-400 tracking-tight">UniMart Seller Studio</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700 py-1" href="#">Returns</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors px-2 py-1 rounded" href="#">Analytics</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors px-2 py-1 rounded" href="#">Support</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="bg-surface-container-highest border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/40 w-64" placeholder="Search returns..." type="text"/>
+</div>
+<button class="p-2 rounded-full hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">help</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border border-outline-variant/20">
+<img alt="Merchant Profile Avatar" class="w-full h-full object-cover" data-alt="close up professional portrait of a south asian male merchant in a clean white shirt with a friendly smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiMxUp9LV2rAmVJc03jKkAFKfIbytDATgRy7enVZlORDFCagck8l5jmx0S-_oBd5BMQaVrTIaybzib4BfleETwIcPACE1AlmLAI_PeqXO-e843wWuJratNgvTGKPlqFXbkrXCF65pdV3elk9I0qWV1gxA9PKqP3UmQbdkzrsBRAUMU8MIGYZn0wQNphDjjTGTPZeflOB_JVgltky2az-40ZS58iG9kYeE2ceFabFlTGqJX29r9gC5N0wvUpC9FohuLJdkJZJmiJog"/>
+</div>
+</div>
+</header>
+<div class="flex min-h-[calc(100-64px)]">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-[60px] h-full w-64 bg-slate-50 dark:bg-slate-950 border-r border-outline-variant/15 p-4 z-40 hidden lg:flex flex-col">
+<div class="mb-8 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-blue-700">storefront</span>
+</div>
+<div>
+<p class="text-lg font-black text-slate-900 dark:text-white leading-tight">Official Store</p>
+<p class="text-xs text-slate-500">Verified Merchant</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium Inter">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-400 rounded-lg shadow-sm font-bold scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-sm font-medium Inter">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-sm font-medium Inter">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">warehouse</span>
+<span class="text-sm font-medium Inter">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-sm font-medium Inter">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-sm font-medium Inter">Payments</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant/10 pt-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium Inter">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-error hover:bg-error-container/20 rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm font-medium Inter">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 w-full p-6 lg:p-10 space-y-10">
+<!-- Page Header with Bento Summary -->
+<section class="space-y-6">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="text-3xl font-extrabold text-on-surface leading-tight">Return Requests</h1>
+<p class="text-on-surface-variant mt-1">Manage and resolve customer returns within the escrow protection period.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 bg-surface-container-high px-4 py-2.5 rounded-full text-primary font-semibold text-sm hover:opacity-80 transition-all">
+<span class="material-symbols-outlined text-[20px]">file_download</span>
+                            Export Report
+                        </button>
+<button class="bg-gradient-to-tr from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-full font-bold text-sm shadow-md hover:shadow-lg transition-all">
+                            Resolution Center
+                        </button>
+</div>
+</div>
+<!-- Summary Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="bg-surface-container-lowest p-5 rounded-xl flex flex-col justify-between h-32 border border-outline-variant/10">
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Pending Review</span>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-black text-on-surface">12</span>
+<span class="text-xs text-error font-bold flex items-center"><span class="material-symbols-outlined text-xs">arrow_upward</span>+4</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl flex flex-col justify-between h-32 border border-outline-variant/10">
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Awaiting Shipment</span>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-black text-on-surface">08</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl flex flex-col justify-between h-32 border border-outline-variant/10">
+<span class="text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Escrow Held</span>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-black text-on-surface">৳24,500</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl flex flex-col justify-between h-32 bg-primary/5 border border-primary/20">
+<span class="text-xs font-semibold text-primary uppercase tracking-wider">Return Rate</span>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-black text-primary">2.4%</span>
+<span class="text-xs text-on-surface-variant">Avg 3.1%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Returns List Section -->
+<section class="bg-surface-container-low rounded-2xl p-1 overflow-hidden">
+<div class="flex items-center justify-between px-6 py-5 bg-surface-container-lowest">
+<div class="flex gap-4">
+<button class="text-sm font-bold border-b-2 border-primary pb-1">All Requests</button>
+<button class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">Escrow Disputed</button>
+<button class="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors pb-1">Resolved</button>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">filter_list</span>
+<span class="text-sm font-medium">Filter</span>
+</div>
+</div>
+<div class="divide-y divide-outline-variant/10 bg-surface-container-lowest">
+<!-- Request Item 1 -->
+<div class="p-6 hover:bg-surface-bright transition-all group">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Product & Customer -->
+<div class="lg:col-span-4 flex gap-4">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Red Nike Sneaker" class="w-full h-full object-cover" data-alt="close up professional studio shot of a vibrant red nike running shoe on a clean white background with sharp details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj44dPF95StQCBFamWe24oIz5nekHRgBQhlEf_JQniEg2ydP6cJX21hnJLJbOP3ApAcJT2Oxk-gO8R49UZcepUJygKD1DsrDlrwC75kzz1N0yNTqM50MN_TSVScJihZ6N1n-fcoAxld6gPT33S07GYrqKhZq3iFxFNzRFO2-p_-I0JWFuwE3QFxhtcLpYZnDOEAVLMHuooio8hcBzXSzhcAwXTVo-cTv0NvXosJmJ9SPSgWznK8kSYRzaciyYiO_15r9wIze5MAAs"/>
+</div>
+<div>
+<h3 class="font-bold text-on-surface leading-tight">Nike Air Zoom Pegasus 38</h3>
+<p class="text-xs text-on-surface-variant mt-1">Order #UN-982103 • 2 days ago</p>
+<div class="mt-3 flex items-center gap-2">
+<div class="w-6 h-6 rounded-full overflow-hidden">
+<img alt="Customer Profile" class="w-full h-full object-cover" data-alt="portrait of a young adult male with glasses and a friendly expression in soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnwYnEj7lcGTuAXRG9pg8HsNYpjvtxXybakQsLb31LG4ST-WNDgSMnT-gFdE7yQMIL-3Qb2tcMGCMvTFOFipWrtIbR9B_4lpVRYAxf_P6FPG7Qca0Ecv_EhCDdOlpqQ1iJDcas4hVSJkK_dJUVVA2lsBVyMn0ytI-FrTGRmX8REeqhUanpVGXsHZjJEJjVBGfKD9DksxseeocXxDI2rwRJolensr4iT2cIQYTaHUMijpEfhhoaarQ0v-LmwBD7BMsZmTAJzpLv05k"/>
+</div>
+<span class="text-xs font-semibold">Rahat Ahmed</span>
+</div>
+</div>
+</div>
+<!-- Reason & Evidence -->
+<div class="lg:col-span-5 space-y-3">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed-variant text-[10px] font-bold uppercase tracking-tighter">Sizing Issue</span>
+<span class="text-xs font-medium text-on-surface-variant">Escrow Status: <span class="text-secondary font-bold">Funds Locked</span></span>
+</div>
+<p class="text-sm text-on-surface italic leading-relaxed">"The shoe is much narrower than expected. I can't even fit my foot in properly despite ordering my usual size. Want a full refund."</p>
+<div class="flex gap-2">
+<div class="relative w-16 h-16 rounded-md overflow-hidden bg-surface-container cursor-pointer group/img">
+<img alt="Evidence 1" class="w-full h-full object-cover group-hover/img:scale-110 transition-transform" data-alt="hand holding a sneaker to compare size with a measuring tape in a domestic setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcVtuDTLw7ypctMtLEh1gzdR_qI24zuI-9sFfCEBGYJdaBhb7E19ulH_KjEsFOnV0apX9K7DV_TheXGIxuiKy1PZ4cOQ85-HJ-o_qYr7e1qhplkwQD-hcSTawvxIvgTWvYNXAlih5C7X11c-RZS5ZMphR8Ps9KcOaAF3v486yddWTz-wT66JXG1bg99cJ-thIVWClXUIPa_8NeWz3_N9WiejnYyGV7PkUyETDuBKmk1E3iWRir_XIWv2ry8iG1MgXoGlClV5RZ0FA"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-sm">zoom_in</span>
+</div>
+</div>
+<div class="w-16 h-16 rounded-md overflow-hidden bg-surface-container-high flex items-center justify-center border border-dashed border-outline-variant">
+<span class="text-[10px] font-bold text-on-surface-variant text-center">+2 Photos</span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="lg:col-span-3 flex lg:flex-col justify-center gap-2">
+<button class="w-full bg-primary text-on-primary py-2 rounded-lg font-bold text-sm shadow-sm hover:opacity-90 transition-all">Approve Return</button>
+<button class="w-full bg-surface-container-high text-primary py-2 rounded-lg font-bold text-sm hover:bg-surface-container-highest transition-all">Message Customer</button>
+<button class="w-full bg-transparent text-error py-2 rounded-lg font-bold text-sm hover:bg-error-container/10 transition-all">Reject Request</button>
+</div>
+</div>
+</div>
+<!-- Request Item 2 -->
+<div class="p-6 hover:bg-surface-bright transition-all group">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Product & Customer -->
+<div class="lg:col-span-4 flex gap-4">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="White Minimalist Watch" class="w-full h-full object-cover" data-alt="top down flat lay of a minimalist white analog wristwatch on a grey textured surface with clean shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBusO9YaQKu6ezxZLv4ibFdu3q1Uxq_777JO6OF3FDUQFuUnkH2Hs8RN3UCQZGCF0uC1X-IFM_WvLpnLbcNc1hyYw9gxH5QNJMNGB7n5XTHRBmuMGkgb0p_yS9Kr-pm18Vb1eVPJidmKICus4Apl9p5RnPzpWXq-VGkVtKLw8k2eyn4beXcp8ctUMobkvfGrngdqHZP6Z6kywiwTM0xfgUhqJSHPXPKbDQTpO-J9_jCKqjPaNfF8HEVmixlb_eX-Yp2CalHIwGq4Qg"/>
+</div>
+<div>
+<h3 class="font-bold text-on-surface leading-tight">Nomad Minimalist Watch</h3>
+<p class="text-xs text-on-surface-variant mt-1">Order #UN-984452 • 5 hours ago</p>
+<div class="mt-3 flex items-center gap-2">
+<div class="w-6 h-6 rounded-full overflow-hidden">
+<img alt="Customer Profile" class="w-full h-full object-cover" data-alt="close up portrait of a middle aged woman with silver hair and a professional warm look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOdBDZd08bDOOVdL38_sqhg32U9V-a0vmX-1oB4PExGYjUByHolHM2T7Ur2dAejh2foft4B3PzEPBt3BRWgdNFWeAciwQuyONqguYvEkPrPZGHDfG5L7q7zx8jUYOcrKecUp2h_rLaOYWEwN_TJhADEhQX_8b3ny9a-8Ss9RWXxE2cpgjUd4AEWXV-IEn9lw0qcZ_50t3Cmtb7nr0pPelgdNGavRPBQXNjtoLueGZn1rzwkC3c3Zfk_FmkI9FhqU-8edC9et6fY8I"/>
+</div>
+<span class="text-xs font-semibold">Tasnima Khan</span>
+</div>
+</div>
+</div>
+<!-- Reason & Evidence -->
+<div class="lg:col-span-5 space-y-3">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container text-[10px] font-bold uppercase tracking-tighter">Damaged Item</span>
+<span class="text-xs font-medium text-on-surface-variant">Escrow Status: <span class="text-secondary font-bold">Funds Locked</span></span>
+</div>
+<p class="text-sm text-on-surface italic leading-relaxed">"The glass face has a small crack on the bottom edge. It arrived like this in the box. I'd like a replacement or refund."</p>
+<div class="flex gap-2">
+<div class="relative w-16 h-16 rounded-md overflow-hidden bg-surface-container cursor-pointer group/img">
+<img alt="Damage Evidence" class="w-full h-full object-cover group-hover/img:scale-110 transition-transform" data-alt="macro photograph showing a hairline fracture on the glass surface of a watch face under bright light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXZUbY6KhMNU98WSPYjjMYEf6v3JSh_VDHRuK-xkLeCQdtEE34GJFnMnThvcA13L1nHIP7A4yN--xSOyLSr_oRmKT0kG6pKXerjYEqyeyrLn2S5ELzFClgjrIpJuekI_vcKzX3UTp3inmmjHjbGAcp-P85I4kL6pjCDEh_n9rBRPV_F0SE2UradxX4ejy9LcBwjR4lYTms0bBbdwYHQ6Dqb4vD5FRYxYbutS3Pwvpkbaf9_PV7ZerS4S9dSXoeP1ll6UoYHX52Hig"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-sm">zoom_in</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="lg:col-span-3 flex lg:flex-col justify-center gap-2">
+<button class="w-full bg-primary text-on-primary py-2 rounded-lg font-bold text-sm shadow-sm hover:opacity-90 transition-all">Approve Return</button>
+<button class="w-full bg-surface-container-high text-primary py-2 rounded-lg font-bold text-sm hover:bg-surface-container-highest transition-all">Message Customer</button>
+<button class="w-full bg-transparent text-error py-2 rounded-lg font-bold text-sm hover:bg-error-container/10 transition-all">Reject Request</button>
+</div>
+</div>
+</div>
+<!-- Request Item 3 -->
+<div class="p-6 opacity-60 bg-surface-container-low">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Product & Customer -->
+<div class="lg:col-span-4 flex gap-4">
+<div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container grayscale">
+<img alt="Black Headphones" class="w-full h-full object-cover" data-alt="modern black over-ear headphones sitting on a wooden desk with soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwMhGdk3zhHc6nf_rqDy6zGhmELQ_go1ZkRwmu3H9chkcQZ-joJleyJCpP_ouYBeUDB1C_80PmcVNi3lM7r9TV2AXnVlanbQ4i8zV0DTbx37m5K4G3m8vtjx0WsOOlZOvJLiwXWNe7hb02cSEWJPQEtOvnIzTi6z3t1xK-cwLryUWg5Ccon7n4ngXH9712l0N7zVETdLv7ibluN3cOpB7TBms2a2zcSR9HSAPDkFmACl9j7WvBIA62O0BzrdOn3M6aWFXKJAPpaso"/>
+</div>
+<div>
+<h3 class="font-bold text-on-surface leading-tight">Acoustic Pro X1</h3>
+<p class="text-xs text-on-surface-variant mt-1">Order #UN-977612 • 4 days ago</p>
+<div class="mt-3 flex items-center gap-2">
+<div class="w-6 h-6 rounded-full overflow-hidden bg-surface-container-high"></div>
+<span class="text-xs font-semibold">S.M. Farhan</span>
+</div>
+</div>
+</div>
+<!-- Reason & Evidence -->
+<div class="lg:col-span-5 space-y-3">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant text-[10px] font-bold uppercase tracking-tighter">Resolved</span>
+<span class="text-xs font-medium text-on-surface-variant">Escrow Status: <span class="text-primary font-bold">Released to Seller</span></span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Request rejected by merchant after verifying serial number mismatch. Escrow funds released after 48h mediation window.</p>
+</div>
+<!-- Actions -->
+<div class="lg:col-span-3 flex lg:flex-col justify-center gap-2">
+<button class="w-full bg-surface-container text-on-surface-variant py-2 rounded-lg font-bold text-sm cursor-not-allowed" disabled="">Case Closed</button>
+<button class="w-full bg-transparent text-primary py-2 rounded-lg font-bold text-sm hover:bg-primary/5 transition-all underline decoration-dashed">View Dispute History</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="bg-surface-container-lowest px-6 py-4 flex items-center justify-between border-t border-outline-variant/10">
+<span class="text-xs font-medium text-on-surface-variant">Showing 3 of 12 requests</span>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+<button class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold">1</button>
+<button class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center text-xs font-bold hover:bg-surface-container-high transition-colors">2</button>
+<button class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+</div>
+</section>
+<!-- Escrow Policy Widget -->
+<section class="bg-surface-container-low p-8 rounded-2xl flex flex-col md:flex-row gap-8 items-center border border-primary/10">
+<div class="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+</div>
+<div class="flex-1 space-y-2">
+<h2 class="text-xl font-bold text-on-surface">Escrow Protection Rules</h2>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                        Funds for these orders are currently held in UniMart’s secure escrow. Once a return is approved, funds are automatically queued for refund. If rejected, the customer has 48 hours to raise a dispute before funds are released to your merchant account.
+                    </p>
+</div>
+<button class="px-6 py-3 border border-primary rounded-full text-primary font-bold text-sm hover:bg-primary/5 transition-all whitespace-nowrap">
+                    View Policy Details
+                </button>
+</section>
+</main>
+</div>
+<!-- Mobile Navigation Bar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full glass-effect z-50 flex justify-around items-center px-4 py-3 border-t border-outline-variant/10">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold">Dashboard</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<span class="text-[10px] font-bold">Orders</span>
+</button>
+<div class="relative -top-6">
+<button class="w-14 h-14 bg-gradient-to-tr from-primary to-primary-container text-on-primary rounded-full shadow-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">add</span>
+</button>
+</div>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-[10px] font-bold">Products</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px] font-bold">Profile</span>
+</button>
+</nav>
+</body></html>

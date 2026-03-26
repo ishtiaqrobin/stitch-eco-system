@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Flash Deal Application | UniMart Seller Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#191c1d",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "secondary": "#ad3219",
+              "on-primary-container": "#ffffff",
+              "surface-tint": "#005bc0",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#ff6d4e",
+              "surface-variant": "#e1e3e4",
+              "on-secondary-fixed": "#3e0500",
+              "on-primary-fixed-variant": "#004493",
+              "inverse-surface": "#2e3132",
+              "secondary-fixed": "#ffdad3",
+              "surface-container-highest": "#e1e3e4",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed-dim": "#adc7ff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "primary-container": "#1a73e8",
+              "inverse-primary": "#adc7ff",
+              "surface-container-high": "#e7e8e9",
+              "on-primary-fixed": "#001a41",
+              "primary": "#005bbf",
+              "tertiary-fixed": "#d8e2ff",
+              "on-error-container": "#93000a",
+              "outline-variant": "#c1c6d6",
+              "on-error": "#ffffff",
+              "surface-bright": "#f8f9fa",
+              "surface-container": "#edeeef",
+              "surface": "#f8f9fa",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-tertiary-container": "#ffffff",
+              "error": "#ba1a1a",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-container-low": "#f3f4f5",
+              "on-background": "#191c1d",
+              "tertiary-container": "#0872ed",
+              "on-primary": "#ffffff",
+              "tertiary": "#005abf",
+              "on-secondary-container": "#680f00",
+              "surface-dim": "#d9dadb",
+              "on-tertiary-fixed": "#001a41",
+              "on-surface-variant": "#414754",
+              "on-tertiary-fixed-variant": "#004493",
+              "primary-fixed": "#d8ff",
+              "background": "#f8f9fa",
+              "outline": "#727785"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(248, 249, 250, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #191c1d;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-surface">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 flex items-center justify-between px-6 py-3 w-full bg-white dark:bg-slate-900 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold text-blue-700 dark:text-blue-400 tracking-tight">UniMart Seller Studio</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded" href="#">Overview</a>
+<a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700 px-3 py-1" href="#">Campaigns</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded" href="#">Shop Management</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-highest border-none rounded-full text-sm w-64 focus:ring-2 focus:ring-primary/40" placeholder="Search events..." type="text"/>
+</div>
+<button class="p-2 text-on-surface-variant hover:bg-slate-50 rounded-full transition-colors"><span class="material-symbols-outlined" data-icon="notifications">notifications</span></button>
+<button class="p-2 text-on-surface-variant hover:bg-slate-50 rounded-full transition-colors"><span class="material-symbols-outlined" data-icon="help">help</span></button>
+<div class="h-8 w-8 rounded-full bg-primary-container overflow-hidden">
+<img alt="Merchant Profile Avatar" data-alt="professional male merchant profile portrait in studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3UTmfcXzAVofeSiW4-Ni0PEnsOEA27ADJ8BxIgTUBSXrCpmdMZxCHQgzmVR-6SsZKmpMYmuKkDqAfh0XjkxrngAITAqR8dzrE8hxtlAl81wXQ2NE8zgmLILxeJgYXvo2KNKvsIFIDxD4WbHf0G3-HnkwP470YZMC6dO3rNEetGWz8h3nRjcyX6sPpt4GfewivwnHPjwyiOktWBCY0oWglhaApLcef7MHSdVGMPsqYd3qM96j3anOiKJlxwEraxRtEveuicN5nlgQ"/>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-[60px] h-full w-64 bg-slate-50 dark:bg-slate-950 flex flex-col p-4 z-40 border-r border-slate-100">
+<div class="flex items-center gap-3 px-2 mb-8">
+<div class="h-10 w-10 bg-white dark:bg-slate-800 rounded-lg flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary" data-icon="store">store</span>
+</div>
+<div>
+<div class="text-sm font-black text-slate-900 dark:text-white">Official Store</div>
+<div class="text-xs text-slate-500">Verified Merchant</div>
+</div>
+</div>
+<nav class="space-y-1 flex-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-400 rounded-lg shadow-sm font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+<span class="text-sm font-medium">Campaigns</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-sm font-medium">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+</nav>
+<div class="pt-4 mt-4 border-t border-slate-200">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-error rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 p-8 bg-surface">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 text-sm text-on-surface-variant mb-6">
+<span>Campaigns</span>
+<span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+<span>Flash Deals</span>
+<span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+<span class="font-semibold text-primary">Apply for Event</span>
+</div>
+<!-- Header Section -->
+<div class="mb-10">
+<h1 class="text-4xl font-extrabold tracking-tight mb-2">Campaign Flash Deal Application</h1>
+<p class="text-on-surface-variant max-w-2xl">Elevate your store visibility. Submit your top-performing products for the upcoming "Baisakhi Mega Sale" Flash Deal slots.</p>
+</div>
+<div class="bento-grid">
+<!-- Status & Requirement Sidebar (Left) -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Requirements Card -->
+<section class="bg-surface-container-lowest rounded-xl p-6">
+<h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="verified">verified</span>
+                            Submission Criteria
+                        </h3>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary text-sm mt-1" data-icon="check_circle">check_circle</span>
+<div>
+<p class="text-sm font-bold">Minimum Discount</p>
+<p class="text-xs text-on-surface-variant">Products must be at least 15% off regular price.</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary text-sm mt-1" data-icon="check_circle">check_circle</span>
+<div>
+<p class="text-sm font-bold">Stock Availability</p>
+<p class="text-xs text-on-surface-variant">Minimum 50 units committed for the slot.</p>
+</div>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary text-sm mt-1" data-icon="check_circle">check_circle</span>
+<div>
+<p class="text-sm font-bold">Seller Rating</p>
+<p class="text-xs text-on-surface-variant">Maintain a store rating of 4.2+ to qualify.</p>
+</div>
+</li>
+</ul>
+</section>
+<!-- Active Application Status -->
+<section class="bg-primary-container text-on-primary-container rounded-xl p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-lg font-bold">Application Status</h3>
+<p class="text-xs opacity-80">Ref: UNM-FD-2024-001</p>
+</div>
+<span class="bg-white/20 px-3 py-1 rounded-full text-xs font-bold">Under Review</span>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-sm">
+<span>Products Submitted</span>
+<span class="font-bold">12 Items</span>
+</div>
+<div class="w-full bg-white/20 h-1.5 rounded-full overflow-hidden">
+<div class="bg-white h-full" style="width: 65%"></div>
+</div>
+<p class="text-xs opacity-80">Approval expected within 24 hours.</p>
+</div>
+</section>
+</div>
+<!-- Main Form Area (Right) -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<form class="space-y-6">
+<!-- Step 1: Campaign Event Selection -->
+<div class="bg-surface-container-lowest rounded-xl p-8">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold">1. Select Event &amp; Slot</h2>
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Required</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<label class="relative flex flex-col p-4 border-2 border-primary rounded-xl cursor-pointer bg-primary/5">
+<input checked="" class="absolute top-4 right-4 text-primary focus:ring-primary" name="event" type="radio"/>
+<span class="text-sm font-bold text-primary mb-1">Morning Surge</span>
+<span class="text-lg font-bold">09:00 AM - 12:00 PM</span>
+<span class="text-xs text-on-surface-variant mt-2">April 14, 2024</span>
+<span class="mt-3 text-xs font-bold text-secondary">High Traffic Window</span>
+</label>
+<label class="relative flex flex-col p-4 border-2 border-transparent bg-surface-container rounded-xl cursor-pointer hover:bg-surface-container-high transition-colors">
+<input class="absolute top-4 right-4 text-primary focus:ring-primary" name="event" type="radio"/>
+<span class="text-sm font-bold mb-1">Night Owls</span>
+<span class="text-lg font-bold">09:00 PM - 11:59 PM</span>
+<span class="text-xs text-on-surface-variant mt-2">April 14, 2024</span>
+<span class="mt-3 text-xs font-bold text-on-surface-variant">Moderate Traffic</span>
+</label>
+</div>
+</div>
+<!-- Step 2: Product Selection Bento -->
+<div class="bg-surface-container-lowest rounded-xl p-8">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold">2. Nominate Products</h2>
+<button class="text-primary text-sm font-bold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-base" data-icon="add">add</span>
+                                    Browse Inventory
+                                </button>
+</div>
+<div class="space-y-4">
+<!-- Product Row 1 -->
+<div class="group flex items-center gap-4 p-4 bg-surface rounded-lg hover:bg-surface-container transition-all">
+<div class="h-16 w-16 rounded-lg overflow-hidden flex-shrink-0">
+<img class="h-full w-full object-cover" data-alt="vibrant red athletic sneaker on clean studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOf1kCuQh6P6ES177DfMAFyCVetW65H0ILdKx9Hoz0wxwbOMOzpcje4NBryNukASdtT0pNoB1IJjMIIgcf6kcKZbVYM_PcxsbZEgCaTQnBVmEdFRBmq7XdAwpI2N8kffDP4qkF1C9Q6Ea942qaaR0E7EmB7mVYe-DobRlgUiOMss2rrSPsHOdii6Uf84WKgbJQEVjNaa3JJkEWvVzXiZadBU6ZQOVN3fE_YS8eeGYJXeG_hwiN-XWKn62yBemhTg9zKrtdbET-hq8"/>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-bold text-sm truncate">SpeedStride Pro Runner</h4>
+<div class="flex gap-4 mt-1">
+<span class="text-xs text-on-surface-variant">Base: ৳4,500</span>
+<span class="text-xs font-bold text-secondary">Deal: ৳3,825 (-15%)</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<input class="w-20 bg-white border-none text-xs rounded-md focus:ring-primary py-1" placeholder="Qty" type="number" value="100"/>
+<button class="text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<!-- Product Row 2 -->
+<div class="group flex items-center gap-4 p-4 bg-surface rounded-lg hover:bg-surface-container transition-all">
+<div class="h-16 w-16 rounded-lg overflow-hidden flex-shrink-0">
+<img class="h-full w-full object-cover" data-alt="minimalist white wristwatch with silver details on marble surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQrAYM8A8sxzj-fwtEtazkeJtHRBVRLzm4Qu9TeZC0OBXpzkvWxiyjmCBqmBNtC2i00uLpoc1L7W84N-5YZe_FDYWOOh2Y_8sA-EhXi1xoPezjNdMjlqCmkgLlNFjzfwTtTkM51K2w9pYJAC0zicdL4lSSdfK6h5gL-omIcNOnyTfcWji1Oe4EI5gim0y5dXk6HGrnx2zKnGlWDA-2u6XWvJhEhjnUiM8RtZq3QGUJ9vIaGZ_mUByCRq69Applrcd8V1bQsqhmbho"/>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-bold text-sm truncate">Elegance Minimalist Watch</h4>
+<div class="flex gap-4 mt-1">
+<span class="text-xs text-on-surface-variant">Base: ৳2,200</span>
+<span class="text-xs font-bold text-secondary">Deal: ৳1,650 (-25%)</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<input class="w-20 bg-white border-none text-xs rounded-md focus:ring-primary py-1" placeholder="Qty" type="number" value="50"/>
+<button class="text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Empty State Nominee Slot -->
+<div class="mt-4 border-2 border-dashed border-outline-variant rounded-xl p-8 flex flex-col items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-3xl mb-2" data-icon="cloud_upload">cloud_upload</span>
+<p class="text-sm font-medium">Click to add more products</p>
+<p class="text-xs">Up to 10 products per flash slot</p>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="flex items-center justify-between pt-6 border-t border-surface-container-high">
+<button class="px-6 py-3 text-sm font-bold text-on-surface-variant hover:bg-surface-container rounded-full transition-colors" type="button">
+                                Save as Draft
+                            </button>
+<button class="px-10 py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-full font-bold shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all" type="submit">
+                                Submit for Review
+                            </button>
+</div>
+</form>
+</div>
+</div>
+<!-- Recent Applications / Tracking -->
+<section class="mt-16">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-2xl font-bold">Past Applications</h2>
+<a class="text-primary font-bold text-sm" href="#">View Archive</a>
+</div>
+<div class="bg-surface-container-low rounded-2xl overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="text-xs font-black text-on-surface-variant uppercase tracking-widest">
+<th class="px-8 py-4">Campaign Name</th>
+<th class="px-8 py-4">Date &amp; Slot</th>
+<th class="px-8 py-4">Items</th>
+<th class="px-8 py-4">Performance</th>
+<th class="px-8 py-4">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-8 py-6 font-bold">Eid Ul Fitr Rush</td>
+<td class="px-8 py-6 text-sm text-on-surface-variant">Mar 15 • 12:00 PM</td>
+<td class="px-8 py-6 text-sm">08 Items</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-1 text-primary text-sm font-bold">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+                                        ৳124,500
+                                    </div>
+</td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Completed</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="px-8 py-6 font-bold">Winter Clearance</td>
+<td class="px-8 py-6 text-sm text-on-surface-variant">Jan 05 • 06:00 PM</td>
+<td class="px-8 py-6 text-sm">15 Items</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-1 text-primary text-sm font-bold">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+                                        ৳82,300
+                                    </div>
+</td>
+<td class="px-8 py-6">
+<span class="inline-flex items-center px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Completed</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+</div>
+<!-- Responsive Bottom Nav (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-surface-container py-3 px-6 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" data-icon="campaign" data-weight="fill">campaign</span>
+<span class="text-[10px] font-bold">Flash</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-[10px] font-bold">Stock</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-bold">Account</span>
+</button>
+</nav>
+</body></html>

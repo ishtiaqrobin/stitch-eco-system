@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f3f4f5",
+              "secondary-container": "#ff6d4e",
+              "primary-fixed": "#d8e2ff",
+              "on-surface": "#191c1d",
+              "surface-container-highest": "#e1e3e4",
+              "surface-container-high": "#e7e8e9",
+              "surface": "#f8f9fa",
+              "error": "#ba1a1a",
+              "background": "#f8f9fa",
+              "on-primary-fixed": "#001a41",
+              "outline": "#727785",
+              "on-secondary-fixed": "#3e0500",
+              "on-secondary-container": "#680f00",
+              "error-container": "#ffdad6",
+              "outline-variant": "#c1c6d6",
+              "on-primary-container": "#ffffff",
+              "inverse-primary": "#adc7ff",
+              "surface-container": "#edeeef",
+              "primary-fixed-dim": "#adc7ff",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed": "#001a41",
+              "inverse-surface": "#2e3132",
+              "on-tertiary-fixed-variant": "#004493",
+              "inverse-on-surface": "#f0f1f2",
+              "tertiary-container": "#0872ed",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "on-surface-variant": "#414754",
+              "on-background": "#191c1d",
+              "on-tertiary-container": "#ffffff",
+              "tertiary-fixed-dim": "#adc6ff",
+              "tertiary": "#005abf",
+              "surface-dim": "#d9dadb",
+              "primary": "#005bbf",
+              "tertiary-fixed": "#d8e2ff",
+              "secondary": "#ad3219",
+              "on-secondary": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "on-primary-fixed-variant": "#004493",
+              "surface-bright": "#f8f9fa",
+              "secondary-fixed": "#ffdad3",
+              "primary-container": "#1a73e8",
+              "surface-variant": "#e1e3e4",
+              "surface-tint": "#005bc0",
+              "secondary-fixed-dim": "#ffb4a4",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; color: #191c1d; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(248, 249, 250, 0.7); backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="bg-surface font-body">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 h-16 border-b border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 z-50 shadow-sm">
+<div class="flex items-center gap-4">
+<span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">UniMart Admin</span>
+<div class="hidden md:flex items-center ml-8 bg-surface-container-low px-3 py-1.5 rounded-full">
+<span class="material-symbols-outlined text-outline mr-2 text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-64" placeholder="Search listings..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-50 rounded-full transition-colors text-slate-500">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-50 rounded-full transition-colors text-slate-500">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-fixed overflow-hidden">
+<img alt="Admin Profile Menu" data-alt="professional headshot of a smiling male administrative professional in a bright studio environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiGMesLMbPOnwlk0IkPpNgT7b18Zl5Mn7JbW5XettkU5c396LJm0ODSQKQN-HDQsW8M5b8QjZ93hy8bSiLs_vs0lwLDOY19eDLuv_0vv4egBQ92d7mQ8jAJHtRGbVmSpTMOZwatI7g_gie5xmWT3-oKZePLeqGTAH3oXmYaisXRavRJDPDhknqUI4Kx0-URDDuLKOCxrxKC1Auem63h89WqfR0ICkvnz6SAywCIhgZF2Y1_WZ02116AmENJuPwzRvWo64tsdKLEjU"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 pt-20 pb-6 px-4 flex flex-col gap-2 overflow-y-auto bg-slate-50 dark:bg-slate-950 border-r border-outline-variant/15 z-40">
+<div class="mb-6 px-4">
+<h2 class="text-lg font-bold text-blue-600">Admin Central</h2>
+<p class="text-xs text-slate-500">Management Suite</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium">User Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-900 text-blue-600 rounded-lg shadow-sm font-medium" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-medium">Moderation</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-medium">Operations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">layers</span>
+<span class="font-medium">Platform</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-medium">Finance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium">System</span>
+</a>
+</nav>
+<div class="mt-auto px-4">
+<button class="w-full py-2.5 bg-primary text-white rounded-full font-semibold text-sm shadow-md hover:opacity-90 transition-opacity">
+                Export Reports
+            </button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="pl-64 pt-20 p-8 min-h-screen">
+<div class="max-w-7xl mx-auto">
+<!-- Page Header -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+<div>
+<h1 class="text-3xl font-extrabold tracking-tight text-on-surface">C2C Listing Approval</h1>
+<p class="text-on-surface-variant mt-1">Review and verify consumer-to-consumer used item listings.</p>
+</div>
+<div class="flex gap-3">
+<div class="bg-surface-container-lowest px-4 py-2 rounded-xl shadow-sm border border-outline-variant/10 flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">warning</span>
+<div>
+<p class="text-[10px] uppercase tracking-wider font-bold text-outline">Expiring Soon</p>
+<p class="text-lg font-bold">12 Items</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest px-4 py-2 rounded-xl shadow-sm border border-outline-variant/10 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<div>
+<p class="text-[10px] uppercase tracking-wider font-bold text-outline">Active Limit</p>
+<p class="text-lg font-bold">842/1000</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Layout Grid -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Queue List (Bento Section) -->
+<div class="col-span-12 lg:col-span-7 flex flex-col gap-6">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="p-6 border-b border-surface-container">
+<h3 class="font-bold text-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">list_alt</span>
+                                Pending Approval Queue
+                            </h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low text-xs font-bold text-outline uppercase tracking-wider">
+<tr>
+<th class="px-6 py-4">Item</th>
+<th class="px-6 py-4">Condition</th>
+<th class="px-6 py-4">Seller</th>
+<th class="px-6 py-4">Price</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4 text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr class="hover:bg-surface-container-low/50 transition-colors group cursor-pointer bg-surface-container-high/20">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest overflow-hidden">
+<img alt="Headphones" data-alt="close-up of premium black over-ear headphones on a clean white surface with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGmUf_tR2Thj0XtPhZueaGgXSKLRdF7lzsb3JWGBFDhH-bT8x42vTUe6NwALgaekFxrAUZUI4fs6FcYFQn5DOa1r5olKrMbPoCB2B26ERA846gqqJY7J4upbLEijbdFcKSFqcUaouPSUVZeO7c7JBmun4Ahm4e9lzDq2NVn8Wv4-koGqS_dtEgmV_n8VHCfRk5NEFU8q6GsECAaeOMjL5GPXDoM1cS_ICgJaZ171gwscgvCTiZHxhu2TlNisKZWyIq_U7rlt4dZ2E"/>
+</div>
+<span class="font-semibold text-sm">Sony WH-1000XM4</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">
+<span class="px-2 py-1 bg-primary-fixed text-on-primary-fixed rounded text-[10px] font-bold">LIKE NEW</span>
+</td>
+<td class="px-6 py-4 text-sm font-medium">Arif Ahmed</td>
+<td class="px-6 py-4 text-sm font-bold text-primary">৳18,500</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5 text-secondary text-[10px] font-bold">
+<span class="material-symbols-outlined text-sm">new_releases</span>
+                                                URGENT
+                                            </div>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors group cursor-pointer">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest overflow-hidden">
+<img alt="Watch" data-alt="minimalist wrist watch with brown leather strap and white dial on a warm wooden background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtpyhy0pA808bRefUznNC4RBFq7eX3meIIlqfCQFDuLFKeG5HmF-q-Jb4O3nmbcQc4WUQWSppsR42oCqUrcmT3gzIVKhPV9lMc3WMdUS3Olhj2-ayYMHwd_90PHe0LdSGOq_O9bDRFUQyMR2TFgcvVKWojhRXFAC8I9JekouplH1fGeeA7k9JSzAJmrqw-wKxEnZDpQfXDuhLnw5gP-imBUcy475vKEljNH7h4X2S3E6ljwJpephlDK6pcA_0LFTtLaQkqQUJXwHE"/>
+</div>
+<span class="font-semibold text-sm">Fossil Heritage Watch</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">
+<span class="px-2 py-1 bg-surface-container-highest text-on-surface-variant rounded text-[10px] font-bold uppercase">Good</span>
+</td>
+<td class="px-6 py-4 text-sm font-medium">Nusrat Jahan</td>
+<td class="px-6 py-4 text-sm font-bold text-primary">৳5,200</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5 text-outline text-[10px] font-bold">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                                                PENDING
+                                            </div>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors group cursor-pointer">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest overflow-hidden">
+<img alt="Laptop" data-alt="sleek modern laptop partially closed on a glass desk with reflection and ambient blue lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8hH2HkUPanMFqtI_oVYiagOyvuN8tdTsl5N0fxG2HgKDzsSeR4hyzXTDMWDSWVRnU1vvJPG6Dg7OtTc34M3eDP9awixfgBXB1Cb2sHDpjKScP7gn03vO8Lwo0t3UBA6QTHGUZa_FfTj9_pltvfQ1VLULkjEkb1UgkMNg0yE9HZiEERxQqHyc3_ug2BXmxsm4EJywW4vZOEA4zmYOAPDAKJErSq9jP28coTvo-Gm1y8EBelgVHNhwO6rVcKRkRKf3uSi2517V6XnU"/>
+</div>
+<span class="font-semibold text-sm">Dell XPS 13 (2021)</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm">
+<span class="px-2 py-1 bg-surface-container-highest text-on-surface-variant rounded text-[10px] font-bold uppercase">Fair</span>
+</td>
+<td class="px-6 py-4 text-sm font-medium">Tanvir Hasan</td>
+<td class="px-6 py-4 text-sm font-bold text-primary">৳45,000</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5 text-outline text-[10px] font-bold">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                                                PENDING
+                                            </div>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">chevron_right</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Spam & Risk Indicators -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-error-container/20 p-5 rounded-xl border border-error/10">
+<h4 class="text-error font-bold text-xs uppercase tracking-widest mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">shield</span>
+                                Spam Risk: High
+                            </h4>
+<div class="space-y-3">
+<div class="flex justify-between items-center bg-white/50 p-2 rounded-lg">
+<span class="text-xs font-medium">Keyword Match</span>
+<span class="px-2 py-0.5 bg-error text-white text-[10px] rounded-full font-bold">BANNED_WORDS</span>
+</div>
+<div class="flex justify-between items-center bg-white/50 p-2 rounded-lg">
+<span class="text-xs font-medium">Image Duplicate</span>
+<span class="px-2 py-0.5 bg-secondary text-white text-[10px] rounded-full font-bold">92% MATCH</span>
+</div>
+</div>
+</div>
+<div class="bg-primary-container/5 p-5 rounded-xl border border-primary/10">
+<h4 class="text-primary font-bold text-xs uppercase tracking-widest mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+                                Seller Reputation
+                            </h4>
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<div class="h-2 flex-1 bg-surface-container rounded-full overflow-hidden">
+<div class="w-4/5 h-full bg-primary"></div>
+</div>
+<span class="text-[10px] font-bold">8.4/10</span>
+</div>
+<p class="text-[10px] text-on-surface-variant italic">"Reliable seller with 14 successful deliveries in last 3 months."</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Approval Tool (Editor Style) -->
+<div class="col-span-12 lg:col-span-5">
+<div class="bg-surface-container-lowest rounded-xl shadow-lg border border-primary/5 flex flex-col sticky top-24">
+<div class="p-6 bg-gradient-to-br from-primary to-primary-container text-white rounded-t-xl">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-1 bg-white/20 backdrop-blur-md rounded text-[10px] font-bold tracking-tighter uppercase">Verification Tool v4.0</span>
+<span class="material-symbols-outlined text-white/60">info</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Sony WH-1000XM4 Review</h2>
+<p class="text-white/80 text-sm mt-1">Submitted by Arif Ahmed • Dhaka, BD</p>
+</div>
+<div class="p-6 space-y-6 max-h-[calc(100vh-250px)] overflow-y-auto">
+<!-- Item Photos -->
+<section>
+<label class="text-[10px] font-extrabold uppercase tracking-widest text-outline block mb-3">Item Photos (4)</label>
+<div class="grid grid-cols-2 gap-3">
+<div class="aspect-square rounded-lg bg-surface-container overflow-hidden group relative">
+<img alt="Front View" class="w-full h-full object-cover" data-alt="close-up of premium black over-ear headphones on a clean white surface with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEHngxNX8cMPUMfAFb8mfOu_R11j4lb9Mp-0rN7hZLla4mVyWzCY4X8lWk86YtKnD2MtT-rKex_p5ewhoF2ECUsfyQGshR54Hj4bQbQRkdkq0K2N9RtFMqap9JolNn-vptjCNGgaXnpdt3OksCKgmOZeMwJAKhUN4DFOVwU_Hd06g2ZFsZxHC749QIsMDr3dDX4HkcXlMbpf4QwRvFi4Ew3rLoJho2rQrr-X8hozg01UgYKOOlJ-Nt5RMM5tS1PQwARNOnX8K1rgE"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white">zoom_in</span>
+</div>
+</div>
+<div class="aspect-square rounded-lg bg-surface-container overflow-hidden group relative">
+<img alt="Cushion View" class="w-full h-full object-cover" data-alt="extreme close up of soft black leather headphone ear cushions showing detailed texture and minor wear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtpCdQxhREjfs9xYtrd95D_HKOqv1LQ4teQltYLmTDiSTjPdIRV_n-7B8xjZl7ZWTnwu-4X9GvIniwFSnXHYgMmzYK7pnBf5oN_UoVIl6sa4TbbFMFPiIBlPpVoh4exNHf6muDECt1hKQ5SlVeXLLmxqhlnpZ8FW7xyE74inF8Yds1mB-JOIwFwoSMTav2hkVGKEWbBuJ5nXOTl5nrgJqSnW7JEDvmtLcU1dPqvuX0BvNGqy2lhaiFyjMOhBERwOl-4npsWaBhxBY"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white">zoom_in</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Verification Stats -->
+<section class="bg-surface-container-low p-4 rounded-xl space-y-4">
+<div>
+<label class="text-[10px] font-extrabold uppercase tracking-widest text-outline block mb-1">UniMart Purchase History</label>
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+<span class="text-sm">Verified Original Purchase (Nov 2022)</span>
+</div>
+</div>
+<div class="h-px bg-outline-variant/30"></div>
+<div>
+<label class="text-[10px] font-extrabold uppercase tracking-widest text-outline block mb-1">Condition Description</label>
+<p class="text-sm leading-relaxed text-on-surface-variant">
+                                        "Barely used, mostly stayed in its carrying case. No scratches on the body. Selling because I upgraded to the XM5."
+                                    </p>
+</div>
+</section>
+<!-- Actions -->
+<section class="space-y-3">
+<button class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform">
+<span class="material-symbols-outlined">verified</span>
+                                    Approve Listing
+                                </button>
+<div class="grid grid-cols-2 gap-3">
+<button class="py-3 px-4 bg-surface-container-high text-on-surface-variant rounded-xl font-bold text-xs hover:bg-surface-container-highest transition-colors flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+                                        Request Photos
+                                    </button>
+<button class="py-3 px-4 bg-surface-container-high text-on-surface-variant rounded-xl font-bold text-xs hover:bg-surface-container-highest transition-colors flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-sm">block</span>
+                                        Reject (Spam)
+                                    </button>
+</div>
+<button class="w-full py-3 border border-error/20 text-error rounded-xl font-bold text-xs hover:bg-error-container/10 transition-colors">
+                                    Reject (Prohibited Item)
+                                </button>
+</section>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Meta -->
+<footer class="mt-12 pt-8 border-t border-surface-container-high flex flex-col md:flex-row justify-between items-center text-[11px] text-outline font-medium tracking-wide">
+<div class="flex items-center gap-6">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary"></span> 14 Operators Online</span>
+<span>Average Review Time: 4.2m</span>
+</div>
+<div class="mt-4 md:mt-0">
+                    © 2024 UNIMART C2C MODERATION ENGINE. ALL RIGHTS RESERVED.
+                </div>
+</footer>
+</div>
+</main>
+<!-- Navigation Shadow/Tonal Separation for Mobile -->
+<div class="md:hidden fixed bottom-0 w-full h-16 bg-surface-container-lowest shadow-[0_-4px_20px_rgba(0,0,0,0.05)] z-50 flex items-center justify-around px-6">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="material-symbols-outlined text-outline">group</span>
+<span class="material-symbols-outlined text-outline">gavel</span>
+<span class="material-symbols-outlined text-outline">inventory_2</span>
+<span class="material-symbols-outlined text-outline">settings</span>
+</div>
+</body></html>

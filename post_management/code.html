@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#191c1d",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "secondary": "#ad3219",
+              "on-primary-container": "#ffffff",
+              "surface-tint": "#005bc0",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#ff6d4e",
+              "surface-variant": "#e1e3e4",
+              "on-secondary-fixed": "#3e0500",
+              "on-primary-fixed-variant": "#004493",
+              "inverse-surface": "#2e3132",
+              "secondary-fixed": "#ffdad3",
+              "surface-container-highest": "#e1e3e4",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed-dim": "#adc7ff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "primary-container": "#1a73e8",
+              "inverse-primary": "#adc7ff",
+              "surface-container-high": "#e7e8e9",
+              "on-primary-fixed": "#001a41",
+              "primary": "#005bbf",
+              "tertiary-fixed": "#d8e2ff",
+              "on-error-container": "#93000a",
+              "outline-variant": "#c1c6d6",
+              "on-error": "#ffffff",
+              "surface-bright": "#f8f9fa",
+              "surface-container": "#edeeef",
+              "surface": "#f8f9fa",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-tertiary-container": "#ffffff",
+              "error": "#ba1a1a",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-container-low": "#f3f4f5",
+              "on-background": "#191c1d",
+              "tertiary-container": "#0872ed",
+              "on-primary": "#ffffff",
+              "tertiary": "#005abf",
+              "on-secondary-container": "#680f00",
+              "surface-dim": "#d9dadb",
+              "on-tertiary-fixed": "#001a41",
+              "on-surface-variant": "#414754",
+              "on-tertiary-fixed-variant": "#004493",
+              "primary-fixed": "#d8e2ff",
+              "background": "#f8f9fa",
+              "outline": "#727785"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(248, 249, 250, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen">
+<!-- SideNavBar (Authority Source: JSON) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-4 z-40 bg-slate-50 dark:bg-slate-950 h-screen w-64 border-r border-transparent">
+<div class="mb-8 px-2 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+</div>
+<div>
+<h2 class="text-lg font-black text-slate-900 dark:text-white leading-none">Official Store</h2>
+<span class="text-xs text-slate-500 font-medium">Verified Merchant</span>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium Inter">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-sm font-medium Inter">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-400 rounded-lg shadow-sm font-bold scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-sm font-medium Inter">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="warehouse">warehouse</span>
+<span class="text-sm font-medium Inter">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="text-sm font-medium Inter">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-sm font-medium Inter">Payments</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 flex flex-col gap-1">
+<button class="mb-4 w-full bg-primary hover:bg-primary-container text-white py-3 px-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-md">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                Add New Product
+            </button>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm font-medium Inter">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-error hover:bg-error-container/20 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-sm font-medium Inter">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-64 min-h-screen flex flex-col">
+<!-- TopAppBar (Authority Source: JSON) -->
+<header class="sticky top-0 z-50 flex items-center justify-between px-6 py-3 w-full bg-white dark:bg-slate-900 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-4">
+<span class="text-xl font-extrabold text-blue-700 dark:text-blue-400 tracking-tight font-headline">UniMart Seller Studio</span>
+</div>
+<div class="flex items-center gap-6">
+<!-- Search on Right Logic -->
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-full text-sm w-64 focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search posts or products..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden ml-2 border-2 border-primary/20">
+<img alt="Merchant Profile Avatar" class="w-full h-full object-cover" data-alt="professional portrait of a confident south asian business owner in a modern studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYfo17DpXny_84Ddg5SZExbWXAV2ch30KYIirltJ-l4GDWNrXcbDTN-kKGjo0P0siFFErBfViL8JNriVgArJU3AD9rwYUPEYVfs86QNkNiUvGQOmfNTDc1e0gaPnIz9SEOgl1ftWJaJblfvKa8J8psDROib9-Aeh9ND3Wmbir0k7lWmXWfNCFAbAklEu3qDTh7ff7mIG6ylgNEB-4hdC41ehmsFpLAS0oeRNgCbISLXef1df42QHj0DgLab8Kzd9h0TmTll1f6Rd0"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Canvas -->
+<section class="p-8 max-w-7xl mx-auto w-full space-y-12">
+<!-- Editorial Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<span class="text-xs font-bold tracking-widest text-primary uppercase">Editorial Studio</span>
+<h1 class="text-4xl font-extrabold font-headline text-on-surface tracking-tight">Social Post Management</h1>
+<p class="text-on-surface-variant max-w-lg leading-relaxed">Manage your shop's storytelling moments. Boost engagement and track how your content converts into product clicks.</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-surface-container-high text-primary px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-primary/5 transition-all">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+                        Filter Feed
+                    </button>
+<button class="bg-gradient-to-br from-primary to-primary-container text-white px-8 py-3 rounded-full font-bold flex items-center gap-2 shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                        Create New Post
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Stats Section -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="md:col-span-2 p-8 rounded-xl bg-surface-container-lowest flex flex-col justify-between overflow-hidden relative">
+<div class="relative z-10">
+<span class="text-sm font-medium text-on-surface-variant">Global Reach</span>
+<h3 class="text-4xl font-extrabold mt-1">124.8K</h3>
+<div class="mt-4 flex items-center gap-2 text-emerald-600 text-sm font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+                            +12% vs last month
+                        </div>
+</div>
+<div class="absolute right-[-20px] bottom-[-20px] opacity-10">
+<span class="material-symbols-outlined text-9xl" data-icon="language">language</span>
+</div>
+</div>
+<div class="p-8 rounded-xl bg-secondary-fixed text-on-secondary-fixed flex flex-col justify-between">
+<div>
+<span class="text-sm font-medium opacity-80">Conversion Rate</span>
+<h3 class="text-4xl font-extrabold mt-1">4.2%</h3>
+</div>
+<div class="mt-4 p-2 bg-on-secondary-fixed/5 rounded-lg">
+<div class="h-1 w-full bg-on-secondary-fixed/20 rounded-full">
+<div class="h-full w-2/3 bg-on-secondary-fixed rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="p-8 rounded-xl bg-surface-container-low flex flex-col justify-between border-transparent">
+<div>
+<span class="text-sm font-medium text-on-surface-variant">Product Clicks</span>
+<h3 class="text-4xl font-extrabold mt-1 text-primary">8.9K</h3>
+</div>
+<span class="text-xs text-on-surface-variant mt-4 font-label">Direct attribution from social</span>
+</div>
+</div>
+<!-- Posts List (Asymmetric Layout) -->
+<div class="space-y-8">
+<h2 class="text-2xl font-bold font-headline flex items-center gap-3">
+<span class="w-8 h-[2px] bg-secondary"></span>
+                    Published Content
+                </h2>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<!-- Post Card 1: Featured Asymmetry -->
+<div class="lg:col-span-7 group">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500">
+<div class="grid grid-cols-1 md:grid-cols-2">
+<div class="relative h-80 md:h-auto overflow-hidden">
+<img alt="New Silk Collection" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="close-up of elegant emerald green bangladeshi silk fabric with intricate gold embroidery and soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdBzarYewSXSQA5LCXc-SXMjw1JA5YdjGZ7Xc9eH--O2sNqn0TTHsi1hbVuV_CM3QT3zTq9og4nu1lBcSTGPJJLApOuTUdhhT-5MTpTRm2zwuwfjRoMO3P1x8cN8B57TP-0W4nTmQrHXXznYZsAog3zPV5cumFJhzDK67NEgqTeTLCXDxGzCVwxkzPo46503NBojcCdcvfcHCdI5KzgBwxmPZgEUr0Nroh7_eKHjlQbS7tMdE7mmyoNSZIWwd5dOkug8qNi-S_h7E"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest text-primary shadow-sm">Promoted</span>
+</div>
+</div>
+<div class="p-8 flex flex-col">
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-medium text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="schedule">schedule</span>
+                                            Published 2h ago
+                                        </span>
+<button class="text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+<h3 class="text-xl font-bold font-headline mb-3 leading-tight">The Heritage Silk Collection: A Journey Through Weaves</h3>
+<p class="text-sm text-on-surface-variant line-clamp-3 mb-6 leading-relaxed">Introducing our latest hand-loomed collection from Rajshahi. Every thread tells a story of tradition and timeless elegance...</p>
+<!-- Post Stats -->
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="p-3 bg-surface-container-low rounded-lg">
+<span class="text-[10px] uppercase font-bold text-on-surface-variant">Likes</span>
+<p class="text-lg font-bold">1,240</p>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg">
+<span class="text-[10px] uppercase font-bold text-on-surface-variant">Shares</span>
+<p class="text-lg font-bold">84</p>
+</div>
+</div>
+<div class="mt-auto flex items-center gap-3">
+<button class="flex-1 bg-surface-container-high text-on-surface-variant py-2 rounded-full font-bold text-sm hover:bg-surface-variant transition-colors">Edit Post</button>
+<button class="flex-1 bg-primary text-white py-2 rounded-full font-bold text-sm hover:opacity-90 transition-opacity">Boost</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Post Card 2: Vertical Stack -->
+<div class="lg:col-span-5 flex flex-col gap-10">
+<!-- Small Post 1 -->
+<div class="flex gap-6 group">
+<div class="w-32 h-32 rounded-lg overflow-hidden shrink-0">
+<img alt="Flash Sale Sneaker" class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="vibrant red athletic sneakers hanging from a neon sign in a dark urban environment with soft bokeh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPsHpmr9bkTPQ5-URdfAge7H0EkRCVkvQ1cecoW0yGDkkFvSU8OM4d0YpkkJW9NZ1pE-4pO1IEtUTLpPbqkCfGq_81tAqQPWh95ZgjQuknoW2TiC4ch1GWA-wsjsKrZ54oTfB2SEvMd9lB6pdFRWe-QWgkJLpApDSIAsUpGeQuPHB18aPDLbnMyKGw4f0c_VXknDdCUCCfX1MFwwf47gVD8YBYvWOsYLAlFrUg8UqOvJNLvkGzL5Qm-wnyo-urpUiWu5cv6mDGHro"/>
+</div>
+<div class="flex-1 flex flex-col justify-between py-1">
+<div>
+<h4 class="font-bold text-on-surface line-clamp-1">Midnight Run: Flash Sale Preview</h4>
+<p class="text-xs text-on-surface-variant mt-1">2.4k Clicks • 430 Comments</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-xs font-bold text-primary px-3 py-1 rounded-full bg-primary/10">Analyze</button>
+<button class="text-xs font-bold text-error px-3 py-1 rounded-full bg-error/10">Archive</button>
+</div>
+</div>
+</div>
+<!-- Small Post 2 -->
+<div class="flex gap-6 group">
+<div class="w-32 h-32 rounded-lg overflow-hidden shrink-0">
+<img alt="New Launch" class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="minimalist aesthetic photo of a designer chair in a bright airy studio with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVtE2u_w3HwH0OVseSD3vpE4CuTNP8eLEnEoxbyTQRzs7gUa21jdkvvIb3trBvZMSu7LSao4cHVXjgDPG1H5nQSk6lrrF_pdYH7XxXcBsK-9sXpjWiO93MTAaFMAt0B4uRPAvhjNmCvcgzPB68fgPgWLnGNSgGhtsheEopoymFAIU3OzPg36LeLc5yw4D4DqxtzKRmCgtUlDzgUJlU4lxHBBPomQxgU0lzOA12d72QnW3pW-L412oulYnutxn53EN109_FY0eTlm0"/>
+</div>
+<div class="flex-1 flex flex-col justify-between py-1">
+<div>
+<h4 class="font-bold text-on-surface line-clamp-1">Comfort Redefined: Office Essentials</h4>
+<p class="text-xs text-on-surface-variant mt-1">890 Clicks • 12 Shares</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-xs font-bold text-primary px-3 py-1 rounded-full bg-primary/10">Analyze</button>
+<button class="text-xs font-bold text-on-surface-variant px-3 py-1 rounded-full bg-surface-container-high">Edit</button>
+</div>
+</div>
+</div>
+<!-- Small Post 3 -->
+<div class="flex gap-6 group">
+<div class="w-32 h-32 rounded-lg overflow-hidden shrink-0">
+<img alt="Audio Gadgets" class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="close-up of premium wireless headphones on a wooden desk with a vintage camera in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5XUXz0nSqC5subwPtmAba8x0Uw-pAU_t_D-amOBtNu9MyLRXsFGnAivQ-bkHXnJQ3cpxUzx65I_m9IMUJIfCGM9OnZBeTmxQydVDo_01Tt95ukudEs_d3mk1QuTHltXHA6U-DlX0YSFWYKWYMoADUqzggW3VtuefW7LLIFLbfabnC8AzDNfI2OpqqojVul3FXvfzO1SxXZBllaRpxfTU_g5nh-chcqPRIv8gBUonV_vSf0af88H8yEKT4o2nqIR1wDEHHlzyCt4I"/>
+</div>
+<div class="flex-1 flex flex-col justify-between py-1">
+<div>
+<h4 class="font-bold text-on-surface line-clamp-1">Audio Masterclass Series</h4>
+<p class="text-xs text-on-surface-variant mt-1">5.1k Clicks • 1.2k Likes</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-xs font-bold text-primary px-3 py-1 rounded-full bg-primary/10">Analyze</button>
+<button class="text-xs font-bold text-on-surface-variant px-3 py-1 rounded-full bg-surface-container-high">Edit</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tonal Section: Recommendation & Insights -->
+<div class="bg-surface-container-low rounded-2xl p-10 flex flex-col md:flex-row items-center gap-10">
+<div class="md:w-1/3 text-center md:text-left">
+<div class="w-16 h-16 bg-secondary-fixed rounded-2xl flex items-center justify-center text-secondary mb-6 mx-auto md:mx-0">
+<span class="material-symbols-outlined text-3xl" data-icon="lightbulb">lightbulb</span>
+</div>
+<h2 class="text-2xl font-bold font-headline mb-4">Content Strategy Tip</h2>
+<p class="text-on-surface-variant leading-relaxed">Your "Behind the Scenes" posts have 40% higher engagement than pure product shots. Try posting a video of your packaging process!</p>
+</div>
+<div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="p-6 bg-surface-container-lowest rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="schedule">schedule</span>
+<span class="text-sm font-bold">Best Time to Post</span>
+</div>
+<p class="text-2xl font-black">7:30 PM</p>
+<p class="text-xs text-on-surface-variant mt-1">Dhaka Standard Time</p>
+</div>
+<div class="p-6 bg-surface-container-lowest rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-sm font-bold">High-Performing Tag</span>
+</div>
+<p class="text-2xl font-black">#Handmade</p>
+<p class="text-xs text-on-surface-variant mt-1">Used in 8 of top 10 posts</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Space -->
+<footer class="mt-auto py-12 px-8 border-t border-transparent text-center">
+<p class="text-on-surface-variant text-sm font-medium">© 2024 UniMart Seller Studio • Bengal Pulse Design System</p>
+</footer>
+</main>
+<!-- Contextual Floating Action Button -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+</body></html>

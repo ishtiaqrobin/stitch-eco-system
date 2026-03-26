@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Followed Sellers | UniMart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-primary": "#adc7ff",
+                        "on-secondary-fixed": "#3e0500",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-variant": "#e1e3e4",
+                        "background": "#f8f9fa",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "on-surface-variant": "#414754",
+                        "on-background": "#191c1d",
+                        "on-primary-container": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "on-tertiary-fixed": "#001a41",
+                        "tertiary": "#005abf",
+                        "surface-tint": "#005bc0",
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary": "#ad3219",
+                        "inverse-surface": "#2e3132",
+                        "primary": "#005bbf",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#d8e2ff",
+                        "secondary-container": "#ff6d4e",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed": "#001a41",
+                        "surface": "#f8f9fa",
+                        "tertiary-container": "#0872ed",
+                        "on-tertiary-container": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f8f9fa",
+                        "error": "#ba1a1a",
+                        "primary-container": "#1a73e8",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#680f00",
+                        "on-secondary-fixed-variant": "#8b1a02",
+                        "outline": "#727785",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "primary-fixed-dim": "#adc7ff",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#ffdad3",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-primary-fixed-variant": "#004493",
+                        "outline-variant": "#c1c6d6",
+                        "surface-container-high": "#e7e8e9"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-black text-blue-700 tracking-tighter">UniMart</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-slate-600 font-medium hover:text-blue-600 transition-colors" href="#">Feed</a>
+<a class="text-blue-700 font-bold border-b-2 border-blue-600" href="#">Marketplace</a>
+<a class="text-slate-600 font-medium hover:text-blue-600 transition-colors" href="#">Sell</a>
+</nav>
+<div class="flex items-center space-x-5">
+<div class="hidden sm:flex items-center bg-surface-container-low px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-slate-400 text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 font-medium" placeholder="Search sellers..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">shopping_cart</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">notifications</button>
+<div class="h-8 w-8 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="close-up portrait of a smiling young professional man with short dark hair in a clean studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCEgT7Hs1lDqGMMtj7bhpf8YIkxoKg4hUbKQROw6H2a1bKUSVmc3zZ8B1kbTTOK_IrcFZWgtTBsNqZyPaW-1w1frRScluxLnUPeKCFUpwesO3K9_BZ7elfFutWKGF6dLnADUzfl96kOuY6Q2CAVaxhQEEbsxm2EjL9MIzzZNTIqZewL8NRom_1xE6oYKgoMRvK76uYVClefgENfRzMCelhY1eCjb6a7_o1ZkCOwn5XK48fJw6cDunmcV2t3WAekYt9t6J15c0HQgQ"/>
+</div>
+</div>
+</div>
+</header>
+<div class="max-w-7xl mx-auto flex pt-20">
+<!-- Side Navigation Bar -->
+<aside class="hidden lg:flex flex-col h-screen sticky top-20 p-4 space-y-2 w-64">
+<div class="px-4 py-6 mb-4 bg-surface-container-low rounded-2xl">
+<p class="text-xs font-bold uppercase tracking-widest text-outline mb-1">Welcome back</p>
+<p class="text-lg font-bold text-on-surface">Verified Member</p>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center space-x-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">dynamic_feed</span>
+<span class="font-manrope font-semibold text-sm">Feed</span>
+</a>
+<a class="flex items-center space-x-3 bg-blue-50 text-blue-700 rounded-xl px-4 py-3" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="font-manrope font-semibold text-sm">Marketplace</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-manrope font-semibold text-sm">Wallet</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">package_2</span>
+<span class="font-manrope font-semibold text-sm">Orders</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-manrope font-semibold text-sm">Wishlist</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-manrope font-semibold text-sm">Sell Item</span>
+</a>
+</nav>
+<div class="pt-8 space-y-1">
+<a class="flex items-center space-x-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-manrope font-semibold text-sm">Settings</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="font-manrope font-semibold text-sm">Help Center</span>
+</a>
+</div>
+<button class="mt-auto w-full py-4 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold shadow-lg shadow-primary/20 scale-95 active:scale-90 duration-200">
+                Post New Listing
+            </button>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 px-6 py-8">
+<header class="mb-12">
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2">Followed Sellers</h1>
+<p class="text-on-surface-variant font-medium">Curating the best of Bengal's artisans and entrepreneurs.</p>
+</header>
+<!-- Bento Grid of Sellers -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- Seller Card 1: Large Featured -->
+<article class="md:col-span-2 bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col md:flex-row shadow-sm hover:shadow-md transition-shadow group">
+<div class="md:w-1/2 relative h-64 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="close up of vibrant hand-woven Dhakai Jamdani silk saree with intricate floral patterns and gold embroidery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsxYfBwdHFU77J6uh-5eG2Hk4V7IE3HepPS_YezMaklkCncd0hCU1IO5_tn2sk726DnKl5SEkRj5eGiVhJjl7IvvHmHNsgKS6pcjspot93Akz7Kqkc8oSJEtQt3CfGQNnJEaeXxY7JUrZVBA2uMWwMNZ6KGLlpCDgoLrsFrBtWgumh6Huc27-NdW6WdanpOfboSGx5mJLxys1z_Yiq7T9Nc278gavrX8R6pY1YrNF51_Zj4uxAhB6GvUHdNHhlGYCfGtUmBA7kUjI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-end items-end p-6">
+<span class="bg-secondary text-on-secondary text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">New Collection</span>
+</div>
+</div>
+<div class="p-8 md:w-1/2 flex flex-col justify-between">
+<div>
+<div class="flex items-center space-x-3 mb-4">
+<div class="w-12 h-12 rounded-full border-2 border-primary-fixed p-0.5">
+<img class="w-full h-full rounded-full object-cover" data-alt="professional portrait of a confident woman entrepreneur in formal attire with a soft office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbfJAzKACIZZh583Jqm-RuOs6I4mokj_5cikFKthrA32k4UgjDwdPufkviGmrL3Xv3hBYfWOvYw42D_d31vwpCjpbo3LiySAi5IYt6_qv7gEstWYQh3M5ubO16yirY7tQwyI4x_VwwIq9DbJkzm7OlXV2FPPz6qWBb23y-OAdqQB8qhsPUsYYkiU6a_lfXRtek1FahsFud5m5igpG5ZFDpNuMVXgPJVOWmdGKahKC08CSN83MNAnVkH8rI2Y_RV5z159DlVKgHa3U"/>
+</div>
+<div>
+<h3 class="text-xl font-bold">Aarong Artisans</h3>
+<p class="text-xs text-on-surface-variant font-medium">Dhaka, Bangladesh • 4.9 ★</p>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Traditional hand-loomed textiles meets modern editorial silhouettes. Explore our latest monsoon weave.</p>
+<div class="grid grid-cols-3 gap-2">
+<div class="aspect-square rounded-lg bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="detail of indigo dyed fabric with traditional block print patterns in soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_QXxFO_3cWuoDC3G8eWSOUwH_jhcymYQobVFg-gDjoy0yU5urFtdeHEPlVZWlo02TIATpM-u4Md_xIfMrEgtj06q_8r47LWnYBLM27QfgqQQg4N4S5ZHO1lWfFCbuLwnNu9TVTWBU82307UyhcB0Fni7Ru--zAHtRFbVVlIZKy01oOI_MhyndRk7rqt0arFF0jbuv9Y2-4UnCCcbCome5tf_vD2LB4SBH6sTcqs81fQhryzje4ncM_dexIMjKcNtzjvkIopn4O_M"/>
+</div>
+<div class="aspect-square rounded-lg bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="folded stack of high quality cotton textiles in earth tones on a rustic wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgW_Xe9BDWEhS2kcdLCTRcf58xJSUJuC72mpzPxV7XIJv4NDVcz7Fs2T3MptFIltNAAxt6bpm3Cdvlr8k_sVYWo9jdL6knpCcqZENVUg7j1b-Cb3e-ry-YOKtVxlL3nHDkyG9qqEuYZ88fStG3Zy9rfZMN99gEzkfbEziD7xXvRZsHcskzOHWv-omfnu17ajn4j8QJqMXQbIW2M7m6X1hLsctgh1KL0HtsrdND-lFi8L9Kndggy7HS0V1qH4efqDdDZm1NYpOCM7w"/>
+</div>
+<div class="aspect-square rounded-lg bg-surface-container flex items-center justify-center text-primary font-bold text-sm">
+                                    +12
+                                </div>
+</div>
+</div>
+<div class="mt-8 flex space-x-3">
+<button class="flex-1 py-3 rounded-full bg-primary text-on-primary font-bold text-sm">Shop Store</button>
+<button class="p-3 rounded-full bg-surface-container-high text-primary"><span class="material-symbols-outlined">share</span></button>
+</div>
+</div>
+</article>
+<!-- Seller Card 2: Medium Content -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all p-6 border-b-4 border-secondary/20">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed flex items-center justify-center font-bold text-tertiary">SP</div>
+<div>
+<h3 class="font-bold">Spice Palette</h3>
+<p class="text-xs text-on-surface-variant">Organic Spices • Sylhet</p>
+</div>
+</div>
+<button class="text-secondary"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span></button>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container-low rounded-xl p-4 flex items-center space-x-4">
+<div class="w-16 h-16 rounded-lg bg-white shadow-sm overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="heaping piles of colorful ground spices including turmeric and chili on textured dark stone surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG_2xgWjGh5_p-bYITWhnMOCF-fZdetnXK1TcvFy9hMVD7HtG5_FfRBZkwCkeTUhB6J7LkSNXIHbGdfvah9L3t2ZsSYLRKe4lsogNWbSFYDdnX_f3MBCr4Ue1haRi3A7FQWyN2ThPp7xixnXsfpkWuR6wFowsefV2u4WLOox5dZUWU2QvjaZX2YOJpswZ-qD-gj4fsApSzkeCUZVO00weuq8XgvpwTfR5dwf1roi0iV6EMyCB1G1VPgDa3RDNNVnFWakTGEAk-Vmo"/>
+</div>
+<div>
+<p class="text-sm font-bold">Premium Turmeric</p>
+<p class="text-xs text-secondary font-bold">৳ 450.00</p>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 flex items-center space-x-4">
+<div class="w-16 h-16 rounded-lg bg-white shadow-sm overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="vibrant green cardamom pods in a shallow wooden bowl under soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiTJd13A4VdLAjRZo3yWlrPASKmJEMUqJIA2S3ej6zNNjdjunIlldcEDNmOhhVYKOoCBHfRHO7_5m7db75hMHzDRis3wgqmv5tro74BDQ6IH3EpaAl-D213sNE4kT8JiQqihPEaxfpK80NGrI8D2Hl8XGUZdjrpVUJFUVEw19jbV2eogTDOgdmfkpp3EjqCLKlmB2MhoM3ZtaPkrEIoYqesj0Mz01H8exHs7-v21j84WNlxkoCfA8zZBEoA9hMM3c1TYCNOJxxQi8"/>
+</div>
+<div>
+<p class="text-sm font-bold">Green Cardamom</p>
+<p class="text-xs text-secondary font-bold">৳ 890.00</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-3 rounded-full bg-surface-container-high text-primary font-bold text-sm">View Full Store</button>
+</article>
+<!-- Seller Card 3: Lifestyle/Editorial -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all group flex flex-col">
+<div class="h-48 relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="minimalist interior of a modern boutique with clean white walls and wooden shelves featuring ceramic pottery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZpjPuSgx6AISlruQRPjFn76HkkIurbiPwnBVZMrT_jlBN-gvswQH-GMS3qJFFJbsljbCC-k-Ll5T6bzO60ExulwFksPG1lwu6ndEbtg6yE8saQoECHQyH5TY1_LO1V2YR6MztDqkl7NVEN5HRVxfhQrOCwxLMGWGlav0Zp2vB6iyFbcvr_6GEDl5WFL1gwdgR1mzHr9BKqltIQmlMzGOsE-i4Iwe6OAimHk7-2vybIguY6RMneNcNVsrQIZrFON8--NwJrk2VL6w"/>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">Editor's Pick</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex items-center space-x-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="headshot of a creative professional man with glasses and a friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHAosE7PSnQVjN08QIfuEBuCg2isEOcE3I29GeiF-hhiTYGIk-zIbCWgJFA98SUnGeQ29e5SrYGE-Ale2yWhYMgY72iFI59XjLyJNuIOXd48TKTAQC1MAmqdcMdiDg_YJZX5WY-VT0xYT8WRamGvRJciR4noTsvZlTOPiYMZ9zGeC9B8P3qfA-APMuLjSskXSmS0tkwzKSJOXfwrte1sBJDcg1TqJSH-L9nIu6G-dG1ettiOgUA6Ai_t39k7IsgY0GbZu3KsCXgj8"/>
+</div>
+<h3 class="font-bold">Clay &amp; Co.</h3>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-6">Hand-thrown ceramics that tell the story of the riverbed. Each piece is unique and sustainably sourced.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-7 h-7 rounded-full border-2 border-white bg-slate-200"></div>
+<div class="w-7 h-7 rounded-full border-2 border-white bg-slate-300"></div>
+<div class="w-7 h-7 rounded-full border-2 border-white bg-slate-400"></div>
+</div>
+<span class="text-[10px] font-bold text-outline">1.2K FOLLOWING</span>
+</div>
+</div>
+</article>
+<!-- Seller Card 4: Small Feed Style -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm p-5 hover:scale-[1.02] transition-transform">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Live Auction</span>
+</div>
+<span class="text-[10px] font-medium text-outline">Ends in 2h</span>
+</div>
+<div class="flex items-center space-x-4 mb-5">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center font-bold text-primary">UR</div>
+<div>
+<h4 class="font-bold">Urban Relics</h4>
+<p class="text-xs text-on-surface-variant">Antique Jewelry • Khulna</p>
+</div>
+</div>
+<div class="aspect-video rounded-lg overflow-hidden mb-4">
+<img class="w-full h-full object-cover" data-alt="ornate silver traditional jewelry set with intricate filigree details against a soft velvet background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTkcHBBF8BRAFaLhZ_roxZ5XiLsEAyv93R_1Ft4wx9ko05odcdYQjuhPCVJmtYncr2glCguaFmbsu6f7CazryXQjD8HOttWe7tivxHVrbD1Lp2_nCV1xEcRtVNn152Hj09ZnfJzOvF23IsmPN0DGCOp3ie0va_yKnZBX73uDw4s6F4nbqPNoAHswuwEH_Jxx9zFS3GXCj-BFkL1ZL5WETXKKaBnzWr9zxB28PNp6zrV3DpVlBmDNW7W9QjGU-O3hp3PF88y5zaMsA"/>
+</div>
+<div class="flex justify-between items-center">
+<div>
+<p class="text-[10px] text-outline uppercase font-bold">Current Bid</p>
+<p class="font-bold text-primary text-lg">৳ 12,500</p>
+</div>
+<button class="px-6 py-2 rounded-full bg-secondary text-on-secondary text-xs font-bold uppercase tracking-widest">Bid Now</button>
+</div>
+</article>
+<!-- Seller Card 5: Grid/Bento Style -->
+<article class="md:col-span-1 xl:col-span-2 bg-surface-container-lowest rounded-xl p-8 flex flex-col md:flex-row gap-8 shadow-sm">
+<div class="md:w-1/3 space-y-4">
+<div class="flex items-center space-x-3">
+<div class="w-14 h-14 rounded-2xl bg-secondary-fixed flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="outdoor portrait of a smiling woman artisan with natural lighting and soft blurred trees background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5eEPnmDi_l0ehzuCdd0FhvnOdm2N44xGsHP65W9yReVB3x1O9-2XOLYs2c4NRb2CsBh4LogyE1-04mb6T1naAi7d2tX4lTvx0phgpp1tNSntlJX8HMil5-UvbpCgmXzrfTo_vS3LeKgfh6WhbU7N56YhFpWOi1HlKDW8du1qwmMHU3ZWi_haWyaPT7D7hKitotYAaEZXqelrdVCgm04SviJ2oIk1p06HuApW6oGE9e76OeldUzgrcsn8Rsqn8OxtQVt1n0UC0f0g"/>
+</div>
+<div>
+<h3 class="text-xl font-bold">Green Root</h3>
+<p class="text-sm text-secondary font-semibold">Eco-Friendly Living</p>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Sustainable alternatives for your daily routine. Crafting a greener future for Bangladesh.</p>
+<div class="flex space-x-2 pt-4">
+<span class="px-3 py-1 rounded-full bg-surface-container text-[10px] font-bold text-outline">RECYCLED</span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-[10px] font-bold text-outline">PLASTIC-FREE</span>
+</div>
+</div>
+<div class="md:w-2/3 grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low rounded-xl p-3 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-primary mb-2">package_2</span>
+<p class="text-xs font-bold">Ships Nationwide</p>
+</div>
+<div class="bg-surface-container-low rounded-xl p-3 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-primary mb-2">verified</span>
+<p class="text-xs font-bold">Eco-Certified</p>
+</div>
+<div class="col-span-2 relative rounded-xl overflow-hidden h-32">
+<img class="w-full h-full object-cover" data-alt="close-up of a small green seedling growing out of fertile dark soil in soft morning sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7anhUQ5ctAtvg-Pk_DOR3BOKsCsQ5kAPWFiOE-gKva_fPAw7XeDXTFT7VdhvmcO1aaDeD4DihORbwophXsLFJXE8T8vjLkO4bKuxJdogGTocdiGRstlYrgcjfVmFxZ6eabJz62MSPhi6gHBTOmJWQEcDZ211Z4b0SKn-nqXJdtVdanvuSNGqCZ16CzRqPcX2fYnh6Kn9X-Sl86qNnuvnTf3pPQjaJ0R-_xzlY1loN479xttzMYs_jHasY2GSUi-SWNIm80veUJ0I"/>
+<div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+<button class="bg-white/90 backdrop-blur-md text-primary px-6 py-2 rounded-full font-bold text-xs uppercase">Join Community</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Spacing footer -->
+<div class="h-24"></div>
+</main>
+</div>
+<!-- Bottom Navigation Bar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg rounded-t-3xl z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-blue-600 scale-110 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_mall</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Shop</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<div class="bg-primary text-on-primary p-3 rounded-full -mt-10 shadow-lg shadow-primary/30 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">add_box</span>
+</div>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Sell</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined">wallet</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

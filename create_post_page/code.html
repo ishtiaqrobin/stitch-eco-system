@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create Post | UniMart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#005bc0",
+              "on-primary": "#ffffff",
+              "outline": "#727785",
+              "error-container": "#ffdad6",
+              "primary": "#005bbf",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "inverse-primary": "#adc7ff",
+              "surface-container-low": "#f3f4f5",
+              "outline-variant": "#c1c6d6",
+              "tertiary": "#005abf",
+              "on-surface-variant": "#414754",
+              "on-secondary-container": "#680f00",
+              "surface-container": "#edeeef",
+              "primary-container": "#1a73e8",
+              "surface": "#f8f9fa",
+              "on-primary-fixed-variant": "#004493",
+              "primary-fixed": "#d8e2ff",
+              "on-tertiary-fixed-variant": "#004493",
+              "on-error-container": "#93000a",
+              "secondary": "#ad3219",
+              "on-error": "#ffffff",
+              "inverse-surface": "#2e3132",
+              "surface-container-highest": "#e1e3e4",
+              "tertiary-fixed": "#d8e2ff",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "on-secondary-fixed": "#3e0500",
+              "on-surface": "#191c1d",
+              "on-primary-fixed": "#001a41",
+              "surface-bright": "#f8f9fa",
+              "error": "#ba1a1a",
+              "surface-container-high": "#e7e8e9",
+              "inverse-on-surface": "#f0f1f2",
+              "secondary-fixed": "#ffdad3",
+              "secondary-container": "#ff6d4e",
+              "on-tertiary-container": "#ffffff",
+              "background": "#f8f9fa",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed-dim": "#adc7ff",
+              "on-tertiary-fixed": "#001a41",
+              "on-background": "#191c1d",
+              "tertiary-container": "#0872ed",
+              "surface-variant": "#e1e3e4",
+              "surface-dim": "#d9dadb",
+              "on-primary-container": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(248, 249, 250, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        h1, h2, h3 {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 mb-4 bg-[#f8f9fa] dark:bg-slate-950 z-50">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-black tracking-tight text-[#191c1d] dark:text-slate-100">UniMart</span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#191c1d] dark:text-slate-400 opacity-70 hover:bg-[#f3f4f5] dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded-lg" href="#">Home</a>
+<a class="text-[#191c1d] dark:text-slate-400 opacity-70 hover:bg-[#f3f4f5] dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded-lg" href="#">Explore</a>
+<a class="text-[#005bbf] font-bold border-b-2 border-[#005bbf] px-3 py-1" href="#">Create</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-[#f3f4f5] p-2 rounded-full transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-[#f3f4f5] p-2 rounded-full transition-colors">chat_bubble</button>
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="professional headshot of a young man with a friendly expression and clean-cut hair in a studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsyu8WuV2E5ocZ1b1Y5jot8dH4t0d0HZ7tKdH-LQwlmth73hQZ0nyANq08fubURIuJzeIkv-JlVLwFr_G0TL59sGxh19lRkMbtlrzqKY3S8WDSyuPu_JagUDTflY2f1E6I5l61DeT3oWLAEeNVYOic5mU-3IukeUnazPXh9JiqEGkgSvjHy_L3uvYHsts5zVIRe_K6QfYup7ecAVEUehkSH18Ox9DzCG6AYG-0iXvqM7Q7TEmIdZoY6XlcaIl2K7jC5vf1kuCln18"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-32 px-4 max-w-5xl mx-auto">
+<div class="mb-12">
+<h1 class="text-4xl font-extrabold tracking-tight mb-2">Create New Post</h1>
+<p class="text-on-surface-variant">Share your style and link your favorite products with the community.</p>
+</div>
+<!-- Bento Grid Layout for Creation Flow -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Media & Visuals (Bento Cell 1) -->
+<div class="lg:col-span-7 space-y-8">
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold">Media Upload</h2>
+<span class="text-xs font-semibold text-primary uppercase tracking-widest">Step 1</span>
+</div>
+<!-- Drag & Drop Area -->
+<div class="relative group cursor-pointer border-2 border-dashed border-outline-variant rounded-xl aspect-video flex flex-col items-center justify-center bg-surface-container-low hover:bg-surface-container transition-all duration-300">
+<div class="text-center p-8">
+<span class="material-symbols-outlined text-5xl text-primary mb-4 block" style="font-variation-settings: 'wght' 200;">cloud_upload</span>
+<p class="text-lg font-semibold mb-1">Drag and drop images or video</p>
+<p class="text-sm text-on-surface-variant">Recommended size: 1080x1350px (4:5)</p>
+<button class="mt-6 px-6 py-2.5 bg-surface-container-highest text-primary font-bold rounded-full hover:bg-surface-container-high transition-colors">Select from Computer</button>
+</div>
+</div>
+<div class="mt-6 grid grid-cols-4 gap-4">
+<!-- Preview Thumbnails -->
+<div class="aspect-square rounded-lg overflow-hidden bg-surface-container-low group relative">
+<img class="w-full h-full object-cover" data-alt="high-quality fashion photo of a beige linen shirt hanging on a minimalist wooden rack with soft natural sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkyod8ok6Gsv15Duyo5uOz8PmPRcB7GmsIUf6qxJAnYdUUQescus6kEQxShloF_1qar9DilVUOYNncti7oeiHzeO7qMYYBiAInbJmripAgS2Pch_lrDU4ZEaVuhZPKOhFReMcWUA9kL1D_58ArJMDX9MhmuuAlZCgdZJM03MrvHcKAaLWrwYV7j5qXItfSzy7HpscBSTe42PqTFi3EX0fq_k6n-D60XVSMCIqL-WUknLzQPPpVCrzm6N_h1-jh8tiWJlfPPv5N_SQ"/>
+<button class="absolute top-1 right-1 bg-surface/80 rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<div class="aspect-square rounded-lg border-2 border-dashed border-outline-variant flex items-center justify-center bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">add</span>
+</div>
+</div>
+</section>
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold">Tag Products</h2>
+<span class="text-xs font-semibold text-primary uppercase tracking-widest">Step 2</span>
+</div>
+<div class="relative mb-6">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-highest border-none rounded-xl focus:ring-2 focus:ring-primary/40 placeholder:text-outline transition-all" placeholder="Search UniMart marketplace..." type="text"/>
+</div>
+<!-- Search Results / Tagged List -->
+<div class="flex flex-wrap gap-3">
+<div class="flex items-center gap-2 bg-secondary-fixed text-on-secondary-fixed px-4 py-2 rounded-full">
+<span class="text-sm font-semibold">Premium Cotton Tee</span>
+<button class="material-symbols-outlined text-xs">close</button>
+</div>
+<div class="flex items-center gap-2 bg-secondary-fixed text-on-secondary-fixed px-4 py-2 rounded-full">
+<span class="text-sm font-semibold">Urban Chinos</span>
+<button class="material-symbols-outlined text-xs">close</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Context & Post Settings (Bento Cell 2) -->
+<div class="lg:col-span-5 space-y-8">
+<section class="bg-surface-container-lowest rounded-xl p-6 shadow-sm sticky top-28">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold">Post Details</h2>
+<span class="text-xs font-semibold text-primary uppercase tracking-widest">Step 3</span>
+</div>
+<div class="space-y-6">
+<!-- Caption Textarea -->
+<div>
+<label class="block text-sm font-bold mb-2 uppercase tracking-tighter text-on-surface-variant">Caption</label>
+<textarea class="w-full p-4 bg-surface-container-highest border-none rounded-xl focus:ring-2 focus:ring-primary/40 placeholder:text-outline resize-none transition-all" placeholder="What's the story behind this look?" rows="6"></textarea>
+<div class="flex justify-between mt-2">
+<span class="text-xs text-outline">Add #hashtags or @mentions</span>
+<span class="text-xs text-outline">0 / 2200</span>
+</div>
+</div>
+<!-- Privacy Settings -->
+<div>
+<label class="block text-sm font-bold mb-3 uppercase tracking-tighter text-on-surface-variant">Visibility</label>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-primary text-on-primary font-bold transition-transform active:scale-95">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">public</span>
+<span>Public</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-surface-container-high text-on-surface-variant font-bold hover:bg-surface-container-highest transition-transform active:scale-95">
+<span class="material-symbols-outlined text-sm">group</span>
+<span>Followers</span>
+</button>
+</div>
+</div>
+<!-- Location & Advanced -->
+<div class="space-y-4 pt-4">
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-low rounded-xl hover:bg-surface-container transition-colors group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span class="font-medium">Add Location</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-low rounded-xl hover:bg-surface-container transition-colors group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">settings</span>
+<span class="font-medium">Advanced Settings</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+<!-- Action Buttons -->
+<div class="pt-8 flex flex-col gap-3">
+<button class="w-full py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-full shadow-lg shadow-primary/20 transition-transform active:scale-95">
+                                Post to UniMart
+                            </button>
+<button class="w-full py-4 bg-surface-container-high text-primary font-bold rounded-full hover:bg-surface-container-highest transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                                Preview Post
+                            </button>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Shared Component) - Visible on Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#f8f9fa]/70 dark:bg-slate-900/70 backdrop-blur-xl z-50 shadow-[0_-8px_24px_rgba(25,28,29,0.04)]">
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider mt-1">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#005bbf] dark:text-blue-400 bg-[#ffffff] dark:bg-slate-800 rounded-full px-4 py-1 scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider mt-1">Create</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60">
+<span class="material-symbols-outlined">movie_filter</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider mt-1">Reels</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider mt-1">Profile</span>
+</div>
+</nav>
+<!-- Floating Preview Overlay (Hidden by Default) -->
+<!-- This section demonstrates the "Bengal Pulse" glassmorphism and editorial moment -->
+<div class="hidden fixed inset-0 z-[60] glass-panel flex items-center justify-center p-4">
+<div class="bg-surface-container-lowest max-w-md w-full rounded-2xl overflow-hidden shadow-2xl relative">
+<button class="absolute top-4 right-4 z-10 bg-on-surface/10 rounded-full p-2 hover:bg-on-surface/20 transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="aspect-[4/5]">
+<img class="w-full h-full object-cover" data-alt="clean product photography of a beige shirt in natural light with sharp details and soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2ESKNWEMymUK-m78X1Jvq6qx5AomUJv9l82TWAq3a43mTPA-ji27YtPlf-pGG1IhOtaKHPJzQ_E643fOdjEtTV89kGX_jvHgZTBdcmptVlII5OOE-kuvAVjkkFRuJajFgFDFtpDWXZR9pwh2eJI82YmmxIvz8DFW7KiQrKTyRzLGVbqNOsvydq_LPbD4e1tp9ohp59Nm7EITCidv1Ansa8IeFi3YYq1llBzGoFgPJ1EUI3EoSbtn9XhVh658mkWDc-PfQxdEx3VY"/>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-full bg-surface-container"></div>
+<span class="font-bold text-sm">username</span>
+</div>
+<p class="text-sm mb-6">Loving this new linen piece from the summer collection. #Style #SummerVibes</p>
+<div class="bg-surface-container-low p-4 rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-surface-container rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="close-up of textured linen fabric in a warm neutral beige tone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8NRCKDkiiyXApRWvDBJespDRRXeu-0UHJqx8DllEYlQSqeSVVEnX7k44LMbVn6JCMvgxp2Akle_Qp8RAhSn-lbLFhgy2dUfFhmnDi9HESmQyFLIJ-Mr6JmwaE4T_hQIq33mibV6_WMZ8UoymsqaQnXSF1FJJ10x71Dpg_Vns4khxt1zku2AYka65MLO0qkGajr4JLFWtIDcCcBn6w-MIS_xkbTtQ-ef0RGI-mY8gEXWfwMwSQ0vPmpa8mdibaL-DDBXtIBV9vHck"/>
+</div>
+<div>
+<p class="text-xs font-bold">Premium Cotton Tee</p>
+<p class="text-xs text-primary font-bold">৳1,200</p>
+</div>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-full text-xs font-bold">View Product</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

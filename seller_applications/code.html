@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Seller Applications | UniMart Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f3f4f5",
+              "secondary-container": "#ff6d4e",
+              "primary-fixed": "#d8e2ff",
+              "on-surface": "#191c1d",
+              "surface-container-highest": "#e1e3e4",
+              "surface-container-high": "#e7e8e9",
+              "surface": "#f8f9fa",
+              "error": "#ba1a1a",
+              "background": "#f8f9fa",
+              "on-primary-fixed": "#001a41",
+              "outline": "#727785",
+              "on-secondary-fixed": "#3e0500",
+              "on-secondary-container": "#680f00",
+              "error-container": "#ffdad6",
+              "outline-variant": "#c1c6d6",
+              "on-primary-container": "#ffffff",
+              "inverse-primary": "#adc7ff",
+              "surface-container": "#edeeef",
+              "primary-fixed-dim": "#adc7ff",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed": "#001a41",
+              "inverse-surface": "#2e3132",
+              "on-tertiary-fixed-variant": "#004493",
+              "inverse-on-surface": "#f0f1f2",
+              "tertiary-container": "#0872ed",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "on-surface-variant": "#414754",
+              "on-background": "#191c1d",
+              "on-tertiary-container": "#ffffff",
+              "tertiary-fixed-dim": "#adc6ff",
+              "tertiary": "#005abf",
+              "surface-dim": "#d9dadb",
+              "primary": "#005bbf",
+              "tertiary-fixed": "#d8e2ff",
+              "secondary": "#ad3219",
+              "on-secondary": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "on-primary-fixed-variant": "#004493",
+              "surface-bright": "#f8f9fa",
+              "secondary-fixed": "#ffdad3",
+              "primary-container": "#1a73e8",
+              "surface-variant": "#e1e3e4",
+              "surface-tint": "#005bc0",
+              "secondary-fixed-dim": "#ffb4a4",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      body { font-family: 'Inter', sans-serif; }
+      h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-effect {
+        backdrop-filter: blur(20px);
+        background-color: rgba(248, 249, 250, 0.7);
+      }
+      .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+      .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+      .custom-scrollbar::-webkit-scrollbar-thumb { background: #e1e3e4; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 h-16 border-b border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 z-50 shadow-sm">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">UniMart Admin</span>
+<div class="relative hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-surface-container rounded-full border-none focus:ring-2 focus:ring-primary w-64 text-sm" placeholder="Search applications..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-50 transition-colors rounded-full relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 transition-colors rounded-full">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden ml-2 ring-2 ring-primary-fixed">
+<img alt="Admin Profile Menu" class="w-full h-full object-cover" data-alt="Professional headshot of a corporate executive in a crisp blue shirt with a clean neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ7GoY7-ZxvmiJKzwsr9HbgNvhZIVu3f4bI3ysh3ED8KVd-VwVVgONzBCdk80RjusQSrxMUgC0efPUZESKOhVs41ZXTPhZaXe4-TE6k9ul2x9tDj7VseLM6GkTVWRLLBazVPFDnbiFpZmhkdwrrHqdq1OP4X5rFWYy_oZj82TcTpX_RQ9E66iGy3nfw__Zb8lq31STlyTEy3aG5yDkM4LAwvC9-17yeyGkALDSkUhYIpQHCBwnwlcdHIU5KThQd9-VFWESRFv_fwY"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 pt-20 pb-6 px-4 flex flex-col gap-2 overflow-y-auto bg-slate-50 dark:bg-slate-950 border-r border-outline-variant/15">
+<div class="mb-6 px-4">
+<h2 class="text-lg font-bold text-blue-600">Admin Central</h2>
+<p class="text-xs text-slate-500">Management Suite</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 rounded-lg shadow-sm font-medium" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium">User Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-medium">Moderation</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-medium">Operations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">layers</span>
+<span class="font-medium">Platform</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-medium">Finance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium">System</span>
+</a>
+</nav>
+<div class="mt-auto px-4">
+<button class="w-full py-2.5 bg-primary text-on-primary rounded-xl font-semibold shadow-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm">download</span>
+                Export Reports
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-20 p-8">
+<div class="max-w-7xl mx-auto">
+<!-- Header & Summary Stats -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
+<div>
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2">Seller Applications</h1>
+<p class="text-on-surface-variant max-w-lg">Review and verify new business sign-ups to maintain marketplace quality standards.</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-lowest px-6 py-4 rounded-xl shadow-sm border-l-4 border-primary">
+<span class="block text-xs font-bold text-outline uppercase tracking-widest mb-1">Pending</span>
+<span class="text-2xl font-black text-primary">12</span>
+</div>
+<div class="bg-surface-container-lowest px-6 py-4 rounded-xl shadow-sm border-l-4 border-tertiary">
+<span class="block text-xs font-bold text-outline uppercase tracking-widest mb-1">Under Review</span>
+<span class="text-2xl font-black text-tertiary">4</span>
+</div>
+<div class="bg-surface-container-lowest px-6 py-4 rounded-xl shadow-sm border-l-4 border-error">
+<span class="block text-xs font-bold text-outline uppercase tracking-widest mb-1">Rejected Today</span>
+<span class="text-2xl font-black text-error">2</span>
+</div>
+</div>
+</div>
+<!-- Main Split Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Queue List (Left Column) -->
+<div class="lg:col-span-5 space-y-4">
+<div class="flex items-center justify-between mb-4 px-2">
+<h3 class="font-bold text-lg">Pending Seller Onboarding</h3>
+<span class="text-xs font-medium text-primary px-2 py-1 bg-primary-fixed rounded">Newest First</span>
+</div>
+<!-- Application Card 1 (Active/Selected) -->
+<div class="bg-surface-container-lowest rounded-xl p-5 border-l-4 border-primary shadow-md ring-1 ring-primary/10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-bold text-on-surface text-lg">Dhaka Artisans Co.</h4>
+<p class="text-sm text-on-surface-variant">Applicant: Tanvir Ahmed</p>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed text-[10px] px-2 py-1 rounded-full font-bold uppercase">Active Review</span>
+</div>
+<div class="grid grid-cols-2 gap-4 text-xs mb-4">
+<div>
+<span class="text-outline block">Category</span>
+<span class="font-semibold">Handicrafts &amp; Decor</span>
+</div>
+<div>
+<span class="text-outline block">Apply Date</span>
+<span class="font-semibold">Oct 24, 2023</span>
+</div>
+</div>
+<div class="mb-4">
+<div class="flex justify-between text-[10px] font-bold mb-1 uppercase tracking-tight">
+<span class="text-outline">KYC Completion</span>
+<span class="text-primary">85%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[85%]"></div>
+</div>
+</div>
+<button class="w-full py-2 bg-primary text-on-primary rounded-lg font-semibold text-sm transition-transform active:scale-95">Reviewing Now</button>
+</div>
+<!-- Application Card 2 -->
+<div class="bg-surface-container-low hover:bg-surface-container-highest rounded-xl p-5 transition-all group cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-bold text-on-surface text-lg">Gazi Electronics</h4>
+<p class="text-sm text-on-surface-variant">Applicant: Fatima Begum</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 text-xs mb-4">
+<div>
+<span class="text-outline block">Category</span>
+<span class="font-semibold">Consumer Tech</span>
+</div>
+<div>
+<span class="text-outline block">Apply Date</span>
+<span class="font-semibold">Oct 23, 2023</span>
+</div>
+</div>
+<div class="mb-4">
+<div class="flex justify-between text-[10px] font-bold mb-1 uppercase tracking-tight">
+<span class="text-outline">KYC Completion</span>
+<span class="text-secondary">40%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full w-[40%]"></div>
+</div>
+</div>
+<button class="w-full py-2 border border-outline-variant text-primary rounded-lg font-semibold text-sm group-hover:bg-white transition-colors">Review Application</button>
+</div>
+<!-- Application Card 3 -->
+<div class="bg-surface-container-low hover:bg-surface-container-highest rounded-xl p-5 transition-all group cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-bold text-on-surface text-lg">Pure Bengal Honey</h4>
+<p class="text-sm text-on-surface-variant">Applicant: Rahul Sheikh</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 text-xs mb-4">
+<div>
+<span class="text-outline block">Category</span>
+<span class="font-semibold">Organic Food</span>
+</div>
+<div>
+<span class="text-outline block">Apply Date</span>
+<span class="font-semibold">Oct 23, 2023</span>
+</div>
+</div>
+<div class="mb-4">
+<div class="flex justify-between text-[10px] font-bold mb-1 uppercase tracking-tight">
+<span class="text-outline">KYC Completion</span>
+<span class="text-primary">100%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-full"></div>
+</div>
+</div>
+<button class="w-full py-2 border border-outline-variant text-primary rounded-lg font-semibold text-sm group-hover:bg-white transition-colors">Review Application</button>
+</div>
+</div>
+<!-- Review Section (Right Column) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-2xl shadow-xl overflow-hidden flex flex-col h-fit sticky top-24 border border-outline-variant/10">
+<!-- Detail Header -->
+<div class="p-8 pb-0 flex gap-6 items-start">
+<div class="h-24 w-24 rounded-2xl bg-surface-container-low flex-shrink-0 border-4 border-white shadow-sm overflow-hidden">
+<img alt="Shop Logo" class="w-full h-full object-cover" data-alt="Modern minimalist aesthetic logo design for an artisan brand with organic shapes and earth tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwHG89i8hn_PUFawwvIG5Byc-8-rWe4qptQlPzhnvndsyKH3Mku6cViW-rfV9poPP-QpwECP9Biw40ULuDOsnApowIl85vXa--q2itQSPwiZq88KT3aJrw9PkI_Qy8vI-bC4EFIKqYtDWICJUapitiYn4po0B57p0xpWHR_fF6F7KvBjq55EpHOg_UJzm8TpzvUMUoG7K9nphkATWJ4pC5GdHmTQH6X9pISdyoq2gz8tl6yn4-n178IV_aiLsry5kmYPXCSN6Rx30"/>
+</div>
+<div class="flex-1">
+<h2 class="text-3xl font-black text-on-surface mb-1">Dhaka Artisans Co.</h2>
+<p class="text-primary font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                Enterprise Level Application
+                            </p>
+<div class="mt-4 flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-xs font-medium text-on-surface-variant">Home Decor</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-xs font-medium text-on-surface-variant">Export Licensed</span>
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-xs font-medium text-on-surface-variant">Dhaka, BD</span>
+</div>
+</div>
+</div>
+<!-- Scrollable Content -->
+<div class="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Documents Column -->
+<div class="space-y-6">
+<div>
+<h3 class="text-xs font-bold text-outline uppercase tracking-widest mb-3">NID Scan (Front/Back)</h3>
+<div class="aspect-video bg-surface-container-high rounded-xl overflow-hidden relative group">
+<img alt="NID Scan" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform" data-alt="Close up of an official government identification card with blurred personal details to imply a secure document view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgp9yaZ1zOGaz0yROXKuM9khA2gA3SZs7ZeFXqbJErdoEAm6tqHrTdYpwju_aLjSN_OPcZprzBBDSaIScqwTDxqEIOr0yFFMcC3mV4MLtt0DdJnvE8luzMT2O-y9mZzMV2pADc5Lb4bpN2v4IRTdgqz4UjnYeokACjkppwZUgw6YSgoCQU6qzRNQmyT42QNxmJyH0aIoJ_0i0YsflfydgrXR_GTPAxLstAJNtEVpsvo0B3HIbs4iOlhtx-suspCTo9Xoa_0rbboF4"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-white font-bold flex items-center gap-2">
+<span class="material-symbols-outlined">zoom_in</span>
+                                            Enlarge
+                                        </button>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-xs font-bold text-outline uppercase tracking-widest mb-3">Trade License Document</h3>
+<div class="p-4 bg-surface-container rounded-xl border-2 border-dashed border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">description</span>
+<div>
+<p class="text-sm font-bold text-on-surface">TL_2023_DAC_88.pdf</p>
+<p class="text-[10px] text-on-surface-variant">Validated by Govt. Portal</p>
+</div>
+</div>
+<a class="text-primary text-xs font-bold underline hover:text-tertiary" href="#">View Original</a>
+</div>
+</div>
+</div>
+<!-- Bio Column -->
+<div class="space-y-6">
+<div>
+<h3 class="text-xs font-bold text-outline uppercase tracking-widest mb-3">Shop Bio</h3>
+<div class="bg-surface-container-low p-5 rounded-xl text-sm leading-relaxed text-on-surface-variant italic border-l-2 border-primary-container">
+                                    "We are a group of traditional weavers from the outskirts of Dhaka. Our goal is to bring authentic Jamdani and handcrafted home textiles to the global market. Every piece is woven with a legacy of 300 years. We focus on sustainable materials and fair wages for our artisans."
+                                </div>
+</div>
+<div class="grid grid-cols-1 gap-3">
+<h3 class="text-xs font-bold text-outline uppercase tracking-widest">Quick Review Checks</h3>
+<label class="flex items-center gap-3 p-3 bg-surface-container-low rounded-lg cursor-pointer hover:bg-surface-container">
+<input checked="" class="rounded text-primary focus:ring-primary w-5 h-5" type="checkbox"/>
+<span class="text-sm">Identity Matches Name</span>
+</label>
+<label class="flex items-center gap-3 p-3 bg-surface-container-low rounded-lg cursor-pointer hover:bg-surface-container">
+<input class="rounded text-primary focus:ring-primary w-5 h-5" type="checkbox"/>
+<span class="text-sm">License Is Valid/Active</span>
+</label>
+<label class="flex items-center gap-3 p-3 bg-surface-container-low rounded-lg cursor-pointer hover:bg-surface-container">
+<input class="rounded text-primary focus:ring-primary w-5 h-5" type="checkbox"/>
+<span class="text-sm">No Prohibited Content</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Actions Footer -->
+<div class="p-8 pt-4 bg-surface-container-low border-t border-outline-variant/10">
+<div class="flex flex-wrap gap-3">
+<button class="flex-1 min-w-[140px] py-4 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-lg transition-all active:scale-95">
+<span class="material-symbols-outlined">check_circle</span>
+                                Approve Seller
+                            </button>
+<button class="flex-1 min-w-[140px] py-4 bg-white text-on-surface border border-outline-variant rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-surface transition-all active:scale-95">
+<span class="material-symbols-outlined">help</span>
+                                Request More Info
+                            </button>
+</div>
+<div class="grid grid-cols-2 gap-3 mt-3">
+<button class="py-3 bg-error-container text-on-error-container rounded-xl text-xs font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-sm">folder_off</span>
+                                Reject (Missing Docs)
+                            </button>
+<button class="py-3 bg-error-container text-on-error-container rounded-xl text-xs font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-sm">block</span>
+                                Reject (Prohibited)
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Only for list level) -->
+<button class="fixed bottom-8 right-8 h-14 w-14 rounded-full bg-primary-container text-on-primary-container shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+</button>
+</body></html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notification Settings | UniMart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-primary": "#adc7ff",
+              "on-secondary-fixed": "#3e0500",
+              "on-primary": "#ffffff",
+              "surface-container-low": "#f3f4f5",
+              "surface-variant": "#e1e3e4",
+              "background": "#f8f9fa",
+              "secondary-fixed-dim": "#ffb4a4",
+              "on-surface-variant": "#414754",
+              "on-background": "#191c1d",
+              "on-primary-container": "#ffffff",
+              "surface-container": "#edeeef",
+              "on-tertiary-fixed": "#001a41",
+              "tertiary": "#005abf",
+              "surface-tint": "#005bc0",
+              "surface-container-highest": "#e1e3e4",
+              "secondary": "#ad3219",
+              "inverse-surface": "#2e3132",
+              "primary": "#005bbf",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#d8e2ff",
+              "secondary-container": "#ff6d4e",
+              "on-surface": "#191c1d",
+              "on-primary-fixed": "#001a41",
+              "surface": "#f8f9fa",
+              "tertiary-container": "#0872ed",
+              "on-tertiary-container": "#ffffff",
+              "surface-dim": "#d9dadb",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "surface-bright": "#f8f9fa",
+              "error": "#ba1a1a",
+              "primary-container": "#1a73e8",
+              "on-tertiary": "#ffffff",
+              "on-secondary-container": "#680f00",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "outline": "#727785",
+              "on-tertiary-fixed-variant": "#004493",
+              "tertiary-fixed-dim": "#adc6ff",
+              "primary-fixed-dim": "#adc7ff",
+              "on-error-container": "#93000a",
+              "secondary-fixed": "#ffdad3",
+              "inverse-on-surface": "#f0f1f2",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#d8e2ff",
+              "on-primary-fixed-variant": "#004493",
+              "outline-variant": "#c1c6d6",
+              "surface-container-high": "#e7e8e9"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .toggle-checkbox:checked {
+            right: 0;
+            background-color: #005bbf;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #d8e2ff;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #191c1d;
+        }
+        h1, h2, h3 {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-black text-blue-700 tracking-tighter">UniMart</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-slate-600 font-medium hover:text-blue-600 transition-colors" href="#">Feed</a>
+<a class="text-slate-600 font-medium hover:text-blue-600 transition-colors" href="#">Marketplace</a>
+<a class="text-blue-700 font-bold border-b-2 border-blue-600" href="#">Settings</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="shopping_cart">shopping_cart</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="account_circle">account_circle</button>
+</div>
+</div>
+</header>
+<div class="flex max-w-7xl mx-auto pt-24 pb-20">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-[calc(100vh-6rem)] sticky top-24 p-4 space-y-2 w-64 border-r-0 bg-white">
+<div class="px-4 py-6 mb-4">
+<p class="text-slate-500 font-manrope font-semibold text-xs uppercase tracking-widest">Welcome back</p>
+<h3 class="font-manrope font-bold text-lg text-on-surface">Verified Member</h3>
+</div>
+<a class="text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl flex items-center gap-3 transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="dynamic_feed">dynamic_feed</span>
+<span class="font-manrope font-semibold text-sm">Feed</span>
+</a>
+<a class="text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl flex items-center gap-3 transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-manrope font-semibold text-sm">Marketplace</span>
+</a>
+<a class="text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl flex items-center gap-3 transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-manrope font-semibold text-sm">Wallet</span>
+</a>
+<a class="bg-blue-50 text-blue-700 rounded-xl px-4 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-manrope font-semibold text-sm">Settings</span>
+</a>
+<div class="mt-auto pt-6 border-t border-surface-container">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-white py-3 px-4 rounded-full font-manrope font-bold shadow-lg flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                    Post New Listing
+                </button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 px-6 lg:px-12">
+<header class="mb-12">
+<nav class="flex items-center gap-2 text-sm text-outline mb-4">
+<span>Settings</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-on-surface font-medium">Notifications</span>
+</nav>
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2">Notification Settings</h1>
+<p class="text-on-surface-variant text-lg max-w-2xl">Manage how you receive updates about your marketplace activity, social interactions, and security alerts.</p>
+</header>
+<!-- Bento Grid Layout for Settings -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Main Controls Section -->
+<section class="md:col-span-8 space-y-6">
+<!-- Global Push Toggle -->
+<div class="bg-surface-container-lowest p-8 rounded-xl flex items-center justify-between">
+<div>
+<h2 class="text-xl font-bold mb-1">Push Notifications</h2>
+<p class="text-on-surface-variant text-sm">Receive real-time alerts on your mobile device and browser.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-14 h-7 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Granular Controls -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden">
+<div class="p-6 border-b border-outline-variant/15">
+<h3 class="font-bold text-lg">Activity Specifics</h3>
+</div>
+<!-- Table-like Structure with Tonal Layering -->
+<div class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<div class="p-6 grid grid-cols-1 sm:grid-cols-4 gap-4 items-center bg-surface-container-lowest">
+<div class="sm:col-span-2">
+<h4 class="font-semibold text-on-surface">Order Updates</h4>
+<p class="text-xs text-on-surface-variant">Shipping, delivery, and payment status.</p>
+</div>
+<div class="flex items-center justify-between sm:justify-center gap-4">
+<span class="text-xs font-bold text-outline uppercase tracking-tighter sm:hidden">Email</span>
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between sm:justify-center gap-4">
+<span class="text-xs font-bold text-outline uppercase tracking-tighter sm:hidden">SMS</span>
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20" type="checkbox"/>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="p-6 grid grid-cols-1 sm:grid-cols-4 gap-4 items-center">
+<div class="sm:col-span-2">
+<h4 class="font-semibold text-on-surface">New Listings</h4>
+<p class="text-xs text-on-surface-variant">From sellers you follow in the marketplace.</p>
+</div>
+<div class="flex items-center justify-between sm:justify-center gap-4">
+<span class="text-xs font-bold text-outline uppercase tracking-tighter sm:hidden">Email</span>
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between sm:justify-center gap-4">
+<span class="text-xs font-bold text-outline uppercase tracking-tighter sm:hidden">SMS</span>
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20" type="checkbox"/>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="p-6 grid grid-cols-1 sm:grid-cols-4 gap-4 items-center bg-surface-container-lowest">
+<div class="sm:col-span-2">
+<h4 class="font-semibold text-on-surface">Social Interactions</h4>
+<p class="text-xs text-on-surface-variant">Comments, likes, and shares on your feed posts.</p>
+</div>
+<div class="flex items-center justify-between sm:justify-center gap-4">
+<span class="text-xs font-bold text-outline uppercase tracking-tighter sm:hidden">Email</span>
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between sm:justify-center gap-4">
+<span class="text-xs font-bold text-outline uppercase tracking-tighter sm:hidden">SMS</span>
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20" type="checkbox"/>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="p-6 grid grid-cols-1 sm:grid-cols-4 gap-4 items-center">
+<div class="sm:col-span-2">
+<h4 class="font-semibold text-on-surface">Price Drops</h4>
+<p class="text-xs text-on-surface-variant">Alerts when items in your Wishlist go on sale.</p>
+</div>
+<div class="flex items-center justify-between sm:justify-center gap-4">
+<span class="text-xs font-bold text-outline uppercase tracking-tighter sm:hidden">Email</span>
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between sm:justify-center gap-4">
+<span class="text-xs font-bold text-outline uppercase tracking-tighter sm:hidden">SMS</span>
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20" type="checkbox"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sidebar Info / Help -->
+<aside class="md:col-span-4 space-y-6">
+<!-- Info Card -->
+<div class="bg-primary text-on-primary p-6 rounded-xl shadow-xl">
+<span class="material-symbols-outlined mb-4" data-icon="lightbulb">lightbulb</span>
+<h3 class="font-bold text-lg mb-2 leading-tight">Quiet Mode</h3>
+<p class="text-sm opacity-90 mb-6">Want to browse in peace? Enable Quiet Mode to silence all notifications during specific hours.</p>
+<button class="w-full bg-white/20 backdrop-blur-md border border-white/30 text-white py-2 rounded-lg font-semibold text-sm hover:bg-white/30 transition-colors">
+                            Configure Hours
+                        </button>
+</div>
+<!-- Newsletter Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary" data-icon="mail">mail</span>
+<h3 class="font-bold">Newsletter</h3>
+</div>
+<p class="text-xs text-on-surface-variant mb-4">Get weekly curated trends from the Bengal Pulse community directly to your inbox.</p>
+<div class="flex items-center justify-between p-3 bg-surface-container rounded-lg">
+<span class="text-sm font-medium">Subscribed</span>
+<div class="w-10 h-5 bg-primary rounded-full relative">
+<div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Security Alert Card -->
+<div class="bg-error-container text-on-error-container p-6 rounded-xl">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+<h3 class="font-bold">Security Alerts</h3>
+</div>
+<p class="text-xs opacity-80">Login alerts and password change notifications cannot be disabled for your protection.</p>
+</div>
+</aside>
+</div>
+<!-- Footer Action Bar -->
+<div class="mt-12 flex flex-col sm:flex-row items-center justify-between gap-6 p-8 bg-surface-container-low rounded-2xl">
+<div class="text-center sm:text-left">
+<h3 class="font-bold text-lg">Save Changes?</h3>
+<p class="text-sm text-on-surface-variant">Your preferences will be synced across all devices.</p>
+</div>
+<div class="flex gap-4 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none px-8 py-3 rounded-full font-bold text-on-surface-variant hover:bg-surface-container-high transition-colors">
+                        Cancel
+                    </button>
+<button class="flex-1 sm:flex-none px-10 py-3 bg-gradient-to-br from-primary to-primary-container text-white rounded-full font-bold shadow-lg hover:shadow-primary/20 active:scale-95 transition-all">
+                        Update Preferences
+                    </button>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 backdrop-blur-lg rounded-t-3xl z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<button class="flex flex-col items-center justify-center text-slate-400 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="local_mall">local_mall</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Shop</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="add_box">add_box</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Sell</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="wallet">wallet</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Wallet</span>
+</button>
+<button class="flex flex-col items-center justify-center text-blue-600 scale-110 transition-all">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Profile</span>
+</button>
+</nav>
+</body></html>

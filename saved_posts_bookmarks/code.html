@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Saved - UniMart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#005bc0",
+              "on-primary": "#ffffff",
+              "outline": "#727785",
+              "error-container": "#ffdad6",
+              "primary": "#005bbf",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "inverse-primary": "#adc7ff",
+              "surface-container-low": "#f3f4f5",
+              "outline-variant": "#c1c6d6",
+              "tertiary": "#005abf",
+              "on-surface-variant": "#414754",
+              "on-secondary-container": "#680f00",
+              "surface-container": "#edeeef",
+              "primary-container": "#1a73e8",
+              "surface": "#f8f9fa",
+              "on-primary-fixed-variant": "#004493",
+              "primary-fixed": "#d8e2ff",
+              "on-tertiary-fixed-variant": "#004493",
+              "on-error-container": "#93000a",
+              "secondary": "#ad3219",
+              "on-error": "#ffffff",
+              "inverse-surface": "#2e3132",
+              "surface-container-highest": "#e1e3e4",
+              "tertiary-fixed": "#d8e2ff",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "on-secondary-fixed": "#3e0500",
+              "on-surface": "#191c1d",
+              "on-primary-fixed": "#001a41",
+              "surface-bright": "#f8f9fa",
+              "error": "#ba1a1a",
+              "surface-container-high": "#e7e8e9",
+              "inverse-on-surface": "#f0f1f2",
+              "secondary-fixed": "#ffdad3",
+              "secondary-container": "#ff6d4e",
+              "on-tertiary-container": "#ffffff",
+              "background": "#f8f9fa",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed-dim": "#adc7ff",
+              "on-tertiary-fixed": "#001a41",
+              "on-background": "#191c1d",
+              "tertiary-container": "#0872ed",
+              "surface-variant": "#e1e3e4",
+              "surface-dim": "#d9dadb",
+              "on-primary-container": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(248, 249, 250, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #191c1d;
+        }
+        h1, h2, h3 {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 mb-4 bg-[#f8f9fa] dark:bg-slate-950 z-50 tonal-shift">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tight text-[#191c1d] dark:text-slate-100">UniMart</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-[#191c1d] dark:text-slate-400 opacity-70 hover:bg-[#f3f4f5] px-3 py-1 rounded-lg transition-colors font-body text-sm" href="#">Home</a>
+<a class="text-[#191c1d] dark:text-slate-400 opacity-70 hover:bg-[#f3f4f5] px-3 py-1 rounded-lg transition-colors font-body text-sm" href="#">Explore</a>
+<a class="text-[#005bbf] font-bold border-b-2 border-[#005bbf] px-3 py-1 font-body text-sm" href="#">Saved</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center bg-surface-container rounded-full px-4 py-2 w-64">
+<span class="material-symbols-outlined text-outline text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full font-body" placeholder="Search your library" type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-full hover:bg-[#f3f4f5] transition-colors"><span class="material-symbols-outlined" data-icon="notifications">notifications</span></button>
+<button class="p-2 rounded-full hover:bg-[#f3f4f5] transition-colors"><span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span></button>
+<button class="p-2 rounded-full hover:bg-[#f3f4f5] transition-colors"><span class="material-symbols-outlined" data-icon="add_box">add_box</span></button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden ml-2">
+<img alt="User Profile" data-alt="professional portrait of a smiling man with a clean haircut and modern glasses against a soft neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC97-lJ8Z9IKuX-6CWqBaOsGeDRnog0iY-VnVBg6DznktuKEBrsPEkC9NHtFth75J_xaUu_BllQfyuxBasPMu29s1ikPLsNv957JRr6kcb2u7yMIx4ciO76GEvtzhXDZmKF5N6YrXzrXB9W8w8-11YOPr7h2bd6F58Pvs0SYnzl6_X-dhBD3GO4fVxvjeiBj1FTqwnhugfzgLS67krIY7Up4PLOPnXPapgisDsU-B0Xm3KuFUhQZUAVx3BHnH4cT3bockh2OAf5Bkk"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto">
+<!-- Header & Tabs -->
+<header class="mb-12">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="text-4xl font-extrabold tracking-tight mb-2">My Library</h1>
+<p class="text-on-surface-variant font-body">Organize your inspirations and wishlist items</p>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-3 rounded-full font-semibold flex items-center gap-2 shadow-lg hover:scale-95 duration-200 transition-transform">
+<span class="material-symbols-outlined" data-icon="create_new_folder">create_new_folder</span>
+                    Create Collection
+                </button>
+</div>
+<div class="flex gap-4 p-1 bg-surface-container-low rounded-xl w-fit">
+<button class="px-6 py-2 rounded-lg bg-surface-container-lowest shadow-sm font-semibold text-primary text-sm transition-all">All Saved</button>
+<button class="px-6 py-2 rounded-lg hover:bg-surface-container-high font-medium text-on-surface-variant text-sm transition-all">Posts</button>
+<button class="px-6 py-2 rounded-lg hover:bg-surface-container-high font-medium text-on-surface-variant text-sm transition-all">Reels</button>
+<button class="px-6 py-2 rounded-lg hover:bg-surface-container-high font-medium text-on-surface-variant text-sm transition-all">Products</button>
+</div>
+</header>
+<!-- Bento Grid Layout for Collections and Items -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<!-- Sidebar: Collections -->
+<aside class="md:col-span-1">
+<h2 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant mb-6 flex items-center gap-2">
+                    Collections <span class="bg-surface-container-highest px-2 py-0.5 rounded text-[10px]">4</span>
+</h2>
+<div class="space-y-4">
+<!-- Collection Card -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container-lowest p-1 cursor-pointer transition-all hover:scale-[1.02]">
+<div class="grid grid-cols-2 gap-1 h-32 rounded-lg overflow-hidden mb-3">
+<img class="h-full w-full object-cover" data-alt="close-up of textured winter wool sweater with elegant knit pattern in soft cream color" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl0exYK5sMYG5SwkFO2teQ0mOItewkSvsnilVptk9DMPyezUKRLiOLkA8OE5FUyqEm6CnaZD1gSw_ca3Pk-op0HO8zH5cR_j5tb2Ggv7nXzM53rJ_SWKCjcpdXW9ZLkyx5p5XmGMxnUOcMRGjHoD6fjMnHcdwlxH9VLZfA7sHVp_K5DKut5ISHjxQhMzw_h6yAl22icPv_uPU2ZsX5On-zZ-QgrlOMRE_vhWTAD7H8wHZE8szQXXrcSW4dxzwQ5T4J4691LLuqiyQ"/>
+<img class="h-full w-full object-cover" data-alt="stylish leather winter boots sitting on a wooden bench with soft ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLsvWHNH6JwZWylVaOmvg0PMVlYTCFoR0oGoBBdpXhVa8RMT9TjnGxT8g6NI0H0qjl0-Jq5DrJOFBiEaLsxg9_0DvUn1GvPqwEf6LNOB9meqBg35cJEmnEe3NUeM8fTNLp6iDr3rFRqTF9wnruzIjJnwm2p_fX5sfrm2M0JfigMyZhSpW0cUVGL_44xHQQSS3D3W_1Zd4M3EItlIpWMD8PwYML2TsOZJNN7qxyhPy3GmOyLjojuGvIeFKgyWpW6kaW25qazAKqxEg"/>
+<img class="h-full w-full object-cover col-span-2" data-alt="person wearing a cozy oversized beige scarf walking through a crisp winter park at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPsvITPCVwRrPlitVB30AlssdZSRF6KDQ_idjBZHQhaXLeIsbIjV-yflt0Zk8XTZnFCA8peYnu4-QO9s2UyJh5bagriHNoMxTra-6rbhRIpZfA49MivbIjNbO2LJrkytCqcqzpUAolBxYU_t9aGx7-eme7PutSUFwlUh6vsQBH9vcuofcGs2ZJ0VHPzxcUPKEX2d33CJqX4BOh0EF5tjfzCDewOvaYZ_v_b-Z5LECdjoh5Jx-ege9NpXSYNJmHl09OL9z62LWwbSg"/>
+</div>
+<div class="px-2 pb-2">
+<h3 class="font-bold text-sm">Winter Fashion</h3>
+<p class="text-[10px] text-on-surface-variant uppercase font-semibold tracking-tighter">12 Items</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl bg-surface-container-lowest p-1 cursor-pointer transition-all hover:scale-[1.02]">
+<div class="grid grid-cols-2 gap-1 h-32 rounded-lg overflow-hidden mb-3">
+<img class="h-full w-full object-cover" data-alt="minimalist home office setup with sleek desk lamp and modern stationary in soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB692JHQNVb04HL8ouWAsZRFwzA9BdeGD9-Xj-IZhKFRnzqY9jYbcphTRXddFu3yX7UjZYqpvoT5BxEWtLMepXQVoIKccT7jjA3WHa4EGP6gqmXZPdQvC5DiTDzzppklNoKyCZR9c-U-IasWLGxxpdisgTornC5BliTXkMOmNrYrgt5t2dMaLiX4n6oqNcNycZwqewmgZ-IrZeWm0M2csnAQWLwdmF9WlMNYZgytB5qIObFSysmURzLsVyuLC7WLfyPZhtzerXkwxI"/>
+<img class="h-full w-full object-cover" data-alt="premium leather-bound journal and elegant fountain pen on a marble surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqAi1OQZHjkUezstcTApjVQRVi3DWqJdYxSpzzfkUcKtBxN3d75UI2b50i3JAIlHagzsV0svVHJXRL5a0pJHG8AxlfEewBVebEGgP_jkfkwizAz--3VIf_67k4KOWznrK8RQPSI_w2fDujhdePaciC10o074uADLu4DOh3PydPmsCXmujjOrEzhekiXl8oRqAJLSRIoNMEjkSrGUwqe0f2wgVY34xASMUHUEacelnZ6j6wnda2kh687s8apiwsrSFvSEK4hPc1Aek"/>
+<img class="h-full w-full object-cover col-span-2" data-alt="luxury minimalist watch with white dial and tan leather strap on a clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_Ph34Zap05LR0wvhU2pLvItcXSkvFII6bcCEJz6mAHNahLt4bL9-0k4RC3tc4myvqFDip8SIYWo_24QWniMwYwpZ3_nceT968VjV2-T8jt2o7z9hs-AUnsD_dFuc-fnY5i8JAWhygscshEH3R7SS1iL0SbEqEJU3DIGck0RF7rupIGnqYMcNIeLoIioRwOG71yGXcVw31HjXrWw6uvbSX49Q-eiQjeDTvqcxsFBJSSEONez9tpCLjyJ1ly3aliGqH3KooqHeuMHM"/>
+</div>
+<div class="px-2 pb-2">
+<h3 class="font-bold text-sm">Gift Ideas</h3>
+<p class="text-[10px] text-on-surface-variant uppercase font-semibold tracking-tighter">8 Items</p>
+</div>
+</div>
+<button class="w-full py-4 border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors group">
+<span class="material-symbols-outlined text-3xl mb-1 group-hover:scale-110 transition-transform" data-icon="add">add</span>
+<span class="text-xs font-bold uppercase tracking-widest">New Board</span>
+</button>
+</div>
+</aside>
+<!-- Main Content: Items Grid -->
+<div class="md:col-span-3">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant flex items-center gap-2">
+                        Recent Saves <span class="bg-primary-container text-on-primary-container px-2 py-0.5 rounded text-[10px]">24</span>
+</h2>
+<button class="text-sm font-semibold text-primary flex items-center gap-1 hover:underline">
+                        Sort by: Newest <span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+<!-- Asymmetric Bento-ish Grid -->
+<div class="grid grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Post Item -->
+<div class="group relative rounded-xl bg-surface-container-lowest overflow-hidden transition-all hover:shadow-xl">
+<div class="aspect-[4/5] relative">
+<img class="h-full w-full object-cover" data-alt="fashionable woman in high-end streetwear posing against a vibrant colorful urban wall with afternoon sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpkNBMStZ5FH4uxmPIt0Rmu6VssshnHKWtNdgbSDIyuH1G_gR6RwHhbqNjESPRjTHEmA5p3OmgVjdIZKYCx2pGaSft2aIBGOpvJ7E3v7vtlBqpM54rLW4jUhGjsBkoab5N4U-iQJ548PwL99G2724COnJQwFk3Ub-OuMJSPpNDA5FDth1WBQlQir71oBRl24_QlYw0h4tNDkAdBSWqiCJX42lMNcP6u_wSVos5ucffhUq3wPAVzb4W4siHk88NMKWRG111eWbX1us"/>
+<div class="absolute top-3 right-3 flex flex-col gap-2">
+<span class="bg-black/50 backdrop-blur-md text-white p-2 rounded-full material-symbols-outlined text-sm" data-icon="bookmark" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+<div class="flex items-center gap-2 text-white mb-1">
+<div class="w-5 h-5 rounded-full overflow-hidden border border-white/20">
+<img alt="Avatar" data-alt="headshot of a stylish male creator with a beard and urban fashion style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf89KQKnithZKvh0XTN8uPeoy7vvVXhB2_C_aFS_Zv150y7_kmQiN-GIIrvEIT7-E5eZY_uoYrpQ_weguheiOUUxdTTcmD331GF_CC2XWyrWUxsxEGUpBChS3dV3xurf-b68ZbMRlAH2cVXHqW5xl3LQnIDd4MwBWwFIsTAFHxeO_zNJXqglX51AWHrC7moWif5DAscX1gHvGwkI61n306xhG3j0lhqAzEPex23QVSCvbUFlg9rJPXsI17qJhSuHQn8-JTo_HH0mE"/>
+</div>
+<span class="text-[10px] font-bold">@urban_style</span>
+</div>
+<h3 class="text-white text-xs font-medium line-clamp-1">Streetwear essentials for 2024</h3>
+</div>
+</div>
+</div>
+<!-- Product Item (Secondary Gradient Theme) -->
+<div class="group relative rounded-xl bg-surface-container-lowest overflow-hidden transition-all hover:shadow-xl flex flex-col">
+<div class="aspect-square relative p-4 bg-surface-container-low">
+<img class="h-full w-full object-contain mix-blend-multiply" data-alt="premium high-fidelity over-ear headphones in matte black finish on a studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmALrFc5MLycXbfFw69w6t01Iry-5zWpX_0vkf496RSw2D08akrmgm3YN29topZBWjD04s9HivH9ygsrLJ_yMf6b9BttMC0p1fd3JszJig_BsD6ApF-h4ZXZdKC4BAYBT-H45f-vSm-mf8ZpJeqlCqVbds84cbn6csWKYuuADNlCx3EtWdDCK8arl-20QQzibN2vRnaK6a99mxVE58BtuBV5bWruLHYQUiNXcHKLxBOO92ujLgKP0zphw-43eaObiVX5ar4m8AYzk"/>
+<div class="absolute top-3 right-3">
+<span class="bg-secondary text-on-secondary px-2 py-1 rounded-md text-[9px] font-bold uppercase tracking-wider shadow-sm">Product</span>
+</div>
+</div>
+<div class="p-4 bg-surface-container-lowest">
+<h3 class="font-bold text-sm mb-1 line-clamp-1">Studio Sound H1 Wireless</h3>
+<div class="flex justify-between items-center">
+<span class="text-secondary font-black text-lg">$299.00</span>
+<button class="bg-secondary/10 text-secondary p-2 rounded-full hover:bg-secondary hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="shopping_bag">shopping_bag</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Reel Item (Vertical) -->
+<div class="group relative rounded-xl bg-surface-container-lowest overflow-hidden transition-all hover:shadow-xl lg:row-span-2">
+<div class="h-full relative">
+<img class="h-full w-full object-cover" data-alt="vibrant outdoor street photography reel showing the bustle of a local market at sunset with warm orange glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN1FdNJuCfNQc1s5zkeRpUWFst80H9Ds3Xqis9HZl_Di4mb6M0c0c9cFi7UQrnm_Qifpz6B4bRRdHoi1rz_yPY4ZwImzvFKarO5x42tQ2yREURcv3xwhsKsVBi4W0qmCgx687dN9JSBmRdwPYRtIRyQ4gDtBh89pB3AsVEpw46yc71gjCCaEF40BROxCOzFl8dEvstVZ9Th3SC_tiv7cbBbFyHU_9MY6mwjor6VSvG0bJHYe1M1Q-C_u9xk6mo9bb9ohtlnw9mlTk"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+<div class="absolute top-3 left-3 bg-white/20 backdrop-blur-md rounded-full p-2">
+<span class="material-symbols-outlined text-white text-sm" data-icon="movie_filter">movie_filter</span>
+</div>
+<div class="absolute bottom-4 left-4 right-4 text-white">
+<span class="bg-primary/80 px-2 py-1 rounded text-[8px] font-bold uppercase tracking-widest mb-2 inline-block">Trending</span>
+<h3 class="font-bold text-sm leading-tight">10 Hidden gems in Dhaka for street photographers</h3>
+<p class="text-[10px] opacity-80 mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="play_arrow">play_arrow</span> 1.2M views
+                                </p>
+</div>
+</div>
+</div>
+<!-- More grid items to fill space -->
+<div class="group relative rounded-xl bg-surface-container-lowest overflow-hidden transition-all hover:shadow-xl">
+<div class="aspect-square relative">
+<img class="h-full w-full object-cover" data-alt="luxury minimalist watch with white dial and tan leather strap on a clean white surface with sharp shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLVHmrJLP3gKBrM_79e0vBfVQ8DJff_xnt8bvqT98DKisyQO6KMn3gkFNEc82OaQoj4yFKOM4W5o3PwVQ0zTuIEUfKJPhb3FxfIYMjw6fhI7iGzPT-VFhyTzQ9R3Wl8EMBNhnRU0cPnGSnVKhp8EcvGF9NgnG3wynRnIb_Kyd81lyk8833Y1Xx32eKW6WWhdLQi12Dl8w1aezBeyEhhw4jdEL_lCogneASqaIMtAtShbvl6Wlc6AjGAuzAyEgONLEuAu-LHUhuDQw"/>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/30 backdrop-blur-[2px]">
+<button class="bg-white text-black px-4 py-2 rounded-full font-bold text-xs uppercase tracking-widest scale-90 group-hover:scale-100 transition-transform">Quick View</button>
+</div>
+</div>
+<div class="p-3">
+<p class="text-[10px] text-on-surface-variant font-semibold uppercase tracking-widest mb-1">Accessories</p>
+<h3 class="text-sm font-bold">Classic Leather Series</h3>
+</div>
+</div>
+<div class="group relative rounded-xl bg-surface-container-lowest overflow-hidden transition-all hover:shadow-xl">
+<div class="aspect-square relative">
+<img class="h-full w-full object-cover" data-alt="stunning editorial fashion portrait of a model in a vibrant yellow dress in a sun-drenched outdoor setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9Hg_rzCeJHXpEqgqawF8lSp3MaGTFFV_5dorgMmnyneElOx9p9eE68MbJceG3cAKYBCAJHcxUIiSQ9EEVy2c7v_LnJQ5v1IWrSQZJlLSzzGTddu0x718B2LTpHvo379T3lrRfU0E-SSQ-LIPQVorMZQ67UTTYK-0h06ZqjHKnFQ1o8nGG5_VvYcUuQKkJWU1VesOJeatJGNcdYSGDZYiDdJ9YXf3Prc5XPUYfHxS3Q6rRMVzvWz4wu-Wwo1suqs_6yTq7blxQSP8"/>
+<div class="absolute top-2 right-2 flex gap-1">
+<span class="bg-surface-container-lowest/80 backdrop-blur text-primary p-1 rounded-md material-symbols-outlined text-xs" data-icon="image">image</span>
+<span class="bg-surface-container-lowest/80 backdrop-blur text-primary p-1 rounded-md material-symbols-outlined text-xs" data-icon="sell">sell</span>
+</div>
+</div>
+<div class="p-3">
+<h3 class="text-sm font-bold truncate">Summer Editorial '24</h3>
+<div class="flex items-center justify-between mt-2">
+<span class="text-[10px] text-on-surface-variant">Post • @vogue_bd</span>
+<span class="material-symbols-outlined text-sm text-outline" data-icon="more_horiz">more_horiz</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#f8f9fa]/70 dark:bg-slate-900/70 backdrop-blur-xl z-50 tonal-layering shadow-[0_-8px_24px_rgba(25,28,29,0.04)]">
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider mt-1">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-2xl" data-icon="add_circle">add_circle</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider mt-1">Create</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined" data-icon="movie_filter">movie_filter</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider mt-1">Reels</span>
+</div>
+<!-- Profile is Active for "Saved" usually sits under Profile context -->
+<div class="flex flex-col items-center justify-center text-[#005bbf] dark:text-blue-400 bg-[#ffffff] dark:bg-slate-800 rounded-full px-4 py-1 scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider mt-1">Profile</span>
+</div>
+</nav>
+</body></html>

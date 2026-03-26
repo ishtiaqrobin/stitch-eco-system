@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UniMart - User Wallet &amp; Coin System</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-container": "#ffffff",
+                        "surface": "#f8f9fa",
+                        "tertiary-container": "#0872ed",
+                        "secondary-container": "#ff6d4e",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed": "#001a41",
+                        "primary": "#005bbf",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary": "#ad3219",
+                        "inverse-surface": "#2e3132",
+                        "tertiary": "#005abf",
+                        "surface-tint": "#005bc0",
+                        "on-primary-container": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "on-tertiary-fixed": "#001a41",
+                        "on-background": "#191c1d",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "on-surface-variant": "#414754",
+                        "background": "#f8f9fa",
+                        "surface-variant": "#e1e3e4",
+                        "on-secondary-fixed": "#3e0500",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f3f4f5",
+                        "inverse-primary": "#adc7ff",
+                        "surface-container-high": "#e7e8e9",
+                        "outline-variant": "#c1c6d6",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-primary-fixed-variant": "#004493",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "secondary-fixed": "#ffdad3",
+                        "primary-fixed-dim": "#adc7ff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "outline": "#727785",
+                        "on-secondary-fixed-variant": "#8b1a02",
+                        "primary-container": "#1a73e8",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#680f00",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f8f9fa",
+                        "surface-dim": "#d9dadb",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .display-font { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(248, 249, 250, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar from Shared Components -->
+<header class="flex justify-between items-center w-full px-6 py-3 h-16 bg-surface dark:bg-slate-950 fixed top-0 z-50">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-blue-700 dark:text-blue-400">UniMart</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-600 dark:text-slate-400 text-xs font-medium Inter hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors px-3 py-2 rounded-lg" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-400 text-xs font-medium Inter hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors px-3 py-2 rounded-lg" href="#">Explore</a>
+<a class="text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-700 text-xs font-medium Inter px-3 py-2" href="#">Wallet</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="bg-surface-container-highest border-none rounded-full pl-10 pr-4 py-1.5 text-sm w-64 focus:ring-2 focus:ring-primary/40 transition-all" placeholder="Search..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-12 px-4 md:px-8 max-w-7xl mx-auto">
+<!-- Header Section -->
+<div class="mb-10">
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2">My Digital Wallet</h1>
+<p class="text-on-surface-variant">Manage your funds, UniCoins, and loyalty rewards in one place.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Balance & Quick Actions -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Bento Grid Layout for Wallet Stats -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Main Balance Card -->
+<div class="relative overflow-hidden rounded-xl p-8 bg-gradient-to-br from-primary to-primary-container text-on-primary shadow-2xl md:col-span-1 min-h-[220px] flex flex-col justify-between">
+<div class="relative z-10">
+<div class="flex justify-between items-start">
+<span class="text-sm font-medium opacity-90 uppercase tracking-widest">Available Balance</span>
+<span class="material-symbols-outlined opacity-50 text-3xl">account_balance_wallet</span>
+</div>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-2xl font-semibold">৳</span>
+<span class="text-5xl font-black tracking-tight">24,580.00</span>
+</div>
+</div>
+<div class="relative z-10 mt-6 flex gap-3">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-white/20 text-xs font-semibold backdrop-blur-md">
+<span class="material-symbols-outlined text-sm mr-1" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                Secured by Bank-Grade SSL
+                            </span>
+</div>
+<!-- Decorative Abstract Shape -->
+<div class="absolute -right-12 -bottom-12 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+</div>
+<!-- UniCoins Card -->
+<div class="rounded-xl p-8 bg-surface-container-lowest shadow-sm flex flex-col justify-between border-none">
+<div>
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+</div>
+<span class="text-sm font-bold text-on-surface-variant uppercase tracking-wider">UniCoins Balance</span>
+</div>
+<span class="text-xs font-semibold text-secondary-fixed-dim bg-secondary/10 px-2 py-1 rounded">1 Coin = 1 ৳</span>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="text-4xl font-black text-on-surface">1,250</span>
+<span class="text-on-surface-variant font-medium">Coins</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 65%"></div>
+</div>
+<p class="text-[10px] mt-2 text-on-surface-variant">Convert 500 more coins to unlock next tier bonus.</p>
+</div>
+</div>
+</div>
+<!-- Action Buttons: Horizontal Layout -->
+<div class="flex flex-wrap gap-4">
+<button class="flex-1 min-w-[160px] bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-full py-4 px-6 font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:scale-95 transition-all">
+<span class="material-symbols-outlined">add_circle</span>
+                        Add Money
+                    </button>
+<button class="flex-1 min-w-[160px] bg-surface-container-lowest text-primary rounded-full py-4 px-6 font-bold flex items-center justify-center gap-2 shadow-sm border-none hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined">account_balance</span>
+                        Withdraw
+                    </button>
+<button class="flex-1 min-w-[160px] bg-surface-container-lowest text-primary rounded-full py-4 px-6 font-bold flex items-center justify-center gap-2 shadow-sm border-none hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined">send</span>
+                        Send Money
+                    </button>
+</div>
+<!-- Recent Transactions List -->
+<div class="bg-surface-container-low rounded-2xl p-6 md:p-8">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-2xl font-bold tracking-tight">Recent Transactions</h2>
+<button class="text-sm font-semibold text-primary hover:underline">View All History</button>
+</div>
+<div class="space-y-4">
+<!-- Transaction Item 1 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:translate-x-1">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Order Refund #UM-89210</h4>
+<p class="text-xs text-on-surface-variant">Oct 24, 2023 • ID: TXN_882910</p>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-8">
+<div class="text-right">
+<span class="block text-lg font-black text-green-600">+৳ 1,450.00</span>
+<span class="text-[10px] uppercase font-bold text-on-surface-variant tracking-wider">Refund</span>
+</div>
+<div class="bg-green-50 text-green-700 px-3 py-1 rounded-full text-[11px] font-bold border border-green-100">
+                                    SUCCESS
+                                </div>
+</div>
+</div>
+<!-- Transaction Item 2 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:translate-x-1">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Bank Withdrawal (SCB)</h4>
+<p class="text-xs text-on-surface-variant">Oct 22, 2023 • ID: TXN_882455</p>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-8">
+<div class="text-right">
+<span class="block text-lg font-black text-on-surface">-৳ 5,000.00</span>
+<span class="text-[10px] uppercase font-bold text-on-surface-variant tracking-wider">Withdrawal</span>
+</div>
+<div class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-[11px] font-bold border border-blue-100">
+                                    SUCCESS
+                                </div>
+</div>
+</div>
+<!-- Transaction Item 3 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:translate-x-1">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">redeem</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Weekly Cashback Reward</h4>
+<p class="text-xs text-on-surface-variant">Oct 20, 2023 • ID: TXN_882101</p>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-8">
+<div class="text-right">
+<span class="block text-lg font-black text-secondary">+৳ 120.00</span>
+<span class="text-[10px] uppercase font-bold text-on-surface-variant tracking-wider">Cashback</span>
+</div>
+<div class="bg-green-50 text-green-700 px-3 py-1 rounded-full text-[11px] font-bold border border-green-100">
+                                    SUCCESS
+                                </div>
+</div>
+</div>
+<!-- Transaction Item 4 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:translate-x-1 opacity-70">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">point_of_sale</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Product Purchase</h4>
+<p class="text-xs text-on-surface-variant">Oct 19, 2023 • ID: TXN_881902</p>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-8">
+<div class="text-right">
+<span class="block text-lg font-black text-on-surface">-৳ 2,100.00</span>
+<span class="text-[10px] uppercase font-bold text-on-surface-variant tracking-wider">Purchase</span>
+</div>
+<div class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-full text-[11px] font-bold">
+                                    PROCESSING
+                                </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Loyalty & Sidebar Info -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Loyalty Tier Card -->
+<div class="bg-gradient-to-b from-surface-container-lowest to-surface-container-low rounded-2xl p-8 border-none shadow-xl relative overflow-hidden group">
+<div class="relative z-10 text-center">
+<div class="mb-6 relative inline-block">
+<div class="w-32 h-32 rounded-full border-4 border-primary/20 flex items-center justify-center mx-auto bg-white p-2">
+<img alt="Tier Icon" class="w-full h-full object-cover rounded-full" data-alt="Golden crown illustration on a white pedestal background with soft glowing light rays around it" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANo2iqkNHd1v5QVKTh1pbccYavmD9qewzn_irNwt1rPKvInv8-YSV0kSHC_sbgFdHDC6el1MsCsDB_m8ItcvinRQiR1qOVi36YBwpX9v0kSHap-zdmVhLZILWckZJZtWutznQtUJVRX80t4O6HLQYdoov3UgI69v93QCqvV7Q2c1Guokvq5wd08JTyzCUzJwrac9A8tkK8O-dSIwZMmGGFlHGfO9x404ffKjvYb3d5f1y_Xrs_qjWHxLbEWqpAlwqKlUURDmAc4xE"/>
+</div>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-4 py-1 rounded-full text-xs font-bold shadow-lg">GOLD TIER</div>
+</div>
+<h3 class="text-2xl font-extrabold text-on-surface mb-2">Exclusive Benefits</h3>
+<p class="text-sm text-on-surface-variant mb-6">Enjoy higher cashback limits and priority shipping on all orders.</p>
+<div class="space-y-4 text-left">
+<div class="flex items-center gap-3 p-3 bg-white/50 rounded-lg">
+<span class="material-symbols-outlined text-primary text-xl">local_shipping</span>
+<span class="text-sm font-semibold">Free Delivery on all orders</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-white/50 rounded-lg">
+<span class="material-symbols-outlined text-primary text-xl">percent</span>
+<span class="text-sm font-semibold">5% Extra Cashback</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-white/50 rounded-lg">
+<span class="material-symbols-outlined text-primary text-xl">support_agent</span>
+<span class="text-sm font-semibold">24/7 Priority Support</span>
+</div>
+</div>
+</div>
+<!-- Background Accent -->
+<div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+</div>
+<!-- Payment Methods Section -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm border-none">
+<h3 class="text-lg font-bold mb-4">Saved Withdrawal Methods</h3>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">
+<img alt="bKash" class="w-6" data-alt="bKash pink logo simple flat vector style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgbT2xEpdYTAznNu3D1kKwZgbWM9mqNmyK-3xuzimVSWN8VFPhhagetHSFsvh2D2BnoXUPehUF2sWCR60jigFi9zBtjYPExJ6pJOt3LVpRxU2FlHkDQ1ySysCb6JKFsl81RMK9JnkoAdGKN6AK6rholNcdyfL7l8Jf5a2TYcPG8ac362kaJ25mfMYE_X58yZXQSp0MaCRsGTKlS0-oNiyQi6VkzkZvxeQ98bAHvRKFav4QvJ25vLjQ8UlM1w8LA1Rs8DnmeiCt2Sc"/>
+</div>
+<span class="text-sm font-bold">bKash (Personal)</span>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">.... 8820</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">
+<img alt="Bank" class="w-6" data-alt="SCB Bank logo simple flat vector style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnJTJA2MzDRCu4bQslok78sg7MsUomQPme64NiwnapeVVSMTY5UtUXijQgnmQGa-GHTWCW-Ei9fD6-102QVaGKvbjQ3jVJhIsWVhLuPrgy_HzObtbhPOHI-ZIsUk0D37_dLcIXubNU0FZq0yasIDEkxSnu0-UzoAbBydnTz8sH1hxeHIPY41jVlelOVhNAj06MPVK3rLoaRbAhZpZ7krG-W9Bm0tN28gydRdJ7hIFPHrAMo1HFupyKLvwoM4aV7L1v1mWgn1iD-0c"/>
+</div>
+<span class="text-sm font-bold">SCB Savings</span>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">.... 0122</span>
+</div>
+</div>
+<button class="w-full mt-4 py-3 rounded-xl border border-dashed border-primary/40 text-primary text-xs font-bold hover:bg-primary/5 transition-colors">
+                        + Add New Account
+                    </button>
+</div>
+<!-- Quick Help Card -->
+<div class="bg-surface-variant/30 rounded-2xl p-6 border-none">
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-primary text-2xl">help_outline</span>
+<div>
+<h4 class="font-bold text-sm mb-1">Need help with a transaction?</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">Most refunds are processed within 3-5 business days. Contact our team if you have issues.</p>
+<a class="inline-block mt-3 text-xs font-bold text-primary underline" href="#">Visit Support Center</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- SideNavBar (Hidden on desktop as per Shell Visibility rules for this task, but included for structure reference) -->
+<!-- Replaced by TopNavBar for the main commerce ecosystem feel -->
+<!-- Mobile Bottom Navigation (Responsive Pivot) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-surface-container shadow-[0_-4px_12px_rgba(0,0,0,0.05)] flex justify-around items-center h-16 px-4 z-50">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-medium">Explore</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="text-[10px] font-bold">Wallet</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</nav>
+</body></html>

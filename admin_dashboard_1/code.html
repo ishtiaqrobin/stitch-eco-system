@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UniMart Admin - Platform Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "outline-variant": "#c1c6d6",
+                "on-tertiary-container": "#ffffff",
+                "error": "#ba1a1a",
+                "surface-container-highest": "#e1e3e4",
+                "on-surface": "#191c1d",
+                "surface-container-low": "#f3f4f5",
+                "on-error-container": "#93000a",
+                "error-container": "#ffdad6",
+                "surface": "#f8f9fa",
+                "primary": "#005bbf",
+                "on-primary-fixed": "#001a41",
+                "secondary-fixed-dim": "#ffb4a4",
+                "surface-dim": "#d9dadb",
+                "on-primary": "#ffffff",
+                "inverse-primary": "#adc7ff",
+                "primary-container": "#1a73e8",
+                "on-secondary-fixed-variant": "#8b1a02",
+                "inverse-surface": "#2e3132",
+                "primary-fixed": "#d8e2ff",
+                "inverse-on-surface": "#f0f1f2",
+                "on-error": "#ffffff",
+                "surface-container-high": "#e7e8e9",
+                "on-background": "#191c1d",
+                "tertiary-fixed": "#d8e2ff",
+                "on-surface-variant": "#414754",
+                "on-tertiary-fixed-variant": "#004493",
+                "surface-container": "#edeeef",
+                "surface-bright": "#f8f9fa",
+                "surface-container-lowest": "#ffffff",
+                "on-tertiary-fixed": "#001a41",
+                "tertiary-container": "#0872ed",
+                "outline": "#727785",
+                "on-secondary-fixed": "#3e0500",
+                "surface-variant": "#e1e3e4",
+                "surface-tint": "#005bc0",
+                "on-primary-fixed-variant": "#004493",
+                "secondary": "#ad3219",
+                "on-tertiary": "#ffffff",
+                "on-secondary": "#ffffff",
+                "background": "#f8f9fa",
+                "on-secondary-container": "#680f00",
+                "tertiary-fixed-dim": "#adc6ff",
+                "secondary-fixed": "#ffdad3",
+                "secondary-container": "#ff6d4e",
+                "primary-fixed-dim": "#adc7ff",
+                "tertiary": "#005abf",
+                "on-primary-container": "#ffffff"
+              },
+              fontFamily: {
+                "headline": ["Manrope"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-slate-50/70 dark:bg-slate-900/70 backdrop-blur-xl fixed top-0 w-full z-50 shadow-sm border-b border-surface-container">
+<div class="flex justify-between items-center px-6 py-3 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-extrabold tracking-tight text-blue-700 dark:text-blue-400">UniMart</span>
+<div class="h-6 w-px bg-surface-container-highest mx-2"></div>
+<h1 class="text-lg font-headline font-bold text-on-surface">Admin Central</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center bg-surface-container rounded-full px-4 py-1.5 gap-2 group focus-within:ring-2 ring-primary/30 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-64 placeholder:text-on-surface-variant/60" placeholder="Search platform analytics..." type="text"/>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors" data-icon="shopping_cart">shopping_cart</span>
+<div class="flex items-center gap-2 pl-2 border-l border-surface-container-highest cursor-pointer">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="professional male admin portrait with spectacles in high key studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRgqw0cD-9O-zaVWmdR84V0N9DszeQcdhENme5Xdovrpgf71myLVW2aTAzXIg75E45_8PmwVWphZ4IdJSYwicTcYnMSN8mvxxZdcylU6yoGYIIh2EnYJtsCgQGQ52N5JUk1gO_JUDk5TRJ9naGxDm2eW5yMcCKrlbq1lyv0hnXaHbQ30_g1VTOhJNH0OrIklIrIjn-pCm6Om-N09DpkOkbC5H3EtMwLqix0DYBlOnY_aBu7W2HnSko8hrT1HEy03B_5KINEjGjmXk"/>
+<span class="material-symbols-outlined text-sm" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col fixed left-0 top-0 h-full h-screen w-64 border-r border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 pt-20">
+<div class="px-6 py-4">
+<p class="text-[10px] font-bold tracking-widest text-on-surface-variant/50 uppercase">MAIN MENU</p>
+</div>
+<div class="flex flex-col gap-1 px-2">
+<!-- Active Tab: Dashboard -->
+<a class="bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg mx-2 flex items-center gap-3 px-4 py-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 mx-2 rounded-lg flex items-center gap-3 px-4 py-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-medium text-sm">Inventory</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 mx-2 rounded-lg flex items-center gap-3 px-4 py-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-medium text-sm">Payouts</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 mx-2 rounded-lg flex items-center gap-3 px-4 py-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-medium text-sm">Analytics</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 mx-2 rounded-lg flex items-center gap-3 px-4 py-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="font-medium text-sm">Moderation</span>
+<span class="ml-auto bg-error text-on-error text-[10px] font-bold px-1.5 py-0.5 rounded-full">12</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 mx-2 rounded-lg flex items-center gap-3 px-4 py-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium text-sm">Settings</span>
+</a>
+</div>
+<div class="mt-auto p-4 mx-4 mb-6 bg-surface-container rounded-xl">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+<span class="text-xs font-semibold text-on-surface-variant">System Status: Optimal</span>
+</div>
+<button class="w-full bg-primary text-on-primary py-2 rounded-lg text-sm font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                Add Product
+            </button>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="md:ml-64 pt-24 pb-20 px-4 md:px-8 max-w-7xl mx-auto">
+<!-- Bento Stats Grid -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+<div class="md:col-span-2 p-8 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/10 flex flex-col justify-between">
+<div>
+<span class="text-xs font-bold tracking-widest text-primary uppercase">Daily Velocity</span>
+<h3 class="text-4xl font-headline font-extrabold mt-2 text-on-surface">৳ 1,245,000</h3>
+<p class="text-sm text-on-surface-variant/70 mt-1">Platform Revenue Today</p>
+</div>
+<div class="flex items-center gap-2 mt-6 text-emerald-600 font-bold text-sm bg-emerald-50 self-start px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+                    14.2% from yesterday
+                </div>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl border border-outline-variant/10">
+<div class="w-10 h-10 bg-primary-container/10 rounded-lg flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</div>
+<h4 class="text-2xl font-headline font-bold text-on-surface">3,842</h4>
+<p class="text-sm text-on-surface-variant">Today's Orders</p>
+<div class="mt-4 h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-3/4 rounded-full"></div>
+</div>
+<p class="text-[10px] mt-2 font-medium text-on-surface-variant/60">75% of daily target reached</p>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl border border-outline-variant/10">
+<div class="w-10 h-10 bg-secondary-container/10 rounded-lg flex items-center justify-center text-secondary mb-4">
+<span class="material-symbols-outlined" data-icon="group_add">group_add</span>
+</div>
+<h4 class="text-2xl font-headline font-bold text-on-surface">+184</h4>
+<p class="text-sm text-on-surface-variant">New Signups</p>
+<div class="flex items-center gap-3 mt-4">
+<div class="flex -space-x-2">
+<img class="w-6 h-6 rounded-full border-2 border-surface-container-low object-cover" data-alt="close-up portrait of a young woman with smiling expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0Is2cpxLH7G-zummO5bitFgx0XuQmT3aBXFo8xyj8B2cV0ZJcvO4ae-HqHZlB8K8HoTKW9V7-V-SiOENDy8U83oAd0zH_vq5crLtgZxjfoHZR4210677FuSXcYmiXoGf0l37TlREyrW9H03vKmczw7ujM7Dns1GL0xVCgEOJFbFiDpC2if25LF04YZIz-xpRVjy0g5YQTYQIkIw2kXElxivk9T4xeBNnW9g9pjDn1xQstHR3BpyBUCiuFH515AfBzw6JFLSUWQmo"/>
+<img class="w-6 h-6 rounded-full border-2 border-surface-container-low object-cover" data-alt="headshot of a man with clean shaven face looking confident" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNh8lC6aUHy0_MZlCHISDi4c5eAy32oa2_uVsciVVqUv_hyEJ3DLMnLOOKJv-fDJcCOa_yJMeRwrGxnpyIrjhlVLRQZSjtF5srgFUAbLaze9ehYVeuc1D7UrvIukqhPlQ7Z5KN3mzRPDZ3bJGRcaQXjuFwh1_7rdoDLSLVtg30r7ePMApygkTjlS9HjVnC0bPkBBkgIYlfqRtOxmzKTDAEReRbmuAOHCuB1zNNyB9UIkNoWNQEBUDloMC9UER75xdM8VuutIP8_1A"/>
+<div class="w-6 h-6 rounded-full border-2 border-surface-container-low bg-surface-container-highest flex items-center justify-center text-[8px] font-bold">+18</div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">156 Users / 28 Sellers</span>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+<!-- Pending Seller Approvals -->
+<section class="lg:col-span-2 space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="text-xl font-headline font-extrabold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="verified_user">verified_user</span>
+                        Pending Seller Approvals
+                    </h2>
+<button class="text-xs font-bold text-primary hover:underline">View All (42)</button>
+</div>
+<div class="space-y-4">
+<!-- Seller Card 1 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/5 shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex items-start justify-between">
+<div class="flex gap-4">
+<div class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center overflow-hidden">
+<img class="object-cover w-full h-full" data-alt="interior view of a boutique clothing store with minimalist aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA19KdCE97KEvan-334Nh8C5T4CxCJfFNGiZ5D6FtLLmNG2AWFG6nL86K7bGpdE2z5gVTJGhM4ePFg2lYGNt6FJB5O9W0E1didOG6CIEYeJnZEwxeZhuSE8uI2ULx6ePYZ0vFLjCfXYIK_pKYxhf5bvmE9KPqSiqDmlnJD7ub7T9RgtioDofT0IcI5CGTuUlO88X8zO2ft3W3eDzcZStUcKtFg7vXBHpfNu_AQeNKHR_3RFDDqE65rtw0SwGVzg8NfSG3--Vti1mg"/>
+</div>
+<div>
+<h5 class="font-headline font-bold text-on-surface group-hover:text-primary transition-colors">Aarong Inspired Crafts</h5>
+<p class="text-xs text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]" data-icon="location_on">location_on</span>
+                                        Dhaka, Bangladesh
+                                    </p>
+<div class="flex items-center gap-2 mt-3">
+<span class="px-2 py-0.5 bg-surface-container text-[10px] font-bold rounded">Handicrafts</span>
+<span class="px-2 py-0.5 bg-surface-container text-[10px] font-bold rounded">50+ SKU</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded-lg text-xs font-bold shadow-sm">Approve</button>
+<button class="bg-surface-container-high text-on-surface px-4 py-1.5 rounded-lg text-xs font-bold">Review Docs</button>
+</div>
+</div>
+</div>
+<!-- Seller Card 2 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/5 shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex items-start justify-between">
+<div class="flex gap-4">
+<div class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center overflow-hidden">
+<img class="object-cover w-full h-full" data-alt="overhead view of electronics and gadgets organized on a clean desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2DrrJnsZvt2lgxrbrqyIHipzM06JaUmTDVLj34Kvz0n4Ur8HSpOl0P-Ep6Qi-W0HfE30veXxqiG85wh8CacGBpiYzi-3P_GEK_JwS5RoM1dI0QPP81kdJr5zweRXdYZX-R4sCUqmfBiWwsdNq4LAhheAGSjZD86m1dcT1ldXH3FbwzXVDmApTm8Uh2t2OtWTIbkC07-Tm1Ie7mtulGrSvacwbuLL1cB0-AuNmQG3BIky9H4GCYHOzIQH1uhyEEM7fLsNuUZ8gHVs"/>
+</div>
+<div>
+<h5 class="font-headline font-bold text-on-surface group-hover:text-primary transition-colors">ElectroHub BD</h5>
+<p class="text-xs text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]" data-icon="location_on">location_on</span>
+                                        Chittagong, Bangladesh
+                                    </p>
+<div class="flex items-center gap-2 mt-3">
+<span class="px-2 py-0.5 bg-surface-container text-[10px] font-bold rounded">Tech &amp; Gadgets</span>
+<span class="px-2 py-0.5 bg-error/10 text-error text-[10px] font-bold rounded">Urgent Review</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded-lg text-xs font-bold shadow-sm">Approve</button>
+<button class="bg-surface-container-high text-on-surface px-4 py-1.5 rounded-lg text-xs font-bold">Review Docs</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Reported Content Queue -->
+<div class="mt-12">
+<h2 class="text-xl font-headline font-extrabold flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-secondary" data-icon="report">report</span>
+                        Content Moderation Queue
+                    </h2>
+<div class="bg-surface-container-low rounded-xl overflow-hidden">
+<table class="w-full text-left text-sm">
+<thead class="bg-surface-container-high/50 text-on-surface-variant/70 text-[10px] font-bold uppercase tracking-wider">
+<tr>
+<th class="px-6 py-4">Reported Content</th>
+<th class="px-6 py-4">Reason</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4 text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="close-up of a vibrant red sports shoe on a plain background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6C7BPd5htzLobPoIZ72BMjU2-UgHZ-0SBJomS5ce2FDSYzwwi7SgklfZ2CgsTn-1HRgdErvp3kbM2W6USQkJw1SxS5nj4GvzWsdqeIaizV6LRpB-UEkqZGxWqMmaJwI6D4H-bd-g4ntE0Q-HGi2Dpl8ChBX3qpVWTO6i9cn3bne4bg7avg2QchBUqlATpxi5i3j-mj90dyJnWhnMPUiqTwEc3SnnSrbcLKov5h6D9VGiKJQWnpc4bHDKFO4qxSz3XZqGG-NNZ7uc"/>
+</div>
+<span class="font-medium text-xs">Counterfeit Nike Air Max</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-error/10 text-error text-[10px] font-bold px-2 py-1 rounded">Intellectual Property</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant">
+<div class="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
+                                            Pending
+                                        </div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-error" data-icon="delete_sweep">delete_sweep</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="comment">comment</span>
+<span class="font-medium text-xs">Review by @user_9921...</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container-highest text-on-surface-variant text-[10px] font-bold px-2 py-1 rounded">Hate Speech</span>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant">
+<div class="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
+                                            Pending
+                                        </div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-error" data-icon="delete_sweep">delete_sweep</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Sidebar Contextual Info -->
+<aside class="space-y-8">
+<!-- Recent Disputes -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline font-bold text-on-surface">Recent Disputes</h3>
+<span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-1 rounded">8 Active</span>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4 items-start p-3 hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer group">
+<div class="w-2 h-2 mt-2 rounded-full bg-error"></div>
+<div>
+<p class="text-xs font-bold text-on-surface group-hover:text-primary transition-colors">Case #ORD-4920</p>
+<p class="text-[11px] text-on-surface-variant mt-0.5 line-clamp-1">Product not as described - Electronics</p>
+<div class="flex items-center gap-2 mt-2">
+<img class="w-4 h-4 rounded-full" data-alt="professional male headshot with neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1CiQxoXxZlX_E4cAXUO4wIdsLloEtKegj1Inmo3CpWYLrNUPS1m7RgaAaVgkrnl2scS6QwSeWMsVwc91cTGbye_R_HGi1P9j5jv6mCraPiezbb2Y8ME4B-vEYiRF89Wgw50vEb-bfuanGVvwjFQHiiPlJjnddY2BX5tvbswkTBE6hMPF0bbWcODvyZWk5HvxDcRPE2SCcokpHPMbAcW_MPQN69sJh1A_-FF_0vo1pVN68kNcQxBiVb9yrz_IgUvMcioe0pPWh5Dw"/>
+<span class="text-[10px] text-on-surface-variant/60 italic">Escalated 2h ago</span>
+</div>
+</div>
+</div>
+<div class="flex gap-4 items-start p-3 hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer group">
+<div class="w-2 h-2 mt-2 rounded-full bg-amber-500"></div>
+<div>
+<p class="text-xs font-bold text-on-surface group-hover:text-primary transition-colors">Case #ORD-4881</p>
+<p class="text-[11px] text-on-surface-variant mt-0.5 line-clamp-1">Refund delay for order #X-921</p>
+<div class="flex items-center gap-2 mt-2">
+<img class="w-4 h-4 rounded-full" data-alt="headshot of a cheerful woman with long dark hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY4-8FzP2p4HB1nW5-kdseoFqyff7g67amUPG5stMKaYHsQc5ulJQ6tbUFCv3H7P2mrzSHOFG_v1_DlflQwiG8_U52Vy9zZ7-Y8YCZ71uEcPlagCXbAKhhNwaflCJlE-_OCF7YkGczYsvRqqPF8AGyA0gZByZplTY715W6lUKI_qAFxkcG5x7X4P_lg9Ga2YA0xrBm9kGKwTG41QrRxV5RtAn2In4q-wDRdOqpWeqeVbmI1g9jwX1Jg0fOXLxVHcRBpsfhKrYseo8"/>
+<span class="text-[10px] text-on-surface-variant/60 italic">Awaiting Response</span>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2 border border-outline-variant/30 text-xs font-bold rounded-lg text-on-surface-variant hover:bg-surface-container transition-all">Go to Resolution Center</button>
+</div>
+<!-- Platform Health Card -->
+<div class="relative bg-primary overflow-hidden rounded-xl p-6 text-on-primary">
+<div class="relative z-10">
+<span class="text-[10px] font-bold tracking-widest opacity-80 uppercase">AI Analytics Insight</span>
+<h4 class="font-headline font-bold text-lg mt-2 leading-tight">Vendor satisfaction is up by 12% this month.</h4>
+<p class="text-xs mt-3 opacity-90 leading-relaxed">Faster payouts and the new 'Quick-List' feature have improved retention across major hubs in Dhaka and Sylhet.</p>
+<button class="mt-5 bg-on-primary text-primary px-4 py-1.5 rounded-full text-xs font-extrabold flex items-center gap-2">
+                            Full Report
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Decorative Gradient -->
+<div class="absolute -right-12 -bottom-12 w-48 h-48 bg-primary-container rounded-full blur-3xl opacity-50"></div>
+</div>
+</aside>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-950/80 backdrop-blur-lg rounded-t-3xl shadow-[0_-4px_20px_rgba(0,0,0,0.05)] border-t border-slate-100 dark:border-slate-800">
+<a class="flex flex-col items-center justify-center bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full px-5 py-1.5 transition-transform active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="text-[11px] font-semibold font-body">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="diversity_3">diversity_3</span>
+<span class="text-[11px] font-semibold font-body">Social</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="local_mall">local_mall</span>
+<span class="text-[11px] font-semibold font-body">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[11px] font-semibold font-body">Profile</span>
+</a>
+</nav>
+</body></html>

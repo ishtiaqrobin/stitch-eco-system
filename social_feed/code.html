@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Social Feed - UniMart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#3e0500",
+              "primary-container": "#1a73e8",
+              "primary-fixed": "#d8e2ff",
+              "surface-variant": "#e1e3e4",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "surface-dim": "#d9dadb",
+              "outline": "#727785",
+              "on-surface-variant": "#414754",
+              "primary": "#005bbf",
+              "on-tertiary-fixed": "#001a41",
+              "background": "#f8f9fa",
+              "surface-tint": "#005bc0",
+              "secondary-fixed": "#ffdad3",
+              "inverse-on-surface": "#f0f1f2",
+              "primary-fixed-dim": "#adc7ff",
+              "tertiary": "#005abf",
+              "outline-variant": "#c1c6d6",
+              "secondary-container": "#ff6d4e",
+              "inverse-primary": "#adc7ff",
+              "on-secondary-container": "#680f00",
+              "on-error": "#ffffff",
+              "surface-container-high": "#e7e8e9",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#d8e2ff",
+              "on-background": "#191c1d",
+              "on-tertiary": "#ffffff",
+              "surface-container-low": "#f3f4f5",
+              "tertiary-container": "#0872ed",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "surface": "#f8f9fa",
+              "surface-container": "#edeeef",
+              "surface-bright": "#f8f9fa",
+              "on-error-container": "#93000a",
+              "tertiary-fixed-dim": "#adc6ff",
+              "inverse-surface": "#2e3132",
+              "on-primary-fixed-variant": "#004493",
+              "surface-container-highest": "#e1e3e4",
+              "error-container": "#ffdad6",
+              "on-tertiary-container": "#ffffff",
+              "on-primary-container": "#ffffff",
+              "on-surface": "#191c1d",
+              "on-primary-fixed": "#001a41",
+              "secondary": "#ad3219",
+              "on-tertiary-fixed-variant": "#004493",
+              "error": "#ba1a1a",
+              "on-secondary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopAppBar Shell -->
+<nav class="bg-surface dark:bg-slate-900 docked full-width top-0 sticky z-50 shadow-sm flex justify-between items-center w-full px-6 py-3 max-w-full">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-extrabold tracking-tight text-blue-700 dark:text-blue-400">UniMart</span>
+<div class="hidden md:flex relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-highest border-none rounded-full w-64 focus:ring-2 focus:ring-primary/40 text-sm" placeholder="Search UniMart..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-400 relative">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant/30">
+<img alt="User Profile Avatar" data-alt="close-up portrait of a professional smiling man with clean background in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIHJTBPzFX81gq1xxMb0is8e_JcrVDfJ9DU6YOhQqtHL4FdQ66bhydmhV0-kGdoIHmuFoYVXD0dSIauuawpSsVD-CXBp29HdCquoefO9btwrwfxaOYCANhlGCHhCqEpR4hzAWpPbZIcq9z2V7v8Qq9gzKvKXrlqYGFSCct2XHbeZwKOcZWAy8b2HxWyQZrFhj4XnediYeKWstoCr7v1Lckf003YfCtI08JG3ZI-WqMPTfvHBySHG5LAlwdyiUzPWTIIbTUvSZCkl8"/>
+</div>
+</div>
+</nav>
+<div class="flex max-w-[1440px] mx-auto relative">
+<!-- SideNavBar Shell -->
+<aside class="hidden lg:flex flex-col gap-2 px-4 py-6 h-screen w-64 fixed left-0 top-0 pt-20 bg-surface-container-low dark:bg-slate-900 no-border tonal-layering">
+<div class="mb-6 px-2">
+<h3 class="font-manrope font-bold text-lg text-on-surface">Navigation</h3>
+<p class="text-xs text-outline">Explore UniMart</p>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-300 rounded-lg shadow-sm font-bold transition-transform cursor-pointer active:scale-98" href="#">
+<span class="material-symbols-outlined">rss_feed</span>
+<span class="font-manrope font-semibold text-sm">Social Feed</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 rounded-lg transition-transform cursor-pointer hover:translate-x-1 active:scale-98" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-manrope font-semibold text-sm">Market</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 rounded-lg transition-transform cursor-pointer hover:translate-x-1 active:scale-98" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-manrope font-semibold text-sm">Seller Portal</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 rounded-lg transition-transform cursor-pointer hover:translate-x-1 active:scale-98" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-manrope font-semibold text-sm">Wallet</span>
+</a>
+<div class="mt-auto border-t border-outline-variant/10 pt-4 px-2">
+<div class="bg-primary-container/10 p-4 rounded-xl">
+<p class="text-xs font-bold text-primary mb-1">PRO SELLER</p>
+<p class="text-[10px] text-on-surface-variant">Unlock advanced analytics and social reach.</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Area (Center Feed) -->
+<main class="flex-1 lg:ml-64 lg:mr-80 min-h-screen pt-4 pb-20 px-4 md:px-8 max-w-3xl mx-auto">
+<!-- Create Post Area -->
+<div class="bg-surface-container-lowest rounded-xl p-4 mb-8 shadow-sm">
+<div class="flex gap-4 items-start">
+<img alt="Me" class="w-10 h-10 rounded-full object-cover" data-alt="circular profile photo of a person" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3MsSFEp0qRECLCJ1GWz2jFsQUHqvkGYqA4cGxFkBVQ4x6L6Ixn3b9C7PYCa5srmEP4bNzbx4RliU5a1kAzQuapAXZ96DAs4FBm17tKpp8rxGNxUtotnKpf30marSdBW6xbJpVFzTGAegQqRLpeESq11es5Dtc8YlWFljvGbk9UBloojmN2dphXgWGvVshCzpdQ-OYpzGP6NX1uijB6axriuiuY6QYq2-z4-iTF-oPfh6AYg9NXi5RJMUJl0cW0sLbK3ssVPEUor4"/>
+<div class="flex-1">
+<textarea class="w-full bg-surface-container-low border-none rounded-xl focus:ring-1 focus:ring-primary/20 text-sm placeholder:text-outline p-3 resize-none" placeholder="Share an update or review a product..." rows="2"></textarea>
+<div class="flex justify-between items-center mt-3">
+<div class="flex gap-2">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors text-primary text-xs font-semibold">
+<span class="material-symbols-outlined text-sm">image</span>
+                                    Media
+                                </button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors text-primary text-xs font-semibold">
+<span class="material-symbols-outlined text-sm">shopping_bag</span>
+                                    Tag Product
+                                </button>
+</div>
+<button class="px-6 py-1.5 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary text-sm font-bold shadow-md hover:opacity-90 transition-opacity">
+                                Post
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Feed Filters -->
+<div class="flex gap-4 mb-6 overflow-x-auto pb-2 no-scrollbar">
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-sm font-bold">Everything</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-sm font-semibold hover:bg-surface-container-highest transition-colors">Seller Threads</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-sm font-semibold hover:bg-surface-container-highest transition-colors">Shoppable</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-sm font-semibold hover:bg-surface-container-highest transition-colors">User Reviews</button>
+</div>
+<!-- Social Posts -->
+<div class="space-y-8">
+<!-- Seller Thread Post -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm animate-fade-in">
+<div class="p-5">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-3">
+<img alt="Luxe Leather Co." class="w-12 h-12 rounded-lg object-cover" data-alt="professional brand logo of a boutique store" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0lzJPBWO6Du7lkXmFT0tS1odUW0xnrhfFeASYmco9WA-4o0FeVyXaz8mi8Eh6TWLr4kbpgF7o_Eh5PlB4m4peHAmE45-RITU-w9Orx0VYwS6IHvxxVtmVh6ju-zDIjn-3_getThlY7pXHxo6qtfSLpBQ1oX9shEg5aTWSpjJlhlpk0qrZ68qOnCdrFltNwpt3Tc0ugf5Xm240HHvjMDdg1V38_1LCKars8Qw4ozMZQMAuBUstGUnev6vfMDXonR1VNzEE6mZEWfw"/>
+<div>
+<div class="flex items-center gap-1">
+<h4 class="font-headline font-bold text-on-surface">Luxe Leather Co.</h4>
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="text-xs text-outline">Seller Thread • 2 hours ago</p>
+</div>
+</div>
+<button class="text-outline hover:text-on-surface"><span class="material-symbols-outlined">more_horiz</span></button>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">
+                            Our new Autumn Collection just arrived in the warehouse! 🍂 Get ready for premium textures and handcrafted excellence. Exclusive early access for our top followers starts tomorrow at 10 AM.
+                        </p>
+<div class="flex gap-4 pt-4 border-t border-surface-container">
+<button class="flex items-center gap-2 text-outline hover:text-primary transition-colors text-sm">
+<span class="material-symbols-outlined">favorite</span>
+<span>2.4k</span>
+</button>
+<button class="flex items-center gap-2 text-outline hover:text-primary transition-colors text-sm">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span>184</span>
+</button>
+<button class="flex items-center gap-2 text-outline hover:text-primary transition-colors text-sm">
+<span class="material-symbols-outlined">share</span>
+<span>Share</span>
+</button>
+<button class="ml-auto text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Shoppable Product Post -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<div class="p-5 flex items-center gap-3">
+<img alt="Ayon Ahmed" class="w-10 h-10 rounded-full object-cover" data-alt="portrait of a young designer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCbM9AOhfHTc07BgF61fc9jWiyQWgaWyd-rsUSi7-_TJLP4bftuz4fLo7-0CX1vfUvxGlNtwUXKaDl-fwTc6E7ak53wnQs-CWpXSmAjgvKE0lmexAGkCY3Ic2uJnseOK8YhemOEreDq01LVbIZvP1YdcYK9iRJLxY3aa_wZI2teS55DfPLUV_DGVdJp7nbr1Vp13nvogAmyQABlMMTXPmnJ_vSgAYqR4DbBPYCr_7IAKGhF_43wWTbtbJQIQ0uLhXHxq9JjIpRT2U"/>
+<div>
+<h4 class="font-headline font-bold text-on-surface text-sm">Urban Gear Official</h4>
+<p class="text-xs text-outline">Sponsored Shoppable Post</p>
+</div>
+</div>
+<div class="relative aspect-video group cursor-pointer overflow-hidden">
+<img alt="Product Post" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="sleek red athletic running shoe on a minimalist grey background with professional studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9sCJ4LtmzfrA7ndl_lZCBUEibvjqEakr4z2NTQuozq0w4FW167D291ymKEjuBN3PUn5_pBGLOyVGVmsoFKuXEgp03OkVYVg5Er7dpOgfYFgdL3ruKWIEZij9Ebptd0duNE6z-3HRgRXePEDOu3tv9VpiNKMexIdmoEUaWGUNzZS3pVsDQ-ZNkV64M0QUkHNkSCKmpvcstD8nhuRy5XRBHqL8O5h8dZ7l9iijPhjJRdRrALx0vDX3DFry9fAZJ7Sf4zoMvJPiRbLk"/>
+<!-- Shoppable Tag -->
+<div class="absolute bottom-6 left-6 bg-surface-container-lowest/90 backdrop-blur-md p-3 rounded-lg shadow-xl flex items-center gap-3 border border-white/20">
+<div class="w-10 h-10 bg-surface-container rounded overflow-hidden">
+<img alt="Sneaker" data-alt="close up of red sneaker" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4OMAVIc1GecJNYVLeYzkqYazr0qx_H_QxFwtLY71WjnQkw6U-v8BBNzUu6T7Rxuhd5S6hkCs2NnfB5Fsi3A2zjiMhK1af9wNB08PkLuZW2lhnGfKaoClxN7An7j3oBdY-W2bQsmyM9DH12l6FlI7KSKChn6rFVFURnjk4TD9xqEMt7tNpyIz1Rs5Q6-vXy4M2oThENje-rnokquE2T8mex5L7S8-OMvUVHzJNOcoy8VI-r22DtwiJRn76yNbZzyHMyrEtcQiAbUk"/>
+</div>
+<div>
+<p class="text-[10px] font-bold text-primary uppercase">New Arrival</p>
+<p class="text-xs font-bold">Speed-X Runners</p>
+<p class="text-xs font-semibold text-secondary">৳ 4,500</p>
+</div>
+<button class="bg-primary text-on-primary w-8 h-8 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<div class="p-5">
+<p class="text-sm text-on-surface-variant mb-4">Elevate your daily run with the new Speed-X series. Designed for breathability and explosive energy return. Available in 4 vibrant colors.</p>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 text-outline hover:text-primary transition-colors text-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; color: #ba1a1a;">favorite</span>
+<span class="font-bold text-on-surface">5.8k</span>
+</button>
+<button class="flex items-center gap-2 text-outline hover:text-primary transition-colors text-sm">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span>42</span>
+</button>
+<button class="flex items-center gap-2 text-outline hover:text-primary transition-colors text-sm">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="ml-auto flex items-center gap-1.5 px-4 py-1.5 bg-primary/10 text-primary rounded-full text-xs font-bold hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                                View Product
+                            </button>
+</div>
+</div>
+</article>
+<!-- User Review Post -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border-l-4 border-secondary">
+<div class="p-5">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary font-bold">SN</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface text-sm">Saima Nahar</h4>
+<div class="flex items-center gap-1">
+<div class="flex text-amber-500">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-[10px] font-bold text-outline uppercase tracking-wider">Verified Purchase</span>
+</div>
+</div>
+</div>
+<span class="text-xs text-outline">Yesterday</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg mb-4">
+<p class="italic text-on-surface-variant text-sm">"Absolutely loving this minimalist desk lamp from HomeGlow. The touch controls are super responsive and the warm light mode is perfect for late-night reading sessions. Definitely worth the price!"</p>
+</div>
+<div class="grid grid-cols-2 gap-2 mb-4">
+<img alt="Review Image 1" class="rounded-lg h-32 w-full object-cover" data-alt="modern minimalist desk lamp with warm glow in a cozy room setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYSsj3x5YyjOIY_yCCrUTHUx8b9j3ds7-yFpfN0BlOq4DI0pzKqx7kkB-ePEGZQQdZYx7csrKwG3D_mJw7nzVh1dWkWPyXwirq0Q9KLxgDcLc4DsChlw7si04hz_YKt95qPE0dgCEHxFI_tF8ZPVCwvsRpnNGZnijs_L356qqq6Utm_qxfZb78p6ZtcRWCJEwi979r2RISnuhzsPUp5izoFX1NC-HW6_sNezTqy5WZMuMwrNDrcXWXbOzLIfOLdiriR08RfU8Moe0"/>
+<img alt="Review Image 2" class="rounded-lg h-32 w-full object-cover" data-alt="close up of a stylish desk lamp base with metallic finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAWFNss9dAGWXK08naO5pwOq9PoKarIhGNUCczDCMka8mcq1YCV4A2XeTRzNSkOhsCDFl98FIeDFMQGpzXXNRq6G6AALyQ3PXQgzReJlXAUhpNTbMwN6-4X_siV4-zoxfCbHLSZ2xNyLyNRioYtcr7dYFQVIJvMmBGK-9tDXPjtG3KZsIo2PHRsge4ptLxzwHYZOF-metU-NBRq5RYL4hyUs-nZ-Q1zipupg1invfZ74n0iDH03laGxT0anjYe6g1agCqO2V8P9Q0"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1.5 text-xs font-bold text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">thumb_up</span>
+                                Helpful (12)
+                            </button>
+<button class="flex items-center gap-1.5 text-xs font-bold text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">chat_bubble</span>
+                                3 Comments
+                            </button>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Right Sidebar Shell -->
+<aside class="hidden xl:block w-80 fixed right-0 top-0 pt-20 h-screen overflow-y-auto px-6 pb-10">
+<!-- Top Sellers -->
+<section class="bg-surface-container-lowest rounded-xl p-5 mb-6 shadow-sm">
+<h3 class="font-headline font-bold text-on-surface mb-4 flex items-center justify-between">
+                    Top Sellers
+                    <a class="text-primary text-xs font-bold hover:underline" href="#">View All</a>
+</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<img alt="Seller 1" class="w-10 h-10 rounded-lg object-cover" data-alt="fashion brand logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiR5C6tKuw6-kjNRLZ788Nnmc1zxx3DyYPq3VPZajeuJTDHYjDdIT4tVcOWfGFdmwvi2-ZcwavuXZHFL2kyGstWZHsNbZeBL2nY4t2PErrj89y0hNScwhEWZILBL0PaxxU0OaA6t87SSPPy9Jmg4ZuCVhcT2oYzxDfXp9g_LNRgUO7RCRY5MJaUIPNk_z00yhKSF0ws_6tDsOLv4KfTFfrNwoOqm-JMLtOZHJulmbpKACN7B7asWNEuvc4eelTRMJE8ULXd6fVRyw"/>
+<div class="flex-1">
+<p class="text-xs font-bold truncate">ZARA Bangladesh</p>
+<p class="text-[10px] text-outline">120k Followers</p>
+</div>
+<button class="text-primary font-bold text-xs px-3 py-1 rounded-full border border-primary hover:bg-primary/5 transition-colors">Follow</button>
+</div>
+<div class="flex items-center gap-3">
+<img alt="Seller 2" class="w-10 h-10 rounded-lg object-cover" data-alt="electronics shop logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9zglkfXl33olrzNHJIT5tO6pnxIbuOlkkBW1GbQfZ2f9I5mqvz3oHUibWW7hcpRZfW692q-KpQPFvgenG0x7esEvn6lDAXuj3HWejlRjh9am5awxcsCviimtWzDLK1NxTiVfJ9TDegVnlpDL5ESIfIO5epuo6s4UEZDbVGj2Ki_oKu_du06kM0Mj2lNz2G39aemmdQRZrOQjWnL4TDNrDaa-4v-FR39Y_Q-ycYfRJ-X6G4Y54l_CYkZbyc4yROhQ3xm8Cl46oBbo"/>
+<div class="flex-1">
+<p class="text-xs font-bold truncate">Gadget Galaxy</p>
+<p class="text-[10px] text-outline">85k Followers</p>
+</div>
+<button class="bg-primary text-on-primary font-bold text-xs px-3 py-1 rounded-full hover:opacity-90 transition-opacity">Following</button>
+</div>
+<div class="flex items-center gap-3">
+<img alt="Seller 3" class="w-10 h-10 rounded-lg object-cover" data-alt="natural skincare brand logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzZgmoOw-ndj7CGkoEc26qje6X6K-eUcKfsGvCD9GmYQcLF-t5A_pUOdToIaqpvV7sZMXf-4ZJSnUu23x03-aKcHY1zoUagCPXiMn-NlBKlinZkw8KBDgVmv-xHl_cJeOwSHciKpR8j3rqLy4P3SRvbvsBLU8DS4Smro8XZFyxxL-yzhn8_taf2f8bcGmt7-hTnwAXpzvugAT2RWlYudv8oqxGOp8Wg-2y2sYFJMepvnIqtBm5G6HiAf65Mkg6IdA7TZgtS8w014A"/>
+<div class="flex-1">
+<p class="text-xs font-bold truncate">Organic Glow</p>
+<p class="text-[10px] text-outline">42k Followers</p>
+</div>
+<button class="text-primary font-bold text-xs px-3 py-1 rounded-full border border-primary hover:bg-primary/5 transition-colors">Follow</button>
+</div>
+</div>
+</section>
+<!-- Trending Topics -->
+<section class="bg-surface-container-lowest rounded-xl p-5 mb-6 shadow-sm">
+<h3 class="font-headline font-bold text-on-surface mb-4">Trending Topics</h3>
+<div class="space-y-3">
+<div class="group cursor-pointer">
+<p class="text-xs text-outline">E-commerce • Trending</p>
+<p class="text-sm font-bold group-hover:text-primary transition-colors">#WinterCollection2024</p>
+<p class="text-[10px] text-outline">12.5k posts this week</p>
+</div>
+<div class="group cursor-pointer">
+<p class="text-xs text-outline">Lifestyle • Trending</p>
+<p class="text-sm font-bold group-hover:text-primary transition-colors">#UniMartSaleBD</p>
+<p class="text-[10px] text-outline">8.2k posts</p>
+</div>
+<div class="group cursor-pointer">
+<p class="text-xs text-outline">Technology • Trending</p>
+<p class="text-sm font-bold group-hover:text-primary transition-colors">#UnboxingGalaxyS24</p>
+<p class="text-[10px] text-outline">3.1k posts</p>
+</div>
+</div>
+</section>
+<!-- Live Streams -->
+<section class="bg-surface-container-lowest rounded-xl p-5 shadow-sm overflow-hidden relative">
+<div class="absolute top-0 right-0 w-24 h-24 bg-secondary/10 rounded-full -translate-y-12 translate-x-12"></div>
+<h3 class="font-headline font-bold text-on-surface mb-4 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+                    Live Streams
+                </h3>
+<div class="space-y-4">
+<div class="flex gap-3">
+<div class="relative w-16 h-20 flex-shrink-0 rounded-lg overflow-hidden">
+<img alt="Stream 1" class="w-full h-full object-cover" data-alt="woman streaming on her phone in a colorful studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDll7A9h26FSuE9kE78dVMzawh1ZVGlB3t6ARpWhzeMf3V2xWtsN9b3hG9nLxZciVUmNwZ1Wr80VYTX3ENToSVI8KHS5S3K_Vv5u62hrcX8ScDN9n5lavp71jgwc5wVxW2sHbTAuge7Klt79tUjIR0Vv-QsAzIz0XSw4YOJ2Xv8Zl5WUGAWYXgym6gbY98X15MWSJOGN1RkYCGObOz9M_lSHIj1vLmsPlDWGpEDMigBx2HNr-FkkwCfI0qIvs3lxPNhAwXPtEnkY3U"/>
+<div class="absolute bottom-1 left-1 bg-error text-white text-[8px] font-bold px-1 rounded-sm">LIVE</div>
+</div>
+<div>
+<p class="text-xs font-bold leading-tight">Handicrafts Auction Night</p>
+<p class="text-[10px] text-outline mt-1">Starting in 15 mins</p>
+<button class="mt-2 bg-secondary/10 text-secondary text-[10px] font-bold px-2 py-1 rounded-full">Remind Me</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Small -->
+<footer class="mt-8 px-2 text-[10px] text-outline space-y-2">
+<div class="flex flex-wrap gap-x-3 gap-y-1">
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+<a class="hover:text-primary" href="#">Help Center</a>
+</div>
+<p>© 2024 UniMart Bangladesh. All rights reserved.</p>
+</footer>
+</aside>
+</div>
+<!-- Mobile Bottom Navigation Shell -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-outline-variant/10 px-6 py-2 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-0.5 text-blue-700">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rss_feed</span>
+<span class="text-[10px] font-bold">Feed</span>
+</button>
+<button class="flex flex-col items-center gap-0.5 text-slate-500">
+<span class="material-symbols-outlined">storefront</span>
+<span class="text-[10px] font-semibold">Market</span>
+</button>
+<button class="w-12 h-12 bg-primary rounded-full -mt-8 shadow-lg flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="flex flex-col items-center gap-0.5 text-slate-500">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-[10px] font-semibold">Alerts</span>
+</button>
+<button class="flex flex-col items-center gap-0.5 text-slate-500">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-semibold">Profile</span>
+</button>
+</nav>
+</body></html>

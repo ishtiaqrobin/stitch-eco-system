@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Refund Management | UniMart Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#f3f4f5",
+                        "secondary-container": "#ff6d4e",
+                        "primary-fixed": "#d8e2ff",
+                        "on-surface": "#191c1d",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-container-high": "#e7e8e9",
+                        "surface": "#f8f9fa",
+                        "error": "#ba1a1a",
+                        "background": "#f8f9fa",
+                        "on-primary-fixed": "#001a41",
+                        "outline": "#727785",
+                        "on-secondary-fixed": "#3e0500",
+                        "on-secondary-container": "#680f00",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c1c6d6",
+                        "on-primary-container": "#ffffff",
+                        "inverse-primary": "#adc7ff",
+                        "surface-container": "#edeeef",
+                        "primary-fixed-dim": "#adc7ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#001a41",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "inverse-on-surface": "#f0f1f2",
+                        "tertiary-container": "#0872ed",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#414754",
+                        "on-background": "#191c1d",
+                        "on-tertiary-container": "#ffffff",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "tertiary": "#005abf",
+                        "surface-dim": "#d9dadb",
+                        "primary": "#005bbf",
+                        "tertiary-fixed": "#d8e2ff",
+                        "secondary": "#ad3219",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#8b1a02",
+                        "on-primary-fixed-variant": "#004493",
+                        "surface-bright": "#f8f9fa",
+                        "secondary-fixed": "#ffdad3",
+                        "primary-container": "#1a73e8",
+                        "surface-variant": "#e1e3e4",
+                        "surface-tint": "#005bc0",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "on-error": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full flex justify-between items-center px-6 h-16 border-b border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 z-50 shadow-sm">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">UniMart Admin</span>
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-surface-container-low border-none rounded-full text-sm w-64 focus:ring-2 focus:ring-primary/20" placeholder="Search transactions..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors rounded-full relative">
+<span class="material-symbols-outlined text-slate-500">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<button class="p-2 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors rounded-full">
+<span class="material-symbols-outlined text-slate-500">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="Admin Profile Menu" data-alt="professional headshot of a middle-aged male administrator in a light grey suit with a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZhb-P1dIv7WjG4NgmORX_oTKT1eMrycUBwqXWrtp-sweqrNLdzkb7LwlEx37adha5Gc1Ud-Trc7jL9Lze0Rp1bws_LWlfq81ZXy1ZaYbsyeVXRYlaHe0STWPCBz7pN8hALSrZEd6vSn5GHk2OYqqucBjx1_E8cmlpUyp1RzXyEgI5hmbbtGQP_YGMgsUy5wdrI88sfrvjpI8fLYzx3m9j5DoIh_gsFzarMR3eBeXCtFT1gmvJZIC7ZFe03JMBsLZhOpdtNA1M1CE"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 pt-20 pb-6 px-4 flex flex-col gap-2 overflow-y-auto bg-slate-50 dark:bg-slate-950 border-r border-outline-variant/15 z-40">
+<div class="px-4 mb-4">
+<p class="text-blue-600 font-bold text-lg">Admin Central</p>
+<p class="text-xs text-outline">Management Suite</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium">User Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-medium">Moderation</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-medium">Operations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">layers</span>
+<span class="font-medium">Platform</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 rounded-lg shadow-sm font-medium" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span>Finance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium">System</span>
+</a>
+</nav>
+<div class="mt-auto px-4">
+<button class="w-full py-3 bg-primary text-on-primary rounded-xl font-semibold shadow-lg shadow-primary/20 hover:opacity-90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">download</span>
+                Export Reports
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-20 p-8">
+<header class="mb-10 flex justify-between items-end">
+<div>
+<h1 class="text-3xl font-extrabold text-on-surface tracking-tight mb-2">Refund Management</h1>
+<p class="text-on-surface-variant max-w-xl">Audit, process, and track financial returns across the UniMart ecosystem.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-5 py-2.5 bg-surface-container-high text-primary font-semibold rounded-full hover:bg-surface-container-highest transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">fact_check</span>
+                    Verify Original Payment
+                </button>
+<button class="px-5 py-2.5 bg-gradient-to-br from-primary to-primary-container text-on-primary font-semibold rounded-full hover:opacity-90 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+                    Batch Approve
+                </button>
+</div>
+</header>
+<!-- Stats Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+<div class="md:col-span-2 bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<p class="text-sm font-semibold text-outline mb-1">Total Refund Pool</p>
+<h2 class="text-4xl font-extrabold text-on-surface">৳ 4,82,500.00</h2>
+</div>
+<div class="mt-4 flex items-center gap-2 text-sm text-secondary">
+<span class="material-symbols-outlined text-base">trending_up</span>
+<span>12.5% increase from last month</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm">
+<p class="text-sm font-semibold text-outline mb-4">Refund Volume</p>
+<div class="flex items-end gap-1.5 h-16">
+<div class="w-full bg-primary-fixed h-3/4 rounded-t-sm"></div>
+<div class="w-full bg-primary-fixed h-1/2 rounded-t-sm"></div>
+<div class="w-full bg-primary h-full rounded-t-sm"></div>
+<div class="w-full bg-primary-fixed h-2/3 rounded-t-sm"></div>
+<div class="w-full bg-primary-fixed h-5/6 rounded-t-sm"></div>
+<div class="w-full bg-primary-fixed h-1/2 rounded-t-sm"></div>
+</div>
+<p class="text-[11px] text-outline mt-2 uppercase tracking-wider font-semibold">Last 7 Days</p>
+</div>
+<div class="bg-error-container p-6 rounded-xl shadow-sm border border-error/5">
+<div class="flex justify-between items-start mb-4">
+<p class="text-sm font-bold text-on-error-container">Fraud Guard Alerts</p>
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<h3 class="text-2xl font-bold text-on-error-container">08</h3>
+<p class="text-xs text-on-error-container mt-1">High refund velocity detected</p>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+<!-- Pending Refunds List -->
+<div class="xl:col-span-2">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="px-6 py-5 flex justify-between items-center bg-surface-container-low/50">
+<h3 class="font-bold text-lg">Pending Refunds</h3>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed text-xs px-3 py-1 rounded-full font-bold">24 REQUIRED ACTION</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="text-xs text-outline uppercase tracking-wider bg-surface-container-low/30">
+<tr>
+<th class="px-6 py-4 font-semibold">Refund ID</th>
+<th class="px-6 py-4 font-semibold">Order ID</th>
+<th class="px-6 py-4 font-semibold">Customer</th>
+<th class="px-6 py-4 font-semibold text-right">Amount (৳)</th>
+<th class="px-6 py-4 font-semibold">Method</th>
+<th class="px-6 py-4 font-semibold text-center">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr class="hover:bg-surface-container-low/40 transition-colors cursor-pointer group active:scale-[0.99]">
+<td class="px-6 py-5 font-medium text-primary">#REF-9921</td>
+<td class="px-6 py-5 text-sm">#ORD-5502</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold text-xs">SA</div>
+<span class="text-sm font-semibold">Sabbir Ahmed</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right font-bold">2,450.00</td>
+<td class="px-6 py-5 text-sm text-outline">bKash</td>
+<td class="px-6 py-5 text-center">
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant rounded-full text-[10px] font-bold uppercase tracking-tighter">Pending</span>
+</td>
+</tr>
+<tr class="bg-surface-container-low/60 border-l-4 border-primary">
+<td class="px-6 py-5 font-medium text-primary">#REF-9920</td>
+<td class="px-6 py-5 text-sm">#ORD-4119</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary font-bold text-xs">RJ</div>
+<span class="text-sm font-semibold">Raihan Jamil</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right font-bold">12,800.00</td>
+<td class="px-6 py-5 text-sm text-outline">Wallet</td>
+<td class="px-6 py-5 text-center">
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant rounded-full text-[10px] font-bold uppercase tracking-tighter">Processing</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/40 transition-colors cursor-pointer">
+<td class="px-6 py-5 font-medium text-primary">#REF-9918</td>
+<td class="px-6 py-5 text-sm">#ORD-3908</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant font-bold text-xs">NM</div>
+<span class="text-sm font-semibold">Nusrat Mim</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right font-bold">850.00</td>
+<td class="px-6 py-5 text-sm text-outline">SSLCommerz</td>
+<td class="px-6 py-5 text-center">
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant rounded-full text-[10px] font-bold uppercase tracking-tighter">Pending</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 bg-surface-container-low/20 flex justify-center border-t border-surface-container">
+<button class="text-primary font-bold text-sm hover:underline">View All Refund Requests</button>
+</div>
+</div>
+</div>
+<!-- Refund Detail Panel -->
+<div class="space-y-6">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-6 border-t-4 border-primary">
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-bold text-xl">Refund Detail</h3>
+<span class="material-symbols-outlined text-outline">info</span>
+</div>
+<div class="space-y-5">
+<div class="p-4 bg-surface-container rounded-lg">
+<p class="text-[11px] font-bold text-outline uppercase mb-2">Reason for Refund</p>
+<p class="text-sm leading-relaxed">"Item arrived with a broken screen. Customer provided photographic evidence. Return logistics completed on Oct 12."</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-[11px] font-bold text-outline uppercase mb-1">Payment Ref</p>
+<p class="text-xs font-mono bg-surface-container-high px-2 py-1 rounded">SSL_BK_8812XJ</p>
+</div>
+<div>
+<p class="text-[11px] font-bold text-outline uppercase mb-1">Gateway</p>
+<p class="text-xs font-semibold">bKash (SSLCommerz)</p>
+</div>
+</div>
+<div class="py-4 border-y border-surface-container-high">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm text-on-surface-variant">Wallet Balance Post-Refund</span>
+<span class="font-bold text-tertiary">৳ 14,210.00</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[65%]"></div>
+</div>
+</div>
+<div class="space-y-3 pt-2">
+<button class="w-full py-3 bg-primary text-on-primary rounded-xl font-bold hover:opacity-90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">verified_user</span>
+                                Authorize Refund
+                            </button>
+<button class="w-full py-3 bg-surface-container-high text-on-surface font-bold rounded-xl hover:bg-surface-container-highest transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">mail</span>
+                                Notify Customer
+                            </button>
+</div>
+</div>
+</div>
+<!-- Contextual Alert Card -->
+<div class="bg-secondary-fixed/30 rounded-xl p-6 relative overflow-hidden">
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="text-sm font-bold text-on-secondary-fixed">Risk Observation</span>
+</div>
+<p class="text-xs text-on-secondary-fixed-variant leading-relaxed">Raihan Jamil has requested 4 refunds in the last 30 days. Recommend manual ID verification before authorization.</p>
+<button class="mt-4 text-xs font-extrabold text-secondary hover:underline uppercase tracking-tight">Review User Profile</button>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-8xl">policy</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer / System Pulse -->
+<footer class="mt-16 py-8 border-t border-surface-container flex justify-between items-center text-outline text-xs">
+<div class="flex items-center gap-6">
+<span>© 2024 UniMart Financial Ops</span>
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    Gateway Online: SSLCommerz Active
+                </span>
+</div>
+<div class="flex gap-4">
+<a class="hover:text-primary" href="#">Audit Log</a>
+<a class="hover:text-primary" href="#">Policy Documentation</a>
+<a class="hover:text-primary" href="#">Support Desk</a>
+</div>
+</footer>
+</main>
+</body></html>

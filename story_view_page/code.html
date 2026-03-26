@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#005bc0",
+              "on-primary": "#ffffff",
+              "outline": "#727785",
+              "error-container": "#ffdad6",
+              "primary": "#005bbf",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "inverse-primary": "#adc7ff",
+              "surface-container-low": "#f3f4f5",
+              "outline-variant": "#c1c6d6",
+              "tertiary": "#005abf",
+              "on-surface-variant": "#414754",
+              "on-secondary-container": "#680f00",
+              "surface-container": "#edeeef",
+              "primary-container": "#1a73e8",
+              "surface": "#f8f9fa",
+              "on-primary-fixed-variant": "#004493",
+              "primary-fixed": "#d8e2ff",
+              "on-tertiary-fixed-variant": "#004493",
+              "on-error-container": "#93000a",
+              "secondary": "#ad3219",
+              "on-error": "#ffffff",
+              "inverse-surface": "#2e3132",
+              "surface-container-highest": "#e1e3e4",
+              "tertiary-fixed": "#d8e2ff",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "on-secondary-fixed": "#3e0500",
+              "on-surface": "#191c1d",
+              "on-primary-fixed": "#001a41",
+              "surface-bright": "#f8f9fa",
+              "error": "#ba1a1a",
+              "surface-container-high": "#e7e8e9",
+              "inverse-on-surface": "#f0f1f2",
+              "secondary-fixed": "#ffdad3",
+              "secondary-container": "#ff6d4e",
+              "on-tertiary-container": "#ffffff",
+              "background": "#f8f9fa",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed-dim": "#adc7ff",
+              "on-tertiary-fixed": "#001a41",
+              "on-background": "#191c1d",
+              "tertiary-container": "#0872ed",
+              "surface-variant": "#e1e3e4",
+              "surface-dim": "#d9dadb",
+              "on-primary-container": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .story-gradient-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.8) 100%);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body min-h-screen overflow-hidden">
+<!-- Immersive Blurred Background -->
+<div class="fixed inset-0 z-0">
+<div class="absolute inset-0 bg-cover bg-center scale-110 blur-3xl opacity-40" data-alt="Blurred atmospheric background of a modern lifestyle boutique with warm ambient lighting and soft textures" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAsyMEviQoLrppITepDfczFnq4ncM2mc3qQno007TPWhVTLogvzkENd158soNjfHnHggXquIgSVa7sr7tJKgOXQd-zeUpDDuElHL23G4FEPxYj9JnCrD6LL3WdjI6YVjeHILvV6IsYR2cB5uIvlY3I34feeHluGfVWCRgz_Hw74RYZ9c2z1BK_fMz1BnYahD-CegZ4QGpAtiOgespOPFrkVHWbT4ytEPbe2jEASbMj1Cc99fzKQ1hDgVhGdT9UHIrQ8tOP06YxQEJs')">
+</div>
+<div class="absolute inset-0 bg-surface/60 backdrop-blur-md"></div>
+</div>
+<!-- Main Content Container -->
+<main class="relative z-10 h-screen flex items-center justify-center p-0 md:p-8">
+<!-- Navigation Controls (Desktop) -->
+<button class="hidden md:flex absolute left-12 z-20 w-12 h-12 rounded-full bg-surface-container-lowest/20 backdrop-blur-xl border border-white/10 items-center justify-center text-white hover:bg-white/30 transition-all active:scale-90">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<button class="hidden md:flex absolute right-12 z-20 w-12 h-12 rounded-full bg-surface-container-lowest/20 backdrop-blur-xl border border-white/10 items-center justify-center text-white hover:bg-white/30 transition-all active:scale-90">
+<span class="material-symbols-outlined">arrow_forward_ios</span>
+</button>
+<!-- Story Player -->
+<div class="relative w-full max-w-[450px] aspect-[9/16] h-full md:h-[921px] md:rounded-[2rem] overflow-hidden shadow-2xl shadow-black/40 bg-black">
+<!-- The Story Content (Image/Video) -->
+<img alt="Main story content" class="w-full h-full object-cover" data-alt="A stylish flat lay of minimalist luxury accessories including a leather watch, silver glasses, and a designer wallet on a neutral linen surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEv-CX7VqZ5PQGXA6wq7-Mmb8s1CgMd9bon6SHRTqOd7v2JRrLC5y3-cNQO-SqsF3GaCpNHVH4GT0qNZQsr4qp4cRVsP8MpEq_sZNrpYTko0gUXgNPxndd5DByoQ8WSDwUIEcwtJ-39le-PMzWdM55TImi0GBCr2sudrTxJU38A-CHfh4oSrcOvp_YUiHujxuG2VufuxNYEnN7xx4L3tZZwx_z-DELe34LSFXmRNMbvvc6EBe3MtFgF1BMm6ZMcz1h5CRGxY6xbKE"/>
+<!-- Gradient Overlays -->
+<div class="absolute inset-0 story-gradient-overlay pointer-events-none"></div>
+<!-- Header UI -->
+<div class="absolute top-0 left-0 w-full p-4 pt-6 space-y-4">
+<!-- Progress Bars -->
+<div class="flex gap-1.5 px-1">
+<div class="h-1 flex-1 bg-white/30 rounded-full overflow-hidden">
+<div class="h-full bg-white w-full"></div>
+</div>
+<div class="h-1 flex-1 bg-white/30 rounded-full overflow-hidden">
+<div class="h-full bg-white w-[60%]"></div>
+</div>
+<div class="h-1 flex-1 bg-white/30 rounded-full"></div>
+</div>
+<!-- User Profile & Actions -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full p-0.5 bg-gradient-to-tr from-primary to-secondary-container">
+<img alt="User profile" class="w-full h-full rounded-full border-2 border-black object-cover" data-alt="Professional portrait of a young creative professional woman with a confident smile in a sunlit studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-DvhridkofWdSgaGukUH8XzHesr2w8TRt5tukix1mHbpvcB95l2M7J-TBZaa61X5qSn_jz1n5qkqucvyRh-Ao4eUj52Zdm1H2PfS53PA1gIh3LigvJ5xvjNccyPg8kKwnr8Q0juuzatKXUBjMc05D0h9sfvL12RPIspikKUKYyIJwEqQ8zeeX4y5r5yZJ5RjzF-eOiFOPcdWWizrO5GIsE1YVkGayN8gJkNWL26s3JZiawuanrBa-57LGCj3VU3LXojCyyzlDDnk"/>
+</div>
+<div class="flex flex-col">
+<span class="text-white font-bold text-sm tracking-tight font-headline">unimart_curated</span>
+<span class="text-white/70 text-xs font-label uppercase tracking-widest">3h ago</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-1 rounded-full text-xs font-bold transition-all active:scale-95 ml-1">Follow</button>
+</div>
+<div class="flex items-center gap-4 text-white">
+<button class="material-symbols-outlined hover:opacity-70">more_horiz</button>
+<button class="material-symbols-outlined hover:opacity-70">close</button>
+</div>
+</div>
+</div>
+<!-- Footer UI -->
+<div class="absolute bottom-0 left-0 w-full p-6 space-y-6">
+<!-- Shoppable Product Link (Bento Style) -->
+<div class="bg-surface-container-lowest/10 backdrop-blur-2xl border border-white/20 p-3 rounded-xl flex items-center gap-3 group hover:bg-white/20 transition-all cursor-pointer">
+<div class="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Product" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A pair of vibrant red performance running shoes against a clean white background, high-end commercial photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-2ANtTNOQv0KbgaFjf_WmecjOijHJzgw1DOV6NVjBob4GEttU11-GbWjDXaOEqC3x9T7cFDrZuTls1wHG-LMEtjXr5_KarO4DqowxiFtEg6Xx0pXMHV2pV3oX9_keb1vP-c6M8AwfA5ZQZcMiu1FaPZX7Zms4SpJTVEY7lyyt0gl_AClPVxpwCHvxUI56F4FIdfqEeXuE0Lz38BV2S-5hkGyVMyMPTtHCvlr6xu_APEv2rOoBUbUD59uz50G9diN4DboDw8QLEO4"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-white/70 text-[10px] font-label uppercase tracking-widest">Limited Drop</p>
+<h3 class="text-white font-bold text-sm truncate font-headline">UltraBoost Crimson 2.0</h3>
+<p class="text-secondary-fixed text-xs font-bold">৳14,500</p>
+</div>
+<div class="bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-xl">shopping_bag</span>
+</div>
+</div>
+<!-- Interaction Bar -->
+<div class="flex items-center gap-4">
+<div class="flex-1 relative">
+<input class="w-full bg-white/10 backdrop-blur-xl border border-white/20 rounded-full px-5 py-3 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-primary/50 text-sm" placeholder="Send a message..." type="text"/>
+</div>
+<div class="flex items-center gap-4 text-white">
+<button class="flex flex-col items-center gap-0.5 group">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform" data-weight="fill" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="text-[10px] font-bold">1.2k</span>
+</button>
+<button class="flex flex-col items-center gap-0.5 group">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">send</span>
+<span class="text-[10px] font-bold">48</span>
+</button>
+</div>
+</div>
+<!-- Quick Reaction Emojis -->
+<div class="flex justify-between px-2">
+<button class="text-2xl hover:scale-125 transition-transform active:scale-90">🔥</button>
+<button class="text-2xl hover:scale-125 transition-transform active:scale-90">😍</button>
+<button class="text-2xl hover:scale-125 transition-transform active:scale-90">🙌</button>
+<button class="text-2xl hover:scale-125 transition-transform active:scale-90">👏</button>
+<button class="text-2xl hover:scale-125 transition-transform active:scale-90">😮</button>
+<button class="text-2xl hover:scale-125 transition-transform active:scale-90">💯</button>
+</div>
+</div>
+</div>
+<!-- Desktop Thumbnail Preview (Right Side) -->
+<div class="hidden xl:flex flex-col gap-4 ml-12 self-center">
+<h4 class="text-on-surface font-headline font-bold text-lg mb-2">Next in Line</h4>
+<div class="w-32 aspect-[9/16] rounded-xl overflow-hidden opacity-40 hover:opacity-60 transition-opacity cursor-pointer border-2 border-transparent">
+<img alt="Next story preview" class="w-full h-full object-cover" data-alt="Close-up of high-fashion sneakers on a concrete floor with urban street lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdr4NNFqqz9EiM5gyCnPJXAv_uQGJV6zfnOzDaw2ne3MJ1pYr5MUTx6e2wRNamuBDyFpS5qUeZgLoEuhIcfXDVgJ02x8_WPska_pTHL3pCT5-Pc9bn8k4L35lgG1DXYETzaGfTAQ4q3eY2OJvwjoPU4Ha1dIoLeKsKi3j9Fhpa9iYlolZqsskHrOhoD1k1xDwgxCklPOxvc_sSH6OI4MIj8i7ed6cSjhEarEPJMv9MyxWXNwHU9HFGqiAtdxPNaNd5tmjlNPy3Bvs"/>
+</div>
+<div class="w-32 aspect-[9/16] rounded-xl overflow-hidden opacity-40 hover:opacity-60 transition-opacity cursor-pointer border-2 border-transparent">
+<img alt="Upcoming story preview" class="w-full h-full object-cover" data-alt="Selection of elegant watches displayed in a modern boutique window under warm spotlighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-Kk-hlxAosEuS4nDE-J1C97C2GsOC3QEoesSFe-3AkqZHr9tE4UxwIzLoZo01jNm2MTgp_v6tSKIlmztqt67VEJCWljjgN10YTe1YpoiBNFmwG5JQgBOVPk13DNDJylfoXkqd7z-aoBoPIpjYXcZXfeOPnN1rC-Ic8r3LtknsoqtMZg-XB6iog_tgR-gf9PeNWrICxmZSu_118wN4w3NYMCdIvF2tlchzp1VGDeQuS5HbNhUc3FNld-DdFZ0IYDc4aRHUuZYPZpc"/>
+</div>
+</div>
+</main>
+<!-- Shared Components Layer (Suppressed Shell per rules for focused journey) -->
+<!-- Navigation is hidden for immersive Story view focus -->
+</body></html>

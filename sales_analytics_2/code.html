@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sales Analytics | UniMart Seller Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface": "#191c1d",
+                        "on-secondary-fixed-variant": "#8b1a02",
+                        "secondary": "#ad3219",
+                        "on-primary-container": "#ffffff",
+                        "surface-tint": "#005bc0",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#ff6d4e",
+                        "surface-variant": "#e1e3e4",
+                        "on-secondary-fixed": "#3e0500",
+                        "on-primary-fixed-variant": "#004493",
+                        "inverse-surface": "#2e3132",
+                        "secondary-fixed": "#ffdad3",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#adc7ff",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "primary-container": "#1a73e8",
+                        "inverse-primary": "#adc7ff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-primary-fixed": "#001a41",
+                        "primary": "#005bbf",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#c1c6d6",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container": "#edeeef",
+                        "surface": "#f8f9fa",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "on-tertiary-container": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-container-low": "#f3f4f5",
+                        "on-background": "#191c1d",
+                        "tertiary-container": "#0872ed",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#005abf",
+                        "on-secondary-container": "#680f00",
+                        "surface-dim": "#d9dadb",
+                        "on-tertiary-fixed": "#001a41",
+                        "on-surface-variant": "#414754",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "primary-fixed": "#d8e2ff",
+                        "background": "#f8f9fa",
+                        "outline": "#727785"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-4 z-40 bg-slate-50 w-64 border-r border-transparent">
+<div class="mb-8 px-2">
+<h1 class="text-lg font-black text-slate-900 tracking-tight">Official Store</h1>
+<p class="text-xs text-slate-500 font-medium">Verified Merchant</p>
+</div>
+<nav class="flex flex-col gap-1 flex-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-sm font-medium">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="warehouse">warehouse</span>
+<span class="text-sm font-medium">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white text-blue-700 rounded-lg shadow-sm font-bold scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-sm font-medium">Payments</span>
+</a>
+</nav>
+<div class="mt-auto flex flex-col gap-1 border-t border-slate-200 pt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-200/50 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 flex items-center justify-between px-6 py-3 w-full bg-white shadow-sm">
+<div class="flex items-center gap-4">
+<span class="text-xl font-extrabold text-blue-700 tracking-tight">UniMart Seller Studio</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative">
+<input class="bg-surface-container-low border-none rounded-full px-4 py-1.5 text-sm w-64 focus:ring-2 focus:ring-primary/20" placeholder="Search analytics..." type="text"/>
+</div>
+<div class="flex items-center gap-4 text-slate-500">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors" data-icon="help">help</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors" data-icon="settings">settings</span>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-high border border-outline-variant/15">
+<img alt="Merchant Profile Avatar" class="w-full h-full object-cover" data-alt="minimalist professional avatar of a business owner in a modern business suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdoCwTOGSOpR-zPmX6V5L6p8FworuY9wY9rFYKOtojX9E1dvNthmPGEsO8iJFMRqtT-P-4qxID3poqGBs4hka_qHgewSYN_qRYGfA1XC0BQMoiVbNN-Yc3dJJ_sZeTFUeM3A51U6BExbeidsO3etDJ8VRar9YoSbc-6UtloQQtUbVJTH4vS0rvJO-l8wTDPje1VzDJ3104w1ANLOT6mesuOHdaNOgGkumIWOEk8VvIIRbBscAtRqtRNMO2kBDIcplH6HAp6OY9048"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Analytics Dashboard Content -->
+<div class="p-8 space-y-8">
+<!-- Header Section -->
+<div class="flex justify-between items-end">
+<div>
+<h2 class="text-3xl font-extrabold font-headline tracking-tight text-on-surface">Performance Pulse</h2>
+<p class="text-on-surface-variant mt-1">Real-time breakdown of your store's commercial health.</p>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-primary font-medium text-sm flex items-center gap-2 hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>
+                        Last 30 Days
+                    </button>
+<button class="px-6 py-2 rounded-full bg-gradient-to-br from-primary to-primary-container text-white font-semibold text-sm shadow-md flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                        Export Report
+                    </button>
+</div>
+</div>
+<!-- Key Metrics Grid (Asymmetric) -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Main Revenue Card -->
+<div class="col-span-12 md:col-span-5 bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/5">
+<div class="flex justify-between items-start mb-4">
+<span class="text-xs font-bold uppercase tracking-widest text-primary">Total Revenue</span>
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded-full font-bold">+12.4%</span>
+</div>
+<div class="flex items-baseline gap-2">
+<h3 class="text-4xl font-black font-headline">৳ 842,500</h3>
+<span class="text-on-surface-variant text-sm font-medium">BDT</span>
+</div>
+<div class="mt-8 h-32 relative">
+<!-- Simplified Line Chart Visual -->
+<div class="absolute inset-0 flex items-end gap-1">
+<div class="w-full bg-primary/10 rounded-t-sm h-[40%]"></div>
+<div class="w-full bg-primary/10 rounded-t-sm h-[60%]"></div>
+<div class="w-full bg-primary/10 rounded-t-sm h-[45%]"></div>
+<div class="w-full bg-primary/10 rounded-t-sm h-[80%]"></div>
+<div class="w-full bg-primary/20 rounded-t-sm h-[95%]"></div>
+<div class="w-full bg-primary/40 rounded-t-sm h-[70%]"></div>
+<div class="w-full bg-primary rounded-t-sm h-[100%]"></div>
+</div>
+</div>
+</div>
+<!-- Metrics Column -->
+<div class="col-span-12 md:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/5 flex flex-col justify-between">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-secondary">Conversion Rate</span>
+<h3 class="text-2xl font-bold font-headline mt-2">4.2%</h3>
+<p class="text-on-surface-variant text-xs mt-1">Views vs. Successful Orders</p>
+</div>
+<div class="mt-4 flex items-center gap-4">
+<div class="flex-1 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[42%]"></div>
+</div>
+<span class="text-xs font-bold">42/1k</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/5 flex flex-col justify-between">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-tertiary">Avg. Order Value</span>
+<h3 class="text-2xl font-bold font-headline mt-2">৳ 3,240</h3>
+<p class="text-on-surface-variant text-xs mt-1">Per transaction average</p>
+</div>
+<div class="mt-4 flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-white bg-slate-200"></div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-slate-300"></div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-slate-400"></div>
+<div class="text-[10px] bg-surface-container-high px-2 py-1 rounded-full border-2 border-white font-bold ml-4">+240 this wk</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/5 col-span-1 md:col-span-2">
+<div class="flex justify-between items-center">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Store Visits</span>
+<h3 class="text-2xl font-bold font-headline">128.4k</h3>
+</div>
+<div class="text-right">
+<span class="text-[10px] font-bold text-error bg-error/10 px-2 py-0.5 rounded-full">-2.1%</span>
+<p class="text-xs text-on-surface-variant mt-1">vs prev. month</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Detailed Analysis Section -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Category Breakdown (Bento Style) -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<h3 class="text-xl font-bold font-headline flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="category">category</span>
+                        Sales by Category
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-surface-container-low p-5 rounded-xl border border-outline-variant/5 relative overflow-hidden group">
+<div class="relative z-10">
+<p class="text-sm font-semibold text-on-surface-variant">Traditional Wear</p>
+<p class="text-xl font-black mt-1">৳ 412k</p>
+<span class="text-[10px] text-primary font-bold">49% of total sales</span>
+</div>
+<span class="material-symbols-outlined absolute -bottom-2 -right-2 text-6xl text-on-surface/5 group-hover:scale-110 transition-transform" data-icon="styler">styler</span>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border border-outline-variant/5 relative overflow-hidden group">
+<div class="relative z-10">
+<p class="text-sm font-semibold text-on-surface-variant">Handicrafts</p>
+<p class="text-xl font-black mt-1">৳ 198k</p>
+<span class="text-[10px] text-secondary font-bold">23% of total sales</span>
+</div>
+<span class="material-symbols-outlined absolute -bottom-2 -right-2 text-6xl text-on-surface/5 group-hover:scale-110 transition-transform" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl border border-outline-variant/5 relative overflow-hidden group">
+<div class="relative z-10">
+<p class="text-sm font-semibold text-on-surface-variant">Home Decor</p>
+<p class="text-xl font-black mt-1">৳ 145k</p>
+<span class="text-[10px] text-tertiary font-bold">17% of total sales</span>
+</div>
+<span class="material-symbols-outlined absolute -bottom-2 -right-2 text-6xl text-on-surface/5 group-hover:scale-110 transition-transform" data-icon="home">home</span>
+</div>
+</div>
+<!-- Main Chart Placeholder -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-center mb-8">
+<h4 class="font-bold text-sm">Revenue Flow (Weekly)</h4>
+<div class="flex gap-4">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-xs font-medium text-on-surface-variant">Current</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-surface-container-highest"></div>
+<span class="text-xs font-medium text-on-surface-variant">Previous</span>
+</div>
+</div>
+</div>
+<div class="h-64 flex items-end justify-between gap-4">
+<!-- Week 1 -->
+<div class="flex-1 flex flex-col justify-end items-center gap-2 h-full group">
+<div class="w-full flex items-end gap-1 h-full">
+<div class="w-1/2 bg-surface-container-highest rounded-t-lg h-[40%]"></div>
+<div class="w-1/2 bg-primary rounded-t-lg h-[55%]"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">W1</span>
+</div>
+<!-- Week 2 -->
+<div class="flex-1 flex flex-col justify-end items-center gap-2 h-full group">
+<div class="w-full flex items-end gap-1 h-full">
+<div class="w-1/2 bg-surface-container-highest rounded-t-lg h-[60%]"></div>
+<div class="w-1/2 bg-primary rounded-t-lg h-[45%]"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">W2</span>
+</div>
+<!-- Week 3 -->
+<div class="flex-1 flex flex-col justify-end items-center gap-2 h-full group">
+<div class="w-full flex items-end gap-1 h-full">
+<div class="w-1/2 bg-surface-container-highest rounded-t-lg h-[50%]"></div>
+<div class="w-1/2 bg-primary rounded-t-lg h-[75%]"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">W3</span>
+</div>
+<!-- Week 4 -->
+<div class="flex-1 flex flex-col justify-end items-center gap-2 h-full group">
+<div class="w-full flex items-end gap-1 h-full">
+<div class="w-1/2 bg-surface-container-highest rounded-t-lg h-[45%]"></div>
+<div class="w-1/2 bg-primary rounded-t-lg h-[90%]"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">W4</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Top Products (Side List) -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<h3 class="text-xl font-bold font-headline flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="star">star</span>
+                        Top Performers
+                    </h3>
+<div class="space-y-4">
+<!-- Product 1 -->
+<div class="flex items-center gap-4 bg-surface-container-lowest p-3 rounded-xl hover:bg-surface-bright transition-colors border border-transparent hover:border-outline-variant/10 cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container overflow-hidden shrink-0">
+<img alt="Silk Jamdani Sari" class="w-full h-full object-cover" data-alt="close-up of exquisite hand-woven silk jamdani sari with intricate golden floral motifs and rich texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp8sbTeefURTf9LpxjO7b15oLWpNthyDC0d43T2qukDMult0mF8l6Jt9pkcymSsbmJBATsEV75nB1ZVh8XoXKgfLLhLlNYSFXQtZ2yV2nSqWt5nE0Wn-aQYTJB2ZjDAOu3DjFJ6VX83AQSizcC2EdIRU1Q0DSA2Oud-a033Tpmd7vbWrL-iDA1nkwHWuWc5s-amoZN2VfRVWTSThJ6_Wa8ZPHb54DGfUhFYRnJMAsr4y6SrVXIEmKAGA-B6wp2CB-ZguagaPLqoI0"/>
+</div>
+<div class="flex-1">
+<h5 class="text-sm font-bold">Silk Jamdani Sari</h5>
+<p class="text-[10px] text-on-surface-variant">142 Sales this month</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-black">৳ 18,500</p>
+<p class="text-[10px] text-primary font-bold">HOT</p>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="flex items-center gap-4 bg-surface-container-lowest p-3 rounded-xl hover:bg-surface-bright transition-colors border border-transparent hover:border-outline-variant/10 cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container overflow-hidden shrink-0">
+<img alt="Terracotta Lamp" class="w-full h-full object-cover" data-alt="artisan handcrafted terracotta desk lamp with traditional bengali clay patterns emitting a warm soft glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuj63oQirkbAdeYfgYOBFlZADfeQDdaPDRBvtnqaOL8pUHxNlGL2gZtPxTz0nLgntBeafkQmYXSVgZWYYwSpiHz45ZV8ka4Ev_ti1InSNF54nmombGO7EnPmnn4i5Zvt2Cbd9nbQuTBTS9kJoxUguAwmeq0KFjLCtTx6lGO5WaiYuV8sHU8APGO7woVKtHRZUsiCjUHPP5mLjdNSowe9-IOVDlI6kXFIdYlnyUQeOMKexq3gvwXXNU5_hvqWmeGuU6oGBtmXQpUUQ"/>
+</div>
+<div class="flex-1">
+<h5 class="text-sm font-bold">Terracotta Lamp</h5>
+<p class="text-[10px] text-on-surface-variant">89 Sales this month</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-black">৳ 2,200</p>
+<p class="text-[10px] text-secondary font-bold">+5%</p>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="flex items-center gap-4 bg-surface-container-lowest p-3 rounded-xl hover:bg-surface-bright transition-colors border border-transparent hover:border-outline-variant/10 cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container overflow-hidden shrink-0">
+<img alt="Nakshi Kantha Cushion" class="w-full h-full object-cover" data-alt="vibrant nakshi kantha embroidery on a decorative cushion with intricate storytelling needlework in multiple colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_SBYW5YzEobJ1HIrUApY1VA22Z1iYy0h_ErEUaLpH5rQSQAlXhw-RrdFp1MJNgqHvnU81ZU0d0pXJcteg9nUcJRnJPFVQzp7QWnKgkma4Xuopl2R1eMUWvHozMtIQAQ_X8hJe2bFYnVSfrtQhwRqFtk0LgiVTCUQy4ZLZ-gmFSYebcdYdOv4R40tqOMTWuoQ-2AvMeoPJhu8Lva9EFnsB6x3uV8C9NG16TsTNZ1z5bD2gzGqIw1xrkbLF_-in0u4w6kFPO7GyEDI"/>
+</div>
+<div class="flex-1">
+<h5 class="text-sm font-bold">Nakshi Kantha Cover</h5>
+<p class="text-[10px] text-on-surface-variant">76 Sales this month</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-black">৳ 1,450</p>
+<p class="text-[10px] text-tertiary font-bold">NEW</p>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="flex items-center gap-4 bg-surface-container-lowest p-3 rounded-xl hover:bg-surface-bright transition-colors border border-transparent hover:border-outline-variant/10 cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container overflow-hidden shrink-0">
+<img alt="Brass Jewelry Set" class="w-full h-full object-cover" data-alt="hand-polished ethnic brass necklace and earrings set with traditional filigree work against a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsPJiKa72Mhe5aYD6JWKApeu1VIHws9ZeuqQcQXH5NR28mbm2EOhGO4fSlYEdRSDWdD6N83yC4-MB8QBHgmT_PC1TxLoeNj7EH8_EfGkh1wj3LpVEwgc5Ig8H0FRIqUVIRH7fxH0wDagqkwGEVzSgY-s6z9JeYqb0HNVq0Hxv4EoxbHb9o7gS2nppZ6DZ60V-K-WTFG_OuFTStxGQ_nMFfaPqxvDQHDHvJga7tJe--5iKvSBTv0JXtzVr-KdSop3E5tW46BqnAzW8"/>
+</div>
+<div class="flex-1">
+<h5 class="text-sm font-bold">Brass Filigree Set</h5>
+<p class="text-[10px] text-on-surface-variant">52 Sales this month</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-black">৳ 3,800</p>
+<p class="text-[10px] text-on-surface-variant font-bold">STABLE</p>
+</div>
+</div>
+</div>
+<button class="w-full py-3 rounded-xl bg-surface-container-high text-on-surface font-bold text-sm hover:bg-surface-container-highest transition-colors">
+                        View All Products
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Global FAB (Highly Contextual for Home/Dashboard) -->
+<!-- Suppressed on Analytics according to context rules, but included if user were on home -->
+</body></html>

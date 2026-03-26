@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Management | UniMart Admin</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f3f4f5",
+              "secondary-container": "#ff6d4e",
+              "primary-fixed": "#d8e2ff",
+              "on-surface": "#191c1d",
+              "surface-container-highest": "#e1e3e4",
+              "surface-container-high": "#e7e8e9",
+              "surface": "#f8f9fa",
+              "error": "#ba1a1a",
+              "background": "#f8f9fa",
+              "on-primary-fixed": "#001a41",
+              "outline": "#727785",
+              "on-secondary-fixed": "#3e0500",
+              "on-secondary-container": "#680f00",
+              "error-container": "#ffdad6",
+              "outline-variant": "#c1c6d6",
+              "on-primary-container": "#ffffff",
+              "inverse-primary": "#adc7ff",
+              "surface-container": "#edeeef",
+              "primary-fixed-dim": "#adc7ff",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed": "#001a41",
+              "inverse-surface": "#2e3132",
+              "on-tertiary-fixed-variant": "#004493",
+              "inverse-on-surface": "#f0f1f2",
+              "tertiary-container": "#0872ed",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "on-surface-variant": "#414754",
+              "on-background": "#191c1d",
+              "on-tertiary-container": "#ffffff",
+              "tertiary-fixed-dim": "#adc6ff",
+              "tertiary": "#005abf",
+              "surface-dim": "#d9dadb",
+              "primary": "#005bbf",
+              "tertiary-fixed": "#d8e2ff",
+              "secondary": "#ad3219",
+              "on-secondary": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "on-primary-fixed-variant": "#004493",
+              "surface-bright": "#f8f9fa",
+              "secondary-fixed": "#ffdad3",
+              "primary-container": "#1a73e8",
+              "surface-variant": "#e1e3e4",
+              "surface-tint": "#005bc0",
+              "secondary-fixed-dim": "#ffb4a4",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 h-16 bg-white dark:bg-slate-900 shadow-sm z-50 border-b border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">UniMart Admin</span>
+<div class="hidden md:flex relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low rounded-full border-none focus:ring-2 focus:ring-primary/40 w-64 lg:w-96 text-sm transition-all" placeholder="Search by name, email, role..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors rounded-full">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container">
+<img alt="Admin Profile Menu" data-alt="professional headshot of a male admin wearing glasses and a blue shirt against a neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJi7Ztex4W-QZ2GzhjjVe4eWR2d76smhvxGjxy7xl6h-yJvX8vXAuZJ_xUJyFMkIq4eVGWlk3gUBFMJgnvTvu5acQb8ArOP3KK5CS9CLI7mo54ct5j6zbfq65lnRE2l5eFUr-s2jI7q7MNIr2TZJPz2GrP0roi_MkBNACtpK6ulZuCNPhPK7EfMDUtPhnqet5-rKNZ8Pyk7CUFq5z2_FThwRSqL1Z1qbywfAU8dGP1HvN5v35KN8CaQjxZpCSsqr3pce4zr23DhPI"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 pt-20 pb-6 px-4 flex flex-col gap-2 overflow-y-auto bg-slate-50 dark:bg-slate-950 border-r border-slate-100 dark:border-slate-800 z-40">
+<div class="px-4 mb-6">
+<h2 class="text-lg font-bold text-blue-600">Admin Central</h2>
+<p class="text-xs text-slate-500">Management Suite</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 rounded-lg shadow-sm font-medium" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium">User Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-medium">Moderation</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-medium">Operations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">layers</span>
+<span class="font-medium">Platform</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-medium">Finance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium">System</span>
+</a>
+</nav>
+<div class="mt-auto px-4">
+<button class="w-full py-3 px-4 bg-primary text-on-primary rounded-xl font-semibold shadow-lg shadow-primary/20 flex items-center justify-center gap-2 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-sm">file_download</span>
+                Export Reports
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 px-8 pb-12 min-h-screen">
+<div class="max-w-7xl mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div>
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2">User Directory</h1>
+<p class="text-on-surface-variant max-w-lg">Manage platform accounts, monitor verification statuses, and handle security escalations.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 bg-surface-container-high text-primary rounded-full font-semibold hover:bg-surface-container-highest transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">upload</span>
+                        Export CSV
+                    </button>
+<button class="px-6 py-2.5 bg-secondary text-on-secondary rounded-full font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">block</span>
+                        Suspend Selected
+                    </button>
+</div>
+</div>
+<!-- Dashboard Layout Grid -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Filters Column -->
+<div class="col-span-12 lg:col-span-3 space-y-8">
+<section class="bg-surface-container-low p-6 rounded-xl">
+<h3 class="font-headline font-bold text-lg mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">filter_list</span>
+                            Refine View
+                        </h3>
+<!-- Role Filter -->
+<div class="mb-8">
+<label class="block text-xs font-bold text-outline uppercase tracking-wider mb-4">Account Role</label>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-1.5 bg-secondary-fixed text-on-secondary-fixed-variant rounded-full text-xs font-bold cursor-pointer transition-all border border-transparent hover:border-secondary">All Users</span>
+<span class="px-4 py-1.5 bg-surface-container-lowest text-on-surface-variant rounded-full text-xs font-medium cursor-pointer hover:bg-surface-container-high transition-all">Consumer</span>
+<span class="px-4 py-1.5 bg-surface-container-lowest text-on-surface-variant rounded-full text-xs font-medium cursor-pointer hover:bg-surface-container-high transition-all">Seller</span>
+<span class="px-4 py-1.5 bg-surface-container-lowest text-on-surface-variant rounded-full text-xs font-medium cursor-pointer hover:bg-surface-container-high transition-all">Admin</span>
+</div>
+</div>
+<!-- Status Filter -->
+<div class="mb-8">
+<label class="block text-xs font-bold text-outline uppercase tracking-wider mb-4">Verification Status</label>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-on-surface transition-colors">Verified Merchants</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-on-surface transition-colors">Pending KYC</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-on-surface transition-colors">Phone Authenticated</span>
+</label>
+</div>
+</div>
+<!-- Activity Filter -->
+<div>
+<label class="block text-xs font-bold text-outline uppercase tracking-wider mb-4">Activity (Last 30 Days)</label>
+<select class="w-full bg-surface-container-highest border-none rounded-lg text-sm p-3 focus:ring-2 focus:ring-primary/30">
+<option>High Activity (&gt;50 transactions)</option>
+<option>Moderate Activity</option>
+<option>Low Activity</option>
+<option>Inactive Accounts</option>
+</select>
+</div>
+</section>
+<!-- User Stats Widget -->
+<div class="bg-primary-container p-6 rounded-xl text-on-primary shadow-lg shadow-primary/10">
+<p class="text-sm font-medium opacity-80 mb-1">Growth Index</p>
+<h4 class="text-3xl font-extrabold mb-4">+1,402 <span class="text-sm font-normal opacity-70">this month</span></h4>
+<div class="w-full bg-white/20 h-1 rounded-full overflow-hidden">
+<div class="bg-white h-full w-[72%]"></div>
+</div>
+<p class="text-xs mt-3 opacity-70">72% of target user acquisition reached</p>
+</div>
+</div>
+<!-- Main Data Table Area -->
+<div class="col-span-12 lg:col-span-9">
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container">
+<th class="px-6 py-4">
+<input class="w-4 h-4 rounded border-outline-variant text-primary" type="checkbox"/>
+</th>
+<th class="px-6 py-4 text-xs font-bold text-outline uppercase tracking-widest">User</th>
+<th class="px-6 py-4 text-xs font-bold text-outline uppercase tracking-widest">Role</th>
+<th class="px-6 py-4 text-xs font-bold text-outline uppercase tracking-widest">Join Date</th>
+<th class="px-6 py-4 text-xs font-bold text-outline uppercase tracking-widest text-right">Wallet (৳)</th>
+<th class="px-6 py-4 text-xs font-bold text-outline uppercase tracking-widest">Status</th>
+<th class="px-6 py-4 text-xs font-bold text-outline uppercase tracking-widest text-center">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- User 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<input class="w-4 h-4 rounded border-outline-variant text-primary" type="checkbox"/>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
+<img alt="Arifa Rahman" data-alt="close-up portrait of a professional woman with a warm smile, wearing a modern hijab, studio lighting with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCC4DMAjAcON4IUO-rgh7ZSZD9Z1_FLacRU9OAnQaoGtJRyd3KMthUNfe9uR13tPb6hemsyX0IiHvzRfHHO2PuW3XWl4s8IPkT9dX6oDNl2NMKtyeOHAZjYl2XVgY0KFHRVoqz9WHqQysl734Jld7w4AaFB6ZBxlofEHUJDsX_ocrna-UTNxRhYWpvNJ8igrrBwt-anPTNx9lcFoqlbXmakXV5orchWOYgfDE7HS5DpN73PRrtWYKKuudWWWOGdfXfVZEDU62rer8c"/>
+</div>
+<div>
+<div class="font-bold text-on-surface">Arifa Rahman</div>
+<div class="text-xs text-outline">arifa.rah@email.com</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] font-extrabold uppercase tracking-wider">Consumer</span>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Oct 12, 2023</td>
+<td class="px-6 py-5 text-sm font-bold text-right">4,250.00</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                                Active
+                                            </span>
+</td>
+<td class="px-6 py-5">
+<div class="flex justify-center gap-2">
+<button class="p-2 text-outline hover:text-primary hover:bg-primary/5 rounded-lg transition-all" title="View"><span class="material-symbols-outlined">visibility</span></button>
+<button class="p-2 text-outline hover:text-primary hover:bg-primary/5 rounded-lg transition-all" title="Edit"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 text-outline hover:text-error hover:bg-error/5 rounded-lg transition-all" title="Ban"><span class="material-symbols-outlined">block</span></button>
+</div>
+</td>
+</tr>
+<!-- User 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<input class="w-4 h-4 rounded border-outline-variant text-primary" type="checkbox"/>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
+<img alt="Tanvir Ahmed" data-alt="portrait of a confident young south asian male professional with short black hair and a clean-shaven face, looking directly into the camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEi-44JaFybx9yl7fNo9tXptB-8q_FIOKpNFkuY-tOUJGxEZtekeKdbosUnZBw60tyVbBvrdsOPyIYVnzIXOuuDYJscbEm0KnFOqLsZDce2eRs1JQnMVwWKDfGht3IebP2tdTuSU1u0oVLJ2yEReAt-0oWIHdX0GdJSjfETnTwWYInEPbwz8mm866DHTFoqlY7MVTuuWHdudKliJSD0eyEO7aGETrwVm631tpewm8n818zkzjygp71mJmi5zqHWiP-c2DcBc-1aKQ"/>
+</div>
+<div>
+<div class="font-bold text-on-surface">Tanvir Ahmed</div>
+<div class="text-xs text-outline">tanvir.shop@unimart.com</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-tertiary/10 text-tertiary text-[10px] font-extrabold uppercase tracking-wider">Seller</span>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Jan 05, 2024</td>
+<td class="px-6 py-5 text-sm font-bold text-right">82,100.50</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container/10 text-secondary-container text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+                                                Suspended
+                                            </span>
+</td>
+<td class="px-6 py-5">
+<div class="flex justify-center gap-2">
+<button class="p-2 text-outline hover:text-primary hover:bg-primary/5 rounded-lg transition-all"><span class="material-symbols-outlined">visibility</span></button>
+<button class="p-2 text-outline hover:text-primary hover:bg-primary/5 rounded-lg transition-all"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 text-outline hover:text-error hover:bg-error/5 rounded-lg transition-all"><span class="material-symbols-outlined">block</span></button>
+</div>
+</td>
+</tr>
+<!-- User 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<input checked="" class="w-4 h-4 rounded border-outline-variant text-primary" type="checkbox"/>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
+<img alt="Nafisa Islam" data-alt="headshot of a young woman with natural expression, dark hair, soft natural lighting, elegant aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQg_WB8WPay_RQM0lPAAduc3TC3-4eByctdff5nAH2AZoVv8c2F_6IybO3IXkiEdxsp44hdCMwaGZ1Y-6tJeE6npuA2ZpxZn3CTMUfH3lyzaX3hVtGri4ji0x8apjFgqayZTzoZVvdpAXIfLmceXBWV2N7X95VcN7zcmNXJA-unefk3xurPnpaTAkdENsu_1iqWhQO9WMpQvwDS-Y86wLAxHIXN-EWctFaPtVWjDfrjwrHKbVttrADHOAt_RscdgxPwRIA_2zigmQ"/>
+</div>
+<div>
+<div class="font-bold text-on-surface">Nafisa Islam</div>
+<div class="text-xs text-outline">n.islam@admin.unimart</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-extrabold uppercase tracking-wider">Admin</span>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Jun 18, 2022</td>
+<td class="px-6 py-5 text-sm font-bold text-right">0.00</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                                Active
+                                            </span>
+</td>
+<td class="px-6 py-5">
+<div class="flex justify-center gap-2">
+<button class="p-2 text-outline hover:text-primary hover:bg-primary/5 rounded-lg transition-all"><span class="material-symbols-outlined">visibility</span></button>
+<button class="p-2 text-outline hover:text-primary hover:bg-primary/5 rounded-lg transition-all"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 text-outline hover:text-error hover:bg-error/5 rounded-lg transition-all"><span class="material-symbols-outlined">block</span></button>
+</div>
+</td>
+</tr>
+<!-- User 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<input class="w-4 h-4 rounded border-outline-variant text-primary" type="checkbox"/>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
+<img alt="Zubayer Khan" data-alt="clean headshot of a middle-aged man with short hair and an optimistic expression, professional office attire, bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2BQHeqegxJrWORamhpFN9st_5CfjKTTQHUTE2_L4k_j--rlvbamzqRwB8BnuRWFjWsmypFqIp8jMVJmLW2Ppt-v3jh7npSbbqaihyAblUcdXy6AxQ8Jy5QHEfMFolc5t0spXBJU9xGFMdudYHmAMoTVcFe7ZHrq37Iogk_79q9cGbN2svaRsjxw96MkRPYQ4Fu3er1ZfUf8Hroq-to7wEakXiOl55QrbPrm4Bf7NX13Xb2O-ucnkpY1J2k9Y5eeo_HaVlHzOuFhw"/>
+</div>
+<div>
+<div class="font-bold text-on-surface">Zubayer Khan</div>
+<div class="text-xs text-outline">zubayer.k@webmail.com</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] font-extrabold uppercase tracking-wider">Consumer</span>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Mar 30, 2024</td>
+<td class="px-6 py-5 text-sm font-bold text-right">12.50</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-error/10 text-error text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                                                Banned
+                                            </span>
+</td>
+<td class="px-6 py-5">
+<div class="flex justify-center gap-2">
+<button class="p-2 text-outline hover:text-primary hover:bg-primary/5 rounded-lg transition-all"><span class="material-symbols-outlined">visibility</span></button>
+<button class="p-2 text-outline hover:text-primary hover:bg-primary/5 rounded-lg transition-all"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 text-primary hover:bg-primary/5 rounded-lg transition-all" title="Unban"><span class="material-symbols-outlined">undo</span></button>
+</div>
+</td>
+</tr>
+<!-- User 5 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-5">
+<input class="w-4 h-4 rounded border-outline-variant text-primary" type="checkbox"/>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container flex-shrink-0">
+<img alt="Samina Azad" data-alt="professional portrait of a woman with high confidence, wearing office casual attire, high quality cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb8GjSztlW5a3ILYSfMWJC-csjlX0vye9ZBQVe2Su8OXrURM3RSdwMOn0y3S6T6dwqsu2Vi7970Ktu8RLpQEjqRQnDr49FB3vo5bVT7XzBXKj4gGS-pC6w-YhaPkVXtkHbMc8em7z8RipZVsI83aEXzJRBCg_RzDIjo4ZzW1peqw6K1pu5fpaTp00ahfKQmhYiNFbpUumVNDInXFcGdYp5pyrujvTrZZTos5v_q4IknvZ3_cdvNlDygg2ixUj_z53IAAZWm1oYm-Q"/>
+</div>
+<div>
+<div class="font-bold text-on-surface">Samina Azad</div>
+<div class="text-xs text-outline">azad.s@merchant.bd</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full bg-tertiary/10 text-tertiary text-[10px] font-extrabold uppercase tracking-wider">Seller</span>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Feb 14, 2024</td>
+<td class="px-6 py-5 text-sm font-bold text-right">150,000.00</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                                Active
+                                            </span>
+</td>
+<td class="px-6 py-5">
+<div class="flex justify-center gap-2">
+<button class="p-2 text-outline hover:text-primary hover:bg-primary/5 rounded-lg transition-all"><span class="material-symbols-outlined">visibility</span></button>
+<button class="p-2 text-outline hover:text-primary hover:bg-primary/5 rounded-lg transition-all"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 text-outline hover:text-error hover:bg-error/5 rounded-lg transition-all"><span class="material-symbols-outlined">block</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="px-6 py-4 flex items-center justify-between bg-surface-container-low/50">
+<span class="text-sm text-outline">Showing 1 to 5 of 12,840 users</span>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-surface-container-lowest border-outline-variant text-on-surface text-sm font-semibold rounded-lg hover:bg-surface-container-high disabled:opacity-50 transition-all" disabled="">Previous</button>
+<button class="px-4 py-2 bg-surface-container-lowest border-outline-variant text-on-surface text-sm font-semibold rounded-lg hover:bg-surface-container-high transition-all">Next</button>
+</div>
+</div>
+</div>
+<!-- Bulk Management Context Bar (Visible when items selected) -->
+<div class="mt-8 p-4 bg-on-surface text-white rounded-xl flex items-center justify-between animate-in fade-in slide-in-from-bottom-4">
+<div class="flex items-center gap-4">
+<div class="bg-primary px-3 py-1 rounded text-xs font-black">1 SELECTED</div>
+<span class="text-sm opacity-80">Managing Nafisa Islam (Admin)</span>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 text-sm font-bold hover:bg-white/10 rounded-lg transition-all">Reset Password</button>
+<button class="px-4 py-2 text-sm font-bold bg-error text-white rounded-lg hover:opacity-90 transition-all">Revoke Access</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

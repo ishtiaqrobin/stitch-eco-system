@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Earnings &amp; Balance | UniMart Seller Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#191c1d",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "secondary": "#ad3219",
+              "on-primary-container": "#ffffff",
+              "surface-tint": "#005bc0",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#ff6d4e",
+              "surface-variant": "#e1e3e4",
+              "on-secondary-fixed": "#3e0500",
+              "on-primary-fixed-variant": "#004493",
+              "inverse-surface": "#2e3132",
+              "secondary-fixed": "#ffdad3",
+              "surface-container-highest": "#e1e3e4",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed-dim": "#adc7ff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "primary-container": "#1a73e8",
+              "inverse-primary": "#adc7ff",
+              "surface-container-high": "#e7e8e9",
+              "on-primary-fixed": "#001a41",
+              "primary": "#005bbf",
+              "tertiary-fixed": "#d8e2ff",
+              "on-error-container": "#93000a",
+              "outline-variant": "#c1c6d6",
+              "on-error": "#ffffff",
+              "surface-bright": "#f8f9fa",
+              "surface-container": "#edeeef",
+              "surface": "#f8f9fa",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-tertiary-container": "#ffffff",
+              "error": "#ba1a1a",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-container-low": "#f3f4f5",
+              "on-background": "#191c1d",
+              "tertiary-container": "#0872ed",
+              "on-primary": "#ffffff",
+              "tertiary": "#005abf",
+              "on-secondary-container": "#680f00",
+              "surface-dim": "#d9dadb",
+              "on-tertiary-fixed": "#001a41",
+              "on-surface-variant": "#414754",
+              "on-tertiary-fixed-variant": "#004493",
+              "primary-fixed": "#d8e2ff",
+              "background": "#f8f9fa",
+              "outline": "#727785"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+        .glass-panel {
+            background: rgba(248, 249, 250, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 flex items-center justify-between px-6 py-3 w-full bg-white dark:bg-slate-900 shadow-sm dark:shadow-none border-b">
+<div class="flex items-center gap-4">
+<span class="text-xl font-extrabold text-blue-700 dark:text-blue-400 tracking-tight">UniMart Seller Studio</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-6">
+<nav class="flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors px-3 py-2 rounded-lg" href="#">Home</a>
+<a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700 px-3 py-2" href="#">Payments</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors px-3 py-2 rounded-lg" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="Merchant Profile Avatar" data-alt="professional portrait of a confident male business owner in a clean office environment with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAtwePGwd-9peHz4s_PoxAaX10UJByJlkGYdreQW7jCNQhwIZd9L1p1k2UhyvKMy9qrCfp8A_7N_RzQqXyTHrOwWAWL_SreswS_81-L43sujbWSK253q8ZIQyJlEd_ad9S8xB9EIrL0iInk25rZW_AuIoIAv4HoWTEX-TugLzyYTJ9CmsqzVBCEhQwmIUKKirZ3mHmvdudo2j_HmV_OMueuoAOKdCdPn_-YvP8c1vKF7ERhz8dFqaUnX5NQj3YnOs_BuFMroJnYXU"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-4 z-40 h-screen w-64 border-r bg-slate-50 dark:bg-slate-950 pt-20">
+<div class="flex items-center gap-3 mb-8 px-2">
+<div class="h-10 w-10 bg-primary rounded-lg flex items-center justify-center text-on-primary font-bold">OS</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white leading-tight">Official Store</h3>
+<p class="text-xs text-slate-500">Verified Merchant</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-sm font-medium">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="warehouse">warehouse</span>
+<span class="text-sm font-medium">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-blue-700 dark:text-blue-400 rounded-lg shadow-sm font-bold scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-sm font-medium">Payments</span>
+</a>
+</nav>
+<div class="mt-auto space-y-1 pt-4 border-t border-slate-200 dark:border-slate-800">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 p-8 space-y-12 bg-surface">
+<!-- Header Section -->
+<div class="flex justify-between items-end">
+<div class="space-y-2">
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface">Financial Overview</h1>
+<p class="text-on-surface-variant font-body">Detailed track of your earnings, payouts, and ongoing transactions.</p>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-full font-bold shadow-lg flex items-center gap-2 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+                    Request Payout
+                </button>
+</div>
+<!-- Bento Grid Stats -->
+<div class="grid grid-cols-12 gap-6 h-[400px]">
+<!-- Main Balance Card -->
+<div class="col-span-12 lg:col-span-5 bg-surface-container-lowest rounded-xl p-8 flex flex-col justify-between relative overflow-hidden">
+<div class="relative z-10">
+<span class="text-label-sm font-bold uppercase tracking-widest text-primary mb-4 block">Withdrawable Balance</span>
+<div class="flex items-baseline gap-2">
+<span class="text-5xl font-extrabold tracking-tighter text-on-surface">৳ 1,42,850</span>
+<span class="text-on-surface-variant font-medium">BDT</span>
+</div>
+</div>
+<div class="relative z-10 flex gap-4 mt-8">
+<div class="flex-1 p-4 bg-surface-container-low rounded-lg">
+<p class="text-xs font-semibold text-on-surface-variant mb-1">Last Payout</p>
+<p class="text-lg font-bold">৳ 45,000</p>
+<p class="text-[10px] text-slate-500">Oct 12, 2023</p>
+</div>
+<div class="flex-1 p-4 bg-surface-container-low rounded-lg">
+<p class="text-xs font-semibold text-on-surface-variant mb-1">Status</p>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<p class="text-sm font-bold text-emerald-600">Verified</p>
+</div>
+<p class="text-[10px] text-slate-500">Auto-sweep ON</p>
+</div>
+</div>
+<!-- Decorative Background Element -->
+<div class="absolute -right-16 -bottom-16 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+</div>
+<!-- Metrics Grid -->
+<div class="col-span-12 lg:col-span-7 grid grid-cols-2 gap-6">
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="trending_up">trending_up</span>
+<span class="bg-emerald-100 text-emerald-700 text-[10px] px-2 py-1 rounded font-bold">+12.5%</span>
+</div>
+<div>
+<p class="text-sm font-medium text-on-surface-variant">Total Earnings</p>
+<p class="text-3xl font-extrabold">৳ 8,24,900</p>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="lock_clock">lock_clock</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant text-[10px] px-2 py-1 rounded font-bold">14 Days Hold</span>
+</div>
+<div>
+<p class="text-sm font-medium text-on-surface-variant">Escrow Hold</p>
+<p class="text-3xl font-extrabold text-secondary">৳ 32,450</p>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col justify-between col-span-2">
+<div class="flex justify-between items-center mb-4">
+<p class="text-sm font-medium text-on-surface-variant">Monthly Progress</p>
+<p class="text-xs font-bold text-primary">85% of Target</p>
+</div>
+<div class="w-full bg-surface-container-highest h-3 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[85%]"></div>
+</div>
+<div class="mt-4 flex justify-between items-end">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-slate-200"></div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-slate-300"></div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-slate-400"></div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-primary text-white text-[10px] flex items-center justify-center font-bold">+12</div>
+</div>
+<p class="text-xs text-on-surface-variant">Top contributors this month</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Transaction History Section -->
+<section class="space-y-6">
+<div class="flex justify-between items-center px-2">
+<h2 class="text-2xl font-bold">Recent Transactions</h2>
+<div class="flex gap-4">
+<div class="relative">
+<input class="pl-10 pr-4 py-2 rounded-full border-none bg-surface-container-low focus:ring-2 focus:ring-primary/40 transition-all text-sm w-64" placeholder="Search orders..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-sm" data-icon="search">search</span>
+</div>
+<button class="px-4 py-2 rounded-full border-none bg-surface-container-low text-on-surface-variant text-sm font-semibold flex items-center gap-2 hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+                            Filter
+                        </button>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low border-b-none">
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Transaction ID</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Date</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Product / Order</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Amount</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Status</th>
+<th class="px-6 py-4 text-xs font-bold uppercase tracking-widest text-on-surface-variant">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<!-- Transaction Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-6 py-5 font-mono text-sm">#TXN-98231</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Oct 24, 2023</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container-low overflow-hidden flex-shrink-0">
+<img alt="Product thumbnail" data-alt="vibrant red athletic shoe shown from side view on a clean grey studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSL23w8l0PpBt_UN3r53OGKPim5pTxUeTgK7DAXqIiWINVSYidSqzocoyYkLmsnBzt86khKszHdZMWmd3ZkAioRxhbPldCjTBOzWpispGyzA0p-TqM1Bzfy0PnxKMszxn81ikPxmIjJZINcq4-NNvhI2wljr86-pdHCGl2Ogzf2VcsxJdTiHgm824J-1F8bHKghewvy6qunDLJ3HgGrwBUgSI-GZnZvUrRyMIjb32Z3kaf_LCGYlwSmTCHXoUyxO9Z6pNJoXyHy3k"/>
+</div>
+<div>
+<p class="text-sm font-bold truncate max-w-[180px]">Nike Air Max 270 React</p>
+<p class="text-[10px] text-on-surface-variant">Customer: Ahmed R.</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 font-bold text-on-surface">৳ 12,400</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700">Completed</span>
+</td>
+<td class="px-6 py-5">
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="receipt_long">receipt_long</span>
+</button>
+</td>
+</tr>
+<!-- Transaction Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-6 py-5 font-mono text-sm">#TXN-98214</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Oct 23, 2023</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container-low overflow-hidden flex-shrink-0">
+<img alt="Product thumbnail" data-alt="minimalist modern watch with white face and brown leather strap on a light marble surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtu8qJppU-8lvZh4KdVRUlb8CzOBoLMvUTxHEoUQM5G66QVzY2dfWFUfr6iQnvLhJqYZQDgJ2ZWQ3tEyXxrdQCjHPPbkjvAxOkuVfSBZ8uXBjJfVPEKhWsLYPfLNuyO4hlSZn5BCS0slvQafsYJmhCwkm9Z7nw1tlDh-01R9VqpYy8xBVv9OtJSuaKkKn2ROqia_yr47e0iXtV0se51DhdX01ByCaSZevmt1qAtYHC9V4dRmTMWHUJzIvlXY11zuziDotYSnwLJuQ"/>
+</div>
+<div>
+<p class="text-sm font-bold truncate max-w-[180px]">Classic Analog Watch</p>
+<p class="text-[10px] text-on-surface-variant">Customer: Sarah K.</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 font-bold text-on-surface">৳ 4,200</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold bg-secondary-fixed text-on-secondary-fixed-variant">On Hold</span>
+</td>
+<td class="px-6 py-5">
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="receipt_long">receipt_long</span>
+</button>
+</td>
+</tr>
+<!-- Transaction Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-6 py-5 font-mono text-sm">#TXN-98199</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Oct 21, 2023</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container-low overflow-hidden flex-shrink-0">
+<img alt="Product thumbnail" data-alt="professional studio headphones on a plain grey background with soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVVhUEyPTLI96h40IEaJZcUZPTyMZYZH7rxY5tg70MeByImjqybDKxKyBASdAYH6UeKSt_YdkbHrnWyU0TGsq3w-Q9H9DGYaRiknQPnH6eAXaprPH4Baf3LRRuU5fyGf24Pcf6XL3P2YZeHlGO6ke0kfZk8YCdPdG4_zOzLPPpDyWcgQLcilv5fgYH0EMAZljWMsebsU9SLvcadGuF41yLCLQrLA9o-QlL_cIaz9rr7SEJxX3yb_SGx2u7WSfGwj2q5fcpj1up7Js"/>
+</div>
+<div>
+<p class="text-sm font-bold truncate max-w-[180px]">Studio Pro Headphones</p>
+<p class="text-[10px] text-on-surface-variant">Customer: Fahim H.</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 font-bold text-on-surface">৳ 22,500</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700">Completed</span>
+</td>
+<td class="px-6 py-5">
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="receipt_long">receipt_long</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="flex justify-center pt-4">
+<button class="text-primary font-bold text-sm flex items-center gap-2 hover:underline">
+                        View All Transaction History
+                        <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Payout Methods Asymmetric Layout -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8">
+<div class="space-y-6">
+<div class="bg-surface-container-low rounded-2xl p-8 relative overflow-hidden">
+<div class="flex justify-between items-start mb-12">
+<div>
+<h3 class="text-xl font-bold mb-1">Primary Payout Method</h3>
+<p class="text-sm text-on-surface-variant">Where you receive your funds</p>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="account_balance">account_balance</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4 bg-surface-container-lowest p-4 rounded-xl border-none shadow-sm">
+<div class="w-12 h-12 bg-surface-container-low flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined" data-icon="credit_card">credit_card</span>
+</div>
+<div class="flex-1">
+<p class="font-bold">City Bank Ltd.</p>
+<p class="text-xs text-on-surface-variant">Savings Account ending in •••• 5690</p>
+</div>
+<span class="bg-emerald-100 text-emerald-700 text-[10px] px-2 py-1 rounded font-bold uppercase">Active</span>
+</div>
+</div>
+<button class="mt-8 text-sm font-bold text-primary flex items-center gap-2">
+                            Manage Accounts
+                            <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col justify-center space-y-4">
+<div class="bg-primary/5 rounded-2xl p-8 border-none">
+<h3 class="text-xl font-bold mb-4">Payout Schedule</h3>
+<p class="text-on-surface-variant mb-6 leading-relaxed">Your earnings are currently set to <span class="text-on-surface font-bold">Bi-Weekly</span> payouts. Funds are cleared every Wednesday if balance is above ৳ 5,000.</p>
+<div class="grid grid-cols-3 gap-4">
+<div class="text-center p-3 rounded-xl bg-surface-container-lowest shadow-sm">
+<p class="text-[10px] uppercase font-bold text-on-surface-variant mb-1">Weekly</p>
+<div class="w-4 h-4 mx-auto border-2 border-primary rounded-full"></div>
+</div>
+<div class="text-center p-3 rounded-xl bg-primary shadow-lg shadow-primary/20">
+<p class="text-[10px] uppercase font-bold text-on-primary mb-1">Bi-Weekly</p>
+<div class="w-4 h-4 mx-auto border-2 border-on-primary rounded-full flex items-center justify-center">
+<div class="w-2 h-2 bg-on-primary rounded-full"></div>
+</div>
+</div>
+<div class="text-center p-3 rounded-xl bg-surface-container-lowest shadow-sm">
+<p class="text-[10px] uppercase font-bold text-on-surface-variant mb-1">Monthly</p>
+<div class="w-4 h-4 mx-auto border-2 border-primary rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Floating Action Button - Only for Relevant Screens -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="w-14 h-14 bg-secondary rounded-full flex items-center justify-center text-on-secondary shadow-2xl hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+</button>
+</div>
+</body></html>

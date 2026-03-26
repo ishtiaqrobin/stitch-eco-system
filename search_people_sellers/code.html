@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UniMart | Search People &amp; Sellers</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "surface-tint": "#005bc0",
+                "on-primary": "#ffffff",
+                "outline": "#727785",
+                "error-container": "#ffdad6",
+                "primary": "#005bbf",
+                "on-secondary": "#ffffff",
+                "tertiary-fixed-dim": "#adc6ff",
+                "on-tertiary": "#ffffff",
+                "secondary-fixed-dim": "#ffb4a4",
+                "inverse-primary": "#adc7ff",
+                "surface-container-low": "#f3f4f5",
+                "outline-variant": "#c1c6d6",
+                "tertiary": "#005abf",
+                "on-surface-variant": "#414754",
+                "on-secondary-container": "#680f00",
+                "surface-container": "#edeeef",
+                "primary-container": "#1a73e8",
+                "surface": "#f8f9fa",
+                "on-primary-fixed-variant": "#004493",
+                "primary-fixed": "#d8e2ff",
+                "on-tertiary-fixed-variant": "#004493",
+                "on-error-container": "#93000a",
+                "secondary": "#ad3219",
+                "on-error": "#ffffff",
+                "inverse-surface": "#2e3132",
+                "surface-container-highest": "#e1e3e4",
+                "tertiary-fixed": "#d8e2ff",
+                "on-secondary-fixed-variant": "#8b1a02",
+                "on-secondary-fixed": "#3e0500",
+                "on-surface": "#191c1d",
+                "on-primary-fixed": "#001a41",
+                "surface-bright": "#f8f9fa",
+                "error": "#ba1a1a",
+                "surface-container-high": "#e7e8e9",
+                "inverse-on-surface": "#f0f1f2",
+                "secondary-fixed": "#ffdad3",
+                "secondary-container": "#ff6d4e",
+                "on-tertiary-container": "#ffffff",
+                "background": "#f8f9fa",
+                "surface-container-lowest": "#ffffff",
+                "primary-fixed-dim": "#adc7ff",
+                "on-tertiary-fixed": "#001a41",
+                "on-background": "#191c1d",
+                "tertiary-container": "#0872ed",
+                "surface-variant": "#e1e3e4",
+                "surface-dim": "#d9dadb",
+                "on-primary-container": "#ffffff"
+              },
+              fontFamily: {
+                "headline": ["Manrope"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(248, 249, 250, 0.8);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 mb-4 bg-[#f8f9fa] dark:bg-slate-950 z-50">
+<div class="text-2xl font-black tracking-tight text-[#191c1d] dark:text-slate-100 font-headline">UniMart</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#191c1d] dark:text-slate-400 opacity-70 hover:bg-[#f3f4f5] dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded-lg" href="#">Home</a>
+<a class="text-[#005bbf] font-bold border-b-2 border-[#005bbf] px-3 py-1" href="#">Explore</a>
+<a class="text-[#191c1d] dark:text-slate-400 opacity-70 hover:bg-[#f3f4f5] dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded-lg" href="#">Reels</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-container transition-colors rounded-full" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-surface-container transition-colors rounded-full" data-icon="chat_bubble">chat_bubble</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="User Profile" data-alt="professional portrait of a smiling man in a clean office setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1DIB47FBdfDynRH9vLdjUmZ-ZVwL9_5-e23j1C64wRLd3tocZ1jtZzH5tQbNcng5zSP1MX3-3BirsmRh4hzA2-l4aPjGKgE9o1WV3t0IMURy3fjUWDErX1OLOqcXgYbl8y67UoB8abkk36MoMSyQp41BkX8s3dAzLG5popEPwd-h5mMNJjYVVwp53LnolC4rFHGU9saSRVbnvSWq4Ry6sqJoN3CoBjkulDJ2qVmBtZsC7nsPU5nnV40W1yEuzYTlwEuDMa5HPwsU"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-4 max-w-3xl mx-auto">
+<!-- Editorial Headline -->
+<section class="mb-10">
+<h1 class="font-headline text-4xl font-extrabold tracking-tight text-on-surface mb-2">Discover Community</h1>
+<p class="text-on-surface-variant text-sm max-w-md">Find verified sellers, expert curators, and fellow enthusiasts in the UniMart ecosystem.</p>
+</section>
+<!-- Search & Filter Section -->
+<section class="sticky top-20 z-40 mb-12">
+<div class="bg-surface-container-lowest p-2 rounded-xl shadow-sm space-y-3">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-outline" data-icon="search">search</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary/40 text-on-surface font-medium placeholder:text-outline" placeholder="Search names, brands, or niches..." type="text"/>
+</div>
+<div class="flex gap-2 px-1 pb-1 overflow-x-auto no-scrollbar">
+<button class="whitespace-nowrap px-6 py-2 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-semibold text-xs tracking-wider uppercase">People</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-semibold text-xs tracking-wider uppercase hover:bg-surface-container-highest transition-colors">Verified Sellers</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-semibold text-xs tracking-wider uppercase hover:bg-surface-container-highest transition-colors">Curators</button>
+<button class="whitespace-nowrap px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-semibold text-xs tracking-wider uppercase hover:bg-surface-container-highest transition-colors">Local Shops</button>
+</div>
+</div>
+</section>
+<!-- Results List -->
+<section class="space-y-6">
+<!-- Result Card 1: Verified Seller -->
+<div class="bg-surface-container-lowest rounded-xl p-5 flex items-start gap-5 group hover:bg-surface-bright transition-all duration-300">
+<div class="relative flex-shrink-0">
+<img alt="Luxe Threads" class="w-20 h-20 rounded-xl object-cover" data-alt="modern minimalist fashion boutique owner portrait with a clean white studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnAzCdBzK4FGde1yF0iVHtR3z6FpnhFMT-j5GGMbrAi8SuOpc6J-jHLCkF_20nEcTpazOlmS_lk3qCQ6wRTfRofUfg0AG7ez4c3i3zq-Bw_jL9m7F1tqt8HQDEqPsUEWHoJe_iPtEexnmuu5knqfRffeCzJNI11IFKPFuE4JFgu06ZHT3rpvdDEVWvytYYfwDcXnqIpn6uIu3Cg51aeJmTuFfosoy-zhR6IZGRCwLuw_0JkB7SlQE0buD6k5_E2or0Tpz-GgitcaE"/>
+<div class="absolute -bottom-1 -right-1 bg-primary text-white p-1 rounded-full border-2 border-white">
+<span class="material-symbols-outlined text-[14px] block" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline font-bold text-lg text-on-surface flex items-center gap-2">
+                                Luxe Threads
+                                <span class="text-[10px] font-bold bg-primary-fixed text-on-primary-fixed-variant px-2 py-0.5 rounded uppercase tracking-tighter">Seller</span>
+</h3>
+<p class="text-on-surface-variant text-sm mt-1 leading-relaxed">Premium curated streetwear and sustainable high-fashion essentials based in Dhaka.</p>
+</div>
+<button class="px-5 py-2 bg-primary text-on-primary rounded-full text-sm font-bold shadow-md hover:shadow-lg transform active:scale-95 transition-all">Follow</button>
+</div>
+<div class="mt-4 flex gap-6">
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-outline uppercase tracking-widest">Followers</span>
+<span class="font-headline font-bold text-on-surface">12.4k</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-outline uppercase tracking-widest">Products</span>
+<span class="font-headline font-bold text-on-surface">342</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-outline uppercase tracking-widest">Rating</span>
+<span class="font-headline font-bold text-on-surface flex items-center gap-1">4.9 <span class="material-symbols-outlined text-xs text-secondary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Result Card 2: Curator -->
+<div class="bg-surface-container-lowest rounded-xl p-5 flex items-start gap-5 group hover:bg-surface-bright transition-all duration-300">
+<div class="relative flex-shrink-0">
+<img alt="Zoya Ahmed" class="w-20 h-20 rounded-xl object-cover" data-alt="close up headshot of an stylish woman with curly hair laughing outdoors in warm sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC129e29Ymob9FSm8qVVczU8M_fq8UC7bCZPC-pajQHGop1KImsXJs5LsMTZSqVoTxuai0qwpwxsIr6fTOr-kZ9PHAXg-j5lSP9NvCv81g8zbl1SJInqrojE2hpoTRQmhBHwyCpPLfO7vMZgQmcjpk-gmxgEQrMfjjgYY9IeTaYbcSJBvRQBjVCFUaK9S0zPecz6VQKYriPHa1sA48BlXMG5TVRf5qE_4VV_eQ9C0E3cN5PyzzCcxIVOiKZmTeoBSIqM17P1yh1atY"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline font-bold text-lg text-on-surface flex items-center gap-2">
+                                Zoya Ahmed
+                                <span class="text-[10px] font-bold bg-secondary-fixed text-on-secondary-fixed-variant px-2 py-0.5 rounded uppercase tracking-tighter">Curator</span>
+</h3>
+<p class="text-on-surface-variant text-sm mt-1 leading-relaxed">Tech enthusiast and home-office minimalist. Curating the best gadgets for remote work.</p>
+</div>
+<button class="px-5 py-2 bg-surface-container-high text-primary rounded-full text-sm font-bold hover:bg-surface-container-highest transition-all">Following</button>
+</div>
+<div class="mt-4 flex gap-6">
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-outline uppercase tracking-widest">Followers</span>
+<span class="font-headline font-bold text-on-surface">8.1k</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-outline uppercase tracking-widest">Collections</span>
+<span class="font-headline font-bold text-on-surface">12</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Result Card 3: Verified Individual -->
+<div class="bg-surface-container-lowest rounded-xl p-5 flex items-start gap-5 group hover:bg-surface-bright transition-all duration-300">
+<div class="relative flex-shrink-0">
+<img alt="Tanvir Rahman" class="w-20 h-20 rounded-xl object-cover" data-alt="portrait of a man with spectacles wearing a denim shirt in a modern cafe background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4u4zlaxM_1VJi2aq60odj70RZnJX_4cLuLBXFdLpvaPBGuFvXyIMTioa8rKtj3wqIQIryZVZQYQhgbglhGE9KbrXHuJp8q_ksya2H4fAYgysDBtlj1lnjTe87O2gq9897VsfbkW_xq8zqoFFFKlnswqp4ZMsopUuzIAVhlql5sKrQ01ETJKvXzu1tZXqcJazqjOpTWbypM0RUpt2m8jJ5ylS1DPpKjMa633lwYBZkkRC1yabB5trS3gEp9b7yRMCJZ9v5WDItZa0"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline font-bold text-lg text-on-surface flex items-center gap-2">
+                                Tanvir Rahman
+                            </h3>
+<p class="text-on-surface-variant text-sm mt-1 leading-relaxed">Photographer and visual storyteller. Reviewing high-end lenses and lighting gear.</p>
+</div>
+<button class="px-5 py-2 bg-primary text-on-primary rounded-full text-sm font-bold shadow-md hover:shadow-lg transform active:scale-95 transition-all">Follow</button>
+</div>
+<div class="mt-4 flex gap-6">
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-outline uppercase tracking-widest">Followers</span>
+<span class="font-headline font-bold text-on-surface">2.5k</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Result Card 4: Official Seller -->
+<div class="bg-surface-container-lowest rounded-xl p-5 flex items-start gap-5 group hover:bg-surface-bright transition-all duration-300">
+<div class="relative flex-shrink-0">
+<img alt="EcoHome BD" class="w-20 h-20 rounded-xl object-cover" data-alt="interior of a high-end gourmet kitchen appliance store with elegant product displays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPMv3JTMmFa3tnUjpplYXFcLkRgyMWcmr3Q955QOtGj1BSgCyp0JxBtb8gWi_ajJlX8x9-mW2_DdoGHpiLky07HXoJQ1_jVMS81TxIrFEHGJRhOJCSL6IPhHnhsvCVHb0l3cWAD-coxsp8U_IPJLHZclFpc_qlHsG6AV-X9jDK6NACI46eLFHQiel00LQVD-Gekg7lDaE5rdNZJVXuGWb3UyciLwB1tc7R2ZwbS-p-CVzkGz1ftTjBr94BM7gY4RzGOOC3Y44LM-k"/>
+<div class="absolute -bottom-1 -right-1 bg-primary text-white p-1 rounded-full border-2 border-white">
+<span class="material-symbols-outlined text-[14px] block" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline font-bold text-lg text-on-surface flex items-center gap-2">
+                                EcoHome BD
+                                <span class="text-[10px] font-bold bg-primary-fixed text-on-primary-fixed-variant px-2 py-0.5 rounded uppercase tracking-tighter">Seller</span>
+</h3>
+<p class="text-on-surface-variant text-sm mt-1 leading-relaxed">Authorized dealer for energy-efficient smart home solutions. 24/7 support.</p>
+</div>
+<button class="px-5 py-2 bg-primary text-on-primary rounded-full text-sm font-bold shadow-md hover:shadow-lg transform active:scale-95 transition-all">Follow</button>
+</div>
+<div class="mt-4 flex gap-6">
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-outline uppercase tracking-widest">Followers</span>
+<span class="font-headline font-bold text-on-surface">45.8k</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-outline uppercase tracking-widest">Rating</span>
+<span class="font-headline font-bold text-on-surface flex items-center gap-1">4.7 <span class="material-symbols-outlined text-xs text-secondary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Load More Section -->
+<div class="mt-12 text-center">
+<button class="px-8 py-3 bg-surface-container text-primary font-bold rounded-xl hover:bg-surface-container-highest transition-colors">
+                View More Results
+            </button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#f8f9fa]/70 dark:bg-slate-900/70 backdrop-blur-xl z-50 shadow-[0_-8px_24px_rgba(25,28,29,0.04)] md:hidden">
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#005bbf] dark:text-blue-400 bg-[#ffffff] dark:bg-slate-800 rounded-full px-4 py-1 active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="explore" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider mt-1">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider mt-1">Create</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined" data-icon="movie_filter">movie_filter</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider mt-1">Reels</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider mt-1">Profile</span>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout | UniMart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-primary": "#adc7ff",
+                        "on-secondary-fixed": "#3e0500",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-variant": "#e1e3e4",
+                        "background": "#f8f9fa",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "on-surface-variant": "#414754",
+                        "on-background": "#191c1d",
+                        "on-primary-container": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "on-tertiary-fixed": "#001a41",
+                        "tertiary": "#005abf",
+                        "surface-tint": "#005bc0",
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary": "#ad3219",
+                        "inverse-surface": "#2e3132",
+                        "primary": "#005bbf",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#d8e2ff",
+                        "secondary-container": "#ff6d4e",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed": "#001a41",
+                        "surface": "#f8f9fa",
+                        "tertiary-container": "#0872ed",
+                        "on-tertiary-container": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f8f9fa",
+                        "error": "#ba1a1a",
+                        "primary-container": "#1a73e8",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#680f00",
+                        "on-secondary-fixed-variant": "#8b1a02",
+                        "outline": "#727785",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "primary-fixed-dim": "#adc7ff",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#ffdad3",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-primary-fixed-variant": "#004493",
+                        "outline-variant": "#c1c6d6",
+                        "surface-container-high": "#e7e8e9"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            color: #191c1d;
+        }
+        .headline-font { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar (Suppressed/Modified for Checkout Focus) -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-sm">
+<div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-2 text-slate-600 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="font-medium text-sm">Back to Cart</span>
+</a>
+</div>
+<div class="text-2xl font-black text-blue-700 tracking-tighter headline-font">UniMart</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-slate-400">lock</span>
+<span class="text-xs font-bold uppercase tracking-widest text-slate-400">Secure Checkout</span>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-20 px-4 md:px-8 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Column: Shipping & Payment -->
+<div class="lg:col-span-8 space-y-12">
+<!-- Section Header -->
+<section>
+<h1 class="text-4xl font-extrabold headline-font tracking-tight text-on-surface mb-2">Finalize your order</h1>
+<p class="text-on-surface-variant font-medium">Please review your details before completing the purchase.</p>
+</section>
+<!-- Shipping Address -->
+<section class="bg-surface-container-lowest rounded-xl p-8 transition-all">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<h2 class="text-xl font-bold headline-font">Shipping Address</h2>
+</div>
+<button class="text-primary font-bold text-sm hover:underline">Change</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="p-6 rounded-lg bg-surface-container-low border-2 border-primary-container relative">
+<span class="absolute top-4 right-4 text-primary material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<p class="font-bold text-on-surface mb-1">Home Office</p>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                Road 23, House 45/A, Flat 4B<br/>
+                                Gulshan 2, Dhaka 1212<br/>
+                                Bangladesh
+                            </p>
+<p class="mt-4 text-sm font-semibold">+880 1712 345 678</p>
+</div>
+<button class="p-6 rounded-lg border-2 border-dashed border-outline-variant flex flex-col items-center justify-center gap-2 hover:bg-surface-container-low transition-colors group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary">add_location_alt</span>
+<span class="text-sm font-bold text-on-surface-variant">Add New Address</span>
+</button>
+</div>
+</section>
+<!-- Payment Methods -->
+<section class="bg-surface-container-lowest rounded-xl p-8">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<h2 class="text-xl font-bold headline-font">Payment Method</h2>
+</div>
+<div class="space-y-4">
+<!-- bKash Option -->
+<label class="flex items-center justify-between p-5 rounded-xl bg-surface-container-low cursor-pointer border-2 border-transparent has-[:checked]:border-primary transition-all group">
+<div class="flex items-center gap-4">
+<input checked="" class="w-5 h-5 text-primary border-outline-variant focus:ring-primary" name="payment" type="radio"/>
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
+<img alt="bKash" class="w-10 h-10 object-contain" data-alt="Official logo of bKash payment gateway with pink and white branding on a clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl1wNDl-UjeO9UFINPcU6ZhmBxmjaizPvhlapSuCGI_ru0rn-BB9kCRkk2quB_jtPm2_bxEaz8d4m19jIccmUVhhdj87VLv_ZUu7U5Kc5S08yTO5CK9sgljj_mNuDM-1J2x7HWKn8DIKbVhLZIzXpRKVxFJq6lGFKdpSDl2MJU05xtT2_JIlYT2NeYnWY1ALXj54DKSI0fZvTqjMLOy66Z0vVGlYk6wuf-7Ke4iwEYNkHK4vyAsEEQhVf3KmxgiNRl85NuaIs7FC4"/>
+</div>
+<div>
+<p class="font-bold">bKash</p>
+<p class="text-xs text-on-surface-variant">Instant payment with 10% cashback</p>
+</div>
+</div>
+</div>
+<span class="text-xs font-bold uppercase tracking-widest text-secondary bg-secondary-fixed px-2 py-1 rounded">Popular</span>
+</label>
+<!-- Nagad Option -->
+<label class="flex items-center justify-between p-5 rounded-xl bg-surface-container-low cursor-pointer border-2 border-transparent has-[:checked]:border-primary transition-all">
+<div class="flex items-center gap-4">
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary" name="payment" type="radio"/>
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
+<img alt="Nagad" class="w-10 h-6 object-contain" data-alt="Nagad mobile financial services logo with its signature orange and red branding" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0szsTLNzpbU4NMwWx13bMCuOUuxrmijR_Q6uYGj9v7uamcXi2prY7y7YXpfVXIF_HNGky2SHk_Xi3ACCNXmdlWH6etKE0DlI9RpDhOFvmDvbCLy48k9O6choMOxbAnMOl6tGqgGfm1cHWMQ6rg66ODs82fhUlwQEDynV_wA9daacSaZkm_86bxjMldyzUgY6SLVeOliaUt1PeaZkjT-0t_WZNUDsub1E0iIoiu0SBXVqXSm-QJryp475d9fXrhxReWJoXYHX18vE"/>
+</div>
+<div>
+<p class="font-bold">Nagad</p>
+<p class="text-xs text-on-surface-variant">Secure mobile wallet payment</p>
+</div>
+</div>
+</div>
+</label>
+<!-- Card Option -->
+<label class="flex items-center justify-between p-5 rounded-xl bg-surface-container-low cursor-pointer border-2 border-transparent has-[:checked]:border-primary transition-all">
+<div class="flex items-center gap-4">
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary" name="payment" type="radio"/>
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-slate-600">credit_card</span>
+</div>
+<div>
+<p class="font-bold">Credit / Debit Card</p>
+<p class="text-xs text-on-surface-variant">Visa, Mastercard, or AMEX</p>
+</div>
+</div>
+</div>
+<div class="flex gap-1">
+<span class="w-6 h-4 bg-slate-200 rounded-sm"></span>
+<span class="w-6 h-4 bg-slate-200 rounded-sm"></span>
+</div>
+</label>
+</div>
+</section>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="lg:col-span-4">
+<aside class="sticky top-28 space-y-6">
+<!-- Summary Card -->
+<div class="bg-surface-container-lowest rounded-2xl p-8 shadow-sm">
+<h3 class="text-xl font-bold headline-font mb-6">Order Summary</h3>
+<!-- Mini Product List -->
+<div class="space-y-4 mb-8">
+<div class="flex gap-4">
+<div class="w-16 h-16 rounded-lg bg-surface-container-low overflow-hidden flex-shrink-0">
+<img alt="Product 1" class="w-full h-full object-cover" data-alt="A high-end minimal ceramic vase with a textured matte finish in a sunlit studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKZ2B_IkIr-kJLXD8Ua4vfk6kDlu6lcwgaQggjntphrCWqnoCbRnJW-4tRn_PeMlG0bav5NxbGkqvvo4RA_1f6jpI7TO18KeigUh_WLsQwoVTlC9IByKOvJOAPGseuqB4rxbqkkGHTChQM9VvSdZVl0r0qt7kY08e0N6e8rYUOzWMpYrns-2nd1ym22ETH1Gngbr3Fwz9nI4Y4XQriTlplloNl2LNzxnj5b8aEQu_-2Ua8JKhox2XYple-zHpH1j_z9BO8tBt5DFs"/>
+</div>
+<div class="flex-grow">
+<p class="text-sm font-bold line-clamp-1">Artisan Ceramic Vase</p>
+<p class="text-xs text-on-surface-variant">Qty: 1</p>
+<p class="text-sm font-bold mt-1 text-primary">৳ 2,450</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-16 h-16 rounded-lg bg-surface-container-low overflow-hidden flex-shrink-0">
+<img alt="Product 2" class="w-full h-full object-cover" data-alt="Contemporary minimalist table lamp with brushed brass finish and warm ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCxPDwa58krcFjjMEKHaGzgFrnPhdMZU32OW7RnYapIrBEjJaFeb_n6XxHqN55CPiMjLFNGei7sGN7q9sbmSeXO1bmKcs6SytR8nLbqy_U-u7-_E5ZrV8zq0bQoPmBRKBv5WB62SgEzXkiyfubwgMo70ARVAU53hvXMj5AlKE7q7n1liZmf-EZpytD0EWgNsaCwoXpSClDIvi3ZelkKasYp18hgCXNTKGn-MgHxVgzdUMmhOlmY4qqPmrHHjjZ5HaQO9zNJfH1Ebo"/>
+</div>
+<div class="flex-grow">
+<p class="text-sm font-bold line-clamp-1">Nordic Brass Lamp</p>
+<p class="text-xs text-on-surface-variant">Qty: 2</p>
+<p class="text-sm font-bold mt-1 text-primary">৳ 4,900</p>
+</div>
+</div>
+</div>
+<!-- Pricing Breakdown -->
+<div class="space-y-3 border-t border-surface-container pt-6 mb-8">
+<div class="flex justify-between text-on-surface-variant text-sm">
+<span>Subtotal</span>
+<span>৳ 7,350</span>
+</div>
+<div class="flex justify-between text-on-surface-variant text-sm">
+<span>Shipping Fee</span>
+<span>৳ 60</span>
+</div>
+<div class="flex justify-between text-secondary text-sm font-medium">
+<span>Discount (Voucher)</span>
+<span>-৳ 350</span>
+</div>
+<div class="flex justify-between text-on-surface text-xl font-black headline-font pt-2">
+<span>Total</span>
+<span>৳ 7,060</span>
+</div>
+</div>
+<!-- Voucher Input -->
+<div class="relative mb-8">
+<input class="w-full pl-4 pr-20 py-3 bg-surface-container-highest border-none rounded-xl focus:ring-2 focus:ring-primary/40 text-sm" placeholder="Promo code" type="text"/>
+<button class="absolute right-2 top-1.5 px-4 py-1.5 bg-on-surface text-surface text-xs font-bold rounded-lg">Apply</button>
+</div>
+<!-- CTA -->
+<button class="w-full py-4 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold text-lg shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+                            Confirm Order
+                        </button>
+<p class="text-center text-[10px] text-on-surface-variant mt-4 font-medium uppercase tracking-tighter">
+                            By placing order, you agree to UniMart's <a class="underline" href="#">Terms of Service</a>
+</p>
+</div>
+<!-- Trust Badge -->
+<div class="bg-primary-fixed/30 rounded-xl p-4 flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div>
+<p class="text-xs font-bold text-on-primary-fixed">100% Buyer Protection</p>
+<p class="text-[10px] text-on-primary-fixed-variant">Full refund if product is not as described</p>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<!-- Suppressed Shell Components for Linear Transactional Flow -->
+<!-- BottomNavBar and SideNav are hidden as per UX Goal for transactional pages -->
+<footer class="mt-12 py-10 border-t border-surface-container text-center">
+<p class="text-xs font-bold tracking-widest text-slate-400 uppercase">© 2024 UniMart Bangladesh. All Rights Reserved.</p>
+</footer>
+</body></html>

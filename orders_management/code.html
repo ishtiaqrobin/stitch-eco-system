@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Orders Management - UniMart Seller Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed": "#d8e2ff",
+                        "on-surface": "#191c1d",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#ffffff",
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface": "#f8f9fa",
+                        "error-container": "#ffdad6",
+                        "primary": "#005bbf",
+                        "surface-container-high": "#e7e8e9",
+                        "surface-container-low": "#f3f4f5",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "surface-dim": "#d9dadb",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "on-surface-variant": "#414754",
+                        "surface-tint": "#005bc0",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#001a41",
+                        "tertiary": "#005abf",
+                        "secondary": "#ad3219",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#3e0500",
+                        "on-tertiary-fixed": "#001a41",
+                        "inverse-primary": "#adc7ff",
+                        "outline": "#727785",
+                        "surface-container": "#edeeef",
+                        "secondary-fixed": "#ffdad3",
+                        "on-secondary-fixed-variant": "#8b1a02",
+                        "on-secondary-container": "#680f00",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "inverse-on-surface": "#f0f1f2",
+                        "surface-variant": "#e1e3e4",
+                        "primary-fixed-dim": "#adc7ff",
+                        "on-primary-fixed-variant": "#004493",
+                        "on-primary-container": "#ffffff",
+                        "primary-container": "#1a73e8",
+                        "inverse-surface": "#2e3132",
+                        "background": "#f8f9fa",
+                        "surface-bright": "#f8f9fa",
+                        "secondary-container": "#ff6d4e",
+                        "outline-variant": "#c1c6d6",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary-container": "#0872ed"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            background: rgba(248, 249, 250, 0.7);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full w-64 flex flex-col p-4 z-40 bg-surface-container-low dark:bg-gray-950">
+<div class="mb-8 px-4">
+<h1 class="text-lg font-black text-blue-700 dark:text-blue-400 font-headline">Seller Studio</h1>
+<p class="text-xs text-on-surface-variant font-label">Merchant Portal</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-gray-600 dark:text-gray-400 px-4 py-3 hover:bg-gray-200 dark:hover:bg-gray-900 rounded-lg hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label text-[0.6875rem] font-medium uppercase tracking-wider">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 dark:text-gray-400 px-4 py-3 hover:bg-gray-200 dark:hover:bg-gray-900 rounded-lg hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label text-[0.6875rem] font-medium uppercase tracking-wider">Products</span>
+</a>
+<a class="flex items-center gap-3 bg-white dark:bg-gray-800 text-blue-700 dark:text-blue-300 rounded-lg px-4 py-3 font-semibold shadow-sm" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<span class="font-label text-[0.6875rem] font-medium uppercase tracking-wider">Orders</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 dark:text-gray-400 px-4 py-3 hover:bg-gray-200 dark:hover:bg-gray-900 rounded-lg hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="font-label text-[0.6875rem] font-medium uppercase tracking-wider">Analytics</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 dark:text-gray-400 px-4 py-3 hover:bg-gray-200 dark:hover:bg-gray-900 rounded-lg hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+<span class="font-label text-[0.6875rem] font-medium uppercase tracking-wider">Marketing</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 dark:text-gray-400 px-4 py-3 hover:bg-gray-200 dark:hover:bg-gray-900 rounded-lg hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label text-[0.6875rem] font-medium uppercase tracking-wider">Wallet</span>
+</a>
+<a class="flex items-center gap-3 text-gray-600 dark:text-gray-400 px-4 py-3 hover:bg-gray-200 dark:hover:bg-gray-900 rounded-lg hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label text-[0.6875rem] font-medium uppercase tracking-wider">Settings</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant/10 pt-4 space-y-1">
+<a class="flex items-center gap-3 text-gray-600 px-4 py-3 hover:bg-gray-200 rounded-lg" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="contact_support">contact_support</span>
+<span class="font-label text-[0.6875rem] font-medium uppercase tracking-wider">Help Center</span>
+</a>
+<a class="flex items-center gap-3 text-error px-4 py-3 hover:bg-error-container/20 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label text-[0.6875rem] font-medium uppercase tracking-wider">Logout</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 right-0 left-64 h-16 bg-surface-container-lowest dark:bg-gray-900 z-50 flex justify-between items-center px-8 shadow-sm">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/40 transition-all" placeholder="Search orders by ID or customer..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant/30 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold font-headline leading-tight">Aarong House</p>
+<p class="text-[0.6875rem] text-on-surface-variant font-label">Official Store</p>
+</div>
+<img alt="Merchant Profile Avatar" class="w-10 h-10 rounded-full object-cover border-2 border-primary-fixed" data-alt="professional male merchant avatar in business attire with clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4B4WxoxWsVwHkcn4XhFvX4QuqGuW_7hw1TDfdgXuOTQYVEWEIqPhXhFXMYyetGode3e08nI5X7BjkfhtIgNtt72TpKmUHiejv89WzAGazQhPR7tgM8e3eAK88TPZj6wDT9ra4Gv09Vu2LMfTq1P2iTwpMwb-a2HkqpgwGAfN2QY3CYJf6dzEh4tKfrjqhSu7ZuMwNaLLc6k0e87CkAmZwI8DteQ_he62Kw76n_t5GGcjbPIfgzZ4oaKCPOSWCaoxW0G5yen-9f0M"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-64 pt-24 px-8 pb-12">
+<div class="max-w-7xl mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-10">
+<div>
+<h2 class="text-4xl font-extrabold font-headline text-on-surface tracking-tight mb-2">Orders Management</h2>
+<p class="text-on-surface-variant max-w-lg">Track and manage your marketplace orders. Filter by status to streamline your fulfillment workflow.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-6 py-3 rounded-full bg-surface-container-high text-on-surface font-semibold hover:bg-surface-container-highest transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                        Export CSV
+                    </button>
+<button class="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-br from-primary to-primary-container text-white font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                        Manual Order
+                    </button>
+</div>
+</div>
+<!-- Dashboard Stats Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+<div class="bg-surface-container-lowest p-6 rounded-xl transition-all hover:translate-y-[-4px]">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="pending_actions">pending_actions</span>
+</div>
+<span class="text-xs font-bold text-primary font-label bg-primary-fixed px-2 py-1 rounded-full">+12%</span>
+</div>
+<p class="text-on-surface-variant text-sm font-label mb-1">Total Pending</p>
+<h4 class="text-3xl font-black font-headline">24</h4>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl transition-all hover:translate-y-[-4px]">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+</div>
+<span class="text-xs font-bold text-secondary font-label bg-secondary-fixed px-2 py-1 rounded-full">On track</span>
+</div>
+<p class="text-on-surface-variant text-sm font-label mb-1">In Transit</p>
+<h4 class="text-3xl font-black font-headline">158</h4>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl transition-all hover:translate-y-[-4px]">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center text-green-700">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+<span class="text-xs font-bold text-green-700 font-label bg-green-50 px-2 py-1 rounded-full">98% Success</span>
+</div>
+<p class="text-on-surface-variant text-sm font-label mb-1">Delivered Today</p>
+<h4 class="text-3xl font-black font-headline">42</h4>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl transition-all hover:translate-y-[-4px]">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-lg bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined" data-icon="assignment_return">assignment_return</span>
+</div>
+<span class="text-xs font-bold text-error font-label bg-red-50 px-2 py-1 rounded-full">-5%</span>
+</div>
+<p class="text-on-surface-variant text-sm font-label mb-1">Return Requests</p>
+<h4 class="text-3xl font-black font-headline">08</h4>
+</div>
+</div>
+<!-- Filters Section -->
+<div class="bg-surface-container-low rounded-2xl p-2 mb-8 flex flex-wrap items-center gap-2">
+<button class="px-6 py-3 rounded-xl bg-white text-primary font-bold shadow-sm transition-all">All Orders</button>
+<button class="px-6 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-all font-medium">Pending</button>
+<button class="px-6 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-all font-medium">Processing</button>
+<button class="px-6 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-all font-medium">Shipped</button>
+<button class="px-6 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-all font-medium">Delivered</button>
+<button class="px-6 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-all font-medium">Return Requested</button>
+<div class="ml-auto flex gap-4 px-4">
+<div class="flex items-center gap-2 text-on-surface-variant text-sm font-medium">
+<span class="material-symbols-outlined text-lg" data-icon="filter_list">filter_list</span>
+                        More Filters
+                    </div>
+</div>
+</div>
+<!-- Orders Table Section -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant border-none">
+<th class="px-6 py-5 font-headline font-bold text-xs uppercase tracking-widest">Order ID</th>
+<th class="px-6 py-5 font-headline font-bold text-xs uppercase tracking-widest">Customer</th>
+<th class="px-6 py-5 font-headline font-bold text-xs uppercase tracking-widest">Date &amp; Time</th>
+<th class="px-6 py-5 font-headline font-bold text-xs uppercase tracking-widest">Payment</th>
+<th class="px-6 py-5 font-headline font-bold text-xs uppercase tracking-widest">Total</th>
+<th class="px-6 py-5 font-headline font-bold text-xs uppercase tracking-widest">Status</th>
+<th class="px-6 py-5 font-headline font-bold text-xs uppercase tracking-widest text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Order Row 1 -->
+<tr class="group hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-6">
+<span class="font-bold text-primary">#ORD-99821</span>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-xs">RS</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Rafiqul Islam</p>
+<p class="text-[0.6875rem] text-on-surface-variant">Dhaka, Bangladesh</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<p class="text-sm font-medium">Oct 24, 2023</p>
+<p class="text-[0.6875rem] text-on-surface-variant">14:32 PM</p>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="account_balance">account_balance</span>
+<span class="text-sm font-medium">SSLCommerz</span>
+</div>
+</td>
+<td class="px-6 py-6 font-bold text-on-surface">৳ 4,250.00</td>
+<td class="px-6 py-6">
+<span class="px-3 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-[0.6875rem] font-bold uppercase tracking-wider">Pending</span>
+</td>
+<td class="px-6 py-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="px-4 py-2 rounded-lg bg-primary text-white text-xs font-bold hover:brightness-110 transition-all">Process</button>
+<button class="p-2 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Order Row 2 -->
+<tr class="group hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-6">
+<span class="font-bold text-primary">#ORD-99815</span>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-3">
+<img alt="Customer Avatar" class="w-8 h-8 rounded-full object-cover" data-alt="happy smiling young woman profile portrait with natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqRCnVPFrEhWqhJyuLu8Z7bMmsgOzP_w72nDHJ4q4s8kK0FlRDFysDlmnVKf9oRv9LpkJlFbWG8DghV1kwn8k0qSrJSIHBQtS8fwUYnszpyjp-fuBxcOYTI7Hr8jSsNqJF72QfoSJefjKCQQ2dspopV1d7cC2mtTWQrD3gTcdhHabqsI7Z1w9ioqm783pQFG4i0nXykq0tUDYQAsbHIfGlk_iNjs5FyCAEyRXY0Cl6m4KGjLwkipDBVJYKCL2Ezd3p3Sn3wgiztIg"/>
+<div>
+<p class="font-bold text-on-surface text-sm">Sumaiya Akter</p>
+<p class="text-[0.6875rem] text-on-surface-variant">Chittagong</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<p class="text-sm font-medium">Oct 24, 2023</p>
+<p class="text-[0.6875rem] text-on-surface-variant">10:15 AM</p>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-lg" data-icon="payments">payments</span>
+<span class="text-sm font-medium">COD</span>
+</div>
+</td>
+<td class="px-6 py-6 font-bold text-on-surface">৳ 1,890.00</td>
+<td class="px-6 py-6">
+<span class="px-3 py-1.5 rounded-full bg-blue-100 text-blue-700 text-[0.6875rem] font-bold uppercase tracking-wider">Processing</span>
+</td>
+<td class="px-6 py-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="px-4 py-2 rounded-lg bg-primary text-white text-xs font-bold hover:brightness-110 transition-all">Ship Item</button>
+<button class="p-2 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Order Row 3 -->
+<tr class="group hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-6">
+<span class="font-bold text-primary">#ORD-99780</span>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold text-xs">MA</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Mehedi Azad</p>
+<p class="text-[0.6875rem] text-on-surface-variant">Sylhet</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<p class="text-sm font-medium">Oct 23, 2023</p>
+<p class="text-[0.6875rem] text-on-surface-variant">21:45 PM</p>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="account_balance">account_balance</span>
+<span class="text-sm font-medium">SSLCommerz</span>
+</div>
+</td>
+<td class="px-6 py-6 font-bold text-on-surface">৳ 12,500.00</td>
+<td class="px-6 py-6">
+<span class="px-3 py-1.5 rounded-full bg-green-100 text-green-700 text-[0.6875rem] font-bold uppercase tracking-wider">Delivered</span>
+</td>
+<td class="px-6 py-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="print">print</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Order Row 4 (Return Requested) -->
+<tr class="group hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-6">
+<span class="font-bold text-primary">#ORD-99754</span>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-error-container text-error flex items-center justify-center font-bold text-xs">NH</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Nusrat Jahan</p>
+<p class="text-[0.6875rem] text-on-surface-variant">Rajshahi</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<p class="text-sm font-medium">Oct 23, 2023</p>
+<p class="text-[0.6875rem] text-on-surface-variant">16:20 PM</p>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-lg" data-icon="payments">payments</span>
+<span class="text-sm font-medium">COD</span>
+</div>
+</td>
+<td class="px-6 py-6 font-bold text-on-surface">৳ 2,450.00</td>
+<td class="px-6 py-6">
+<span class="px-3 py-1.5 rounded-full bg-error-container text-error text-[0.6875rem] font-bold uppercase tracking-wider">Return Requested</span>
+</td>
+<td class="px-6 py-6 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="px-4 py-2 rounded-lg bg-secondary text-white text-xs font-bold hover:brightness-110 transition-all">Manage Return</button>
+<button class="p-2 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="px-6 py-6 bg-surface-container-low border-t border-outline-variant/10 flex items-center justify-between">
+<p class="text-xs text-on-surface-variant font-label">Showing <span class="font-bold text-on-surface">1 - 10</span> of 1,248 orders</p>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-lg hover:bg-surface-container-high transition-colors disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-white text-xs font-bold">1</button>
+<button class="w-8 h-8 rounded-lg text-on-surface-variant text-xs font-bold hover:bg-surface-container-high transition-colors">2</button>
+<button class="w-8 h-8 rounded-lg text-on-surface-variant text-xs font-bold hover:bg-surface-container-high transition-colors">3</button>
+<span class="text-on-surface-variant">...</span>
+<button class="w-8 h-8 rounded-lg text-on-surface-variant text-xs font-bold hover:bg-surface-container-high transition-colors">125</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Helpful Tip Module (Editorial Moment) -->
+<div class="mt-12 bg-primary-fixed rounded-2xl p-8 flex flex-col md:flex-row items-center gap-8 overflow-hidden relative">
+<div class="flex-1 z-10">
+<span class="px-3 py-1 bg-white/50 rounded-full text-[0.6875rem] font-bold text-primary uppercase tracking-wider mb-4 inline-block">Pro Tip</span>
+<h3 class="text-2xl font-black font-headline text-on-primary-fixed mb-2">Accelerate your fulfillment speed</h3>
+<p class="text-on-primary-fixed-variant max-w-lg mb-6 leading-relaxed">Sellers who process orders within 4 hours see a 35% higher customer retention rate. Use our new "Batch Print Labels" feature to save time.</p>
+<button class="px-6 py-3 bg-primary text-white rounded-full font-bold hover:brightness-110 transition-all">Learn About Batch Processing</button>
+</div>
+<div class="w-full md:w-1/3 relative z-10 flex justify-center">
+<div class="bg-white/40 backdrop-blur-md p-4 rounded-xl shadow-xl rotate-3 transform translate-y-4">
+<div class="w-48 h-32 bg-surface-container rounded-lg flex items-center justify-center text-on-surface-variant/20 overflow-hidden">
+<img alt="Warehouse logistics" class="w-full h-full object-cover" data-alt="modern organized logistics warehouse interior with warm lighting and shipping boxes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_2qOqxzp_l5CHpyydm5DCxhXWyD8UWCPuztzoNrzOZMIg7F_M26o41DCOFw7xyT2aDvBZQgqtSo_yicngSRLBDCuv6wpDscWrUBq4ih1gREMfxECeRpPM_wzZuGZns8M2685DFjxNvQLOBu1N2Q7WzDfDin9J3ayBIdA_sOurOC148KZGc3VN9vW5S9BVENLmvuVSBqpgDdB0TxbwRA8jvtA-VvODJnwOlEjo9oEbnxRfb8B-Pi5DC3AbPUUUOYmLT5YRuwosNE4"/>
+</div>
+</div>
+<div class="absolute -bottom-8 -right-8 w-64 h-64 bg-primary rounded-full blur-3xl opacity-10"></div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

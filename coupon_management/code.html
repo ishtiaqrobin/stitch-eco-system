@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Coupon Management | UniMart Seller Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#191c1d",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "secondary": "#ad3219",
+              "on-primary-container": "#ffffff",
+              "surface-tint": "#005bc0",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#ff6d4e",
+              "surface-variant": "#e1e3e4",
+              "on-secondary-fixed": "#3e0500",
+              "on-primary-fixed-variant": "#004493",
+              "inverse-surface": "#2e3132",
+              "secondary-fixed": "#ffdad3",
+              "surface-container-highest": "#e1e3e4",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed-dim": "#adc7ff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "primary-container": "#1a73e8",
+              "inverse-primary": "#adc7ff",
+              "surface-container-high": "#e7e8e9",
+              "on-primary-fixed": "#001a41",
+              "primary": "#005bbf",
+              "tertiary-fixed": "#d8e2ff",
+              "on-error-container": "#93000a",
+              "outline-variant": "#c1c6d6",
+              "on-error": "#ffffff",
+              "surface-bright": "#f8f9fa",
+              "surface-container": "#edeeef",
+              "surface": "#f8f9fa",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-tertiary-container": "#ffffff",
+              "error": "#ba1a1a",
+              "on-tertiary": "#ffffff",
+              "error-container": "#ffdad6",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-container-low": "#f3f4f5",
+              "on-background": "#191c1d",
+              "tertiary-container": "#0872ed",
+              "on-primary": "#ffffff",
+              "tertiary": "#005abf",
+              "on-secondary-container": "#680f00",
+              "surface-dim": "#d9dadb",
+              "on-tertiary-fixed": "#001a41",
+              "on-surface-variant": "#414754",
+              "on-tertiary-fixed-variant": "#004493",
+              "primary-fixed": "#d8e2ff",
+              "background": "#f8f9fa",
+              "outline": "#727785"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-effect {
+            background: rgba(248, 249, 250, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        .asymmetric-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 2rem;
+        }
+        @media (max-width: 1024px) {
+            .asymmetric-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 flex items-center justify-between px-6 py-3 w-full bg-white dark:bg-slate-900 shadow-sm dark:shadow-none border-b border-slate-100">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold text-blue-700 dark:text-blue-400 tracking-tight font-headline">UniMart Seller Studio</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded" href="#">Orders</a>
+<a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700 px-3 py-1" href="#">Marketing</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-highest border-none rounded-full text-sm focus:ring-2 focus:ring-primary/40 w-64" placeholder="Search promotions..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden ml-2 ring-2 ring-surface-container">
+<img alt="Merchant Profile Avatar" data-alt="Merchant Profile Avatar professional headshot of a business owner in a modern studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMoWBIYRpsOh5D-82M2zyc-B8Moy3mnxOsT1bAlfkKHEAC3CPdRv3Wp99pXkfFRQ355YZWsEkmGuowuhJhVxMC0r6lNt6BDhpUh5yOJra69JHr5uy9yLwg9CjzAsnJ4yEpyheALv-O23BHYFORPrEii8HQMjAuzx7lJxrXwjopuvsCd5kgfaqD2ZP9xW9DadWgFCpQRUgfSFkU5MMgLLC1Z-8DWjlCuJI_38C3Hzh7ed1jzUdlLap_6cYGq4Wie12OOMcGFczkYyA"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex min-h-[calc(100vh-64px)]">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 flex flex-col p-4 z-40 bg-slate-50 dark:bg-slate-950 border-r border-slate-100 hidden lg:flex">
+<div class="flex items-center gap-3 mb-8 px-2">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white font-black text-lg">U</div>
+<div>
+<h3 class="font-bold font-headline text-slate-900 leading-none">Official Store</h3>
+<p class="text-xs text-slate-500 mt-1">Verified Merchant</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-sm font-medium">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white text-blue-700 rounded-lg shadow-sm font-bold border border-slate-100" href="#">
+<span class="material-symbols-outlined" data-icon="confirmation_number" style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
+<span class="text-sm">Coupons</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-sm font-medium">Payments</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 space-y-1">
+<button class="w-full flex items-center justify-center gap-2 bg-gradient-to-br from-primary to-primary-container text-white py-3 rounded-xl font-bold text-sm shadow-md hover:opacity-90 transition-opacity mb-4">
+<span class="material-symbols-outlined text-sm">add</span>
+                    Add New Product
+                </button>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-200/50 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 lg:ml-64 p-6 md:p-10 bg-surface min-h-full">
+<div class="max-w-7xl mx-auto">
+<!-- Editorial Header -->
+<div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">Marketing Hub</span>
+<h1 class="text-4xl md:text-5xl font-black font-headline text-on-surface tracking-tight">Coupon <span class="text-primary">Management</span></h1>
+<p class="text-on-surface-variant mt-4 max-w-xl text-lg leading-relaxed">Boost your sales with strategic discounts. Manage active campaigns and analyze past performance in one place.</p>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-full font-bold shadow-lg flex items-center gap-3 hover:scale-[1.02] transition-transform active:scale-95">
+<span class="material-symbols-outlined">add_circle</span>
+                        Create Promo Code
+                    </button>
+</div>
+<!-- Stats Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between h-40 group hover:bg-primary transition-colors duration-300">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary group-hover:text-white bg-primary/10 group-hover:bg-white/20 p-2 rounded-lg" data-icon="trending_up">trending_up</span>
+<span class="text-xs font-bold text-emerald-600 group-hover:text-white bg-emerald-50 group-hover:bg-emerald-500/30 px-2 py-1 rounded">+12.5%</span>
+</div>
+<div>
+<p class="text-sm font-medium text-on-surface-variant group-hover:text-white/80">Total Discount Given</p>
+<p class="text-2xl font-black font-headline group-hover:text-white">৳ 45,280.00</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between h-40 group hover:bg-secondary transition-colors duration-300">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary group-hover:text-white bg-secondary/10 group-hover:bg-white/20 p-2 rounded-lg" data-icon="group">group</span>
+</div>
+<div>
+<p class="text-sm font-medium text-on-surface-variant group-hover:text-white/80">Unique Customers</p>
+<p class="text-2xl font-black font-headline group-hover:text-white">1,240</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between h-40 group hover:bg-tertiary transition-colors duration-300">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-tertiary group-hover:text-white bg-tertiary/10 group-hover:bg-white/20 p-2 rounded-lg" data-icon="shopping_basket">shopping_basket</span>
+</div>
+<div>
+<p class="text-sm font-medium text-on-surface-variant group-hover:text-white/80">Conversion Rate</p>
+<p class="text-2xl font-black font-headline group-hover:text-white">8.4%</p>
+</div>
+</div>
+</div>
+<!-- Main Content Area: Asymmetric Layout -->
+<div class="asymmetric-grid">
+<!-- Left: Active Coupons -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-bold font-headline">Active Promotions</h2>
+<div class="flex gap-2">
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant px-3 py-1 rounded-full text-xs font-bold">4 Live Now</span>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Coupon Card 1 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl border-l-4 border-primary shadow-sm hover:translate-x-1 transition-transform">
+<div class="flex items-start justify-between">
+<div class="flex gap-4">
+<div class="w-14 h-14 bg-surface-container rounded-lg flex items-center justify-center border-2 border-dashed border-outline-variant">
+<span class="text-primary font-black text-xs">20%</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-lg font-headline">EID_DHAKA_24</h3>
+<span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Active</span>
+</div>
+<p class="text-sm text-on-surface-variant">20% off on all clothing items</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full peer-checked:bg-primary after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+</label>
+<span class="text-[10px] text-on-surface-variant mt-2 font-medium">Auto-expiring in 4 days</span>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container-low grid grid-cols-3 gap-4">
+<div>
+<p class="text-[10px] uppercase text-slate-400 font-bold tracking-tighter">Usage Count</p>
+<p class="text-sm font-bold">482 / 500</p>
+</div>
+<div>
+<p class="text-[10px] uppercase text-slate-400 font-bold tracking-tighter">Total Discount</p>
+<p class="text-sm font-bold">৳ 12,450</p>
+</div>
+<div class="flex justify-end items-center">
+<button class="text-primary text-xs font-bold hover:underline">View Details</button>
+</div>
+</div>
+</div>
+<!-- Coupon Card 2 -->
+<div class="bg-surface-container-lowest p-5 rounded-xl border-l-4 border-primary shadow-sm hover:translate-x-1 transition-transform">
+<div class="flex items-start justify-between">
+<div class="flex gap-4">
+<div class="w-14 h-14 bg-surface-container rounded-lg flex items-center justify-center border-2 border-dashed border-outline-variant">
+<span class="text-primary font-black text-xs">৳ 500</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-lg font-headline">FLAT500OFF</h3>
+<span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Active</span>
+</div>
+<p class="text-sm text-on-surface-variant">Minimum purchase of ৳ 2,500</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full peer-checked:bg-primary after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+</label>
+<span class="text-[10px] text-on-surface-variant mt-2 font-medium">Ends June 30</span>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-surface-container-low grid grid-cols-3 gap-4">
+<div>
+<p class="text-[10px] uppercase text-slate-400 font-bold tracking-tighter">Usage Count</p>
+<p class="text-sm font-bold">89 / ∞</p>
+</div>
+<div>
+<p class="text-[10px] uppercase text-slate-400 font-bold tracking-tighter">Total Discount</p>
+<p class="text-sm font-bold">৳ 44,500</p>
+</div>
+<div class="flex justify-end items-center">
+<button class="text-primary text-xs font-bold hover:underline">View Details</button>
+</div>
+</div>
+</div>
+<!-- Coupon Card 3 (Disabled State) -->
+<div class="bg-surface-container-low p-5 rounded-xl border-l-4 border-slate-300 opacity-80 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex gap-4">
+<div class="w-14 h-14 bg-white/50 rounded-lg flex items-center justify-center border-2 border-dashed border-slate-200">
+<span class="text-slate-400 font-black text-xs">FREE</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-lg font-headline text-slate-500">FREESHIP</h3>
+<span class="bg-slate-200 text-slate-600 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Paused</span>
+</div>
+<p class="text-sm text-slate-500">Free delivery on first orders</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:bg-primary after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+</label>
+<span class="text-[10px] text-slate-400 mt-2 font-medium">Disabled by merchant</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right: Performance & Expired -->
+<section class="space-y-8">
+<!-- Campaign Analysis Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm overflow-hidden relative">
+<div class="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-primary/5 rounded-full"></div>
+<h3 class="font-bold text-lg font-headline mb-4">Top Performing Campaign</h3>
+<div class="flex items-center gap-4 mb-6">
+<div class="bg-primary/10 p-3 rounded-full">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<p class="text-sm font-bold">WINTER_SPECIAL</p>
+<p class="text-xs text-on-surface-variant">Generated ৳ 1.2M in revenue</p>
+</div>
+</div>
+<div class="space-y-3">
+<div>
+<div class="flex justify-between text-xs font-bold mb-1">
+<span>Quota Utilization</span>
+<span>100%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold mb-1">
+<span>ROI Factor</span>
+<span>8.5x</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[85%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Expired Coupons List -->
+<div class="bg-surface-container-low p-6 rounded-xl">
+<h3 class="font-bold text-lg font-headline mb-4">Past Promotions</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between py-3 border-b border-surface-container">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-slate-400">history</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface-variant">NEWYEAR2024</p>
+<p class="text-[10px] text-slate-400">Expired 12 Jan</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold">1.2k Uses</p>
+<button class="text-[10px] text-primary font-bold hover:underline">Duplicate</button>
+</div>
+</div>
+<div class="flex items-center justify-between py-3 border-b border-surface-container">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-slate-400">history</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface-variant">LAUNCH_OFFER</p>
+<p class="text-[10px] text-slate-400">Expired 01 Jan</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold">5k Uses</p>
+<button class="text-[10px] text-primary font-bold hover:underline">Duplicate</button>
+</div>
+</div>
+<div class="flex items-center justify-between py-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-slate-400">history</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface-variant">FLASH_DEC_31</p>
+<p class="text-[10px] text-slate-400">Expired 31 Dec</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold">2.4k Uses</p>
+<button class="text-[10px] text-primary font-bold hover:underline">Duplicate</button>
+</div>
+</div>
+</div>
+<button class="w-full mt-4 text-center text-xs font-bold text-slate-500 hover:text-primary transition-colors">View All History</button>
+</div>
+</section>
+</div>
+</div>
+</main>
+</div>
+<!-- Mobile Nav Anchor -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-md md:hidden flex justify-around items-center py-3 z-50 border-t border-slate-100 px-6">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-[10px] font-bold">Orders</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-blue-700">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
+<span class="text-[10px] font-bold">Coupons</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-[10px] font-bold">Products</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] font-bold">Settings</span>
+</button>
+</nav>
+<!-- Floating Action Button (Only relevant for main management actions) -->
+<div class="fixed bottom-24 right-6 md:hidden">
+<button class="w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+</body></html>

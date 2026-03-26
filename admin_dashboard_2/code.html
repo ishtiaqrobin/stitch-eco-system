@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UniMart Admin Dashboard</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f3f4f5",
+              "secondary-container": "#ff6d4e",
+              "primary-fixed": "#d8e2ff",
+              "on-surface": "#191c1d",
+              "surface-container-highest": "#e1e3e4",
+              "surface-container-high": "#e7e8e9",
+              "surface": "#f8f9fa",
+              "error": "#ba1a1a",
+              "background": "#f8f9fa",
+              "on-primary-fixed": "#001a41",
+              "outline": "#727785",
+              "on-secondary-fixed": "#3e0500",
+              "on-secondary-container": "#680f00",
+              "error-container": "#ffdad6",
+              "outline-variant": "#c1c6d6",
+              "on-primary-container": "#ffffff",
+              "inverse-primary": "#adc7ff",
+              "surface-container": "#edeeef",
+              "primary-fixed-dim": "#adc7ff",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed": "#001a41",
+              "inverse-surface": "#2e3132",
+              "on-tertiary-fixed-variant": "#004493",
+              "inverse-on-surface": "#f0f1f2",
+              "tertiary-container": "#0872ed",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "on-surface-variant": "#414754",
+              "on-background": "#191c1d",
+              "on-tertiary-container": "#ffffff",
+              "tertiary-fixed-dim": "#adc6ff",
+              "tertiary": "#005abf",
+              "surface-dim": "#d9dadb",
+              "primary": "#005bbf",
+              "tertiary-fixed": "#d8e2ff",
+              "secondary": "#ad3219",
+              "on-secondary": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "on-primary-fixed-variant": "#004493",
+              "surface-bright": "#f8f9fa",
+              "secondary-fixed": "#ffdad3",
+              "primary-container": "#1a73e8",
+              "surface-variant": "#e1e3e4",
+              "surface-tint": "#005bc0",
+              "secondary-fixed-dim": "#ffb4a4",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8f9fa;
+        color: #191c1d;
+      }
+      h1, h2, h3, .font-headline {
+        font-family: 'Manrope', sans-serif;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full flex justify-between items-center px-6 h-16 border-b border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 z-50 shadow-sm">
+<div class="flex items-center gap-8">
+<span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">UniMart Admin</span>
+<div class="hidden md:flex relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full w-64 focus:ring-2 focus:ring-primary-container text-sm" placeholder="Search platform analytics..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors rounded-full relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-container flex items-center justify-center text-white overflow-hidden shadow-sm">
+<img class="h-full w-full object-cover" data-alt="professional male corporate executive headshot in studio setting with neutral gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7Ra6S99tMHznGuR6PYtg9AMhgifqwuibz2prdL621dBjx9OR6D6CPmTzxvsseS3j8rXQqb6e-QveQnodQ7sxIrzfpn4XZfIjaXeHjOMZxZRTMQzVkv3SEWunLjEJsVrj5cX2OJsaFTqU2wV5aWKYhGRaV9gbcANZOqo5F0Tqc_SV1ZA2w9WXMSUyVayzFMf9UUOP_R84JHgV2qFiqW3Jn9Z7RUIVJhQxTeVbRXc6nEZAnsYeQxgFovvJdpW6vgGrq7kIRvtUh3Tg"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 pt-20 pb-6 px-4 flex flex-col gap-2 overflow-y-auto bg-slate-50 dark:bg-slate-950 border-r border-outline-variant/15">
+<div class="mb-6 px-4">
+<div class="flex items-center gap-3 mb-1">
+<span class="text-lg font-bold text-blue-600">Admin Central</span>
+</div>
+<p class="text-xs text-slate-500 font-medium">Management Suite</p>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 rounded-lg shadow-sm font-medium transition-all active:opacity-80 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>User Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span>Moderation</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Operations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+<span>Platform</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Finance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>System</span>
+</a>
+<div class="mt-auto px-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-white py-2 px-4 rounded-full font-semibold text-sm shadow-md hover:opacity-90 transition-all">
+                Export Reports
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 px-8 pb-12">
+<!-- Header -->
+<header class="mb-10 flex justify-between items-end">
+<div>
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2">Platform Overview</h1>
+<p class="text-on-surface-variant font-medium">Real-time health monitoring of the UniMart ecosystem.</p>
+</div>
+<div class="flex gap-3">
+<div class="bg-surface-container-lowest px-4 py-2 rounded-xl shadow-sm flex items-center gap-2 cursor-pointer border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary" data-icon="calendar_today">calendar_today</span>
+<span class="text-sm font-semibold">Last 30 Days</span>
+</div>
+</div>
+</header>
+<!-- Stats Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+<!-- Stat Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm transition-transform hover:scale-[1.02]">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<span class="text-sm font-semibold text-on-surface-variant">Total Platform GMV</span>
+</div>
+<div class="flex flex-col">
+<span class="text-2xl font-extrabold">৳ 84,230,150</span>
+<div class="flex items-center gap-1 mt-2">
+<span class="material-symbols-outlined text-green-600 text-sm" data-icon="trending_up">trending_up</span>
+<span class="text-xs font-bold text-green-600">+12.4% vs prev. month</span>
+</div>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm transition-transform hover:scale-[1.02]">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="person_play">person_play</span>
+</div>
+<span class="text-sm font-semibold text-on-surface-variant">Active Users (24h)</span>
+</div>
+<div class="flex flex-col">
+<span class="text-2xl font-extrabold">124,502</span>
+<div class="flex items-center gap-1 mt-2">
+<span class="material-symbols-outlined text-green-600 text-sm" data-icon="trending_up">trending_up</span>
+<span class="text-xs font-bold text-green-600">+4.2% daily peak</span>
+</div>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm transition-transform hover:scale-[1.02]">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+</div>
+<span class="text-sm font-semibold text-on-surface-variant">Verified Sellers</span>
+</div>
+<div class="flex flex-col">
+<span class="text-2xl font-extrabold">12,840</span>
+<div class="flex items-center gap-1 mt-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="remove">remove</span>
+<span class="text-xs font-bold text-on-surface-variant">Stable growth</span>
+</div>
+</div>
+</div>
+<!-- Stat Card 4 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm transition-transform hover:scale-[1.02]">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</div>
+<span class="text-sm font-semibold text-on-surface-variant">Avg. Order Value</span>
+</div>
+<div class="flex flex-col">
+<span class="text-2xl font-extrabold">৳ 1,420</span>
+<div class="flex items-center gap-1 mt-2">
+<span class="material-symbols-outlined text-error text-sm" data-icon="trending_down">trending_down</span>
+<span class="text-xs font-bold text-error">-2.1% promo seasonality</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Chart & Tasks Bento -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+<!-- Monthly Revenue Growth Chart (Placeholder visual) -->
+<div class="lg:col-span-2 bg-surface-container-lowest p-8 rounded-xl shadow-sm relative overflow-hidden">
+<div class="flex justify-between items-center mb-10">
+<h3 class="text-xl font-extrabold">Monthly Revenue Growth</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="text-xs font-semibold">2024</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-outline-variant"></span>
+<span class="text-xs font-semibold">2023</span>
+</div>
+</div>
+</div>
+<!-- Line Chart Visualization (SVG) -->
+<div class="h-64 w-full flex items-end justify-between px-2 gap-4">
+<div class="flex-1 flex flex-col justify-end items-center group">
+<div class="w-full bg-primary/10 rounded-t-lg relative" style="height: 40%;">
+<div class="absolute inset-x-0 -top-1 h-1 bg-primary rounded-full"></div>
+</div>
+<span class="mt-2 text-[10px] font-bold text-on-surface-variant">JAN</span>
+</div>
+<div class="flex-1 flex flex-col justify-end items-center">
+<div class="w-full bg-primary/10 rounded-t-lg relative" style="height: 55%;">
+<div class="absolute inset-x-0 -top-1 h-1 bg-primary rounded-full"></div>
+</div>
+<span class="mt-2 text-[10px] font-bold text-on-surface-variant">FEB</span>
+</div>
+<div class="flex-1 flex flex-col justify-end items-center">
+<div class="w-full bg-primary/10 rounded-t-lg relative" style="height: 45%;">
+<div class="absolute inset-x-0 -top-1 h-1 bg-primary rounded-full"></div>
+</div>
+<span class="mt-2 text-[10px] font-bold text-on-surface-variant">MAR</span>
+</div>
+<div class="flex-1 flex flex-col justify-end items-center">
+<div class="w-full bg-primary/10 rounded-t-lg relative" style="height: 70%;">
+<div class="absolute inset-x-0 -top-1 h-1 bg-primary rounded-full"></div>
+</div>
+<span class="mt-2 text-[10px] font-bold text-on-surface-variant">APR</span>
+</div>
+<div class="flex-1 flex flex-col justify-end items-center">
+<div class="w-full bg-primary/10 rounded-t-lg relative" style="height: 90%;">
+<div class="absolute inset-x-0 -top-1 h-1 bg-primary rounded-full"></div>
+</div>
+<span class="mt-2 text-[10px] font-bold text-on-surface-variant">MAY</span>
+</div>
+<div class="flex-1 flex flex-col justify-end items-center">
+<div class="w-full bg-primary/20 rounded-t-lg relative" style="height: 85%;">
+<div class="absolute inset-x-0 -top-2 h-2 bg-primary-container rounded-full shadow-[0_0_10px_rgba(26,115,232,0.5)]"></div>
+</div>
+<span class="mt-2 text-[10px] font-bold text-on-surface">JUN</span>
+</div>
+</div>
+</div>
+<!-- User Retention Doughnut (Placeholder) -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm flex flex-col items-center justify-center">
+<h3 class="text-xl font-extrabold mb-8 self-start">User Retention</h3>
+<div class="relative w-48 h-48 mb-8">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#f3f4f5" stroke-width="12"></circle>
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#005bbf" stroke-dasharray="200 251" stroke-linecap="round" stroke-width="12"></circle>
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#ff6d4e" stroke-dasharray="40 251" stroke-dashoffset="-200" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-3xl font-extrabold">68%</span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Active</span>
+</div>
+</div>
+<div class="w-full space-y-3">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-sm font-medium">Returning Users</span>
+</div>
+<span class="text-sm font-bold">68%</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span class="text-sm font-medium">New Acquisitions</span>
+</div>
+<span class="text-sm font-bold">22%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Secondary Row: Pending Actions & Activity Feed -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Pending Actions Grid -->
+<div>
+<h3 class="text-xl font-extrabold mb-6">Pending Actions</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container p-5 rounded-xl flex items-center justify-between group hover:bg-surface-container-high transition-colors cursor-pointer">
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase mb-1">Seller Applications</p>
+<span class="text-2xl font-extrabold">12</span>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="bg-surface-container p-5 rounded-xl flex items-center justify-between group hover:bg-surface-container-high transition-colors cursor-pointer">
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase mb-1">Reported Posts</p>
+<span class="text-2xl font-extrabold text-error">45</span>
+</div>
+<span class="material-symbols-outlined text-error group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="bg-surface-container p-5 rounded-xl flex items-center justify-between group hover:bg-surface-container-high transition-colors cursor-pointer">
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase mb-1">C2C Listings</p>
+<span class="text-2xl font-extrabold">8</span>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="bg-surface-container p-5 rounded-xl flex items-center justify-between group hover:bg-surface-container-high transition-colors cursor-pointer">
+<div>
+<p class="text-xs font-bold text-on-surface-variant uppercase mb-1">Payout Requests</p>
+<span class="text-2xl font-extrabold">৳ 1.2M</span>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Recent Activity Feed -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-xl font-extrabold">Recent Activity</h3>
+<button class="text-primary text-xs font-bold hover:underline">View All</button>
+</div>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+</div>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-white rounded-full flex items-center justify-center">
+<div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+</div>
+</div>
+<div class="flex-1 border-b border-surface-container pb-4">
+<p class="text-sm font-bold">New Seller Registered</p>
+<p class="text-xs text-on-surface-variant mt-1">"Boutique BD" from Dhaka submitted business credentials.</p>
+<span class="text-[10px] font-bold text-outline uppercase mt-2 block">2 Minutes Ago</span>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</div>
+<div class="flex-1 border-b border-surface-container pb-4">
+<p class="text-sm font-bold">Flash Sale Started</p>
+<p class="text-xs text-on-surface-variant mt-1">Mid-Summer Craze is now live. Concurrent traffic up 400%.</p>
+<span class="text-[10px] font-bold text-outline uppercase mt-2 block">1 Hour Ago</span>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-error-container/50 flex items-center justify-center text-error">
+<span class="material-symbols-outlined" data-icon="report_problem">report_problem</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-error">High-value Dispute Raised</p>
+<p class="text-xs text-on-surface-variant mt-1">Order #8921-A flagged for verification. ৳ 45,000 transaction.</p>
+<span class="text-[10px] font-bold text-outline uppercase mt-2 block">3 Hours Ago</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button (Supressed on Dashboards typically, but shown here for UI completeness as per rules if primary action fits) -->
+<!-- FAB is supressed here as per "Task-Focused/Transactional/Dashboards" rule to prioritize canvas focus -->
+</body></html>

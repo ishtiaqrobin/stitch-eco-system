@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notifications | UniMart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-primary": "#adc7ff",
+              "on-secondary-fixed": "#3e0500",
+              "on-primary": "#ffffff",
+              "surface-container-low": "#f3f4f5",
+              "surface-variant": "#e1e3e4",
+              "background": "#f8f9fa",
+              "secondary-fixed-dim": "#ffb4a4",
+              "on-surface-variant": "#414754",
+              "on-background": "#191c1d",
+              "on-primary-container": "#ffffff",
+              "surface-container": "#edeeef",
+              "on-tertiary-fixed": "#001a41",
+              "tertiary": "#005abf",
+              "surface-tint": "#005bc0",
+              "surface-container-highest": "#e1e3e4",
+              "secondary": "#ad3219",
+              "inverse-surface": "#2e3132",
+              "primary": "#005bbf",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#d8e2ff",
+              "secondary-container": "#ff6d4e",
+              "on-surface": "#191c1d",
+              "on-primary-fixed": "#001a41",
+              "surface": "#f8f9fa",
+              "tertiary-container": "#0872ed",
+              "on-tertiary-container": "#ffffff",
+              "surface-dim": "#d9dadb",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "surface-bright": "#f8f9fa",
+              "error": "#ba1a1a",
+              "primary-container": "#1a73e8",
+              "on-tertiary": "#ffffff",
+              "on-secondary-container": "#680f00",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "outline": "#727785",
+              "on-tertiary-fixed-variant": "#004493",
+              "tertiary-fixed-dim": "#adc6ff",
+              "primary-fixed-dim": "#adc7ff",
+              "on-error-container": "#93000a",
+              "secondary-fixed": "#ffdad3",
+              "inverse-on-surface": "#f0f1f2",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#d8e2ff",
+              "on-primary-fixed-variant": "#004493",
+              "outline-variant": "#c1c6d6",
+              "surface-container-high": "#e7e8e9"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-black text-blue-700 dark:text-blue-500 tracking-tighter">UniMart</div>
+<div class="hidden md:flex items-center space-x-8">
+<nav class="flex space-x-6 text-slate-600 dark:text-slate-400 font-medium">
+<a class="hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Feed</a>
+<a class="hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Marketplace</a>
+<a class="text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-600" href="#">Notifications</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="material-symbols-outlined text-blue-600 dark:text-blue-400 scale-95 active:scale-90 duration-200" data-icon="shopping_cart">shopping_cart</button>
+<button class="material-symbols-outlined text-blue-600 dark:text-blue-400 scale-95 active:scale-90 duration-200" data-icon="notifications" style="font-variation-settings: 'FILL' 1;">notifications</button>
+<button class="material-symbols-outlined text-blue-600 dark:text-blue-400 scale-95 active:scale-90 duration-200" data-icon="account_circle">account_circle</button>
+</div>
+</div>
+<button class="md:hidden material-symbols-outlined" data-icon="menu">menu</button>
+</div>
+<div class="bg-slate-100 dark:bg-slate-800 h-[1px]"></div>
+</header>
+<main class="pt-24 pb-32 max-w-7xl mx-auto px-6 flex gap-8">
+<!-- SideNavBar (Hidden on Mobile) -->
+<aside class="hidden lg:flex flex-col h-screen sticky top-24 p-4 space-y-2 w-64 border-r-0 font-manrope font-semibold text-sm">
+<div class="mb-8 px-4">
+<div class="flex items-center gap-3">
+<img alt="User Profile" class="w-10 h-10 rounded-full object-cover" data-alt="Professional portrait of a young man with a friendly expression in a clean studio setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA56jz4BytnFD9jZgJ9VVqtkAJXqtT2ov1tnlVM5LTDuh9C5neDeBhyUS3BWXLdYF6GQBXhl0I0RJD0vK1iBDewUq6uF2Va_vzNFtm2kj64V1-mvDSbdehyrNdMTcrngAcWchhQEdkK-nhcAwKQMfO_BHgaKejoEO8v4j4oVOhxkoMlE435ebpHhBODv8ehG2STtNcV4d3rn4dzokRRUaANYy5qdtI1jh4VeThlZ-C-La0rzFQgmJG2kbfhF14zRd2xv68Ndn1aNdo"/>
+<div>
+<p class="text-on-background">Welcome back</p>
+<p class="text-xs text-slate-500">Verified Member</p>
+</div>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-xl hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dynamic_feed">dynamic_feed</span> Feed
+                </a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-xl hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span> Marketplace
+                </a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-xl hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span> Wallet
+                </a>
+<a class="flex items-center gap-3 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-xl px-4 py-3" href="#">
+<span class="material-symbols-outlined" data-icon="notifications" style="font-variation-settings: 'FILL' 1;">notifications</span> Notifications
+                </a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-xl hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="favorite">lists</span> Wishlist
+                </a>
+</nav>
+<div class="pt-8 mt-auto space-y-1">
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span> Settings
+                </a>
+</div>
+</aside>
+<!-- Content Canvas -->
+<section class="flex-1">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="text-4xl font-extrabold tracking-tight text-on-background mb-2">Activity</h1>
+<p class="text-on-surface-variant font-medium">You have 4 unread updates today.</p>
+</div>
+<button class="bg-surface-container-high text-primary px-6 py-2.5 rounded-full font-semibold text-sm hover:opacity-80 transition-opacity">
+                    Mark all as read
+                </button>
+</div>
+<!-- Notification Bento Grid / List -->
+<div class="space-y-4">
+<!-- Earnings Alert (Bento Style Card) -->
+<div class="bg-surface-container-lowest p-6 rounded-xl flex items-start gap-6 transition-all hover:translate-y-[-2px]">
+<div class="w-14 h-14 bg-secondary-fixed rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-secondary-fixed text-2xl" data-icon="payments" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline font-bold text-lg text-on-surface">Coin Earnings</h3>
+<span class="text-xs font-label text-outline uppercase tracking-wider">2m ago</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed mb-4">You just earned <span class="text-secondary font-bold">500 UniCoins</span> from your recent sale of "Vintage Denim Jacket". Keep it up!</p>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container-low rounded-full text-xs font-bold text-primary">View Wallet</span>
+</div>
+</div>
+<div class="w-2 h-2 bg-primary rounded-full mt-2"></div>
+</div>
+<!-- Order Update (With Image) -->
+<div class="bg-surface-container-lowest p-6 rounded-xl flex items-start gap-6 transition-all hover:translate-y-[-2px]">
+<div class="w-14 h-14 bg-primary-fixed rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-primary-fixed text-2xl" data-icon="local_shipping" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline font-bold text-lg text-on-surface">Order Out for Delivery</h3>
+<span class="text-xs font-label text-outline uppercase tracking-wider">1h ago</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed mb-4">Your order <span class="font-bold">#UM-8821</span> is with our delivery partner and will reach you by 6:00 PM today.</p>
+<div class="bg-surface-container-low rounded-lg p-3 flex items-center gap-4">
+<img alt="Product Item" class="w-12 h-12 rounded-md object-cover" data-alt="Close-up of a vibrant red stylish sneaker with white laces on a neutral gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI5MgTHiZbJO-Ezo14ZsYznWmqr6EQGataAJ4pH0FjgQ15J4Ht-nsNAJZS4HxjcKl9EB130m30kGPvPNpiygwowjz8c6e2J6-zE_Ky_MSp8RK_-fbsLDYKU4C_MJWOWv4J-goQkl0cDzTl5fsVgSg1M9tf9d5LNhSU1yXVZHw0cYzKN6ayIVJ4-hW8-zNLWMphiKaV5a0LibZ8lzTIJ64yCNzhg0kwii7WXTIRHOMrZsRDDPBhWFeH2lNSSTNJEF8BizMBAG0sxEY"/>
+<div>
+<p class="text-sm font-bold">Speed-X Pro Running Shoes</p>
+<p class="text-xs text-slate-500">Carrier: RedX Express</p>
+</div>
+</div>
+</div>
+<div class="w-2 h-2 bg-primary rounded-full mt-2"></div>
+</div>
+<!-- Social Interaction (Like/Comment) -->
+<div class="bg-surface-container-lowest p-6 rounded-xl flex items-start gap-6 transition-all hover:translate-y-[-2px]">
+<div class="w-14 h-14 bg-tertiary-fixed rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-2xl" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline font-bold text-lg text-on-surface">New Interaction</h3>
+<span class="text-xs font-label text-outline uppercase tracking-wider">3h ago</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed">
+<span class="font-bold text-on-surface">Anika Ahmed</span> and 12 others liked your recent post in the <span class="text-primary">Dhaka Fashion Hub</span>.
+                        </p>
+<div class="mt-4 flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="Portrait of a young woman smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArYXI8AJ6p6nskWCAdQx52cr_e-cOOUOVwruAGDqjj-dnT1GTfhFSFGuuihE5H9bS23KLiUxmlR0cAgR8q1Hej6GZp9eaAtz05Rw_PCXLtYfFecBPFlg6tH8hjbaOSZ7jTnz2TUsSvaPhlq1Zrwq0tGza7RCGa496UN8Ck-oUxF8cJdakLnP2fyohre09k9qNl_eITPPY-zOAN85QCeQZr2yzHU5breJxNv_5il1NGUZnR8U7ZWD6-NuYXEB8B4Mjln0FLJpFpzbY"/>
+<img class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="Portrait of a young man with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAh8ouJrZaLm53X2Ik6sDQQK7p_raBzPFRJd0Hi0SsNkX7G9Cjm6rgwPoyzdB3NRq8-yCM7koGcCeDN_b4RZggXaaknLz6bgEaf3qoEBxPuQSCah3_Hl-n0yPspjnlG8SRb7V-aXqMK04hKClFRi1vpmkQDLbkW6OtcCQgUHxe3sqMgCPY3TvhpoS1vOq313UoWXIBWWcmI9vgj20LOF37pYCq2xC2MOa6NMR4q5qwlD5wfDIO7LMAjccKGRNWxj8wMXpA4ont6nQ"/>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center text-[10px] font-bold text-slate-600">+10</div>
+</div>
+</div>
+<div class="w-2 h-2 bg-primary rounded-full mt-2"></div>
+</div>
+<!-- Price Drop Alert (Secondary CTA) -->
+<div class="bg-surface-container-lowest p-6 rounded-xl flex items-start gap-6 transition-all hover:translate-y-[-2px] opacity-75">
+<div class="w-14 h-14 bg-surface-container-high rounded-full flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-outline text-2xl" data-icon="sell" style="font-variation-settings: 'FILL' 1;">sell</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline font-bold text-lg text-on-surface">Price Drop Alert</h3>
+<span class="text-xs font-label text-outline uppercase tracking-wider">Yesterday</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed">The <span class="font-bold">MacBook Air M2</span> in your wishlist just dropped by <span class="text-secondary font-bold">৳5,000</span>. Grab it before it's gone!</p>
+</div>
+</div>
+<!-- Community Milestone -->
+<div class="bg-gradient-to-br from-primary to-primary-container p-8 rounded-2xl text-on-primary shadow-lg flex items-center justify-between">
+<div class="max-w-md">
+<h3 class="font-headline font-extrabold text-2xl mb-2">You're a Rising Star!</h3>
+<p class="opacity-90 mb-4">Your seller rating just hit 4.9 stars. You've earned the "Trusted Seller" badge for the next 30 days.</p>
+<button class="bg-white text-primary px-6 py-2 rounded-full font-bold text-sm">View Badge Details</button>
+</div>
+<div class="hidden md:block">
+<span class="material-symbols-outlined text-7xl opacity-30" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Side Stats/Ads -->
+<aside class="hidden xl:block w-72 space-y-6">
+<div class="bg-surface-container-low p-6 rounded-2xl">
+<h4 class="font-headline font-bold text-on-surface mb-4">Notification Settings</h4>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium">Marketing Emails</span>
+<div class="w-10 h-5 bg-primary rounded-full relative"><div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div></div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium">Push Notifications</span>
+<div class="w-10 h-5 bg-primary rounded-full relative"><div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div></div>
+</div>
+<div class="flex items-center justify-between opacity-50">
+<span class="text-sm font-medium">SMS Alerts</span>
+<div class="w-10 h-5 bg-slate-300 rounded-full relative"><div class="absolute left-1 top-1 w-3 h-3 bg-white rounded-full"></div></div>
+</div>
+</div>
+</div>
+<div class="relative rounded-2xl overflow-hidden h-64 group cursor-pointer">
+<img alt="Promo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Interior of a luxury boutique store with minimal design and elegant displays under warm accent lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzwDgU5w2B3V5nIho-4j4J2z9N3XidGvN7rYldxkpOhz373mHCEix6qIspGAhEBe_yQ35KZAXG3ab5SWKiWJQwCMB6v0t_yQOvXsc-YkrNU2q0Ce7-9lQ0xBrTLvvlM1oTLkaaCzd8PM8ERpzHlRos7V4az3UOs_QGnDtYci7Dx7Jqozi_VcdugKwG1a2dDKlkhm8Y7VcAAmz_voMT9fn9T6RUeQca5QvgYYhmD3ENT1a8LN68iVqcuG_YSzAKMlzR2EsAM-l3cws"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-end">
+<span class="text-[10px] font-bold uppercase tracking-widest text-secondary-container mb-2">Featured Partner</span>
+<h4 class="text-white font-headline font-bold text-xl leading-tight">Spring Collection Drop at House of Bengal</h4>
+</div>
+</div>
+</aside>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg rounded-t-3xl z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 opacity-80 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 opacity-80 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="local_mall">local_mall</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest">Shop</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 opacity-80 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-3xl text-blue-600" data-icon="add_box">add_box</span>
+</div>
+<div class="flex flex-col items-center justify-center text-blue-600 dark:text-blue-400 scale-110 transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="notifications" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest">Alerts</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 opacity-80 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest">Profile</span>
+</div>
+</nav>
+</body></html>

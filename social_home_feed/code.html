@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#005bc0",
+              "on-primary": "#ffffff",
+              "outline": "#727785",
+              "error-container": "#ffdad6",
+              "primary": "#005bbf",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#ffb4a4",
+              "inverse-primary": "#adc7ff",
+              "surface-container-low": "#f3f4f5",
+              "outline-variant": "#c1c6d6",
+              "tertiary": "#005abf",
+              "on-surface-variant": "#414754",
+              "on-secondary-container": "#680f00",
+              "surface-container": "#edeeef",
+              "primary-container": "#1a73e8",
+              "surface": "#f8f9fa",
+              "on-primary-fixed-variant": "#004493",
+              "primary-fixed": "#d8e2ff",
+              "on-tertiary-fixed-variant": "#004493",
+              "on-error-container": "#93000a",
+              "secondary": "#ad3219",
+              "on-error": "#ffffff",
+              "inverse-surface": "#2e3132",
+              "surface-container-highest": "#e1e3e4",
+              "tertiary-fixed": "#d8e2ff",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "on-secondary-fixed": "#3e0500",
+              "on-surface": "#191c1d",
+              "on-primary-fixed": "#001a41",
+              "surface-bright": "#f8f9fa",
+              "error": "#ba1a1a",
+              "surface-container-high": "#e7e8e9",
+              "inverse-on-surface": "#f0f1f2",
+              "secondary-fixed": "#ffdad3",
+              "secondary-container": "#ff6d4e",
+              "on-tertiary-container": "#ffffff",
+              "background": "#f8f9fa",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed-dim": "#adc7ff",
+              "on-tertiary-fixed": "#001a41",
+              "on-background": "#191c1d",
+              "tertiary-container": "#0872ed",
+              "surface-variant": "#e1e3e4",
+              "surface-dim": "#d9dadb",
+              "on-primary-container": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar Cluster -->
+<nav class="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 mb-4 bg-[#f8f9fa] dark:bg-slate-950 z-50">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tight text-[#191c1d] dark:text-slate-100 font-headline">UniMart</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-[#005bbf] font-bold border-b-2 border-[#005bbf] py-1 text-sm font-label" href="#">Home</a>
+<a class="text-[#191c1d] dark:text-slate-400 opacity-70 hover:bg-[#f3f4f5] px-3 py-1 rounded transition-colors text-sm font-label" href="#">Explore</a>
+<a class="text-[#191c1d] dark:text-slate-400 opacity-70 hover:bg-[#f3f4f5] px-3 py-1 rounded transition-colors text-sm font-label" href="#">Trending</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<input class="bg-surface-container-high border-none rounded-full px-6 py-2 text-sm w-64 focus:ring-2 focus:ring-primary/40 transition-all" placeholder="Search curated styles..." type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-[#f3f4f5] transition-colors"><span class="material-symbols-outlined text-on-surface-variant">notifications</span></button>
+<button class="p-2 rounded-full hover:bg-[#f3f4f5] transition-colors"><span class="material-symbols-outlined text-on-surface-variant">chat_bubble</span></button>
+<button class="p-2 rounded-full hover:bg-[#f3f4f5] transition-colors"><span class="material-symbols-outlined text-on-surface-variant">add_box</span></button>
+<div class="w-8 h-8 rounded-full overflow-hidden ml-2 border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="close-up portrait of a stylish young woman with professional lighting and soft bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjDMLkMtfCp_A03IrtBUI7xtk2Iicycds6smbxYZTr69rcR8CeYlz429P6xgcxMD8WVcs7FaG0HFhDQhP9kTPyXF3SBxTIJRhp53agaOSaKgXQ23Ehg7xjlj1GIUb7mt4D4v1LYtMHHlc0zviPi1xf9Ydwog2uethc2C_LGzKx0etRa8Pt06gVYAHOE9cUkdZQWysMbVCKonN8tzzdXYZTO1E6PiaAPALks1TMiXHgOQDQKq875Sn-rq2AgLrd0vuZu_GN6j2Nd98"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Layout -->
+<main class="pt-24 pb-20 px-4 md:px-6 max-w-7xl mx-auto flex gap-8">
+<!-- Left Sidebar Navigation (Desktop) -->
+<aside class="hidden lg:flex flex-col w-64 sticky top-24 h-[calc(100vh-6rem)]">
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl bg-primary-container text-on-primary-container font-semibold transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-headline tracking-tight">Feed</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-surface-container-low text-on-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-headline tracking-tight">Discovery</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-surface-container-low text-on-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-headline tracking-tight">Marketplace</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-surface-container-low text-on-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined">bookmarks</span>
+<span class="font-headline tracking-tight">Saved Items</span>
+</a>
+<div class="my-6 border-t border-outline-variant/20 mx-4"></div>
+<h4 class="px-4 text-[10px] font-bold uppercase tracking-widest text-outline mb-2">Your Collections</h4>
+<a class="flex items-center gap-4 px-4 py-2 rounded-xl hover:bg-surface-container-low text-on-surface-variant text-sm" href="#">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+                    Summer '24 Lookbook
+                </a>
+<a class="flex items-center gap-4 px-4 py-2 rounded-xl hover:bg-surface-container-low text-on-surface-variant text-sm" href="#">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+                    Minimalist Living
+                </a>
+</div>
+<div class="mt-auto p-4 bg-surface-container-low rounded-2xl">
+<p class="text-xs text-on-surface-variant mb-3 leading-relaxed">Upgrade to <span class="font-bold text-primary">UniMart+</span> for exclusive early access to curated drops.</p>
+<button class="w-full py-2 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-full text-xs font-bold font-headline uppercase tracking-wider">Join Now</button>
+</div>
+</aside>
+<!-- Main Feed -->
+<section class="flex-1 max-w-2xl mx-auto w-full">
+<!-- Stories Bar -->
+<div class="flex items-center gap-4 overflow-x-auto no-scrollbar pb-6 mb-2">
+<div class="flex flex-col items-center gap-2 flex-shrink-0 cursor-pointer">
+<div class="w-16 h-16 rounded-full border-2 border-dashed border-outline-variant flex items-center justify-center p-1">
+<div class="w-full h-full bg-surface-container-highest rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl">add</span>
+</div>
+</div>
+<span class="text-[10px] font-bold font-label uppercase text-on-surface">Your Story</span>
+</div>
+<!-- Story Item -->
+<div class="flex flex-col items-center gap-2 flex-shrink-0 cursor-pointer">
+<div class="w-16 h-16 rounded-full p-[2px] bg-gradient-to-tr from-primary to-secondary">
+<div class="w-full h-full rounded-full border-2 border-surface overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="headshot of a young man with a slight smile in a studio setting with bright lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4Fk_4piUFsubL4esPWfCpDGRWLJbln0ZEV_h9kCL5DJwhAF8Usqs7UlR8D2JuG0qfyIBTglWpIf0XcEWbUxLN-EJe0es375NnOHf4kUHX6TKScpncgLds5W6r1BcFNXzDUFxuznprltKnoBetaiehx85M0_ogeNz1IcnAv2m_zmkDx1X5ps1jYLKy44A7laCWSOjGCeGYzT9J0YqbxDm5Dep0IavnkuWR94mE2X8PoDYRXh5kK1wAQB2cjCvSta07xXaAoZDsVeo"/>
+</div>
+</div>
+<span class="text-[10px] font-bold font-label uppercase text-on-surface">Arian.K</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-shrink-0 cursor-pointer">
+<div class="w-16 h-16 rounded-full p-[2px] bg-gradient-to-tr from-primary to-secondary">
+<div class="w-full h-full rounded-full border-2 border-surface overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="profile photo of a woman with vibrant hair color in a natural outdoor setting with soft sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnuIkxP4Uw9kFTVOQJ9zx0vkF9dW9TkGYdTmjocDHYxMV7ThSvQZvdI66vYOMHbbXwhP7axtmhRGBMv6dKYpk0KPN0FMQmbDNhCku-AJoaiDInKW860zFKruSbKLIbfGA3c4bi1O3ckjUcHXPnffTh-qB77sQW9OmuImFXDQb4m1SZwTsaxqSd29CgEr6l2ghvKnHjPUfnCNRqvQjPAubzkjSGzJQVp-NPbhe-OvoxEhnJuS7VqqU_rCiNneN3LQ-u-wz81eh_cHo"/>
+</div>
+</div>
+<span class="text-[10px] font-bold font-label uppercase text-on-surface">ZARA_M</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-shrink-0 cursor-pointer opacity-60">
+<div class="w-16 h-16 rounded-full p-[2px] bg-surface-container-highest">
+<div class="w-full h-full rounded-full border-2 border-surface overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="lifestyle portrait of a man leaning against a brick wall in urban setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd-QYeWrsdsb27rbhW1XZBQphMLP7_4eBdp2dC19msAl_uvf3oWlHYaZVPQWSug3UPZ73QNDkpd9AVQgUb_0IOWB2ELUPRMs11vsJ6mmae_13n4YD-xwGxRKsfMjaLWOZWBoHMEt6u2IuBTGJc5czHpwoOYTs9lpBceeo30PsAEIAP4EW3Rku2K2LFJWrA9EKW5kbdBnTn0yZUp5N6Do69pu4R-H8_75xwcuW3n3GRD4WtOknBQcspK_84GIp6eOcN-shDNGdBKmc"/>
+</div>
+</div>
+<span class="text-[10px] font-bold font-label uppercase text-on-surface">Nils.v</span>
+</div>
+</div>
+<!-- Feed Posts -->
+<div class="space-y-12">
+<!-- Post 1 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.03)]">
+<!-- Post Header -->
+<div class="p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="fashion model portrait with minimalist aesthetic and neutral tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ5mLicHSX_mYEy6TOJ6QF-wEqge_ty6JJj9d6pdBxKW0BVT8d_mJCnwq8plrwHf0_GondvpGggbmiM6OhVbsMKIJaV4ALyb85pPm6GVCecTQpmfY4O7NuSNiAb21jReq5x0ZIfYSrIcPgQo8ok412GQ8_KSDi8m8kg6RCjYzB73HE7Ug43UNaQH7RDnte3AykjSmzJYntNiUTUFuq7_COBZYChZ2qk4FNg-jvzZ2Yko8DUwJ9fagnQ5YnbXOom5x4wgG8Sh2Q_5g"/>
+</div>
+<div>
+<h3 class="text-sm font-bold font-headline leading-none text-on-surface">Elena Rodriguez</h3>
+<p class="text-[10px] font-medium text-on-surface-variant font-label mt-1">Dhaka • 2h ago</p>
+</div>
+</div>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors"><span class="material-symbols-outlined">more_horiz</span></button>
+</div>
+<!-- Post Content (Bento Image Style) -->
+<div class="grid grid-cols-2 gap-1 px-1">
+<div class="relative group cursor-pointer overflow-hidden rounded-l-lg aspect-[4/5]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="full body shot of a woman in a trendy yellow streetwear outfit against a white architectural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuJ1LaYFVAvMIsZlamQgR2KUieeIgzy3caQsp_ICqO0exsr3DlVzMzHDK-x7AezHbqqXozerVzvl1bsEy-zy_gRTaPybzz4e0J3Va_8__0-nPSj0NecDfBjkQZHd62xPL0vzFtx3izE27BQ9cPAufTW0A193pom7qdk5ZSb3eHlQJYTK--aOPLw95qE8NSWBlCnrfmjJP0D-p1TTj5-aXcX-_ga0LVYW6EDAagLYD73JkXJXDSTBXThEQ6uQ7FuQNT7r2Xvudavkg"/>
+<div class="absolute bottom-4 left-4 bg-white/70 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary" style="font-variation-settings: 'FILL' 1;">sell</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter text-on-surface font-label">Shop the look</span>
+</div>
+</div>
+<div class="grid grid-rows-2 gap-1">
+<div class="relative overflow-hidden rounded-tr-lg aspect-square">
+<img class="w-full h-full object-cover" data-alt="close-up of designer turquoise shoes with intricate details on a clean surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWBceaCcGuCDwGX8eNPhwhDgdLYo05HLmhxjoa4YPRGb0PFuko-xXW1vCM4BtYHyxePnx0jlcyvlLIbwFk7B4Nz2FWp37DVLb-pCD1YBRNCsv5tXzNcsHdcICbsnq7-MU0UhH5z-E8GeIWyoyUIzb2JLHvaIk-N3SPM7suZYbztjRUGviBwhC1lVIPY-JGftWX_ygAr1RWieuOWSr2m4pVamhbJIOUXxZVSuxBs2Q1ITFxV2YdRTm8zBUb6DSzjPG3LF2yOBNck-g"/>
+</div>
+<div class="relative overflow-hidden rounded-br-lg aspect-square bg-surface-container flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="luxury leather handbag detail with golden hardware and clean lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAbUAnhbvCRoOjSX6bh8FVjs9lFJrlDAEUlovIJ8ejUCdtu4hxAgIgn1jo9QVikEpkv4yuhWGW6IjpPYPO9H5jkjoRbcs7EJRUw-_82-MvKsVMECkbL7W4rcfBSG2_PgCFiKyRcZoZNmXBpgHVI1zh0-PHXZyF4cF0MI7YSVfbaVoPd-iRbHugb1-XbgWXjCvHu1rBH0Z0qk1ANpGQsnDhRbiVos11vXSlx8HOHPoJBj6Pl6TOzDvh_PK1J4MGrQpRzx5_HauuCgA"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+<span class="text-white font-headline font-extrabold text-xl">+3 Items</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Post Body -->
+<div class="p-5">
+<p class="text-sm leading-relaxed text-on-surface mb-4">
+                            Found the perfect balance of comfort and edge for this weekend's pop-up gallery. The oversized linen set from <span class="text-primary font-bold">@UrbanMinimal</span> is a dream. Check out the tagged items for direct links! ✨
+                        </p>
+<div class="flex items-center gap-2 mb-6">
+<span class="px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-[10px] font-bold font-label uppercase">Summer Style</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-[10px] font-bold font-label uppercase">Art Gallery</span>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-surface-container">
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-2 text-on-surface group">
+<span class="material-symbols-outlined text-secondary group-hover:scale-125 transition-transform" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="text-xs font-bold font-label">1.2k</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:scale-125 transition-transform">chat_bubble</span>
+<span class="text-xs font-bold font-label">48</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:scale-125 transition-transform">send</span>
+</button>
+</div>
+<button class="flex items-center gap-2 text-on-surface group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:scale-125 transition-transform">bookmark</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Post 2 (Single Editorial Image) -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.03)]">
+<div class="p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="professional headshot of a man with clean grooming and a sharp suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn6kiyE5QSydNkrRmDr9iAY8vi2PTiaZmdyqGDPHx9-QIT3crHUJ_SuwRl86I8AnC3Bz3lVTC16S6_vj6q0hua1kOVrcywvprSwqo3flEkXJa3NalL-f_bX4dgi3xsksnJrQ71tHrzZPse0iCNuEPKXxY-l_45a1Js4uhb-hNEsDXUM8EB36vcSC-w4Abp98MihTVCwriuvp1A6PEBv4SsFOrxfCLHugI4dtNDH7kRUxCHYp_J0Yd3vmLHJ_eNEwwpsM9DmeyXDSE"/>
+</div>
+<div>
+<h3 class="text-sm font-bold font-headline leading-none text-on-surface">Mark J. Curates</h3>
+<p class="text-[10px] font-medium text-on-surface-variant font-label mt-1">Sylhet • 5h ago</p>
+</div>
+</div>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors"><span class="material-symbols-outlined">more_horiz</span></button>
+</div>
+<div class="relative w-full aspect-video overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="minimalist retail interior with high ceilings, warm wood accents and curated clothing racks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYoy1M_TjrvIWzGWwUNOHRQ_LqbWB5ttBwd9swXtsHq6_xq5aFHj006hBOHMCUhgqXoNHkyWKMG8x8rfMXcmO7LjyD4h18mam74PZcGlx3jrvSZ7Vm4Bf52qIlQvNJD40NXwGY21gUrywmBfKUn2MHraBFjUWXrZP_eA_zC9zo_xcc2dAbUpHr3CQolwiBRyXjz3ccZzEQu7c2aGwsksAMOgbZxR0-OeTXst8ohPio6mg1OmfTWJty1K0CUP0fuFuzwyihaa1ZvSg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+<div>
+<h2 class="text-white font-headline text-3xl font-extrabold leading-tight mb-2">The New Modernist:<br/>Concept Store Tour</h2>
+<button class="bg-white text-on-surface px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
+                                    Read Editorial <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="p-5">
+<p class="text-sm leading-relaxed text-on-surface mb-4">
+                            We spent the morning at the newly opened flagship. The architectural choice to use local bamboo paired with high-tech glass creates an atmosphere like no other in the city.
+                        </p>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-2 text-on-surface group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary transition-colors">favorite</span>
+<span class="text-xs font-bold font-label">842</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">chat_bubble</span>
+<span class="text-xs font-bold font-label">12</span>
+</button>
+</div>
+<span class="text-[10px] font-bold font-label text-outline uppercase tracking-widest">Sponsored by UniMart Labs</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Right Sidebar (Suggestions & Trends) -->
+<aside class="hidden xl:flex flex-col w-80 sticky top-24 h-[calc(100vh-6rem)] gap-8">
+<!-- Suggested Curators -->
+<section class="bg-surface-container-low rounded-2xl p-6">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline font-extrabold text-sm tracking-tight">Suggested Curators</h3>
+<button class="text-[10px] font-bold text-primary uppercase font-label">See All</button>
+</div>
+<div class="space-y-5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-white">
+<img class="w-full h-full object-cover" data-alt="portrait of a man with expressive eyes and textured clothing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkurIBNnPfzpYH-DjMqRfKeeI8MfLKsQWeccQJEvdjCKRHMP4BrABZjADdi6QD-t9RD0kkCWfmGL_o0zdRTEKdbapdiGv9inK0hV8gE1l43wKFoC02E6MDkh6zAdxnCwWLHw6drFrU0DB77V-7RSqmCBaVnbs4yjnw46eil9QDOyoX32ZwLhafjEVgOmdpB7HmY7T2ocKfgpY1xL2y3758Dh2SF2mUCvEJyZ7VCw7n_rtJ1Npsq6YDW0tTUGsciHw2v508uLf6fqY"/>
+</div>
+<div>
+<p class="text-xs font-bold font-headline text-on-surface">Tanvir Ahmed</p>
+<p class="text-[10px] text-on-surface-variant">Tech &amp; Living</p>
+</div>
+</div>
+<button class="bg-surface-container-lowest text-primary px-4 py-1.5 rounded-full text-[10px] font-bold border border-primary/10 hover:bg-primary hover:text-white transition-all">Follow</button>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-white">
+<img class="w-full h-full object-cover" data-alt="artistic portrait of a woman with dramatic lighting and strong shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1O5VySvj3e90HgLL3mrN_N2gxwbUiG71QWLNWJdE1ZfiFXdpVVqdlKgbVc5eVzL-8xg0v1cgJ14ZsQ3zI-5rhrWUtaZPEU2FtK6uXRdFYMtiUI3Si65KAPS4j9n4eir5mtBLcuXdHVDgdm7IKZPKtxmlDYwCZUJevnEg8CUvsue7Wi9iUJCopc_fsY3Ttkpi2-Bjx6CCY4Rar0ku0qM2qqmLDvuckJz1SdvTJUXKEQewNr9WFtdNjfJL0YgY_VtjRAnNcCNfd348"/>
+</div>
+<div>
+<p class="text-xs font-bold font-headline text-on-surface">Laila Karim</p>
+<p class="text-[10px] text-on-surface-variant">Sustainable Wear</p>
+</div>
+</div>
+<button class="bg-surface-container-lowest text-primary px-4 py-1.5 rounded-full text-[10px] font-bold border border-primary/10 hover:bg-primary hover:text-white transition-all">Follow</button>
+</div>
+</div>
+</section>
+<!-- Daily Deals / Featured -->
+<section class="bg-gradient-to-br from-secondary to-secondary-container rounded-2xl p-6 text-white overflow-hidden relative">
+<div class="relative z-10">
+<span class="bg-white/20 backdrop-blur-md px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-widest mb-4 inline-block">Flash Sale</span>
+<h4 class="font-headline font-black text-2xl leading-tight mb-1">40% OFF</h4>
+<p class="text-xs opacity-90 mb-6 max-w-[140px]">Handcrafted ceramic sets. Limited quantities available.</p>
+<button class="bg-white text-secondary px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg active:scale-95 transition-transform">Explore Deal</button>
+</div>
+<div class="absolute -right-4 -bottom-4 w-32 h-32 opacity-30 transform rotate-12">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">shopping_basket</span>
+</div>
+</section>
+<!-- Trending Collections -->
+<section class="bg-surface-container-low rounded-2xl p-6">
+<h3 class="font-headline font-extrabold text-sm tracking-tight mb-4">Trending Collections</h3>
+<div class="space-y-4">
+<div class="group cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="stylish lifestyle flatlay of clothing and accessories on a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCby-FxhXkmSTwlS0RGTQ0DZk1vJXXfq_HOKD0ZVFO3oeKcxwYaRiXL8LgTn7vPOHMKh3P7DwSeqqWHfc55ZBsz-oaIlpXB-bnsD9qyuhs2BtisycP-DBBxqgWkmsWo4XMfBT2sAxlKVGBCbeHaqQnx6zcmNbGq76R_bQebnUQa54cxbgEA9cIAgYy4eqsQ92ac4R9z0rKPoI3Y_22vdjx3ZF1BVGpFzhdEh_HtA4UhM13ykZgFzTFWq6qfVArwkjF_Ez-QV_IXylI"/>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface group-hover:text-primary transition-colors">The Monotone Edit</p>
+<p class="text-[9px] text-on-surface-variant uppercase tracking-wider font-semibold">124 Curations</p>
+</div>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="modern living room interior detail with minimalist furniture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv6w_tQs2H18h2XZ4nAEymeUwmtT3tkl2_K9vkq1oMF8C3NdTSYw2q-YzIlmXRfZ6g_ToJixbGeuQ3PtTpqAa4Ve9TMoFpbXjY082Yi4UsbcC12XIA3JkTrUsys3PAV7hlPNG7ovGnntFhq_8IqaVcDSjmZNitZzmRCTDrFCURMLDqDPyyeIYMO0Es4HRVs9QU89yhN96amOh2R9ctMQJfncVfiO5ZhwyedUjPkUbhy8Qok96gfzQjYkzq5vw6FRlgHea01wi8GLA"/>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface group-hover:text-primary transition-colors">Scandinavian Dhaka</p>
+<p class="text-[9px] text-on-surface-variant uppercase tracking-wider font-semibold">89 Curations</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</aside>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#f8f9fa]/70 dark:bg-slate-900/70 backdrop-blur-xl z-50 shadow-[0_-8px_24px_rgba(25,28,29,0.04)]">
+<a class="flex flex-col items-center justify-center text-[#005bbf] dark:text-blue-400 bg-[#ffffff] dark:bg-slate-800 rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60" href="#">
+<span class="material-symbols-outlined text-3xl">add_circle</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60" href="#">
+<span class="material-symbols-outlined">movie_filter</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Reels</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#191c1d] dark:text-slate-400 opacity-60" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-semibold font-inter uppercase tracking-wider">Profile</span>
+</a>
+</nav>
+<!-- FAB (Suppressed on Home Feed as it's a browsing context, but here for style guideline compliance if needed elsewhere) -->
+<!-- The FAB is typically hidden on this dense social feed per user logic if focused on browsing -->
+</body></html>

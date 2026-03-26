@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UniMart Super Admin Dashboard</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-container": "#ffffff",
+              "tertiary-fixed-dim": "#adc6ff",
+              "primary-fixed": "#d8e2ff",
+              "primary-fixed-dim": "#adc7ff",
+              "on-secondary-container": "#680f00",
+              "on-tertiary": "#ffffff",
+              "background": "#f8f9fa",
+              "surface": "#f8f9fa",
+              "tertiary-fixed": "#d8e2ff",
+              "surface-dim": "#d9dadb",
+              "surface-container": "#edeeef",
+              "on-background": "#191c1d",
+              "inverse-primary": "#adc7ff",
+              "secondary": "#ad3219",
+              "surface-container-low": "#f3f4f5",
+              "on-error": "#ffffff",
+              "tertiary": "#005abf",
+              "primary": "#005bbf",
+              "on-primary-fixed": "#001a41",
+              "error": "#ba1a1a",
+              "outline-variant": "#c1c6d6",
+              "error-container": "#ffdad6",
+              "on-tertiary-fixed-variant": "#004493",
+              "secondary-fixed-dim": "#ffb4a4",
+              "secondary-fixed": "#ffdad3",
+              "surface-container-lowest": "#ffffff",
+              "outline": "#727785",
+              "surface-bright": "#f8f9fa",
+              "on-primary": "#ffffff",
+              "surface-container-high": "#e7e8e9",
+              "on-tertiary-container": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "on-surface": "#191c1d",
+              "primary-container": "#1a73e8",
+              "tertiary-container": "#0872ed",
+              "secondary-container": "#ff6d4e",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed": "#001a41",
+              "surface-variant": "#e1e3e4",
+              "surface-container-highest": "#e1e3e4",
+              "inverse-on-surface": "#f0f1f2",
+              "on-primary-fixed-variant": "#004493",
+              "on-surface-variant": "#414754",
+              "on-secondary-fixed": "#3e0500",
+              "inverse-surface": "#2e3132",
+              "surface-tint": "#005bc0"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            background: rgba(248, 249, 250, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Sidebar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-4 gap-2 bg-slate-50 dark:bg-slate-950 h-screen w-64 border-r transition-all duration-200 ease-in-out z-50">
+<div class="mb-8 px-4">
+<h1 class="text-lg font-black tracking-tight text-blue-700">System Control</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Super Admin Access</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 rounded-lg shadow-sm font-bold transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-sm font-medium">User Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="percent">percent</span>
+<span class="text-sm font-medium">Commissions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-sm font-medium">Financial Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="text-sm font-medium">Logistics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-sm font-medium">Payments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="flag">flag</span>
+<span class="text-sm font-medium">Feature Flags</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+<span class="text-sm font-medium">Audit Log</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-slate-200 pt-4 space-y-1">
+<button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-sm font-bold mb-4 shadow-md active:scale-95 transition-all">
+                Export Global Data
+            </button>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-800 text-sm" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="menu_book">menu_book</span>
+                Documentation
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-800 text-sm" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="support_agent">support_agent</span>
+                Support
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen bg-surface">
+<!-- TopAppBar (Shared Component) -->
+<header class="sticky top-0 z-40 flex justify-between items-center px-8 h-16 w-full bg-white dark:bg-slate-900 border-b shadow-sm dark:shadow-none">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold text-slate-900 dark:text-slate-100 font-headline tracking-tight">AdminSuite</span>
+<div class="relative w-80">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm" data-icon="search">search</span>
+<input class="w-full bg-slate-100 border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-blue-500/20 placeholder-slate-500" placeholder="Search across system..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 mx-2"></div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<div class="text-right">
+<p class="text-xs font-bold text-slate-900">Rahat Chowdhury</p>
+<p class="text-[10px] text-slate-500 font-medium">Super Admin</p>
+</div>
+<div class="w-9 h-9 rounded-full bg-slate-200 overflow-hidden ring-2 ring-transparent group-hover:ring-blue-500 transition-all">
+<img alt="Super Admin Profile" class="w-full h-full object-cover" data-alt="professional portrait of a south asian man in business attire looking confident against a clean studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnmbnzihy9lxleByHWuAMPJOKD39SBAO34GP1PWgq64EKhI32lUS6D26YIu6nkGAqtwMvtVkkyrkn_TBkvGqiYZLF_H3-z03IdJjW0QjZoNktU-JbDkUczhio-3SgKxF77-hjksxzZ0Lva5TQBwQ9E0n6RIA08YruJvc2hSqS8LRjUVZWa56XfyLPh-ee7X_6MEn04A4UVuYV1LUwpOidS8VPv5igP_ckUgiJOlM41Eiy7iROR1SfwCIGYpazI0xpPz2g_mDudgw8"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Body -->
+<div class="p-8 max-w-[1600px] mx-auto space-y-8">
+<!-- Global Overview Section (High-End Asymmetry) -->
+<section class="grid grid-cols-12 gap-6">
+<!-- GMV Main Card (Bento Grid Style) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl p-8 shadow-sm flex flex-col justify-between overflow-hidden relative border border-slate-100/50">
+<div class="relative z-10 flex justify-between items-start">
+<div>
+<p class="text-xs font-bold text-primary tracking-widest uppercase mb-1">Global GMV Today</p>
+<h2 class="text-5xl font-extrabold font-headline tracking-tighter">৳ 8,42,190.00</h2>
+<div class="mt-4 flex items-center gap-2">
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+                                    +12.4%
+                                </span>
+<span class="text-slate-400 text-xs font-medium">vs yesterday</span>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-slate-50 text-slate-600 rounded-lg text-xs font-bold border border-slate-200 hover:bg-white">Monthly</button>
+<button class="px-4 py-2 bg-primary text-white rounded-lg text-xs font-bold shadow-lg shadow-primary/20">Daily</button>
+</div>
+</div>
+<!-- Simplified Visual Chart Area -->
+<div class="mt-12 h-40 flex items-end gap-2 overflow-hidden">
+<div class="w-full h-[30%] bg-primary-fixed-dim rounded-t-lg transition-all hover:h-[40%]"></div>
+<div class="w-full h-[45%] bg-primary-fixed-dim rounded-t-lg transition-all hover:h-[55%]"></div>
+<div class="w-full h-[35%] bg-primary-fixed-dim rounded-t-lg transition-all hover:h-[45%]"></div>
+<div class="w-full h-[60%] bg-primary-fixed-dim rounded-t-lg transition-all hover:h-[70%]"></div>
+<div class="w-full h-[55%] bg-primary-fixed-dim rounded-t-lg transition-all hover:h-[65%]"></div>
+<div class="w-full h-[85%] bg-primary-container rounded-t-lg transition-all hover:h-[95%]"></div>
+<div class="w-full h-[70%] bg-primary-fixed-dim rounded-t-lg transition-all hover:h-[80%]"></div>
+</div>
+</div>
+<!-- Active Admins Secondary Card -->
+<div class="col-span-12 lg:col-span-4 bg-primary text-white rounded-xl p-8 flex flex-col justify-between shadow-xl shadow-primary/10">
+<div>
+<span class="material-symbols-outlined mb-4 opacity-70" data-icon="person_search">person_search</span>
+<h3 class="text-lg font-bold opacity-80">Active Admin Sessions</h3>
+<p class="text-4xl font-extrabold mt-1">42</p>
+</div>
+<div class="space-y-4">
+<div class="flex -space-x-3 overflow-hidden">
+<img alt="Admin 1" class="inline-block h-10 w-10 rounded-full ring-2 ring-primary" data-alt="close-up of a smiling young professional in an office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY5LrWNJsmWCnd32GjWCNY7GU0Ri6nxtvHOpR7lohq4m75yUU6xoMVjOuCNb5VN3v6YYzMeg3WOlT0xAtP8LWZnvG6_K08eq5u4xTieUjZAb7IYEGeUSXX7Rze2BZLssq_YT8wMLKhMRH_DejYN_1SRzsqccSGhZfF3ifwhbb5XkmfV_RaVbLCBEIU1u503LUzg0ueBdPWthEWnPKELDE_I7m8cMc77fcw-ZkEcLiBrTFeBK80lAYAieGFskcMYTEZPZt712CqEn8"/>
+<img alt="Admin 2" class="inline-block h-10 w-10 rounded-full ring-2 ring-primary" data-alt="studio headshot of a diverse business woman with a bright friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuc-IifSnj6FO-wPzF0SeoJ7KIpFDXD_tq8xj2esuIzzaG42IdJIpK2ZycxcosyF1IkbSiL-2xLJRFBSF-MqO2A5zeqsK4kaLpx6v2pGtXb9H8hH8HRVkD8zxRz_lKY-s4n_wRqOzHsBFeb362Q4rwE7jXj_vXybiQrrbCh6L7VLk-J9KuR6XbkTUxpJigdgvcx5I7YAVmnerRvf75g4EKWVX6p54_FeZQz_NvEAV4QIbTthZbSM6M9g5__RNpA5tzOQIIpgobSgg"/>
+<img alt="Admin 3" class="inline-block h-10 w-10 rounded-full ring-2 ring-primary" data-alt="portrait of a focused man in tech attire with modern lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7cYSBYtp15PY8VKYQtfSgwyvAFptndE2YcyR71z9J7c3xloRKTH1F52RyuCEqijAYVltiX1QMCXRRhHHNyjwAEfYmCD-n-iP4flVMIB4wdR8DSF9-LHU0unBx-BSI7zRFWneiTQebTxHZeYpoTjvsdganNWmRoLqAHwK2kBv27Nbp6tPA6XjC8KVCoThnDFl8z9DxU0BdI4Ea6xMmf7bvWH1B8udKXgLAEgHP2Mae4UqDUmWc67wmkiSoUVkgDFF1KcX-O48T-ZE"/>
+<div class="flex items-center justify-center h-10 w-10 rounded-full ring-2 ring-primary bg-primary-container text-[10px] font-bold">+39</div>
+</div>
+<p class="text-[11px] opacity-70 font-medium tracking-tight">System load within normal parameters for current active sessions.</p>
+</div>
+</div>
+</section>
+<!-- System Health & Toggles -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Health Stat 1 -->
+<div class="bg-surface-container-low p-6 rounded-xl space-y-4">
+<div class="flex justify-between items-center">
+<div class="p-3 rounded-lg bg-white/50">
+<span class="material-symbols-outlined text-primary" data-icon="dns">dns</span>
+</div>
+<span class="text-[10px] font-bold text-primary bg-primary-fixed px-2 py-0.5 rounded">99.9% UP</span>
+</div>
+<div>
+<p class="text-slate-500 text-xs font-semibold">Server Status</p>
+<p class="text-xl font-bold font-headline">Main Cluster (BGD-01)</p>
+</div>
+</div>
+<!-- Health Stat 2 -->
+<div class="bg-surface-container-low p-6 rounded-xl space-y-4">
+<div class="flex justify-between items-center">
+<div class="p-3 rounded-lg bg-white/50">
+<span class="material-symbols-outlined text-secondary" data-icon="speed">speed</span>
+</div>
+<span class="text-[10px] font-bold text-secondary bg-secondary-fixed px-2 py-0.5 rounded">24ms</span>
+</div>
+<div>
+<p class="text-slate-500 text-xs font-semibold">DB Latency</p>
+<p class="text-xl font-bold font-headline">Optimized Response</p>
+</div>
+</div>
+<!-- Quick Actions Panel -->
+<div class="bg-surface-container-highest p-6 rounded-xl space-y-4">
+<h3 class="text-xs font-black text-on-surface-variant uppercase tracking-widest">Platform Toggles</h3>
+<div class="space-y-3">
+<div class="flex justify-between items-center bg-white px-4 py-3 rounded-lg">
+<span class="text-xs font-bold">Seller Onboarding</span>
+<div class="w-10 h-5 bg-primary rounded-full relative">
+<div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+<div class="flex justify-between items-center bg-white/50 px-4 py-3 rounded-lg opacity-60">
+<span class="text-xs font-bold">Maintenance Mode</span>
+<div class="w-10 h-5 bg-slate-300 rounded-full relative">
+<div class="absolute left-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pending Approvals (The Content Canvas) -->
+<section class="space-y-6">
+<div class="flex justify-between items-center">
+<div>
+<h2 class="text-2xl font-bold font-headline">Pending Approval Queue</h2>
+<p class="text-sm text-slate-500 font-medium">12 urgent verification requests require your attention.</p>
+</div>
+<button class="text-primary font-bold text-sm flex items-center gap-2 hover:underline">
+                        View All Tasks
+                        <span class="material-symbols-outlined text-base" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Approval Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex items-start justify-between mb-4">
+<div class="w-12 h-12 bg-slate-100 rounded-lg overflow-hidden">
+<img alt="Merchant Logo" class="w-full h-full object-cover" data-alt="minimalist glass fragrance bottle with elegant branding on a neutral tabletop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgGj_B9CFwY0_8N-hxN8FMw8QxTPBoOSBAqlanLujrbQ5yD5P-xdT8O8JQdV6AFbO2F2zTGgADNt3ix3LMr6TWrKFRA0E3Xu-fsidpFcnbsPlD9EOb-ztOBeX21TAmG3FuLyV_x0xjZxTTzcqwqdx5RSb2UI4l85C9Tr2wmdhYZHiBaeOij2Ayl5O1W3BX63Oy50gS8B9tDds7K4MvVT8EDSkwfGxnlb9AJeezGiYNRc_mKG2ipQmNovB-0OOjTrYpDRM4_iG86MI"/>
+</div>
+<span class="bg-error-container text-on-error-container px-2 py-0.5 rounded text-[10px] font-bold">URGENT</span>
+</div>
+<h4 class="text-sm font-bold truncate">Aria Luxury Fragrances</h4>
+<p class="text-[11px] text-slate-400 font-medium mb-4">Premium Seller Registration</p>
+<div class="flex gap-2">
+<button class="flex-1 bg-primary-fixed text-on-primary-fixed-variant py-2 rounded-lg text-[11px] font-bold hover:bg-primary-fixed-dim transition-colors">Review</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-100 text-slate-400 hover:text-error hover:bg-error-container/30 transition-all">
+<span class="material-symbols-outlined text-base" data-icon="close">close</span>
+</button>
+</div>
+</div>
+<!-- Approval Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex items-start justify-between mb-4">
+<div class="w-12 h-12 bg-slate-100 rounded-lg overflow-hidden">
+<img alt="Merchant Logo" class="w-full h-full object-cover" data-alt="sleek professional sneakers with modern design and vibrant tech accents on a plain background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS4fmHhHrHGvq62rOty3sEvgvZ5NumqqtGOY25ELUq2Q6d3FXDW-HnHYXFJUUvZx17gjGlLQq0sR4hoQ4K-MxttgNfnUv71pbc1vVqyDIOZlg-Sd99LdYB8qckO_KlPoW1A6XhHuDH-r8nqvlVeXJXL8xvrvfZvZe5Z5pgnJ4DlnthvqyPgOtHe5NsB6ZIiLiVa6RH5zzpf3GJB0LIsrj3SBBLudwAQwWGI0lh3XtaRv2Mj7fdJZHb_oOGe59gK2ksiVQOJUrHnE0"/>
+</div>
+<span class="bg-surface-container text-slate-500 px-2 py-0.5 rounded text-[10px] font-bold">MED PRIORITY</span>
+</div>
+<h4 class="text-sm font-bold truncate">Velocity Sports Hub</h4>
+<p class="text-[11px] text-slate-400 font-medium mb-4">New Category: Footwear</p>
+<div class="flex gap-2">
+<button class="flex-1 bg-primary-fixed text-on-primary-fixed-variant py-2 rounded-lg text-[11px] font-bold hover:bg-primary-fixed-dim transition-colors">Review</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-100 text-slate-400 hover:text-error hover:bg-error-container/30 transition-all">
+<span class="material-symbols-outlined text-base" data-icon="close">close</span>
+</button>
+</div>
+</div>
+<!-- Approval Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex items-start justify-between mb-4">
+<div class="w-12 h-12 bg-slate-100 rounded-lg overflow-hidden">
+<img alt="Merchant Logo" class="w-full h-full object-cover" data-alt="beautifully crafted ceramic teapot and cups arranged in a serene morning light setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDufPWaqt_a2_zHnLbtdB2luQSKPtZFueYLcZ4tRjVYLh3gDi9u06smruwm2uxzbNXQdOEcSuWMTJfeLeZc7CFZtzRmgd3LwMYRCODx1APTwVsc4I0-IW3sqE3lKO_khuDt1ffAzZ6WiLOtUJgOoJNaHvBSxI5k7pt37yAZig45oVE5IQJsAmZ_H5cWa6E57oI6G_uX3QdEFXtAThDLN8rfKLgGEDJCftcOinAcj-qtzq74tFFMpRnJdblAqHsWYLyRCgcZjPB2gXE"/>
+</div>
+<span class="bg-error-container text-on-error-container px-2 py-0.5 rounded text-[10px] font-bold">URGENT</span>
+</div>
+<h4 class="text-sm font-bold truncate">Bengal Artisans Coop</h4>
+<p class="text-[11px] text-slate-400 font-medium mb-4">Identity Re-verification</p>
+<div class="flex gap-2">
+<button class="flex-1 bg-primary-fixed text-on-primary-fixed-variant py-2 rounded-lg text-[11px] font-bold hover:bg-primary-fixed-dim transition-colors">Review</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-100 text-slate-400 hover:text-error hover:bg-error-container/30 transition-all">
+<span class="material-symbols-outlined text-base" data-icon="close">close</span>
+</button>
+</div>
+</div>
+<!-- Approval Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex items-start justify-between mb-4">
+<div class="w-12 h-12 bg-slate-100 rounded-lg overflow-hidden">
+<img alt="Merchant Logo" class="w-full h-full object-cover" data-alt="latest smartphone model with a glossy screen reflecting soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC99rYZZDdWYvj4RId0bYskPlze9JUfiRnldcURIiuLbAyClzoj66xltxktgARzS65WoligmRscyuHFL5ZyDoGMbA5oNkcXMi6w7p0Gy6OF3I6fpNJyRDpQje5SQs5l89fDFqG4QIPkfM5BMP4ECIq0dUihS_PjTSeetKOgJAj43djrrRl-huo73ztr4jxse7xbSmVsa1MaKeIVyDbiWAOGtL9C_fVco6cvMLK1Vna2YKFXWXNxwsPKg1BXkVFFOx-DMRTu_6brzuE"/>
+</div>
+<span class="bg-surface-container text-slate-500 px-2 py-0.5 rounded text-[10px] font-bold">LOW PRIORITY</span>
+</div>
+<h4 class="text-sm font-bold truncate">TechNova Solutions</h4>
+<p class="text-[11px] text-slate-400 font-medium mb-4">Batch Product Upload (500+)</p>
+<div class="flex gap-2">
+<button class="flex-1 bg-primary-fixed text-on-primary-fixed-variant py-2 rounded-lg text-[11px] font-bold hover:bg-primary-fixed-dim transition-colors">Review</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-100 text-slate-400 hover:text-error hover:bg-error-container/30 transition-all">
+<span class="material-symbols-outlined text-base" data-icon="close">close</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Contextual FAB (Shared Component Strategy) -->
+<div class="fixed bottom-8 right-8 flex flex-col items-end gap-3 pointer-events-none">
+<div class="bg-inverse-surface text-inverse-on-surface px-4 py-2 rounded-lg text-xs font-bold shadow-xl mb-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            Emergency System Lockdown
+        </div>
+<button class="w-16 h-16 bg-error text-on-error rounded-full shadow-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all pointer-events-auto border-4 border-white">
+<span class="material-symbols-outlined text-3xl" data-icon="emergency_home">emergency_home</span>
+</button>
+</div>
+</body></html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>UniMart Loyalty | The Curated Connection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-primary": "#adc7ff",
+              "on-secondary-fixed": "#3e0500",
+              "on-primary": "#ffffff",
+              "surface-container-low": "#f3f4f5",
+              "surface-variant": "#e1e3e4",
+              "background": "#f8f9fa",
+              "secondary-fixed-dim": "#ffb4a4",
+              "on-surface-variant": "#414754",
+              "on-background": "#191c1d",
+              "on-primary-container": "#ffffff",
+              "surface-container": "#edeeef",
+              "on-tertiary-fixed": "#001a41",
+              "tertiary": "#005abf",
+              "surface-tint": "#005bc0",
+              "surface-container-highest": "#e1e3e4",
+              "secondary": "#ad3219",
+              "inverse-surface": "#2e3132",
+              "primary": "#005bbf",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#d8e2ff",
+              "secondary-container": "#ff6d4e",
+              "on-surface": "#191c1d",
+              "on-primary-fixed": "#001a41",
+              "surface": "#f8f9fa",
+              "tertiary-container": "#0872ed",
+              "on-tertiary-container": "#ffffff",
+              "surface-dim": "#d9dadb",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "surface-bright": "#f8f9fa",
+              "error": "#ba1a1a",
+              "primary-container": "#1a73e8",
+              "on-tertiary": "#ffffff",
+              "on-secondary-container": "#680f00",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "outline": "#727785",
+              "on-tertiary-fixed-variant": "#004493",
+              "tertiary-fixed-dim": "#adc6ff",
+              "primary-fixed-dim": "#adc7ff",
+              "on-error-container": "#93000a",
+              "secondary-fixed": "#ffdad3",
+              "inverse-on-surface": "#f0f1f2",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#d8e2ff",
+              "on-primary-fixed-variant": "#004493",
+              "outline-variant": "#c1c6d6",
+              "surface-container-high": "#e7e8e9"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 8px 40px rgba(25, 28, 29, 0.04);
+        }
+        .glass-header {
+            background: rgba(248, 249, 250, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-black text-blue-700 dark:text-blue-500 tracking-tighter font-headline">UniMart</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Feed</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Marketplace</a>
+<a class="text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-600" href="#">Wallet</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Orders</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+<div class="bg-slate-100 dark:bg-slate-800 h-[1px]"></div>
+</header>
+<div class="flex max-w-7xl mx-auto pt-20">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-screen sticky top-20 p-4 space-y-2 h-full w-64 border-r-0 bg-white dark:bg-slate-950">
+<div class="mb-8 px-4 py-6 rounded-2xl bg-surface-container-low">
+<div class="flex items-center space-x-3 mb-3">
+<img alt="User Profile Picture" class="w-12 h-12 rounded-full object-cover" data-alt="professional portrait of a confident smiling man in a clean modern minimalist setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMmYDKB5_pvF27KCScnogp5B2aq3wyjSQ2gbBs--TIFIxfKILzkSv_4JTJkynkWulhr2LNAV2nGogaT2992eK25x0-ztP8fvvZmLEveutHYa71ACmRmT9xLPMRa4Su1ckHACjk90CGlvn1tIhUhcT246joil2ylLi0dapc39BJq2V41xLEZjxJAPSK1E4aD0SeYKpsi4X7VRXhnts2SDkQiWUcbqxlpTT7Zxy5n_c7frjT8uknlWGdkUwhJLt4VGdajDjS_j2xguw"/>
+<div>
+<p class="font-manrope font-bold text-sm text-on-surface">Welcome back</p>
+<p class="text-xs text-on-surface-variant">Verified Member</p>
+</div>
+</div>
+<div class="bg-primary-fixed text-on-primary-fixed text-[10px] px-2 py-1 rounded-full font-bold uppercase tracking-wider inline-block">Gold Member</div>
+</div>
+<nav class="space-y-1">
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-xl flex items-center space-x-3 transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="dynamic_feed">dynamic_feed</span>
+<span class="font-manrope font-semibold text-sm">Feed</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-xl flex items-center space-x-3 transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-manrope font-semibold text-sm">Marketplace</span>
+</a>
+<a class="bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-xl px-4 py-3 flex items-center space-x-3" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-manrope font-semibold text-sm">Wallet</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-xl flex items-center space-x-3 transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="package_2">package_2</span>
+<span class="font-manrope font-semibold text-sm">Orders</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-xl flex items-center space-x-3 transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span class="font-manrope font-semibold text-sm">Wishlist</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-xl flex items-center space-x-3 transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-manrope font-semibold text-sm">Sell Item</span>
+</a>
+</nav>
+<div class="pt-8 mt-auto border-t border-surface-container">
+<a class="text-slate-500 px-4 py-2 flex items-center space-x-3 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+<a class="text-slate-500 px-4 py-2 flex items-center space-x-3 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="text-sm">Help Center</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 px-6 lg:px-12 py-10 space-y-16">
+<!-- Hero Section / Tier Overview -->
+<section class="relative overflow-hidden rounded-3xl bg-surface-container-low min-h-[400px] flex items-center">
+<div class="absolute inset-0 z-0">
+<img alt="background texture" class="w-full h-full object-cover opacity-10" data-alt="abstract artistic background with fluid organic shapes in muted blue and cream tones with subtle noise texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVKJCCpV-jjBgY83zSj4vwcGnSpFB6-9dcSFjBSyLUh2jbG1RtSRK2rqFwu_7g-tg9sTXXdoehaBwyCSamtEKL20QofXKkd_q4kd_UvnAHvDIh0diPSjjXaefof1Iv9d03JRKJXgKW4kU1iYUx-oUVX4MVfbVs869yzOoQ-CjLVd_xRN8-c4a3_0MloKQOaSx102xHCMDP28UVyaUpmuqEAZLKAxAfTXyuSrP5-fCNeLUrEDcPkvi9pBDPAjmvb9z7nt1DKeTLYWo"/>
+</div>
+<div class="relative z-10 p-12 w-full grid md:grid-cols-2 gap-12 items-center">
+<div>
+<span class="font-headline font-bold text-primary tracking-widest uppercase text-sm mb-4 block">Loyalty Program</span>
+<h1 class="text-5xl font-headline font-extrabold text-on-surface mb-6 leading-tight">Elevate Your Lifestyle with UniMart Perks</h1>
+<p class="text-on-surface-variant text-lg max-w-md mb-8">Join our exclusive tier-based rewards system designed for the discerning shopper in Bangladesh. Your loyalty, recognized and rewarded.</p>
+<div class="flex items-center space-x-4">
+<button class="bg-gradient-to-br from-primary to-primary-container text-white px-8 py-4 rounded-full font-headline font-bold editorial-shadow hover:scale-105 active:scale-95 transition-all">View My Rewards</button>
+<button class="text-primary font-bold px-6 py-4 rounded-full border border-primary/20 hover:bg-primary/5 transition-colors">How it works</button>
+</div>
+</div>
+<div class="hidden md:block">
+<div class="bg-surface-container-lowest p-8 rounded-[2rem] editorial-shadow rotate-3 scale-110 relative">
+<div class="absolute -top-4 -right-4 bg-secondary text-on-secondary px-6 py-2 rounded-full font-headline font-bold text-sm z-20">GOLD STATUS</div>
+<div class="space-y-6">
+<div class="flex justify-between items-end">
+<div>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest font-bold mb-1">Available Points</p>
+<p class="text-4xl font-headline font-extrabold text-on-surface">12,450</p>
+</div>
+<span class="material-symbols-outlined text-primary text-5xl" data-icon="token" style="font-variation-settings: 'FILL' 1;">token</span>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold uppercase">
+<span>Gold</span>
+<span class="text-on-surface-variant">Platinum</span>
+</div>
+<div class="h-3 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[70%] rounded-full"></div>
+</div>
+<p class="text-[10px] text-on-surface-variant text-right">2,550 points to Platinum</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tier Detailed Grid -->
+<section class="space-y-10">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="text-3xl font-headline font-extrabold text-on-surface">Membership Tiers</h2>
+<p class="text-on-surface-variant">Unlock more benefits as you move through our curated tiers.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Bronze -->
+<div class="bg-surface-container-low p-8 rounded-3xl flex flex-col hover:bg-surface-container transition-colors group">
+<div class="w-12 h-12 rounded-2xl bg-orange-100 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-orange-700" data-icon="workspace_premium">workspace_premium</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-2">Bronze</h3>
+<p class="text-sm text-on-surface-variant mb-8">The start of your journey. Earn 1 point for every ৳100 spent.</p>
+<ul class="space-y-3 mb-10 flex-1">
+<li class="flex items-center space-x-2 text-sm">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle">check_circle</span>
+<span>Standard Shipping</span>
+</li>
+<li class="flex items-center space-x-2 text-sm">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle">check_circle</span>
+<span>Birthday Points</span>
+</li>
+</ul>
+<div class="pt-6 border-t border-on-surface/5 text-xs font-bold text-on-surface-variant">ENTRY LEVEL</div>
+</div>
+<!-- Silver -->
+<div class="bg-surface-container-low p-8 rounded-3xl flex flex-col hover:bg-surface-container transition-colors">
+<div class="w-12 h-12 rounded-2xl bg-slate-200 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-slate-700" data-icon="star">star</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-2">Silver</h3>
+<p class="text-sm text-on-surface-variant mb-8">Upgrade after 5,000 points. Earn 1.2x points on all purchases.</p>
+<ul class="space-y-3 mb-10 flex-1">
+<li class="flex items-center space-x-2 text-sm">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle">check_circle</span>
+<span>Free Shipping (৳2000+)</span>
+</li>
+<li class="flex items-center space-x-2 text-sm">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle">check_circle</span>
+<span>Early Sale Access</span>
+</li>
+</ul>
+<div class="pt-6 border-t border-on-surface/5 text-xs font-bold text-on-surface-variant">5,000 POINTS</div>
+</div>
+<!-- Gold -->
+<div class="bg-white p-8 rounded-3xl flex flex-col editorial-shadow ring-2 ring-primary relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-primary text-white text-[10px] px-4 py-1 font-bold rounded-bl-xl uppercase">Active</div>
+<div class="w-12 h-12 rounded-2xl bg-yellow-100 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-yellow-700" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-2">Gold</h3>
+<p class="text-sm text-on-surface-variant mb-8">Upgrade after 10,000 points. Earn 1.5x points on all purchases.</p>
+<ul class="space-y-3 mb-10 flex-1">
+<li class="flex items-center space-x-2 text-sm">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle">check_circle</span>
+<span>Priority Delivery</span>
+</li>
+<li class="flex items-center space-x-2 text-sm">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle">check_circle</span>
+<span>Exclusive Brand Deals</span>
+</li>
+<li class="flex items-center space-x-2 text-sm">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle">check_circle</span>
+<span>Dedicated Support</span>
+</li>
+</ul>
+<div class="pt-6 border-t border-on-surface/5 text-xs font-bold text-primary">CURRENT TIER</div>
+</div>
+<!-- Platinum -->
+<div class="bg-inverse-surface text-inverse-on-surface p-8 rounded-3xl flex flex-col group relative overflow-hidden">
+<div class="absolute -right-8 -bottom-8 opacity-10">
+<span class="material-symbols-outlined text-9xl" data-icon="diamond">diamond</span>
+</div>
+<div class="w-12 h-12 rounded-2xl bg-blue-900 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-blue-200" data-icon="diamond">diamond</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-2">Platinum</h3>
+<p class="text-sm text-slate-400 mb-8">Upgrade after 25,000 points. Earn 2x points on all purchases.</p>
+<ul class="space-y-3 mb-10 flex-1">
+<li class="flex items-center space-x-2 text-sm">
+<span class="material-symbols-outlined text-primary-fixed text-lg" data-icon="check_circle">check_circle</span>
+<span>Always Free Shipping</span>
+</li>
+<li class="flex items-center space-x-2 text-sm">
+<span class="material-symbols-outlined text-primary-fixed text-lg" data-icon="check_circle">check_circle</span>
+<span>Concierge Service</span>
+</li>
+<li class="flex items-center space-x-2 text-sm">
+<span class="material-symbols-outlined text-primary-fixed text-lg" data-icon="check_circle">check_circle</span>
+<span>Private Event Invites</span>
+</li>
+</ul>
+<div class="pt-6 border-t border-slate-700 text-xs font-bold text-slate-400">25,000 POINTS</div>
+</div>
+</div>
+</section>
+<!-- Asymmetric Rewards Section -->
+<section class="space-y-10">
+<h2 class="text-3xl font-headline font-extrabold text-on-surface text-center">Your Curated Benefits</h2>
+<div class="grid grid-cols-12 gap-6 items-stretch">
+<!-- Large Bento Item -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-low rounded-[2.5rem] p-10 flex flex-col md:flex-row gap-8 items-center overflow-hidden relative">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16"></div>
+<div class="flex-1 space-y-6">
+<div class="bg-secondary-fixed text-on-secondary-fixed-variant px-4 py-1 rounded-full text-[10px] font-bold inline-block uppercase tracking-widest">Limited Offer</div>
+<h3 class="text-4xl font-headline font-extrabold leading-tight">Instant Cashback on Tech</h3>
+<p class="text-on-surface-variant">As a Gold member, enjoy 5% back on all electronics this week. No minimum spend required.</p>
+<button class="bg-primary text-white px-8 py-3 rounded-full font-headline font-bold text-sm w-fit hover:translate-y-[-2px] transition-transform">Claim Offer</button>
+</div>
+<div class="w-full md:w-64 h-64 flex-shrink-0">
+<img alt="modern laptop" class="w-full h-full object-cover rounded-3xl editorial-shadow" data-alt="sleek modern silver laptop on a clean white desk with soft shadows and minimal aesthetic environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRUwyBJVCrGIVYFcMmjzlxS96oAl10go-p3_cj4nb66jHz313mXiGkLHfrJiH_VYWOJ21FuCb6ZL1XSDYxII-WjHq8a7JMXsfWgKROCoD8y2H1x1doHw4qelCmp5WLJVBQdP0JfJgOOd1IGndSahHSq7-gBb4ZaR8vekM9X1r1eFXdX39kyDDRInc-sWkDaP3tuUrmf5d2N87GcILHRcwC99Waa8aO1bCcYWNCJSm2TqFaEP5MSqhUc5loCfq5syw7HJ0CrYTLfIQ"/>
+</div>
+</div>
+<!-- Medium Bento Item -->
+<div class="col-span-12 md:col-span-6 lg:col-span-5 bg-tertiary text-white rounded-[2.5rem] p-10 flex flex-col justify-between">
+<span class="material-symbols-outlined text-5xl mb-8" data-icon="delivery_dining">delivery_dining</span>
+<div class="space-y-4">
+<h3 class="text-3xl font-headline font-bold">Fastest Lane Priority</h3>
+<p class="text-tertiary-fixed text-sm">Your orders are prioritized at our fulfillment centers. Average delivery: 18 hours in Dhaka.</p>
+<div class="pt-6 flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-2 border-tertiary object-cover" data-alt="portrait of a professional woman with a friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABIFcSK3K2TF5Y_g-1NdhGHgaYvD1Hv4nBmsZfTwraRKjCyj4ME33aBC_FritZBZd7vE5D0aU03jtXyovIgk4HT6mj4JK_Xu1EfegMtOFoU_FD97SNt3gNeEtjo-HfPoWkDNOQ8I3FSbynKnu15FedNQDSCFUy1JjBg-z4kKiMppOjCkpbWb5ElkkHA574nK9KuQJiLE8I2j4SXyuNFfxDN3PwUBD0R4rxhAbgyApLAzZ4Ofzr2E37utgNkCqVDj-TAISb0Y8o-Lc"/>
+<img class="w-10 h-10 rounded-full border-2 border-tertiary object-cover" data-alt="portrait of a man with spectacles in professional attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkySBBa_lphdTz0oyorw3Ebl64u81oCjle0hj1nauTVcKK73UmQsX6gpYI8UhXdHvfZE2kkwlrjwo9qQfGKO9ZDw-iEDERHa9mjQyuLfslyg_aVXSCGcVUn_aB2BRKWhApYSBn0sP98ps8qOti2XEUiZ9Wio0EPG4X4ghcfqfVXkca2CNr6bcTsC1UolH7az8zGkaRVPjzrq3S5QpfXePNKZwFwcjoiBq9pO4UVV_XeMaR_VU1_pNKAvk7-QDyrO3uOs3C5zQOh6A"/>
+<div class="w-10 h-10 rounded-full border-2 border-tertiary bg-white flex items-center justify-center text-[10px] text-tertiary font-bold">+50k</div>
+</div>
+</div>
+</div>
+<!-- Small Bento Items -->
+<div class="col-span-12 md:col-span-6 lg:col-span-4 bg-surface-container-low rounded-[2.5rem] p-8 space-y-4">
+<div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary" data-icon="redeem">redeem</span>
+</div>
+<h4 class="text-xl font-headline font-bold">Points for Reviews</h4>
+<p class="text-sm text-on-surface-variant">Earn 50 points for every photo review you post. Share your experience with the community.</p>
+</div>
+<div class="col-span-12 md:col-span-6 lg:col-span-4 bg-surface-container-low rounded-[2.5rem] p-8 space-y-4">
+<div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary" data-icon="group">group</span>
+</div>
+<h4 class="text-xl font-headline font-bold">Invite &amp; Earn</h4>
+<p class="text-sm text-on-surface-variant">Refer a friend and you both get 500 points when they make their first purchase over ৳1000.</p>
+</div>
+<div class="col-span-12 md:col-span-6 lg:col-span-4 bg-surface-container-low rounded-[2.5rem] p-8 space-y-4">
+<div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary" data-icon="eco">eco</span>
+</div>
+<h4 class="text-xl font-headline font-bold">Eco Rewards</h4>
+<p class="text-sm text-on-surface-variant">Opt for reduced packaging at checkout and earn 10 bonus points per eco-friendly order.</p>
+</div>
+</div>
+</section>
+<!-- Recent Activity Tonal Layering -->
+<section class="bg-surface-container-low rounded-[3rem] p-10">
+<div class="flex items-center justify-between mb-8 px-4">
+<h2 class="text-2xl font-headline font-extrabold">Recent Point Earnings</h2>
+<button class="text-primary font-bold text-sm">View History</button>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-6 rounded-2xl flex items-center justify-between hover:scale-[1.01] transition-transform">
+<div class="flex items-center space-x-4">
+<div class="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Purchase: Premium Denim Jacket</p>
+<p class="text-xs text-on-surface-variant">Yesterday at 4:32 PM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline font-extrabold text-primary">+345 Pts</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold">1.5x Multiplier Applied</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl flex items-center justify-between hover:scale-[1.01] transition-transform">
+<div class="flex items-center space-x-4">
+<div class="w-12 h-12 rounded-xl bg-secondary/5 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="rate_review">rate_review</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Photo Review: Noise Cancelling Buds</p>
+<p class="text-xs text-on-surface-variant">2 days ago</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline font-extrabold text-primary">+50 Pts</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold">Standard Reward</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl flex items-center justify-between hover:scale-[1.01] transition-transform">
+<div class="flex items-center space-x-4">
+<div class="w-12 h-12 rounded-xl bg-yellow-400/10 flex items-center justify-center text-yellow-700">
+<span class="material-symbols-outlined" data-icon="cake">cake</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Birthday Bonus Reward</p>
+<p class="text-xs text-on-surface-variant">5 days ago</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline font-extrabold text-primary">+1000 Pts</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold">Seasonal Bonus</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Mobile Navigation Shell -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg rounded-t-3xl z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 opacity-80 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 opacity-80 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="local_mall">local_mall</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Shop</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 opacity-80 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="add_box" style="font-variation-settings: 'FILL' 1;">add_box</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Sell</span>
+</a>
+<a class="flex flex-col items-center justify-center text-blue-600 dark:text-blue-400 scale-110 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="wallet" style="font-variation-settings: 'FILL' 1;">wallet</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 opacity-80 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wishlist | UniMart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-primary": "#adc7ff",
+              "on-secondary-fixed": "#3e0500",
+              "on-primary": "#ffffff",
+              "surface-container-low": "#f3f4f5",
+              "surface-variant": "#e1e3e4",
+              "background": "#f8f9fa",
+              "secondary-fixed-dim": "#ffb4a4",
+              "on-surface-variant": "#414754",
+              "on-background": "#191c1d",
+              "on-primary-container": "#ffffff",
+              "surface-container": "#edeeef",
+              "on-tertiary-fixed": "#001a41",
+              "tertiary": "#005abf",
+              "surface-tint": "#005bc0",
+              "surface-container-highest": "#e1e3e4",
+              "secondary": "#ad3219",
+              "inverse-surface": "#2e3132",
+              "primary": "#005bbf",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#d8e2ff",
+              "secondary-container": "#ff6d4e",
+              "on-surface": "#191c1d",
+              "on-primary-fixed": "#001a41",
+              "surface": "#f8f9fa",
+              "tertiary-container": "#0872ed",
+              "on-tertiary-container": "#ffffff",
+              "surface-dim": "#d9dadb",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "surface-bright": "#f8f9fa",
+              "error": "#ba1a1a",
+              "primary-container": "#1a73e8",
+              "on-tertiary": "#ffffff",
+              "on-secondary-container": "#680f00",
+              "on-secondary-fixed-variant": "#8b1a02",
+              "outline": "#727785",
+              "on-tertiary-fixed-variant": "#004493",
+              "tertiary-fixed-dim": "#adc6ff",
+              "primary-fixed-dim": "#adc7ff",
+              "on-error-container": "#93000a",
+              "secondary-fixed": "#ffdad3",
+              "inverse-on-surface": "#f0f1f2",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#d8e2ff",
+              "on-primary-fixed-variant": "#004493",
+              "outline-variant": "#c1c6d6",
+              "surface-container-high": "#e7e8e9"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-effect {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-black text-blue-700 tracking-tighter font-headline">UniMart</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-600 font-medium hover:text-blue-600 transition-colors" href="#">Feed</a>
+<a class="text-slate-600 font-medium hover:text-blue-600 transition-colors" href="#">Marketplace</a>
+<a class="text-blue-700 font-bold border-b-2 border-blue-600" href="#">Wishlist</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+<div class="bg-slate-100 h-[1px]"></div>
+</nav>
+<div class="flex max-w-7xl mx-auto pt-20">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-screen sticky top-20 p-4 space-y-2 w-64">
+<div class="mb-8 px-4">
+<p class="text-slate-500 text-xs font-bold uppercase tracking-widest mb-1">Welcome back</p>
+<h3 class="font-headline font-bold text-lg text-on-surface">Verified Member</h3>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center space-x-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">dynamic_feed</span>
+<span class="font-manrope font-semibold text-sm">Feed</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-manrope font-semibold text-sm">Marketplace</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-manrope font-semibold text-sm">Wallet</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">package_2</span>
+<span class="font-manrope font-semibold text-sm">Orders</span>
+</a>
+<a class="flex items-center space-x-3 bg-blue-50 text-blue-700 px-4 py-3 rounded-xl transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-manrope font-semibold text-sm">Wishlist</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-manrope font-semibold text-sm">Sell Item</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-slate-100">
+<a class="flex items-center space-x-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-manrope font-semibold text-sm">Settings</span>
+</a>
+<a class="flex items-center space-x-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="font-manrope font-semibold text-sm">Help Center</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-6 md:p-10 bg-surface">
+<!-- Header Section -->
+<header class="mb-12">
+<div class="flex items-center justify-between">
+<div>
+<h1 class="text-4xl font-headline font-extrabold text-on-surface tracking-tight mb-2">My Wishlist</h1>
+<p class="text-on-surface-variant font-medium">You have 8 curated items saved for later.</p>
+</div>
+<button class="hidden md:flex items-center space-x-2 bg-surface-container-high px-6 py-3 rounded-full text-primary font-bold hover:opacity-80 transition-all active:scale-95">
+<span class="material-symbols-outlined">share</span>
+<span>Share Collection</span>
+</button>
+</div>
+<div class="mt-8 flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest whitespace-nowrap">All Items</span>
+<span class="bg-surface-container-lowest text-on-surface-variant px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border border-outline-variant/15 whitespace-nowrap">Fashion</span>
+<span class="bg-surface-container-lowest text-on-surface-variant px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border border-outline-variant/15 whitespace-nowrap">Tech</span>
+<span class="bg-surface-container-lowest text-on-surface-variant px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border border-outline-variant/15 whitespace-nowrap">Home Decor</span>
+</div>
+</header>
+<!-- Wishlist Bento-Style Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- Item 1: Featured Large -->
+<div class="xl:col-span-2 group relative bg-surface-container-lowest rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
+<div class="aspect-[16/9] overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="vibrant red athletic sneakers on a clean white background with dramatic editorial studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE5WKfSbp48Xzd8XVYbuC-9-bI0jRDWvVH7KF8RlXP0LD593tQdw1osDGuVjeaIhf-zVK1hOE2BGTOW0lifUjUE9RSjSjTV_2i9R_H2rPU62_w4W3bLpihjwxnmtvcR-cWuPP4jDYovXJaZhiH6YMmi0_5TMChFxUp0BPDE6b3PYHSvfgyIzgoLz_koJ9M3ecvtU4CzRt3JtVOKqT2HLQuOftwTgJc8r-3SK98WsDwxj8PWGaoc-rDzlFWazMdk5J-LQli1wd9MJw"/>
+<div class="absolute top-4 right-4 bg-white/80 backdrop-blur-md p-2 rounded-full text-error cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+</div>
+<div class="p-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="text-secondary font-bold text-xs uppercase tracking-widest mb-2 block">Limited Release</span>
+<h2 class="text-2xl font-headline font-bold text-on-surface mb-2">Crimson Pulse Pro Runners</h2>
+<p class="text-on-surface-variant max-w-md">Engineered for performance, styled for the street. The 2024 edition features improved breathability and carbon-fiber plates.</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-3xl font-headline font-extrabold text-on-surface mb-4">৳12,500</span>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-full font-bold flex items-center space-x-2 w-full md:w-auto justify-center transition-all hover:shadow-lg active:scale-95">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span>Add to Cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl">
+<div class="aspect-square relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="premium minimalist headphones in matte black finish on a sleek dark surface with soft rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK2ydVds28BCvKEVJbuzU-sWQHt5TdA4sq-K-7K3LgAfrGKwuu0IcFphRNM4EOnU1CndlHBXtCjIn5w6SQ7IrZhd5YQkNN5VaVsGloA76eTSQTKigP6sfjmt_62okEGRshb_CVY6zSQRSYhXfbY0qnnbOTgSwMJ7Wn9qgaBx8x-Q_yyOOR1Va8Q1RUbH0gQJAA_-cRsKgy-iOVgDDo44zDICX6svw8S07s0de24VoM8fWoWHuJk06GSmryfE35-JfoEzAdrDDrBcI"/>
+<div class="absolute top-4 right-4 bg-white/80 backdrop-blur-md p-2 rounded-full text-error">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline font-bold text-lg mb-1">Acoustic Zen 500</h3>
+<p class="text-on-surface-variant text-sm mb-4 line-clamp-2">Noise-canceling wireless headphones with 40-hour battery life.</p>
+<div class="flex items-center justify-between">
+<span class="text-xl font-bold">৳8,990</span>
+<button class="p-3 bg-primary/10 text-primary rounded-full hover:bg-primary hover:text-white transition-colors active:scale-90">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl">
+<div class="aspect-square relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="minimalist aesthetic white luxury watch with leather strap on a textured marble background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB68d2PZAe6e4SCIw3pbwIL-YUuYe6RQidJEsrM74DRzZ6j2Q1Rbl8xc2Dugh0ZW68JwScAX4gavo2ZcZ5r-Rs79wgpbnpPD5Ahb1h-QtyCGYMa2IGJcDnR1uAyI1Rts48qQjZEP_rY1ZWJRRcFLrdWkdEMUCeBEdyMCbqXqwvpgKFphi4Dsm4lL2dJVT6C3UfMYe0mcUyeXsBnZXUVeH20w3njxYXdOhM9I0VMqflyXNRk-DxtyYi4QfSM5cRlVhiKmCBN5jM3Vjw"/>
+<div class="absolute top-4 right-4 bg-white/80 backdrop-blur-md p-2 rounded-full text-error">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline font-bold text-lg mb-1">Ethereal Timepiece</h3>
+<p class="text-on-surface-variant text-sm mb-4 line-clamp-2">A timeless design for the modern minimalist. Swiss movement, sapphire glass.</p>
+<div class="flex items-center justify-between">
+<span class="text-xl font-bold">৳18,200</span>
+<button class="p-3 bg-primary/10 text-primary rounded-full hover:bg-primary hover:text-white transition-colors active:scale-90">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl">
+<div class="aspect-square relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="high-quality organic cotton tote bag in beige with minimalist typography design in a bright studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdjVWdIeSOgGXA22jtg6OxqQzQc7QmA4tE9tyCYCA46TJDnzasIsABmIWT9-MT7ZmIN_Z0MXT7KI9pxcF6fSYjSq8ShBFaIsnyaPXMUVCTw2beIPKfkJb0p3wAgjjTh_IINzl7CTv0XQBhqh_3T1e8N2xkE_45J4xGQWITKfo2_ifHwU7j5VPES-QnacPzEchrOXSepYoJsuDQzKf03DO_Po63p4VO3BrfecVvM8_hGjawXTEpbRlNjLHcvuufBuSvni0uXQK7qLM"/>
+<div class="absolute top-4 right-4 bg-white/80 backdrop-blur-md p-2 rounded-full text-error">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline font-bold text-lg mb-1">Canvas Eco-Carrier</h3>
+<p class="text-on-surface-variant text-sm mb-4 line-clamp-2">Hand-stitched heavy-duty canvas bag for your daily essentials.</p>
+<div class="flex items-center justify-between">
+<span class="text-xl font-bold">৳1,450</span>
+<button class="p-3 bg-primary/10 text-primary rounded-full hover:bg-primary hover:text-white transition-colors active:scale-90">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl">
+<div class="aspect-square relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="modern yellow polaroid camera on a bright blue background with high contrast pop art style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo2Ehp1oMyxvdqUcoYeihVo3uh248e6evpqBTylGbQ9KT26zlxP2aCLz3H7ujTv0nMzHWS3vjrBKjIQ5OB9y6W6SoaqkRKJo7Dq6AHg1MU5FaWXhRm_dvbB_Gb4PlsXhgENtR2E6FXuHOe5d590wtmqOqYaWQNZ-w4OJSjsgsVAot52LqiDLV4NzrHzttIo0hKTKB_PmLYQsPxgeDjKX30a9DaNi0Fy6flnBDDUK9rahsnQtyNkcgm8CEdlmtuXFBDwzs8DjWkwRI"/>
+<div class="absolute top-4 right-4 bg-white/80 backdrop-blur-md p-2 rounded-full text-error">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline font-bold text-lg mb-1">InstaSnap Mini 12</h3>
+<p class="text-on-surface-variant text-sm mb-4 line-clamp-2">Capture memories instantly with this classic analog instant camera.</p>
+<div class="flex items-center justify-between">
+<span class="text-xl font-bold">৳11,800</span>
+<button class="p-3 bg-primary/10 text-primary rounded-full hover:bg-primary hover:text-white transition-colors active:scale-90">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty Space Padding for Bottom Nav -->
+<div class="h-24 md:hidden"></div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 backdrop-blur-lg rounded-t-3xl z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined">local_mall</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Shop</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined">add_box</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Sell</span>
+</a>
+<a class="flex flex-col items-center justify-center text-blue-600 scale-110 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Wishlist</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

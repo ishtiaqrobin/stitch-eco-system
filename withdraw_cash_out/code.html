@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Withdraw Funds - UniMart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-primary": "#adc7ff",
+                        "on-secondary-fixed": "#3e0500",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-variant": "#e1e3e4",
+                        "background": "#f8f9fa",
+                        "secondary-fixed-dim": "#ffb4a4",
+                        "on-surface-variant": "#414754",
+                        "on-background": "#191c1d",
+                        "on-primary-container": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "on-tertiary-fixed": "#001a41",
+                        "tertiary": "#005abf",
+                        "surface-tint": "#005bc0",
+                        "surface-container-highest": "#e1e3e4",
+                        "secondary": "#ad3219",
+                        "inverse-surface": "#2e3132",
+                        "primary": "#005bbf",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#d8e2ff",
+                        "secondary-container": "#ff6d4e",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed": "#001a41",
+                        "surface": "#f8f9fa",
+                        "tertiary-container": "#0872ed",
+                        "on-tertiary-container": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f8f9fa",
+                        "error": "#ba1a1a",
+                        "primary-container": "#1a73e8",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#680f00",
+                        "on-secondary-fixed-variant": "#8b1a02",
+                        "outline": "#727785",
+                        "on-tertiary-fixed-variant": "#004493",
+                        "tertiary-fixed-dim": "#adc6ff",
+                        "primary-fixed-dim": "#adc7ff",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#ffdad3",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-primary-fixed-variant": "#004493",
+                        "outline-variant": "#c1c6d6",
+                        "surface-container-high": "#e7e8e9"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/70 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-black text-blue-700 tracking-tighter font-headline">UniMart</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-600 font-medium hover:text-blue-600 transition-colors" href="#">Feed</a>
+<a class="text-slate-600 font-medium hover:text-blue-600 transition-colors" href="#">Marketplace</a>
+<a class="text-blue-700 font-bold border-b-2 border-blue-600" href="#">Wallet</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 text-slate-600 hover:text-blue-600 transition-colors">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+<button class="p-2 text-slate-600 hover:text-blue-600 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-600 hover:text-blue-600 transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+<div class="bg-slate-100 h-[1px]"></div>
+</nav>
+<main class="pt-24 pb-32 px-4 max-w-7xl mx-auto flex flex-col lg:flex-row gap-8">
+<!-- SideNav (Desktop Only) -->
+<aside class="hidden lg:flex flex-col h-full w-64 sticky top-24 p-4 space-y-2">
+<div class="mb-8 px-4">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Welcome back</p>
+<p class="font-headline font-bold text-lg text-on-background">Verified Member</p>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">dynamic_feed</span>
+<span class="font-manrope font-semibold text-sm">Feed</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-manrope font-semibold text-sm">Marketplace</span>
+</a>
+<a class="flex items-center gap-3 bg-blue-50 text-blue-700 px-4 py-3 rounded-xl transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-manrope font-semibold text-sm">Wallet</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">package_2</span>
+<span class="font-manrope font-semibold text-sm">Orders</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-manrope font-semibold text-sm">Wishlist</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-manrope font-semibold text-sm">Sell Item</span>
+</a>
+</nav>
+<div class="pt-8 mt-8 border-t border-surface-container">
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-manrope font-semibold text-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-4 py-3 hover:bg-slate-50 rounded-xl transition-transform hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="font-manrope font-semibold text-sm">Help Center</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<section class="flex-1 space-y-8">
+<!-- Editorial Header -->
+<div class="relative overflow-hidden rounded-3xl bg-primary-container p-8 lg:p-12 text-on-primary-container shadow-2xl">
+<div class="relative z-10 max-w-2xl">
+<h1 class="text-4xl lg:text-5xl font-headline font-extrabold tracking-tight mb-4">Transfer your earnings instantly.</h1>
+<p class="text-lg opacity-90 font-medium max-w-md">Your hard work deserves immediate rewards. Choose your preferred method and cash out to your local accounts securely.</p>
+</div>
+<!-- Abstract visual element -->
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute right-10 top-10 flex flex-col items-end">
+<span class="text-sm uppercase tracking-widest font-bold opacity-70">Current Balance</span>
+<span class="text-4xl lg:text-5xl font-headline font-black">৳ 24,580.00</span>
+</div>
+</div>
+<!-- Bento Layout Form -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Withdraw Form -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-3xl p-8 shadow-sm">
+<form class="space-y-10">
+<!-- Step 1: Amount Selection -->
+<section>
+<div class="flex items-center gap-3 mb-6">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-sm">01</span>
+<h2 class="text-xl font-headline font-bold">Select Amount</h2>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+<button class="p-4 rounded-2xl border-2 border-primary bg-primary/5 text-primary font-bold transition-all hover:scale-105 active:scale-95" type="button">৳ 1,000</button>
+<button class="p-4 rounded-2xl border-2 border-transparent bg-surface-container-low text-on-surface-variant font-bold transition-all hover:border-primary/30 hover:scale-105 active:scale-95" type="button">৳ 5,000</button>
+<button class="p-4 rounded-2xl border-2 border-transparent bg-surface-container-low text-on-surface-variant font-bold transition-all hover:border-primary/30 hover:scale-105 active:scale-95" type="button">৳ 10,000</button>
+<button class="p-4 rounded-2xl border-2 border-transparent bg-surface-container-low text-on-surface-variant font-bold transition-all hover:border-primary/30 hover:scale-105 active:scale-95" type="button">Custom</button>
+</div>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-2xl font-bold text-slate-400">৳</span>
+<input class="w-full pl-10 pr-4 py-4 bg-surface-container-highest border-none rounded-2xl focus:ring-2 focus:ring-primary/40 text-xl font-bold placeholder:font-normal" placeholder="Enter custom amount" type="number"/>
+</div>
+</section>
+<!-- Step 2: Payment Method -->
+<section>
+<div class="flex items-center gap-3 mb-6">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-sm">02</span>
+<h2 class="text-xl font-headline font-bold">Cash Out Method</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- bKash -->
+<label class="relative group cursor-pointer">
+<input checked="" class="peer sr-only" name="method" type="radio"/>
+<div class="p-6 rounded-2xl bg-surface-container-low border-2 border-transparent peer-checked:border-secondary peer-checked:bg-secondary/5 transition-all">
+<div class="w-12 h-12 bg-white rounded-xl mb-4 flex items-center justify-center shadow-sm">
+<img alt="bKash" class="w-8" data-alt="magenta colored minimalist logo icon for bkash payment service on white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9mCUuq3Qz71zOFiE_6D7WwUyiuEerwFoE7RDpb623FPG-NA1S9hbwlax12EUex7ApHs6WjR_BNL40FoZq71DU5x0nYDaQa5YEa6VEXiOcl2ohut6jTf1-B9Hp_7hHnHJCRKdGaSf4L3X7b1Ox0zYmjY-IWrLECAoeVKkXTEAeThT1bI8NVS8v087AQC7gkKZnCoXOSNiyllXsiLXmb3YRa1aPZymXie1vKl5gqteSiCkcVWRTUnnXPs3WdCLewwX6CpZlGIJeOgw"/>
+</div>
+<p class="font-bold text-on-surface">bKash</p>
+<p class="text-xs text-on-surface-variant opacity-70">Instant Transfer</p>
+</div>
+</label>
+<!-- Nagad -->
+<label class="relative group cursor-pointer">
+<input class="peer sr-only" name="method" type="radio"/>
+<div class="p-6 rounded-2xl bg-surface-container-low border-2 border-transparent peer-checked:border-secondary peer-checked:bg-secondary/5 transition-all">
+<div class="w-12 h-12 bg-white rounded-xl mb-4 flex items-center justify-center shadow-sm">
+<img alt="Nagad" class="w-8" data-alt="orange colored minimalist logo icon for nagad mobile financial service on white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_t2WBg02Y-FKIPYq4c2AsZCq0aLinuL_Xkf0LCADwHkUFxZ3sqMMcnUFa3V2hPgV7T0m_UqlZTsHyxAdt7hwsnPMqKr1SxMnlt5RXlwAK6C7j-GbPbtcp7SA7skKBplmEa46C4-G_5p7LLDs0WJ-vZkdMTDF6apGeoX3jxcBFSsVkY7DH3ugYUobB7Eo66gAwVnjuv6bgX5co1W3yJm9I8KfaZCPa5IdPz5jGqCaIMO6o73MK_MJoRL0590kuxA13iXT32I3mIJg"/>
+</div>
+<p class="font-bold text-on-surface">Nagad</p>
+<p class="text-xs text-on-surface-variant opacity-70">Low processing fee</p>
+</div>
+</label>
+<!-- Bank -->
+<label class="relative group cursor-pointer">
+<input class="peer sr-only" name="method" type="radio"/>
+<div class="p-6 rounded-2xl bg-surface-container-low border-2 border-transparent peer-checked:border-secondary peer-checked:bg-secondary/5 transition-all">
+<div class="w-12 h-12 bg-white rounded-xl mb-4 flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl">account_balance</span>
+</div>
+<p class="font-bold text-on-surface">Bank Transfer</p>
+<p class="text-xs text-on-surface-variant opacity-70">1-2 Business Days</p>
+</div>
+</label>
+</div>
+</section>
+<!-- Step 3: Account Details -->
+<section>
+<div class="flex items-center gap-3 mb-6">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-sm">03</span>
+<h2 class="text-xl font-headline font-bold">Account Information</h2>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-semibold text-slate-500 mb-2 px-1">Mobile Number / Account Number</label>
+<input class="w-full px-6 py-4 bg-surface-container-highest border-none rounded-2xl focus:ring-2 focus:ring-primary/40 font-medium" placeholder="e.g. 01700000000" type="text"/>
+</div>
+<div class="p-4 rounded-xl bg-secondary/5 flex gap-3 items-start">
+<span class="material-symbols-outlined text-secondary text-xl">info</span>
+<p class="text-xs text-on-secondary-fixed-variant leading-relaxed">Please ensure the account number is correct. Funds transferred to the wrong account cannot be recovered per our security policy.</p>
+</div>
+</div>
+</section>
+<!-- CTA -->
+<div class="pt-6">
+<button class="w-full py-5 rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-headline font-black text-lg shadow-xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-95">
+                                Confirm Withdrawal
+                            </button>
+<p class="text-center text-xs text-slate-400 mt-6">By clicking confirm, you agree to UniMart's <a class="underline" href="#">Payout Terms &amp; Conditions</a></p>
+</div>
+</form>
+</div>
+<!-- Summary & Visual -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Summary Card -->
+<div class="bg-surface-container-high rounded-3xl p-8 space-y-6">
+<h3 class="text-lg font-headline font-bold">Transaction Summary</h3>
+<div class="space-y-4">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Requested Amount</span>
+<span class="font-bold">৳ 0.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Platform Fee (1.5%)</span>
+<span class="font-bold">৳ 0.00</span>
+</div>
+<div class="h-[1px] bg-outline-variant/20"></div>
+<div class="flex justify-between text-lg">
+<span class="font-bold">Total Payout</span>
+<span class="font-black text-secondary">৳ 0.00</span>
+</div>
+</div>
+</div>
+<!-- Side Editorial Image -->
+<div class="relative group rounded-3xl overflow-hidden aspect-[4/5]">
+<img alt="Lifestyle Finance" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="professional still life of a modern lifestyle setting with a sleek smartphone displaying a finance app beside a cup of rich coffee and a minimalist leather wallet on a marble table with morning sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDddxH8ECn7sSIPPcG4HtORxv5eEUm8prmd9JVRpwKjI9tQriFUIP6YzhNPSUA-IyZG3hp-v_3xK77lTqiJKKuZ58pL__UsD0Ys6Qb75Crzs3UWKSQVP56A7Kwchrtu1D5zTnqiqjmj_3BQsIErNixQK-P1hgs8b_1DE_fhF0RwCeEvkQaMyYSrk354gyYO8oEFkGOLWHlHzEkz_5zzTK23UVgxrdFNjAEbdbVMgGWfPJJAZuAFXzwc5kWMPWEkUWlrwg8xeyjFlro"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
+<p class="text-white/80 text-sm font-medium mb-1">Secure &amp; Fast</p>
+<p class="text-white text-xl font-headline font-bold">Over ৳2M+ processed daily with 100% security.</p>
+</div>
+</div>
+<!-- Security Badge -->
+<div class="bg-white rounded-3xl p-6 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-600" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<p class="font-bold text-sm">Bank-Grade Security</p>
+<p class="text-xs text-slate-500">256-bit SSL Encrypted</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 backdrop-blur-lg rounded-t-3xl z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined">local_mall</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Shop</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined text-3xl">add_box</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Sell</span>
+</a>
+<a class="flex flex-col items-center justify-center text-blue-600 scale-110" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">wallet</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-manrope font-bold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>
